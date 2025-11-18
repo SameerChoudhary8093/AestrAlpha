@@ -1,0 +1,1 @@
+export { WorkshopHighlightsSection } from "./WorkshopHighlightsSection";
