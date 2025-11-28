@@ -1,151 +1,127 @@
 import React from "react";
+import CenterArtwork from "../../../../../Public/Placeholder3.svg";
+import Vector1 from "../../../../../Public/Vector1.svg";
+import Vector2 from "../../../../../Public/Vector2.svg";
+import Vector3 from "../../../../../Public/Vector3.svg";
+import Vector4 from "../../../../../Public/Vector4.svg";
+
+const sharedDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.";
 
 const highlights = [
   {
-    icon: "https://c.animaapp.com/mi4w2qmhW88gPU/img/group.png",
-    iconWidth: "w-[152.43px]",
-    iconHeight: "h-[152.43px]",
+    icon: Vector1,
     title: "Community Jams",
-    description:
-      " — Collaborative  challenges that spark  creativity, innovation,  and teamwork.",
-    containerWidth: "w-[470px]",
-    descriptionWidth: "self-stretch",
+    description: sharedDescription,
   },
   {
-    icon: "https://c.animaapp.com/mi4w2qmhW88gPU/img/group-1.png",
-    iconWidth: "w-[222.87px]",
-    iconHeight: "h-[146.13px]",
-    title: " Mentorship Circles — ",
-    description:
-      "One-on-one guidance from  professionals who've built  their way into the industry.",
-    containerWidth: "w-[499px]",
-    descriptionWidth: "w-[537px] mr-[-38.00px]",
+    icon: Vector2,
+    title: "Mentorship Circles —",
+    description: sharedDescription,
   },
   {
-    icon: "https://c.animaapp.com/mi4w2qmhW88gPU/img/asset12-1.svg",
-    iconWidth: "w-[182px]",
-    iconHeight: "h-[132.29px]",
-    title: "Hands-on Learning — ",
-    description:
-      "Real projects that turn  ideas into prototypes and  prototypes into portfolios.",
-    containerWidth: "w-[481px]",
-    descriptionWidth: "self-stretch",
+    icon: Vector3,
+    title: "Hands-on Learning —",
+    description: sharedDescription,
   },
   {
-    icon: "https://c.animaapp.com/mi4w2qmhW88gPU/img/asset7-1.svg",
-    iconWidth: "w-[186px]",
-    iconHeight: "h-[99.9px]",
-    title: "Expert Speakers — ",
-    description:
-      "Founders, innovators,  and tech leaders from  across India sharing  actionable insights.",
-    containerWidth: "w-[496px] mr-[-8.00px]",
-    descriptionWidth: "self-stretch",
+    icon: Vector4,
+    title: "Expert Speakers —",
+    description: sharedDescription,
   },
 ];
 
 export const HeroSection = () => {
   return (
-    <section className="flex flex-col w-full items-center gap-2.5 px-4 md:px-[163px] py-[102px] relative bg-[#d7f601]">
-      <div className="flex flex-col w-full max-w-[1114px] items-center justify-center gap-[70px] relative">
-        <h2 className="relative w-fit translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] [font-family:'Orbitron',Helvetica] font-bold text-[#181818] text-[50px] text-center tracking-[1.50px] leading-[38px] whitespace-nowrap">
-          Workshop Highlights
-        </h2>
+    <section className="flex flex-col w-full items-center gap-10 px-4 py-[102px] bg-[#d7f601] workshop-hero">
+      <div className="flex flex-col w-full max-w-[1312px] items-center gap-12">
+        <div className="flex flex-col items-center gap-4 text-center workshop-header">
+          <h2 className="[font-family:'Orbitron',Helvetica] font-bold text-[#181818] text-[48px] leading-[120%] tracking-[0] w-full max-w-[616px] text-center">
+            Workshop Highlights
+          </h2>
 
-        <div className="flex flex-col items-start gap-[71px] relative self-stretch w-full">
-          <div className="flex flex-wrap lg:flex-nowrap items-start lg:items-center gap-[71px] lg:gap-[145px] relative self-stretch w-full">
-            <div
-              className="flex flex-col items-start gap-[23px] relative translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]"
-              style={{ width: highlights[0].containerWidth }}
-            >
-              <img
-                className={`relative ${highlights[0].iconWidth} ${highlights[0].iconHeight}`}
-                alt="Community Jams icon"
-                src={highlights[0].icon}
-              />
+          <p className="max-w-[720px] mt-1 text-[#181818] text-base leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+            enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros
+            dolor interdum nulla, ut commodo diam libero vitae erat.
+          </p>
+        </div>
 
-              <p
-                className={`relative ${highlights[0].descriptionWidth} [font-family:'Aeonik-Bold',Helvetica] font-normal text-[#181818] text-[25px] tracking-[0] leading-[25px]`}
+        <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-[303px_minmax(0,1fr)_303px] lg:items-center lg:h-[820px]">
+          <div className="flex flex-col gap-16 lg:w-[303px] lg:h-[708px] justify-between">
+            {highlights.slice(0, 2).map((highlight, index) => (
+              <article
+                key={highlight.title}
+                className="flex flex-col gap-6 w-full max-w-[240px] text-[#181818] translate-y-[-1rem] animate-fade-in opacity-0 mx-auto items-center"
+                style={{
+                  "--animation-delay": `${200 + index * 200}ms`,
+                }}
               >
-                <span className="font-[number:var(--SUBHEADING-font-weight)] leading-[var(--SUBHEADING-line-height)] font-SUBHEADING [font-style:var(--SUBHEADING-font-style)] tracking-[var(--SUBHEADING-letter-spacing)] text-[length:var(--SUBHEADING-font-size)]">
-                  {highlights[0].title}
-                </span>
+                <img
+                  className="w-full max-w-[220px] h-auto object-contain"
+                  alt={highlight.title}
+                  src={highlight.icon}
+                />
 
-                <span className="[font-family:'Aeonik-Regular',Helvetica] leading-[35px]">
-                  {highlights[0].description}
-                </span>
-              </p>
-            </div>
+                <p className="flex flex-col gap-4 items-center">
+                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] h-[68px]">
+                    Short heading goes here
+                  </span>
 
-            <div
-              className="flex flex-col items-start gap-[23px] relative translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]"
-              style={{ width: highlights[1].containerWidth }}
-            >
-              <img
-                className={`relative ${highlights[1].iconWidth} ${highlights[1].iconHeight}`}
-                alt="Mentorship Circles icon"
-                src={highlights[1].icon}
-              />
-
-              <p
-                className={`relative ${highlights[1].descriptionWidth} [font-family:'Aeonik-Bold',Helvetica] font-normal text-[#181818] text-[25px] tracking-[0] leading-[25px]`}
-              >
-                <span className="font-[number:var(--SUBHEADING-font-weight)] leading-[var(--SUBHEADING-line-height)] font-SUBHEADING [font-style:var(--SUBHEADING-font-style)] tracking-[var(--SUBHEADING-letter-spacing)] text-[length:var(--SUBHEADING-font-size)]">
-                  {highlights[1].title}
-                </span>
-
-                <span className="[font-family:'Aeonik-Regular',Helvetica] leading-[35px]">
-                  {highlights[1].description}
-                </span>
-              </p>
-            </div>
+                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] h-[72px]">
+                    {highlight.description}
+                  </span>
+                </p>
+              </article>
+            ))}
           </div>
 
-          <div className="flex flex-wrap lg:flex-nowrap items-start lg:items-center gap-[71px] lg:gap-[145px] relative self-stretch w-full">
-            <div
-              className="flex flex-col items-start gap-[23px] relative translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]"
-              style={{ width: highlights[2].containerWidth }}
-            >
-              <img
-                className={`relative ${highlights[2].iconWidth} ${highlights[2].iconHeight}`}
-                alt="Hands-on Learning icon"
-                src={highlights[2].icon}
-              />
-
-              <p
-                className={`relative ${highlights[2].descriptionWidth} [font-family:'Aeonik-Bold',Helvetica] font-normal text-[#181818] text-[25px] tracking-[0] leading-[25px]`}
-              >
-                <span className="font-[number:var(--SUBHEADING-font-weight)] leading-[var(--SUBHEADING-line-height)] font-SUBHEADING [font-style:var(--SUBHEADING-font-style)] tracking-[var(--SUBHEADING-letter-spacing)] text-[length:var(--SUBHEADING-font-size)]">
-                  {highlights[2].title}
-                </span>
-
-                <span className="[font-family:'Aeonik-Regular',Helvetica] leading-[35px]">
-                  {highlights[2].description}
-                </span>
-              </p>
-            </div>
-
-            <div
-              className={`flex flex-col items-start gap-[23px] relative translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] ${highlights[3].containerWidth}`}
-            >
-              <img
-                className={`relative ${highlights[3].iconWidth} ${highlights[3].iconHeight}`}
-                alt="Expert Speakers icon"
-                src={highlights[3].icon}
-              />
-
-              <p
-                className={`relative ${highlights[3].descriptionWidth} [font-family:'Aeonik-Bold',Helvetica] font-normal text-[#181818] text-[25px] tracking-[0] leading-[25px]`}
-              >
-                <span className="font-[number:var(--SUBHEADING-font-weight)] leading-[var(--SUBHEADING-line-height)] font-SUBHEADING [font-style:var(--SUBHEADING-font-style)] tracking-[var(--SUBHEADING-letter-spacing)] text-[length:var(--SUBHEADING-font-size)]">
-                  {highlights[3].title}
-                </span>
-
-                <span className="[font-family:'Aeonik-Regular',Helvetica] leading-[35px]">
-                  {highlights[3].description}
-                </span>
-              </p>
-            </div>
+          <div className="flex justify-center items-center workshop-center-image">
+            <img
+              src={CenterArtwork}
+              alt="Workshop highlights artwork"
+              className="w-full max-w-[610px] h-[540px] object-contain"
+            />
           </div>
+
+          <div className="flex flex-col gap-16 lg:w-[303px] lg:h-[708px] justify-between">
+            {highlights.slice(2).map((highlight, index) => (
+              <article
+                key={highlight.title}
+                className="flex flex-col gap-6 w-full max-w-[240px] text-[#181818] translate-y-[-1rem] animate-fade-in opacity-0 mx-auto items-center"
+                style={{
+                  "--animation-delay": `${200 + (index + 2) * 200}ms`,
+                }}
+              >
+                <img
+                  className="w-full max-w-[220px] h-auto object-contain"
+                  alt={highlight.title}
+                  src={highlight.icon}
+                />
+
+                <p className="flex flex-col gap-4 items-center">
+                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] h-[68px]">
+                    Short heading goes here
+                  </span>
+
+                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] h-[72px]">
+                    {highlight.description}
+                  </span>
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-8 mt-6">
+          <button className="px-8 py-3 border border-black text-black text-sm bg-transparent hover:bg-black hover:text-[#d7f601] transition-colors">
+            Button
+          </button>
+
+          <button className="flex items-center gap-2 px-8 py-3  text-black text-sm bg-transparent hover:bg-black hover:text-[#d7f601] transition-colors">
+            <span>Button</span>
+            <span>&gt;</span>
+          </button>
         </div>
       </div>
     </section>

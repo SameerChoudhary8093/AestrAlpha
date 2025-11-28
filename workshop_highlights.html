@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Highlights</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h1 {
+            color: #4a148c;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .highlights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .highlight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        .icon {
+            font-size: 2.5rem;
+            color: #7b1fa2;
+            margin-bottom: 1rem;
+        }
+        .highlight-card h3 {
+            color: #4a148c;
+            margin-bottom: 1rem;
+        }
+        .highlight-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .highlights-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Workshop Highlights</h1>
+    </div>
+    
+    <div class="highlights-container">
+        <div class="highlight-card">
+            <div class="icon">✨</div>
+            <h3>Community Jams</h3>
+            <p>Collaborative challenges that spark creativity, innovation, and teamwork.</p>
+        </div>
+        
+        <div class="highlight-card">
+            <div class="icon">⭕</div>
+            <h3>Mentorship Circles</h3>
+            <p>One-on-one guidance from professionals who've built their way into the industry.</p>
+        </div>
+        
+        <div class="highlight-card">
+            <div class="icon">✴️</div>
+            <h3>Hands-on Learning</h3>
+            <p>Real projects that turn ideas into prototypes and prototypes into portfolios.</p>
+        </div>
+        
+        <div class="highlight-card">
+            <div class="icon">⭕</div>
+            <h3>Expert Speakers</h3>
+            <p>Founders, innovators, and tech leaders from across India sharing actionable insights.</p>
+        </div>
+    </div>
+</body>
+</html>

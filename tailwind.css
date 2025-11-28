@@ -5,6 +5,20 @@
   .all-\[unset\] {
     all: unset;
   }
+ 
+  /* Agenda expand/collapse behavior */
+  .agenda-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+  }
+
+  .agenda-item.expanded .agenda-details {
+    max-height: 120px; /* enough space for time + one line of text */
+    opacity: 1;
+    margin-top: 8px;
+  }
 }
 
 :root {
@@ -204,6 +218,10 @@
     --radius: 0.5rem;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   .dark {
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
@@ -248,3 +266,202 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* Hero radial gradient background */
+.hero-section {
+  position: relative;
+  /* Center glow roughly behind 'perience 2025': slightly right and just below the text */
+  background-image: radial-gradient(circle at 60% 60%, #426000 0%, #181818 40%, #050505 100%);
+}
+
+/* Mobile-only layout tweaks for LandingPageDesign */
+@media (max-width: 640px) {
+  /* Hero section */
+  .hero-section {
+    padding-top: 110px;
+    padding-inline: 16px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.25rem;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    display: flex;
+    width: 100%;
+    margin-top: 32px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-image {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-inline: -16px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* PhotoGallerySection (What is Aestr Alpha?) */
+  .photo-section {
+    flex-direction: column;
+    gap: 24px;
+    padding-inline: 16px;
+    padding-block: 32px;
+  }
+
+  .photo-section-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .photo-section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-section-content {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .photo-section-content h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .photo-section-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .photo-section-buttons {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* FeaturedSpeakersSection */
+  .featured-section {
+    padding-inline: 16px;
+    padding-block: 32px;
+    gap: 12px;
+  }
+
+  .featured-inner {
+    gap: 16px;
+  }
+
+  .featured-grid {
+    gap: 32px;
+  }
+
+  .featured-card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .featured-card-body {
+    width: 100%;
+  }
+
+  .featured-footer {
+    justify-content: center;
+  }
+
+  .featured-footer-button {
+    width: 100%;
+  }
+
+  /* AgendaSection */
+  .agenda-section {
+    padding-inline: 12px;
+  }
+
+  .agenda-item {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 12px;
+  }
+
+  .agenda-item > div {
+    width: 100%;
+  }
+
+  .agenda-time,
+  .agenda-description {
+    display: none;
+  }
+
+  .agenda-item.expanded .agenda-time {
+    display: flex;
+  }
+
+  .agenda-item.expanded .agenda-description {
+    display: block;
+  }
+
+  /* Navbar (mobile) */
+  .nav-logo-group img {
+    height: 12px;
+  }
+
+  .nav-cta .nav-buy-button {
+    width: 96px;
+    height: 32px;
+    padding-inline: 12px;
+    padding-block: 4px;
+  }
+
+  .nav-cta .nav-buy-button span {
+    font-size: 14px;
+  }
+
+  /* Ambassador / WorkshopHighlightsSection */
+  .ambassador-image {
+    margin-top: 0;
+    margin-inline: -16px;
+  }
+
+  .ambassador-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .ambassador-buttons {
+    padding-top: 0;
+    justify-content: center;
+  }
+
+  .workshop-hero {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .workshop-header {
+    row-gap: 1.5rem;
+  }
+
+  .workshop-header h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .workshop-center-image {
+    display: none;
+  }
+}
+

@@ -1,55 +1,131 @@
 import React from "react";
 import { Button } from "../../../../components/ui/button";
+import TeamImage from "../../../../../Public/Team.svg";
+import LinkedInLogo from "../../../../../Public/LinkedInlogo.svg";
+import TwitterLogo from "../../../../../Public/Twitterlogo.svg";
+import DribbbleLogo from "../../../../../Public/Dribblelogo.svg";
 
-const speakerImages = [
+const speakers = [
   {
-    src: "https://c.animaapp.com/mi4w2qmhW88gPU/img/56.png",
-    alt: "Featured Speaker 1",
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
   },
   {
-    src: "https://c.animaapp.com/mi4w2qmhW88gPU/img/57.png",
-    alt: "Featured Speaker 2",
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
   },
   {
-    src: "https://c.animaapp.com/mi4w2qmhW88gPU/img/58.png",
-    alt: "Featured Speaker 3",
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
   },
   {
-    src: "https://c.animaapp.com/mi4w2qmhW88gPU/img/59.png",
-    alt: "Featured Speaker 4",
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+  },
+  {
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+  },
+  {
+    name: "Full name",
+    title: "Job title",
+    image: TeamImage,
+    alt: "Featured Speaker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
   },
 ];
 
 export const FeaturedSpeakersSection = () => {
   return (
-    <section className="flex flex-col w-full items-center gap-[70px] py-16 px-4">
-      <header className="flex flex-col max-w-[598px] items-center gap-2.5">
-        <h2 className="[font-family:'Orbitron',Helvetica] font-bold text-white text-[50px] text-center tracking-[1.50px] leading-[38px] translate-y-[-1rem] animate-fade-in opacity-0">
-          Featured Speakers
-        </h2>
-      </header>
+    <section id="speakers" className="flex flex-col w-full items-center gap-16 py-20 px-4 bg-[#1C1825] featured-section">
+      <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-10 featured-inner">
+        <header className="flex flex-col items-start gap-4 text-left translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+          <h2 className="[font-family:'Orbitron',Helvetica] font-bold text-white text-[48px] leading-[120%] tracking-[0] w-full max-w-[616px] text-left">
+            Featured Speakers
+          </h2>
 
-      <div className="w-full max-w-[1360px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-        {speakerImages.map((speaker, index) => (
-          <div
-            key={index}
-            className="w-full aspect-[319/391] translate-y-[-1rem] animate-fade-in opacity-0"
-            style={{
-              "--animation-delay": `${400 + index * 100}ms`,
-            }}
-          >
-            <img
-              className="w-full h-full object-cover"
-              alt={speaker.alt}
-              src={speaker.src}
-            />
-          </div>
-        ))}
+          <p className="mt-2 font-small-subheading font-[number:var(--small-subheading-font-weight)] text-white/80 text-[length:var(--small-subheading-font-size)] tracking-[var(--small-subheading-letter-spacing)] leading-[var(--small-subheading-line-height)] [font-style:var(--small-subheading-font-style)]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[96px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] featured-grid">
+          {speakers.map((speaker, index) => (
+            <article key={index} className="flex flex-col items-start featured-card">
+              <div className="w-[395px] h-[395px] bg-black featured-card-image">
+                <img
+                  className="w-full h-full object-cover"
+                  alt={speaker.alt}
+                  src={speaker.image}
+                />
+              </div>
+
+              <div className="flex flex-col gap-3 mt-6 w-[395px] featured-card-body">
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-text-large-semibold font-[number:var(--text-large-semibold-font-weight)] text-white text-[length:var(--text-large-semibold-font-size)] tracking-[var(--text-large-semibold-letter-spacing)] leading-[var(--text-large-semibold-line-height)] [font-style:var(--text-large-semibold-font-style)]">
+                    {speaker.name}
+                  </h3>
+
+                  <p className="font-text-small-normal font-[number:var(--text-small-normal-font-weight)] text-white/80 text-[length:var(--text-small-normal-font-size)] tracking-[var(--text-small-normal-letter-spacing)] leading-[var(--text-small-normal-line-height)] [font-style:var(--text-small-normal-font-style)]">
+                    {speaker.title}
+                  </p>
+                </div>
+
+                <p className="font-text-small-normal font-[number:var(--text-small-normal-font-weight)] text-white/70 text-[length:var(--text-small-normal-font-size)] tracking-[var(--text-small-normal-letter-spacing)] leading-[var(--text-small-normal-line-height)] [font-style:var(--text-small-normal-font-style)]">
+                  {speaker.description}
+                </p>
+
+                <div className="flex items-center gap-3 mt-2">
+                  <img
+                    src={LinkedInLogo}
+                    alt="LinkedIn"
+                    className="w-7 h-7 object-contain"
+                  />
+                  <img
+                    src={TwitterLogo}
+                    alt="Twitter"
+                    className="w-7 h-7 object-contain"
+                  />
+                  <img
+                    src={DribbbleLogo}
+                    alt="Dribbble"
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="flex justify-center pt-4 featured-footer">
+          <Button className="inline-flex items-center justify-center gap-6 w-[175px] h-[48px] bg-transparent border border-white text-white hover:bg-white/10 rounded-none translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] transition-colors featured-footer-button">
+            <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[127px] h-[24px]">
+              View All Speakers
+            </span>
+          </Button>
+        </div>
       </div>
-
-      <Button className="h-auto px-6 py-3 bg-[#d7f601] hover:bg-[#c4e001] text-[#000000] [font-family:'Orbitron',Helvetica] font-semibold text-base tracking-[0.48px] rounded-[7px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms] transition-colors">
-        View All Speakers
-      </Button>
     </section>
   );
 };
