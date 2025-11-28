@@ -29,7 +29,7 @@ export const LandingPageDesign = () => {
 
   return (
     <div
-      className="bg-[#181818] w-full relative overflow-hidden"
+      className="bg-[#111111] w-full relative overflow-hidden"
       data-model-id="1:491"
     >
       <nav className="fixed top-4 left-4 right-4 z-50 bg-[#050505] border border-white/10 rounded-[18px] border-b border-white/5 shadow-[0_5px_30px_rgba(0,0,0,0.45)]">
@@ -91,7 +91,7 @@ export const LandingPageDesign = () => {
         </div>
       </nav>
 
-      <header id="home" className="relative pt-[207px] px-[44px] hero-section">
+      <header id="home" className="relative pt-[107px] px-[44px] hero-section">
         <h1 className="inline-flex items-left justify-left gap-2.5 px-0 py-[5px] w-full max-w-[1070px] mt-[-1.00px] [font-family:'Orbitron',Helvetica] font-bold text-white text-[96px] tracking-[0] leading-[120%] text-center sm:text-left translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           Aestr Alpha <br /> Experience 2025
         </h1>
@@ -130,9 +130,9 @@ export const LandingPageDesign = () => {
         </div>
       </header>
 
-      <div className="absolute top-[1349px] left-[50%] hidden h-[214px] w-[214px] -translate-x-1/2 rounded-[107px] bg-[#5b1dd6] blur-[212px] pointer-events-none md:block" />
+      <div className="absolute top-[1349px] left-[50%] hidden h-[214px] w-[214px] -translate-x-1/2 rounded-[107px] bg-[#181818] blur-[212px] pointer-events-none md:block" />
 
-      <main className="flex flex-col gap-16 sm:gap-20">
+      <main className="flex flex-col ">
         <PhotoGallerySection />
         <HeroSection />
 
@@ -140,8 +140,8 @@ export const LandingPageDesign = () => {
 
         <WorkshopHighlightsSection />
 
-        <section id="agenda" className="relative w-full bg-[#1C1825]">
-          <div className="flex flex-col w-full max-w-[598px] items-center gap-6 mx-auto pt-15 pb-6">
+        <section id="agenda" className="relative w-full bg-[#1C1825] py-10">
+          <div className="flex flex-col w-full max-w-[598px] items-center gap-6 mx-auto pt-15 pb-6 ">
             <h2 className="self-stretch mt-[-1.00px] [font-family:'Orbitron',Helvetica] font-bold text-white text-[48px] leading-[120%] tracking-[0] w-full max-w-[616px] text-center">
               Agenda Snapshot
             </h2>

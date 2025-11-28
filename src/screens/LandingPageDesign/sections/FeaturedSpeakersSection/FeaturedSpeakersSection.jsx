@@ -58,7 +58,7 @@ const speakers = [
 
 export const FeaturedSpeakersSection = () => {
   return (
-    <section id="speakers" className="flex flex-col w-full items-center gap-16 py-20 px-4 bg-[#1C1825] featured-section">
+    <section id="speakers" className="flex flex-col w-full items-center gap-16 py-20 px-4 bg-[#1C1825] featured-section ">
       <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-10 featured-inner">
         <header className="flex flex-col items-start gap-4 text-left translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
           <h2 className="[font-family:'Orbitron',Helvetica] font-bold text-white text-[48px] leading-[120%] tracking-[0] w-full max-w-[616px] text-left">

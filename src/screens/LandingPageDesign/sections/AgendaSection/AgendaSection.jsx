@@ -40,7 +40,7 @@ export const AgendaSection = () => {
   };
 
   return (
-    <section className="w-full pt-[30px] md:pt-[40px] pb-0 agenda-section"> {/* Added dark background */}
+    <section className="w-full pt-[30px] md:pt-[40px] pb-0 agenda-section" > {/* Added dark background */}
       <div className="max-w-[1312px] mx-auto px-4 agenda-inner">
 
         <div className="flex flex-col gap-4 agenda-list"> {/* Added gap between agenda items */}

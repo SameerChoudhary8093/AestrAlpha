@@ -83,7 +83,7 @@ export const HeroSection = () => {
             {highlights.slice(2).map((highlight, index) => (
               <article
                 key={highlight.title}
-                className="flex flex-col gap-6 w-full max-w-[240px] text-[#181818] translate-y-[-1rem] animate-fade-in opacity-0 mx-auto items-center"
+                className="flex flex-col gap-12 w-full max-w-[240px] text-[#181818] translate-y-[-1rem] animate-fade-in opacity-0 mx-auto items-center pt-[30px]"
                 style={{
                   "--animation-delay": `${200 + (index + 2) * 200}ms`,
                 }}
