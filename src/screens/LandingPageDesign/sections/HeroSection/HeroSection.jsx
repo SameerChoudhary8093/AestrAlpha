@@ -5,29 +5,26 @@ import Vector2 from "../../../../../Public/Vector2.svg";
 import Vector3 from "../../../../../Public/Vector3.svg";
 import Vector4 from "../../../../../Public/Vector4.svg";
 
-const sharedDescription =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.";
-
 const highlights = [
   {
     icon: Vector1,
     title: "Community Jams",
-    description: sharedDescription,
+    description: "Collaborative challenges that spark creativity, innovation, and teamwork"
   },
   {
     icon: Vector2,
-    title: "Mentorship Circles —",
-    description: sharedDescription,
+    title: "Hands-on Learning",
+    description: "Real projects that turn ideas into prototypes and prototypes into portfolios"
   },
   {
     icon: Vector3,
-    title: "Hands-on Learning —",
-    description: sharedDescription,
+    title: "Mentorship Circles",
+    description: "One-on-one guidance from professionals who've built their way into the industry"
   },
   {
     icon: Vector4,
-    title: "Expert Speakers —",
-    description: sharedDescription,
+    title: "Expert Speakers",
+    description: "Founders, innovators, and tech leaders from across India sharing actionable insights"
   },
 ];
 
@@ -41,9 +38,7 @@ export const HeroSection = () => {
           </h2>
 
           <p className="max-w-[720px] mt-1 text-[#181818] text-base leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-            enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros
-            dolor interdum nulla, ut commodo diam libero vitae erat.
+            Join us for an immersive experience with industry experts, hands-on projects, and collaborative learning opportunities designed to accelerate your growth in the tech industry.
           </p>
         </div>
 
@@ -63,12 +58,12 @@ export const HeroSection = () => {
                   src={highlight.icon}
                 />
 
-                <p className="flex flex-col gap-4 items-center">
-                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] h-[68px]">
-                    Short heading goes here
+                <p className="flex flex-col gap-[16px] items-center">
+                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] min-h-[68px] flex items-center justify-center">
+                    {highlight.title}
                   </span>
 
-                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] h-[72px]">
+                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] min-h-[72px] flex items-center">
                     {highlight.description}
                   </span>
                 </p>
@@ -99,12 +94,12 @@ export const HeroSection = () => {
                   src={highlight.icon}
                 />
 
-                <p className="flex flex-col gap-4 items-center">
-                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] h-[68px]">
-                    Short heading goes here
+                <p className="flex flex-col gap-[16px] items-center">
+                  <span className="[font-family:'Roboto',Helvetica] font-bold text-[24px] leading-[140%] tracking-[0] text-center w-[240px] min-h-[68px] flex items-center justify-center">
+                    {highlight.title}
                   </span>
 
-                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] h-[72px]">
+                  <span className="[font-family:'Roboto',Helvetica] font-normal text-[16px] leading-[150%] tracking-[0] text-center w-[240px] min-h-[72px] flex items-center">
                     {highlight.description}
                   </span>
                 </p>

@@ -1,4 +1,9 @@
 import React from "react";
+import ALogo from "../../../../../Public/Alogo.svg";
+import ELogo from "../../../../../Public/Elogo.svg";
+import SLogo from "../../../../../Public/Slogo.svg";
+import TLogo from "../../../../../Public/Tlogo.svg";
+import RLogo from "../../../../../Public/Rlogo.svg";
 
 const footerLinks = {
   columnOne: ["Link One", "Link Two", "Link Three", "Link Four", "Link Five"],
@@ -11,11 +16,13 @@ export const PartnersSection = () => {
       <section className="flex flex-col gap-10 px-16 pt-10 pb-20 bg-[#181818] w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] partners-inner">
         <div className="flex w-full items-start gap-16 partners-top">
           <div className="flex flex-col w-[864px] items-start gap-8 partners-left">
-            <img
-              className="w-[63px] h-[27px]"
-              alt="Logo"
-              src="https://c.animaapp.com/mi4w2qmhW88gPU/img/logo.svg"
-            />
+            <div className="flex items-center gap-1">
+              <img className="h-[16px] w-auto" src={ALogo} alt="A logo" />
+              <img className="h-[16px] w-auto" src={ELogo} alt="E logo" />
+              <img className="h-[16px] w-auto" src={SLogo} alt="S logo" />
+              <img className="h-[16px] w-auto" src={TLogo} alt="T logo" />
+              <img className="h-[16px] w-auto" src={RLogo} alt="R logo" />
+            </div>
 
             <div className="flex flex-col items-start gap-6 w-full">
               <div className="flex flex-col items-start gap-1 w-full">
