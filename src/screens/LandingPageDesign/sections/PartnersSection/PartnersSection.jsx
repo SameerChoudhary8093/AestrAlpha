@@ -16,7 +16,7 @@ export const PartnersSection = () => {
       <section className="flex flex-col gap-10 px-16 pt-10 pb-20 bg-[#181818] w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] partners-inner">
         <div className="flex w-full items-start gap-16 partners-top">
           <div className="flex flex-col w-[864px] items-start gap-8 partners-left">
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center w-full md:w-auto md:justify-start gap-1">
               <img className="h-[16px] w-auto" src={ALogo} alt="A logo" />
               <img className="h-[16px] w-auto" src={ELogo} alt="E logo" />
               <img className="h-[16px] w-auto" src={SLogo} alt="S logo" />
