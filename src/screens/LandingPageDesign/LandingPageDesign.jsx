@@ -26,6 +26,25 @@ const navItems = [
 
 export const LandingPageDesign = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
+  const mobileNavRef = React.useRef(null);
+
+  // Close mobile nav when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileNavRef.current && !mobileNavRef.current.contains(event.target) && isMobileNavOpen) {
+        setIsMobileNavOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileNavOpen]);
+
+  const handleNavLinkClick = () => {
+    setIsMobileNavOpen(false);
+  };
 
   return (
     <div
@@ -75,19 +94,21 @@ export const LandingPageDesign = () => {
             </div>
           </div>
 
-          {isMobileNavOpen && (
-            <div className="flex flex-col items-center justify-center gap-3 pt-2 text-white text-[0.85rem] font-light tracking-[0.08em] uppercase md:hidden">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="whitespace-nowrap opacity-90 hover:opacity-100 hover:text-[#d8f602] transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          )}
+          <div 
+            ref={mobileNavRef}
+            className={`${isMobileNavOpen ? 'flex' : 'hidden'} flex-col items-center justify-center gap-3 pt-2 text-white text-[0.85rem] font-light tracking-[0.08em] uppercase md:hidden`}
+          >
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={handleNavLinkClick}
+                className="whitespace-nowrap opacity-90 hover:opacity-100 hover:text-[#d8f602] transition-colors w-full text-center py-1"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </nav>
 
