@@ -19,6 +19,7 @@ export default function BoardMembers() {
               alt={member.photo.alt}
               width={member.photo.width}
               height={member.photo.height}
+              className="h-64 w-64 object-cover"
             />
             <div className="flex flex-col gap-1">
               <h3 className="text-xl font-semibold">{member.name}</h3>

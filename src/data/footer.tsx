@@ -5,22 +5,17 @@ import {
 } from "@/types/data/footer.types";
 import { SocialMediaLink } from "@/types/common.types";
 
-import XIcon from "@/components/icons/X";
-import FacebookIcon from "@/components/icons/Facebook";
 import LinkedInIcon from "@/components/icons/LinkedIn";
 import InstagramIcon from "@/components/icons/Instagram";
+import YoutubeIcon from "@/components/icons/Youtube";
 
 export const FooterLinks: FooterLink[] = [
-  { label: "Link One", href: "/link-one" },
-  { label: "Link Two", href: "/link-two" },
-  { label: "Link Three", href: "/link-three" },
-  { label: "Link Four", href: "/link-four" },
-  { label: "Link Five", href: "/link-five" },
-  { label: "Link Six", href: "/link-six" },
-  { label: "Link Seven", href: "/link-seven" },
-  { label: "Link Eight", href: "/link-eight" },
-  { label: "Link Nine", href: "/link-nine" },
-  { label: "Link Ten", href: "/link-ten" },
+  // { label: "Ab", href: "/link-one" },
+  // { label: "Link Two", href: "/link-two" },
+  // { label: "Link Three", href: "/link-three" },
+  // { label: "Link Four", href: "/link-four" },
+  // { label: "Link Five", href: "/link-five" },
+
 ];
 
 export const FooterContact: FooterContactDetails = {
@@ -30,25 +25,21 @@ export const FooterContact: FooterContactDetails = {
 };
 
 export const SocialMediaLinks: SocialMediaLink[] = [
-  {
-    platform: "Facebook",
-    icon: <FacebookIcon className="h-8 w-auto" />,
-    url: "https://facebook.com/aestralpha",
-  },
+ 
   {
     platform: "Instagram",
     icon: <InstagramIcon className="h-8 w-auto" />,
-    url: "https://instagram.com/aestralpha",
+    url: "https://www.instagram.com/aestr.alpha/",
   },
   {
-    platform: "Twitter",
-    icon: <XIcon className="h-8 w-auto" />,
-    url: "https://twitter.com/aestralpha",
+    platform: "Youtube",
+    icon: <YoutubeIcon className="h-8 w-auto" />,
+    url: "https://www.youtube.com/@AestrAlpha",
   },
   {
     platform: "LinkedIn",
     icon: <LinkedInIcon className="h-8 w-auto" />,
-    url: "https://linkedin.com/company/aestralpha",
+    url: "https://www.linkedin.com/company/aestr-alpha",
   },
 ];
 
