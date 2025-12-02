@@ -7,6 +7,7 @@ import {
   secondaryButtonText,
 } from "@/data/home";
 import StarIcon from "../icons/Star";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -38,10 +39,10 @@ export default function HeroSection() {
           <div className="text-5xl text-[#FCFFE4]">{homeTagLine}</div>
           <div className="text-xl w-3/4">{homeDescription}</div>
           <div className="flex flex-row gap-4 mt-4 justify-center items-center">
-            <button className="button-primary">
+            <Link href="https://aestr-alpha-6vl6.vercel.app/"className="button-primary">
               <StarIcon className="h-8 w-auto mr-2" />
               {primaryButtonText}
-            </button>
+            </Link>
             <button className="button-secondary">
               <StarIcon className="h-8 w-auto mr-2 text-(--primary-color)" />
               {secondaryButtonText}

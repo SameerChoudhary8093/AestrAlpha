@@ -18,7 +18,7 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <button className="button-primary">{NavigationButton}</button>
+        <Link href="https://aestr-alpha-6vl6.vercel.app/" className="button-primary">{NavigationButton}</Link>
       </div>
     </nav>
   );

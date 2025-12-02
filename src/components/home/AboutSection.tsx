@@ -7,6 +7,7 @@ import {
 } from "@/data/about";
 import StarIcon from "@/components/icons/Star";
 import DoubleStarIcon from "@/components/icons/DoubleStar";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
@@ -31,10 +32,10 @@ export default function AboutSection() {
           </div>
         ))}
       </div>
-      <button className="button-secondary">
+      <Link href="https://aestr-alpha-6vl6.vercel.app/" className="button-secondary">
         <StarIcon className="h-8 w-auto mr-2 text-(--primary-color)" />
         {secondayButtonText}
-      </button>
+      </Link>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import { heading, perks, byline, buttonText } from "@/data/ambassador";
 import Image from "next/image";
 import DoubleStarIcon from "../icons/DoubleStar";
 import StarIcon from "../icons/Star";
+import Link from "next/link";
 
 export default function CampusAmbassador() {
   return (
@@ -21,10 +22,10 @@ export default function CampusAmbassador() {
               </div>
             ))}
           </ul>
-          <button className="button-secondary text-black! border-black!">
+          <Link href="https://aestr-alpha-6vl6.vercel.app/" className="button-secondary text-black! border-black!">
             <StarIcon className="h-6 w-auto mr-2" />
             {buttonText}
-          </button>
+          </Link>
         </div>
       </div>
       <Image
