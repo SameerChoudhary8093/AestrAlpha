@@ -7,29 +7,19 @@ import Link from "next/link";
 export default function CampusAmbassador() {
   return (
     <section
-      // 1. Padding: Reduced to py-16 on mobile, py-32 on desktop
+     
       className="w-full p-6 py-16 md:p-8 md:py-32 bg-(--primary-color) flex flex-col justify-center items-center text-black"
       id="ambassador"
     >
-      {/* 2. Layout Wrapper: 
-          - Changed to flex-col (stack) for mobile.
-          - md:flex-row (side-by-side) for desktop.
-          - Added gap-10 to separate heading from text on mobile.
-          - Reduced bottom margin from mb-24 to mb-12 on mobile. 
-      */}
+    
       <div className="flex flex-col md:flex-row justify-between items-start w-full md:w-[95%] gap-10 md:gap-4 mb-12 md:mb-24">
         
-        {/* 3. Heading: 
-           - w-full on mobile (was w-1/2), so it doesn't squash.
-           - text-3xl on mobile, text-5xl on desktop.
-        */}
+     
         <div className="text-3xl md:text-5xl font-orbitron font-bold w-full md:w-1/2 text-left">
           {heading}
         </div>
 
-        {/* 4. Content Side: 
-           - w-full on mobile (was w-1/2).
-        */}
+       
         <div className="flex flex-col justify-center items-start gap-6 w-full md:w-1/2">
           <div className="text-base md:text-lg">{byline}</div>
           
@@ -58,7 +48,7 @@ export default function CampusAmbassador() {
         alt="Campus Ambassador Program"
         width={1312}
         height={712}
-        // Image takes full width on mobile, 95% on desktop
+        
         className="w-full md:w-[95%] h-auto"
       />
     </section>
