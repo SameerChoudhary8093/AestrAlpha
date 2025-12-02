@@ -17,7 +17,7 @@ export default function BoardMembers() {
       </p>
 
     
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full justify-between items-start gap-y-12 md:gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full justify-between items-start gap-y-12 md:gap-y-10">
         {boardMembers.map((member) => (
           <div
             key={member.id}
