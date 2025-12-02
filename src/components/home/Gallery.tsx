@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export default function Gallery() {
   return (
-    <section className="w-full p-8 py-32 bg-(--primary-color) text-black flex flex-col justify-center items-center gap-4">
+    <section
+      className="w-full p-8 py-32 bg-(--primary-color) text-black flex flex-col justify-center items-center gap-4"
+      id="gallery"
+    >
       <div className="font-orbitron text-5xl font-bold">{heading}</div>
       <div className="mb-16">{byline}</div>
       <div className="columns-3 gap-8 w-full space-y-8">

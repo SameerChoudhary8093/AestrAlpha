@@ -5,7 +5,10 @@ import StarIcon from "../icons/Star";
 
 export default function CampusAmbassador() {
   return (
-    <section className="w-full p-8 bg-(--primary-color) flex flex-col justify-center items-center text-black py-32">
+    <section
+      className="w-full p-8 bg-(--primary-color) flex flex-col justify-center items-center text-black py-32"
+      id="ambassador"
+    >
       <div className="flex flex-row justify-between items-start w-[95%] mb-24">
         <div className="text-5xl font-orbitron font-bold w-1/2">{heading}</div>
         <div className="flex flex-col justify-center items-start gap-6 w-1/2">

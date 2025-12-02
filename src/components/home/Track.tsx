@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export default function Track() {
   return (
-    <section className="w-full p-8 flex flex-col gap-4 items-start justify-center">
+    <section
+      className="w-full p-8 flex flex-col gap-4 items-start justify-center"
+      id="track"
+    >
       <div className="flex flex-row gap-4 items-end justify-center text-(--secondary-color) mb-12">
         <div className="font-orbitron text-5xl font-bold">{heading}</div>
         <div className="text-lg">{byline}</div>

@@ -10,7 +10,10 @@ import DoubleStarIcon from "@/components/icons/DoubleStar";
 
 export default function AboutSection() {
   return (
-    <section className="w-full overflow-x-hidden flex flex-col items-center justify-center text-(--secondary-color) gap-4 p-8 py-32">
+    <section
+      className="w-full overflow-x-hidden flex flex-col items-center justify-center text-(--secondary-color) gap-4 p-8 py-32"
+      id="about"
+    >
       <div className="text-lg">{headline}</div>
       <div className="text-5xl font-orbitron font-bold">{heading}</div>
       <div className="text-lg w-[60%] text-center">{description}</div>

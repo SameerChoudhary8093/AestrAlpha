@@ -16,6 +16,7 @@ export default function HeroSection() {
         background:
           "radial-gradient(112.15% 91.53% at 110.03% 77.26%, #667015 9.13%, #181818 68.08%)",
       }}
+      id="home"
     >
       <div className="absolute w-[30%] aspect-square -left-[10%] top-[10%] bg-(--primary-color)/10 mix-blend-screen blur-[77px] rounded-full pointer-events-none" />
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-24">
