@@ -10,66 +10,95 @@ import AestrIcon from "@/components/icons/Aestr";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-center p-8">
-      <div className="w-full flex flex-row justify-between items-start mb-16">
-        <div className="flex flex-col gap-6 items-start justify-center">
+    <footer className="flex flex-col justify-center items-center p-6 md:p-8">
+      
+      {/* 1. Top Section Layout:
+          - flex-col (stack) on mobile.
+          - md:flex-row (side-by-side) on desktop.
+          - Added gap-12 on mobile to separate the Contact info from the Links.
+      */}
+      <div className="w-full flex flex-col md:flex-row justify-between items-start mb-8 md:mb-16 gap-12 md:gap-0">
+        
+        {/* --- Left Column (Contact & Socials) --- */}
+        <div className="flex flex-col gap-6 items-start justify-center w-full md:w-auto">
           <Link
             href="/"
             aria-label="Aestr Home"
             className="shrink-0 text-(--primary-color)"
           >
-            <AestrIcon className="w-48 h-auto" />
+            {/* Logo scales slightly on mobile if needed, though w-48 is usually okay */}
+            <AestrIcon className="w-40 md:w-48 h-auto" />
           </Link>
+          
           <div
-            className="text-(--primary-color) flex flex-col gap-2 items-start justify-center"
+            className="text-(--primary-color) flex flex-col gap-2 items-start justify-center text-sm md:text-base"
             id="contact"
           >
             <p className="font-bold">Address:</p>
-            <p>{FooterContact.address}</p>
+            <p className="max-w-[300px]">{FooterContact.address}</p>
           </div>
-          <div className="text-(--primary-color) flex flex-col gap-2 items-start justify-center">
+          
+          <div className="text-(--primary-color) flex flex-col gap-2 items-start justify-center text-sm md:text-base">
             <p className="font-bold">Contact:</p>
-            <Link href={`tel:${FooterContact.phone}`} className="underline">
+            <Link href={`tel:${FooterContact.phone}`} className="underline hover:text-opacity-80">
               {FooterContact.phone}
             </Link>
-            <Link href={`mailto:${FooterContact.email}`} className="underline">
+            <Link href={`mailto:${FooterContact.email}`} className="underline hover:text-opacity-80">
               {FooterContact.email}
             </Link>
           </div>
-          <div className="flex flex-row gap-4 items-center justify-center">
+          
+          <div className="flex flex-row gap-6 items-center justify-start mt-2">
             {SocialMediaLinks.map((link) => (
               <Link
                 key={link.platform}
                 href={link.url}
                 aria-label={link.platform}
-                className="text-(--primary-color) hover:opacity-90 transition-colors duration-300"
+                className="text-(--primary-color) hover:opacity-70 transition-opacity duration-300"
               >
-                {link.icon}
+                {/* Clone element to force size control if icon is SVG, or wrap in div */}
+                <span className="scale-110">{link.icon}</span>
               </Link>
             ))}
           </div>
         </div>
-        <div className="text-(--primary-color) grid grid-cols-2 gap-y-2 gap-x-32 items-start justify-center pr-16">
+
+        {/* --- Right Column (Navigation Links) --- */}
+        {/* 2. Grid & Spacing:
+            - Removed pr-16 on mobile (pr-0).
+            - Reduced gap-x-32 to gap-x-12 on mobile so it fits on screen.
+            - Kept grid-cols-2 as it usually fits on phones.
+        */}
+        <div className="text-(--primary-color) grid grid-cols-2 gap-y-4 gap-x-12 md:gap-x-32 items-start justify-center pr-0 md:pr-16 w-full md:w-auto text-sm md:text-base">
           {FooterLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="font-bold hover:underline"
+              className="font-bold hover:underline whitespace-nowrap"
             >
               {link.label}
             </Link>
           ))}
         </div>
       </div>
-      <hr className="w-full border-(--primary-color) my-4" />
-      <div className="w-full flex flex-row justify-between items-center">
-        <div className="text-(--primary-color)">{LegalText}</div>
-        <div className="flex flex-row gap-4 items-center justify-center">
+
+      <hr className="w-full border-(--primary-color) my-4 md:my-6 opacity-30" />
+
+      {/* 3. Bottom Section (Legal):
+          - flex-col-reverse (stack) on mobile: Legal text at bottom, links on top.
+          - md:flex-row on desktop.
+      */}
+      <div className="w-full flex flex-col-reverse md:flex-row justify-between items-center gap-4 md:gap-0 text-xs md:text-sm">
+        <div className="text-(--primary-color) text-center md:text-left opacity-80">
+          {LegalText}
+        </div>
+        
+        <div className="flex flex-wrap flex-row gap-4 md:gap-6 items-center justify-center">
           {LegalLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-(--primary-color) underline"
+              className="text-(--primary-color) underline hover:no-underline"
             >
               {link.label}
             </Link>

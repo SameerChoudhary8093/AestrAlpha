@@ -4,39 +4,59 @@ import DoubleStarIcon from "@/components/icons/DoubleStar";
 
 export default function LearningJourney() {
   return (
-    <section className="flex flex-row justify-center items-start py-32 gap-8">
-      <div className="flex flex-col justify-start items-start h-full gap-12 w-1/2 px-8">
-        <div className="font-orbitron text-(--secondary-color) text-5xl font-bold leading-tight text-left">
+    <section 
+      // 1. Layout: flex-col (stack) on mobile, lg:flex-row (side-by-side) on desktop
+      // 2. Padding: Reduced py-32 to py-16 for mobile
+      className="flex flex-col lg:flex-row justify-center items-start py-16 lg:py-32 gap-12 lg:gap-8 px-6 lg:px-0"
+    >
+      
+      {/* --- Left Column (Heading + Image) --- */}
+      <div className="flex flex-col justify-start items-center lg:items-start h-full gap-8 lg:gap-12 w-full lg:w-1/2 px-0 lg:px-8">
+        
+        {/* 3. Heading: Centered and smaller on mobile (text-3xl), Left aligned and larger on desktop */}
+        <div className="font-orbitron text-(--secondary-color) text-3xl md:text-5xl font-bold leading-tight text-center lg:text-left">
           {heading}
         </div>
+        
         <Image
           src={"/home/AestrLogo.png"}
-          alt=""
+          alt="Aestr Logo"
           width={616}
           height={579}
-          className="grow"
+          // 4. Image: Ensure it scales down on mobile (w-full h-auto) and max-width limit for aesthetics
+          className="grow w-full max-w-[400px] lg:max-w-full h-auto object-contain"
         />
       </div>
 
-      <div className="flex flex-col w-1/2 h-full items-start justify-center pl-12">
+      {/* --- Right Column (Timeline) --- */}
+      {/* 5. Width: w-full on mobile, w-1/2 on desktop
+          6. Padding: Removed pl-12 on mobile (pl-0) to use full screen width */}
+      <div className="flex flex-col w-full lg:w-1/2 h-full items-start justify-center pl-0 lg:pl-12">
         {timeline.map((item, index) => {
           const isLast = index === timeline.length - 1;
 
           return (
             <div
               key={index}
-              className="flex flex-row items-stretch justify-start gap-4"
+              className="flex flex-row items-stretch justify-start gap-4 w-full"
             >
-              <div className="flex flex-col items-center justify-start shrink-0 w-16">
-                <DoubleStarIcon className="h-12 w-auto text-(--primary-color) mb-2" />
+              {/* Timeline Line/Icon Column */}
+              <div className="flex flex-col items-center justify-start shrink-0 w-12 md:w-16">
+                <DoubleStarIcon className="h-8 w-auto md:h-12 text-(--primary-color) mb-2" />
                 {!isLast && (
                   <div className="bg-(--primary-color) w-px grow rounded-full mb-2"></div>
                 )}
               </div>
-              <div className="flex flex-col items-start justify-start text-(--secondary-color) pb-8 gap-3">
-                <p className="font-semibold">{item.time}</p>
-                <p className="font-bold text-3xl">{item.title}</p>
-                <p>{item.description}</p>
+
+              {/* Timeline Content */}
+              <div className="flex flex-col items-start justify-start text-(--secondary-color) pb-8 gap-2 md:gap-3">
+                <p className="font-semibold text-sm md:text-base opacity-90">{item.time}</p>
+                
+                {/* 7. Timeline Title: text-xl on mobile, text-3xl on desktop */}
+                <p className="font-bold text-xl md:text-3xl">{item.title}</p>
+                
+                {/* 8. Description: Adjusted text size for readability */}
+                <p className="text-base md:text-lg leading-relaxed">{item.description}</p>
               </div>
             </div>
           );
