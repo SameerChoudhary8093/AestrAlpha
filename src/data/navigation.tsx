@@ -9,4 +9,4 @@ export const NavigationLinks: NavItem[] = [
   { label: "Contact Us", href: "#contact" },
 ];
 
-export const NavigationButton: string = "Apply for Aestr Alpha";
+export const NavigationButton: string = "Attend The Workshop";

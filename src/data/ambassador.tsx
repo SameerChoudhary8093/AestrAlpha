@@ -8,4 +8,4 @@ export const perks: string[] = [
   "Support cohort activities",
 ];
 
-export const buttonText: string = "Apply Now";
+export const buttonText: string = "Join The Workshop";

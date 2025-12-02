@@ -4,5 +4,5 @@ export const homeTagLine: string =
 export const homeDescription: string =
   "A 6-month immersive learning journey built with industry experts — where you learn real skills, work on real projects, and grow with a community that pushes you forward.";
 
-export const primaryButtonText: string = "Apply for Aestr Alpha";
+export const primaryButtonText: string = "Attend The Workshop";
 export const secondaryButtonText: string = "Download Program Brochure";
