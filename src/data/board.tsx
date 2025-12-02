@@ -9,10 +9,10 @@ export const byline =
 export const boardMembers: BoardMember[] = [
   {
     id: 1,
-    name: "Alice Johnson",
+    name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
-      src: "/home/MemberPlaceholder.png",
+      src: "/BoardMembers/kanishk.jpg",
       alt: "",
       height: 395,
       width: 395,
@@ -21,22 +21,18 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
   {
     id: 2,
-    name: "Alice Johnson",
+    name: "Satyanand Gora",
     position: "Chairperson",
     photo: {
-      src: "/home/MemberPlaceholder.png",
+      src: "/BoardMembers/satya.jpeg",
       alt: "",
       height: 395,
       width: 395,
@@ -45,22 +41,18 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/satyanand-gora-06719b30b/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
   {
     id: 3,
-    name: "Alice Johnson",
+    name: "Himanshu Varshney",
     position: "Chairperson",
     photo: {
-      src: "/home/MemberPlaceholder.png",
+      src: "/BoardMembers/himanshu.jpeg",
       alt: "",
       height: 395,
       width: 395,
@@ -69,22 +61,18 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/himanshu-varshney-58b143a8/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
   {
     id: 4,
-    name: "Alice Johnson",
+    name: "Rishabh Seghal",
     position: "Chairperson",
     photo: {
-      src: "/home/MemberPlaceholder.png",
+      src: "/BoardMembers/rishab.png",
       alt: "",
       height: 395,
       width: 395,
@@ -93,64 +81,60 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/rishabh-sehgal-a68b771b2/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
-  {
-    id: 5,
-    name: "Alice Johnson",
-    position: "Chairperson",
-    photo: {
-      src: "/home/MemberPlaceholder.png",
-      alt: "",
-      height: 395,
-      width: 395,
-    },
-    bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
-    social: [
-      {
-        platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
-        icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Alice Johnson",
-    position: "Chairperson",
-    photo: {
-      src: "/home/MemberPlaceholder.png",
-      alt: "",
-      height: 395,
-      width: 395,
-    },
-    bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
-    social: [
-      {
-        platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
-        icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   name: "Alice Johnson",
+  //   position: "Chairperson",
+  //   photo: {
+  //     src: "/home/MemberPlaceholder.png",
+  //     alt: "",
+  //     height: 395,
+  //     width: 395,
+  //   },
+  //   bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
+  //   social: [
+  //     {
+  //       platform: "LinkedIn",
+  //       url: "https://www.linkedin.com/in/alicejohnson",
+  //       icon: <LinkedInIcon className="h-8 w-auto" />,
+  //     },
+  //     {
+  //       platform: "X",
+  //       url: "https://www.x.com/alicejohnson",
+  //       icon: <XIcon className="h-8 w-auto" />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 6,
+  //   name: "Alice Johnson",
+  //   position: "Chairperson",
+  //   photo: {
+  //     src: "/home/MemberPlaceholder.png",
+  //     alt: "",
+  //     height: 395,
+  //     width: 395,
+  //   },
+  //   bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
+  //   social: [
+  //     {
+  //       platform: "LinkedIn",
+  //       url: "https://www.linkedin.com/in/alicejohnson",
+  //       icon: <LinkedInIcon className="h-8 w-auto" />,
+  //     },
+  //     {
+  //       platform: "X",
+  //       url: "https://www.x.com/alicejohnson",
+  //       icon: <XIcon className="h-8 w-auto" />,
+  //     },
+  //   ],
+  // },
 ];
 
 export const buttonText = "View All Members";

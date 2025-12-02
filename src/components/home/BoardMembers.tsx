@@ -29,7 +29,7 @@ export default function BoardMembers() {
               alt={member.photo.alt}
               width={member.photo.width}
               height={member.photo.height}
-              className="w-full h-auto object-cover rounded-lg"
+              className="h-64 w-64 object-cover"
             />
             
             <div className="flex flex-col gap-1">
