@@ -6,7 +6,7 @@ export const NavigationLinks: NavItem[] = [
   { label: "Tracks", href: "#track" },
   { label: "Ambassador", href: "#ambassador" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Contact Us", href: "#footer" },
 ];
 
 export const NavigationButton: string = "Attend The Workshop";
