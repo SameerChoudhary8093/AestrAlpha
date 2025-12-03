@@ -9,7 +9,7 @@ export const byline =
 export const boardMembers: BoardMember[] = [
   {
     id: 1,
-    name: "Dr.Shudhanshu ",
+    name: "Dr. Shudhanshu",
     position: "Chairperson",
     photo: {
       src: "/BoardMembers/Dr.Sudhanshu.svg",
@@ -53,7 +53,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     id: 3,
-    name: "Dr.Arastu",
+    name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
       src: "/BoardMembers/Arastu.svg",
