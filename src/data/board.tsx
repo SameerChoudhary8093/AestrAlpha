@@ -31,7 +31,7 @@ export const boardMembers: BoardMember[] = [
     name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Kanishk.jpg",
+      src: "/BoardMembers/Kanishk.JPG",
       alt: "",
       height: 395,
       width: 395,
