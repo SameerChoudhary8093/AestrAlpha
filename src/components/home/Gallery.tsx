@@ -1,10 +1,10 @@
 import { heading, byline, galleryImages } from "@/data/gallery";
 import Image from "next/image";
 
-export default function Gallery() {
+export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" }) {
   return (
     <section
-      className="w-full p-8 py-32 bg-(--primary-color) text-black flex flex-col justify-center items-center gap-4"
+      className={`w-full p-8 py-32 ${backgroundColor} text-black flex flex-col justify-center items-center gap-4`}
       id="gallery"
     >
       <div className="font-orbitron text-5xl font-bold">{heading}</div>
