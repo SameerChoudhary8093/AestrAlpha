@@ -9,9 +9,9 @@ export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" 
     >
       <div className="font-orbitron text-5xl font-bold">{heading}</div>
       <div className="mb-16">{byline}</div>
-      <div className="columns-3 gap-8 w-full space-y-8">
+      <div className="columns-3 gap-1 w-full space-y-2">
         {galleryImages.map((image, index) => (
-          <div key={index} className="break-inside-avoid mb-8">
+          <div key={index} className="break-inside-avoid mb-2">
             <Image
               src={image.src}
               alt={image.alt}

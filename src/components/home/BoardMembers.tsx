@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function BoardMembers() {
   return (
     <section 
-      className="w-full px-20 py-16 md:p-20 md:py-32 flex flex-col justify-center items-start bg-[#1C1825] text-white"
+      className="w-full px-10 py-8 md:p-10 md:py-20 flex flex-col justify-center items-start bg-[#1C1825] text-white"
     >
       <h2 className="text-3xl md:text-5xl font-bold mb-4 font-orbitron w-full text-left">
         {heading}
