@@ -2,15 +2,39 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import AestrIcon from "@/components/icons/Aestr";
-import { NavigationLinks, NavigationButton } from "@/data/navigation";
+import { NavigationLinks } from "@/data/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Dynamic button configuration based on current page
+  const getButtonConfig = () => {
+    if (pathname === "/") {
+      return {
+        text: "Aestr Workshop",
+        href: "/Ticket"
+      };
+    } else if (pathname === "/Ticket") {
+      return {
+        text: "Aestr Alpha",
+        href: "/"
+      };
+    } else {
+      return {
+        text: "Attend The Workshop",
+        href: "https://aestr-alpha-6vl6.vercel.app/"
+      };
+    }
+  };
+
+  const buttonConfig = getButtonConfig();
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-background border-b border-white/10">
@@ -38,10 +62,10 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://aestr-alpha-6vl6.vercel.app/"
+            href={buttonConfig.href}
             className="button-primary text-sm lg:text-base"
           >
-            {NavigationButton}
+            {buttonConfig.text}
           </Link>
         </div>
 
@@ -95,17 +119,16 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className="nav-link text-lg font-medium"
-              onClick={() => setIsOpen(false)} 
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="https://aestr-alpha-6vl6.vercel.app/"
+            href={buttonConfig.href}
             className="button-primary w-full justify-center max-w-xs mt-2"
             onClick={() => setIsOpen(false)}
           >
-            {NavigationButton}
+            {buttonConfig.text}
           </Link>
         </div>
       )}

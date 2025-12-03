@@ -5,7 +5,7 @@ import AdvantagesSection from "@/components/home/AdvantagesSection";
 import CampusAmbassador from "@/components/home/Ambassador";
 import BoardMembers from "@/components/home/BoardMembers";
 import Gallery from "@/components/home/Gallery";
-import HeroSection from "@/components/home/HeroSection";
+import TicketHeroSection from "@/components/ticket/TicketHeroSection";
 import LearningJourney from "@/components/home/LearningJourney";
 import SpeakerSection from "@/components/home/SpeakerSection";
 import Track from "@/components/home/Track";
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <TicketHeroSection />
       <Track />
       <SpeakerSection /> 
       <WorkShop />

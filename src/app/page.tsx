@@ -8,6 +8,7 @@ import Gallery from "@/components/home/Gallery";
 import HeroSection from "@/components/home/HeroSection";
 import LearningJourney from "@/components/home/LearningJourney";
 import Track from "@/components/home/Track";
+import WorkShop from "@/components/home/WorkShop";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutSection />
       <AdvantagesSection />
       <LearningJourney />
+      <WorkShop />
       <Track />
       <CampusAmbassador />
       <BoardMembers />
