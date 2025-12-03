@@ -21,13 +21,8 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/dr-sudhanshu-62ba2958/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
       },
     ],
   },
@@ -36,7 +31,7 @@ export const boardMembers: BoardMember[] = [
     name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/kanishk.jpg",
+      src: "/BoardMembers/Kanishk.JPG",
       alt: "",
       height: 395,
       width: 395,
@@ -65,13 +60,8 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/alicejohnson",
+        url: "https://www.linkedin.com/in/drarastu/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
       },
     ],
   },

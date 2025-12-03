@@ -1,6 +1,6 @@
 import { Timeline } from "@/types/data/learning";
 
-export const heading: string = "Your Learning Journey Inside Aestr Alpha";
+export const heading: string = `Your Learning\nJourney Inside Aestr\nAlpha`;
 
 export const timeline: Timeline[] = [
   {

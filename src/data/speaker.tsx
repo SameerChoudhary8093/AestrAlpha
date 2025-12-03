@@ -12,22 +12,18 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
     },
     bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
     social: [
+      
       {
         platform: "LinkedIn",
         url: "https://www.linkedin.com/in/alicejohnson",
         icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
       },
     ],
   },
@@ -36,7 +32,7 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
@@ -48,11 +44,7 @@ export const speakers: Speakers[] = [
         url: "https://www.linkedin.com/in/alicejohnson",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
    {
@@ -60,7 +52,7 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
@@ -72,11 +64,7 @@ export const speakers: Speakers[] = [
         url: "https://www.linkedin.com/in/alicejohnson",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
    {
@@ -84,7 +72,7 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
@@ -96,11 +84,7 @@ export const speakers: Speakers[] = [
         url: "https://www.linkedin.com/in/alicejohnson",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+    
     ],
   },
    {
@@ -108,7 +92,7 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
@@ -127,7 +111,7 @@ export const speakers: Speakers[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "FeaturesSpeakers/Speaker1.svg",
       alt: "",
       height: 395,
       width: 395,
@@ -139,11 +123,7 @@ export const speakers: Speakers[] = [
         url: "https://www.linkedin.com/in/alicejohnson",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      {
-        platform: "X",
-        url: "https://www.x.com/alicejohnson",
-        icon: <XIcon className="h-8 w-auto" />,
-      },
+      
     ],
   },
 ];

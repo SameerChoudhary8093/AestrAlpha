@@ -26,13 +26,13 @@ export default function Footer() {
             <AestrIcon className="w-40 md:w-48 h-auto" />
           </Link>
           
-          <div
+          {/* <div
             className="text-(--primary-color) flex flex-col gap-2 items-start justify-center text-sm md:text-base"
             id="contact"
           >
             <p className="font-bold">Address:</p>
             <p className="max-w-[300px]">{FooterContact.address}</p>
-          </div>
+          </div> */}
           
           <div className="text-(--primary-color) flex flex-col gap-2 items-start justify-center text-sm md:text-base">
             <p className="font-bold">Contact:</p>

@@ -17,28 +17,29 @@ export default function SpeakerSection() {
       </p>
 
     
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-18 w-full justify-between items-start gap-y-12 md:gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-12 w-full justify-between items-start">
         {speakers.map((speaker) => (
           <div
             key={speaker.id}
-            className="flex flex-col items-start justify-start gap-4 w-full"
+            className="flex flex-col items-start justify-start gap-6 w-full max-w-[395px] h-[588px]"
           >
-           
+            
             <Image
               src={speaker.photo.src}
               alt={speaker.photo.alt}
               width={speaker.photo.width}
               height={speaker.photo.height}
-              className="h-64 w-64 object-cover"
+              className="w-[395px] h-[395px] object-cover rounded-[18px]"
             />
             
-            <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-semibold">{speaker.name}</h3>
-              <p className="text-sm md:text-base text-gray-900">{speaker.position}</p>
-            </div>
-            
-            <div className="text-sm md:text-base text-gray-900 leading-relaxed">
-              {speaker.bio}
+            <div className="flex flex-col gap-3 w-full max-w-[395px]">
+              <div className="flex flex-col gap-1">
+                <h3 className="text-2xl font-bold">{speaker.name}</h3>
+                <p className="text-base text-gray-900">{speaker.position}</p>
+              </div>
+              <div className="text-base text-gray-900 leading-relaxed">
+                {speaker.bio}
+              </div>
             </div>
             
             <div className="flex flex-row gap-4 items-center justify-start mt-2">

@@ -26,4 +26,4 @@ export const features: Feature[] = [
   },
 ];
 
-export const secondayButtonText: string = "Join The Workshop";
+export const secondayButtonText: string = "Apply for Aestr Alpha";

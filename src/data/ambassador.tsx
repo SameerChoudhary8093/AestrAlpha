@@ -1,4 +1,4 @@
-export const heading: string = "Become an Aestr Ambassador";
+export const heading: string = `Become an\nAestr Ambassador`;
 export const byline: string = "Lead. Inspire. Represent.";
 
 export const perks: string[] = [
@@ -8,4 +8,4 @@ export const perks: string[] = [
   "Support cohort activities",
 ];
 
-export const buttonText: string = "Join The Workshop";
+export const buttonText: string = "Apply Now";

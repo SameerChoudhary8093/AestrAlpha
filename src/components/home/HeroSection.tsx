@@ -69,10 +69,14 @@ export default function HeroSection() {
               <StarIcon className="h-6 w-auto mr-2" />
               {primaryButtonText}
             </Link>
-            <button className="button-secondary w-full sm:w-auto justify-center">
+            <Link
+              href="/AestrAlphaBrochure/AestrAlphaBrochure.pdf"
+              className="button-secondary w-full sm:w-auto justify-center"
+              download
+            >
               <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
               {secondaryButtonText}
-            </button>
+            </Link>
           </div>
         </div>
 

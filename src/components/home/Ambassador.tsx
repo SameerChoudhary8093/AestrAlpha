@@ -15,7 +15,7 @@ export default function CampusAmbassador() {
       <div className="flex flex-col md:flex-row justify-between items-start w-full md:w-[95%] gap-10 md:gap-4 mb-12 md:mb-24">
         
      
-        <div className="text-3xl md:text-5xl font-orbitron font-bold w-full md:w-1/2 text-left">
+        <div className="text-[36px] md:text-[48px] font-orbitron font-bold leading-[1.2] whitespace-pre-line max-w-[616px] w-full md:w-1/2 text-left">
           {heading}
         </div>
 
@@ -34,7 +34,7 @@ export default function CampusAmbassador() {
           </ul>
           
           <Link 
-            href="https://aestr-alpha-6vl6.vercel.app/" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfX-l0DhYna7HIFA_qjP4b3OQpvGZJo-wdSx5XbvrOa3YbIgg/viewform?usp=publish-editor" 
             className="button-secondary text-black! border-black! mt-2"
           >
             <StarIcon className="h-6 w-auto mr-2" />

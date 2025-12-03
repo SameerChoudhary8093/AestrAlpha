@@ -17,28 +17,29 @@ export default function BoardMembers() {
       </p>
 
     
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-18 w-full justify-between items-start gap-y-12 md:gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-12 w-full justify-between items-start">
         {boardMembers.map((member) => (
           <div
             key={member.id}
-            className="flex flex-col items-start justify-start gap-4 w-full"
+            className="flex flex-col items-start justify-start gap-6 w-full max-w-[395px]"
           >
-           
+            
             <Image
               src={member.photo.src}
               alt={member.photo.alt}
               width={member.photo.width}
               height={member.photo.height}
-              className="h-64 w-64 object-cover"
+              className="w-[395px] h-[395px] object-cover rounded-[18px]"
             />
             
-            <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-semibold">{member.name}</h3>
-              <p className="text-sm md:text-base text-gray-300">{member.position}</p>
-            </div>
-            
-            <div className="text-sm md:text-base text-gray-200 leading-relaxed">
-              {member.bio}
+            <div className="flex flex-col gap-3 w-full max-w-[395px]">
+              <div className="flex flex-col gap-1">
+                <h3 className="text-2xl font-bold">{member.name}</h3>
+                <p className="text-base text-gray-300">{member.position}</p>
+              </div>
+              <div className="text-base text-gray-200 leading-relaxed">
+                {member.bio}
+              </div>
             </div>
             
             <div className="flex flex-row gap-4 items-center justify-start mt-2">

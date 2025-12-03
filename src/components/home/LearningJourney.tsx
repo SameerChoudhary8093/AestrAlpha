@@ -13,7 +13,11 @@ export default function LearningJourney() {
       <div className="flex flex-col justify-start items-center lg:items-start h-full gap-8 lg:gap-12 w-full lg:w-1/2 px-0 lg:px-8">
         
        
-        <div className="font-orbitron text-(--secondary-color) text-3xl md:text-5xl font-bold leading-tight text-center lg:text-left">
+        <p className="w-auto font-sans font-semibold text-base leading-6 tracking-[0%] text-[#EAF0BD] text-center lg:text-left ">
+          Your Story
+        </p>
+
+        <div className="font-orbitron text-(--secondary-color) text-3xl md:text-5xl font-bold leading-tight text-center lg:text-left whitespace-pre-line">
           {heading}
         </div>
         
@@ -23,7 +27,7 @@ export default function LearningJourney() {
           width={616}
           height={579}
           
-          className="grow w-full max-w-[400px] lg:max-w-full h-auto object-contain"
+          className="w-full max-w-[616px] lg:w-[616px] h-auto lg:h-[579px] object-contain"
         />
       </div>
 

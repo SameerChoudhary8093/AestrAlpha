@@ -47,7 +47,15 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         >
         
-          <AestrIcon className="w-32 md:w-48 h-auto" />
+          <AestrIcon
+            className="h-auto"
+            style={{
+              width: "224.29910278320312px",
+              height: "23.999778747558594px",
+              opacity: 1,
+              transform: "rotate(0deg)"
+            }}
+          />
         </Link>
 
        
