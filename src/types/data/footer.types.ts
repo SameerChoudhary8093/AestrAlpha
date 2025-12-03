@@ -4,7 +4,7 @@ export interface FooterLink {
 }
 
 export interface FooterContactDetails {
-  address: string;
+  address?: string;
   phone: string;
   email: string;
 }

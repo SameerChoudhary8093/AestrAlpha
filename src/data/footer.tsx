@@ -19,7 +19,6 @@ export const FooterLinks: FooterLink[] = [
 ];
 
 export const FooterContact: FooterContactDetails = {
-  // address: "123 Aestr St, Innovation City, Country",
   phone: "9828781952",
   email: "info@aestralpha.com",
 };
