@@ -16,9 +16,31 @@ export default function Home() {
     <>
       <Navbar />
       <TicketHeroSection />
-      <Track />
+      <Track
+        heading={
+          <>
+            WORKSHOPS TO
+            <br />
+            BLOW YOUR MIND
+          </>
+        }
+        byline=""
+        alignDesktop="start"
+      />
       <SpeakerSection /> 
-      <WorkShop />
+      <WorkShop
+        heading={
+          <>
+           WORKSHOP HIGHLIGHT
+          </>
+        }
+        description={`Dive deeper into the Aestr Alpha experience with premium sessions, networking, and exclusive content curated for attendees who want to go further.`}
+        date={
+          <>
+            Jan 12, 2025, 2:00 PM &nbsp;|&nbsp; Main Workshop Arena
+          </>
+        }
+      />
       <Agenda />
       <CampusAmbassador />
       <Gallery backgroundColor="bg-[#5b1dd6]" />

@@ -108,7 +108,7 @@ const AgendaSnapshot: React.FC = () => {
         </div>
         {/* Footer Button */}
         <div className="flex justify-center">
-          <button className="w-[246px] h-[48px] flex items-center justify-center gap-6 bg-[#D7F601] text-[#181818] font-orbitron font-black text-[16px] leading-[1.5] rounded-tl-[12px] rounded-bl-[12px] rounded-br-[24px] rounded-tr-[24px] shadow-[0_6px_20px_rgba(0,0,0,0.35)]">
+          <button className="w-[246px] h-[48px] flex items-center justify-center gap-2 px-6 py-3 bg-[#D7F601] text-[#181818] font-orbitron font-black text-[16px] leading-[1.5] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] shadow-[0_6px_20px_rgba(0,0,0,0.35)]">
             <span className="whitespace-nowrap">See the Full Schedule</span>
           </button>
         </div>

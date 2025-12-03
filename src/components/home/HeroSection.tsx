@@ -63,20 +63,22 @@ export default function HeroSection() {
          
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center items-center w-full">
             <Link 
-              href="https://aestr-alpha-6vl6.vercel.app/" 
+              href="/Ticket"
               className="button-primary w-full sm:w-auto justify-center"
             >
               <StarIcon className="h-6 w-auto mr-2" />
               {primaryButtonText}
             </Link>
-            <Link
-              href="/AestrAlphaBrochure/AestrAlphaBrochure.pdf"
-              className="button-secondary w-full sm:w-auto justify-center"
-              download
-            >
-              <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
-              {secondaryButtonText}
-            </Link>
+            <Link href="/AestrAlphaBrochure.pdf" passHref legacyBehavior>
+  <a
+    className="button-secondary w-full sm:w-auto justify-center"
+    download
+  >
+    <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
+    {secondaryButtonText}
+  </a>
+</Link>
+
           </div>
         </div>
 

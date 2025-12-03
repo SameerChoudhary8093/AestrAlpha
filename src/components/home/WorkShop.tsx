@@ -3,24 +3,41 @@ import Image from "next/image";
 import Link from "next/link";
 import StarIcon from "@/components/icons/Star";
 
-const WorkshopHighlights: React.FC = () => {
+type WorkshopHighlightsProps = {
+  heading?: React.ReactNode;
+  description?: React.ReactNode;
+  date?: React.ReactNode;
+};
+
+const WorkshopHighlights: React.FC<WorkshopHighlightsProps> = ({
+  heading,
+  description,
+  date,
+}) => {
+  const defaultDescription = `Join the community that’s helping students become industry-grade professionals — and turning
+Jaipur into a city built by its own talent.`;
+  const defaultHeading = "Aestr Alpha Experience Immersive Workshop";
+  const defaultDate = (
+    <>
+      Jan 12, 2025, 9:00 AM &nbsp;|&nbsp; Conference Venue
+    </>
+  );
   return (
     <div className="min-h-screen bg-[#5b1dd6] text-white font-sans selection:bg-[#CCFF00] selection:text-[#5216E2] py-16 px-4">
       {/* --- Header Section --- */}
       <div className="max-w-4xl mx-auto text-center mb-16">
         <h1 className="font-orbitron font-bold text-[32px] md:text-[50px] leading-[1.2] text-center text-[#D7F601] tracking-[0%] mb-6">
-          Aestr Alpha Experience Immersive Workshop
+          {heading ?? defaultHeading}
         </h1>
         <p className="max-w-[768px] mx-auto font-sans font-normal text-[18px] leading-[1.5] text-center text-[#E8E4F1] mb-4 whitespace-pre-line">
-          {`Join the community that’s helping students become industry-grade professionals — and turning
-Jaipur into a city built by its own talent.`}
+          {description ?? defaultDescription}
         </p>
         <p className="max-w-[768px] mx-auto font-sans font-bold text-[25px] leading-[1.5] text-center text-[#D7F601] mt-4">
-          Jan 12, 2025, 9:00 AM &nbsp;|&nbsp; Conference Venue
+          {date ?? defaultDate}
         </p>
       </div>
       {/* --- Main Grid Content --- */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-50 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-0 items-center">
         {/* Left Column */}
         <div className="flex flex-col gap-16 order-2 lg:order-1">
           {/* Item 1: Community Jams */}
@@ -29,8 +46,8 @@ Jaipur into a city built by its own talent.`}
               <Image
                 src="/ImmersiveWorkshop/CommunityJamslogo.svg"
                 alt="Community Jams logo"
-                width={152.435}
-                height={152.435}
+                width={152}
+                height={152}
                 className="w-[152.435px] h-[152.435px]"
               />
             </div>
@@ -90,10 +107,10 @@ Jaipur into a city built by its own talent.`}
               <Image
                 src="/ImmersiveWorkshop/MentorshipCircleslogo.svg"
                 alt="Mentorship Circles logo"
-                width={91.455}
-                height={194.436}
-                className="w-[91.455px] h-[194.436px]"
-                style={{ transform: "rotate(75deg)", transformOrigin: "center" }}
+                width={200}
+                height={200}
+                className="w-[150px] h-[150px]"
+                style={{ transformOrigin: "center" }}
               />
             </div>
             <h3 className="max-w-[240px] text-center font-sans font-bold text-[24px] leading-[1.4] mb-2">

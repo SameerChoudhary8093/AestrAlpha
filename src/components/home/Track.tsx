@@ -1,15 +1,36 @@
-import { heading, byline, tracks } from "@/data/track";
+import {
+  heading as defaultHeading,
+  byline as defaultByline,
+  tracks,
+} from "@/data/track";
 import Image from "next/image";
+import { ReactNode } from "react";
 
-export default function Track() {
+type TrackProps = {
+  heading?: ReactNode;
+  byline?: ReactNode;
+  alignDesktop?: "center" | "start";
+};
+
+export default function Track({
+  heading = defaultHeading,
+  byline = defaultByline,
+  alignDesktop = "center",
+}: TrackProps) {
+  const headingAlignmentClass =
+    alignDesktop === "center"
+      ? "md:items-end md:justify-center"
+      : "md:items-start md:justify-start";
+
   return (
     <section
-
       className="w-full p-6 md:p-8 flex flex-col gap-8 md:gap-4 items-start justify-center"
       id="track"
     >
      
-      <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-end justify-start md:justify-center text-(--secondary-color) mb-8 md:mb-12 w-full">
+      <div
+        className={`flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-start text-(--secondary-color) mb-8 md:mb-12 w-full ${headingAlignmentClass}`}
+      >
        
         <div className="font-orbitron text-3xl md:text-5xl font-bold">
           {heading}
@@ -40,9 +61,7 @@ export default function Track() {
             </div>
             
            
-            {/* <button className="button-secondary mt-auto w-full md:w-auto justify-center md:justify-start">
-              Button &gt;
-            </button> */}
+           
           </div>
         ))}
       </div>

@@ -76,16 +76,16 @@ export default function TicketHeroSection() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start items-center w-full">
             <Link 
-              href="#about" 
+              href="#" 
               className="button-primary w-full sm:w-auto justify-center"
             >
               <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2" />
               {primaryButtonText}
             </Link>
-            <button className="button-secondary w-full sm:w-auto justify-center">
+            <Link href="#agenda" className="button-secondary w-full sm:w-auto justify-center">
               <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2 text-(--primary-color)" />
               {secondaryButtonText}
-            </button>
+            </Link>
           </div>
         </div>
 
