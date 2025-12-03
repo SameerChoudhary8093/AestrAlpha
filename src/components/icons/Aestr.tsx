@@ -1,16 +1,19 @@
+import Image from "next/image";
+
 export default function AestrIcon({
   className,
   ...props
-}: React.SVGProps<SVGSVGElement>) {
+}: { className?: string } & Partial<React.ComponentProps<typeof Image>>) {
   return (
-    <svg
+    <Image
+      // 👇 REPLACE this with your actual file path (e.g., "/icons/aestr.svg")
+      src="/home/AESTRlogo.svg" 
+      alt="Aestr Icon"
+      // Default dimensions from your previous SVG ViewBox (126 13)
+      width={126} 
+      height={13}
       className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 126 13"
-      fill="currentColor"
       {...props}
-    >
-      <path d="M27.385 0h23.27v3.222H33.043v1.432h17.614v3.223H33.042v1.432h17.614v3.222h-23.27zM51.73 3.67c0-2.058 1.467-3.67 3.902-3.67H75v4.297H57.977c-.43 0-.59.322-.59.537s.16.537.59.537h13.836c2.435 0 3.902 1.433 3.902 3.49s-1.467 3.67-3.902 3.67H52.445V8.234h17.023c.43 0 .59-.322.59-.537s-.16-.537-.59-.537H55.632c-2.435 0-3.902-1.432-3.902-3.49m33.58.627h-9.058V0h23.808v4.297h-9.094v8.234H85.31zm16.179 8.233V0h18.795c3.133 0 5.013 2.506 5.013 5.013 0 2.165-1.415 4.332-3.813 4.887l3.813 2.631h-7.304l-3.634-2.505h-7.214v2.505zm5.657-8.234v1.432h11.706c.502 0 .788-.268.788-.715 0-.448-.287-.716-.788-.716h-11.706zM26.67 12.53h-6.372l-1.45-1.79h-.001l-2.903-3.58h.004l-.976-1.203-1.637-2.027-6.989 8.599H0L10.15 0h6.372l10.15 12.53z" />
-    </svg>
+    />
   );
 }

@@ -12,7 +12,6 @@ import Link from "next/link";
 export default function TicketHeroSection() {
   return (
     <section
-      // CHANGED: items-left (invalid) -> items-start
       className="relative w-full min-h-[100dvh] overflow-hidden flex flex-col items-start justify-start"
       style={{
         background:
@@ -23,75 +22,80 @@ export default function TicketHeroSection() {
       {/* Background Blur Element */}
       <div className="absolute w-[60%] md:w-[30%] aspect-square -left-[20%] md:-left-[10%] top-[5%] md:top-[10%] bg-(--primary-color)/10 mix-blend-screen blur-[50px] md:blur-[77px] rounded-full pointer-events-none" />
 
-     
-      <div className="relative z-10 w-full h-full flex flex-col items-start justify-center gap-12 md:gap-24 pt-20 md:pt-0 px-6 md:px-20">
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full h-full flex flex-col items-start justify-center gap-8 md:gap-24 pt-24 pb-12 md:pt-0 px-6 md:px-20">
         
-     
         <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left w-full">
           
-          
-          <div className="flex flex-col justify-center items-start font-bold text-[96px] md:text-[96px] lg:text-[96px] text-left gap-2 md:gap-0.5 font-orbitron text-[#FCFFE4] mt-12 md:mt-40 leading-none">
+          {/* 
+            HEADING AREA 
+            Changes: 
+            - Added responsive font sizes (text-4xl up to text-[96px])
+            - Adjusted leading (line-height) for tighter mobile display
+          */}
+          <div className="flex flex-col justify-center items-start font-bold text-left gap-2 md:gap-0.5 font-orbitron text-[#FCFFE4] mt-8 md:mt-40 leading-tight md:leading-none">
             
+            {/* Dynamic Font Size for First Line */}
+            <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">
+              {ticketHeading[0]}
+            </div>
             
-            <div>{ticketHeading[0]}</div>
-            
-            <div className="flex flex-row justify-start items-center flex-wrap gap-2 md:gap-0">
-              <h1>Experience</h1>
+            <div className="flex flex-row justify-start items-center flex-wrap gap-x-3 gap-y-0 md:gap-4">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">Experience</h1>
               
-              <Image
-                src={"/ticket/Elements.svg"}
-                alt="Decorative Element"
-                height={130}
-                width={104}
-               
-                // className="h-10 sm:h-16 md:h-24 lg:h-[10rem] w-auto mx-2 md:mx-4"
-              />
-              <h1>2025</h1>
+              {/* 
+                 Inline Image
+                 Changes: removed fixed width/height prop dominance and used responsive CSS height 
+                 to match the text size on mobile vs desktop.
+              */}
+              <div className="relative h-8 w-auto sm:h-14 md:h-20 lg:h-[100px] aspect-[104/130]">
+                <Image
+                  src={"/Ticket/Elements.svg"}
+                  alt="Decorative Element"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+
+              <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">2025</h1>
             </div>
           </div>
 
-          
-          <div className="text-[24px] md:text-[24px] text-[#FCFFE4] font-regular">
+          {/* Tagline - Responsive Text Size */}
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-[24px] text-[#FCFFE4] font-regular">
             {ticketTagLine.split('\n').map((line, index) => (
               <div key={index}>{line}</div>
             ))}
           </div>
 
-          {/* Description */}
-          <div className="text-[20px] md:text-[20px] w-full md:w-3/4 text-gray-200 leading-relaxed">
+          {/* Description - Responsive Text Size & Width */}
+          <div className="text-base sm:text-lg md:text-[20px] w-full md:w-3/4 text-gray-200 leading-relaxed">
             {ticketDescription}
           </div>
 
-          {/* 
-             Buttons 
-             CHANGED: justify-center -> justify-start
-          */}
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start items-center w-full">
             <Link 
               href="#about" 
               className="button-primary w-full sm:w-auto justify-center"
             >
-              <StarIcon className="h-6 w-auto mr-2" />
+              <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2" />
               {primaryButtonText}
             </Link>
             <button className="button-secondary w-full sm:w-auto justify-center">
-              <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
+              <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2 text-(--primary-color)" />
               {secondaryButtonText}
             </button>
           </div>
         </div>
 
-        {/* 
-           Bottom Image
-           You might want to remove 'mx-auto' if it exists implicitly, 
-           but currently it will just flow left within the flex container.
-        */}
+        {/* Bottom Image */}
         <Image
           src={"/Ticket/Ticketabout.svg"}
           alt="Ticket Hero Visual"
           height={700}
           width={1312}
-          className="w-[95%] h-auto aspect-auto mb-12 md:mb-40 object-contain self-start" // Added self-start to ensure alignment
+          className="w-full md:w-[95%] h-auto aspect-auto mb-8 md:mb-40 object-contain self-start" 
           priority
         />
       </div>
