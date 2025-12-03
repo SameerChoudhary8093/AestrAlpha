@@ -26,7 +26,7 @@ export default function Footer() {
             <AestrIcon className="w-40 md:w-48 h-auto" />
           </Link>
           
-          <div
+          {/* <div
             className="text-(--primary-color) flex flex-col gap-2 items-start justify-center text-sm md:text-base"
             id="contact"
           >
@@ -42,7 +42,7 @@ export default function Footer() {
             <Link href={`mailto:${FooterContact.email}`} className="underline hover:text-opacity-80">
               {FooterContact.email}
             </Link>
-          </div>
+          </div> */}
           
           <div className="flex flex-row gap-6 items-center justify-start mt-2">
             {SocialMediaLinks.map((link) => (

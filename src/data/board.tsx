@@ -75,7 +75,6 @@ export const boardMembers: BoardMember[] = [
       },
     ],
   },
-  
 
   {
     id: 4,
@@ -102,7 +101,7 @@ export const boardMembers: BoardMember[] = [
     name: "Himanshu Varshney",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/himanshu.jpeg",
+      src: "/BoardMembers/himanshu.png",
       alt: "",
       height: 395,
       width: 395,
