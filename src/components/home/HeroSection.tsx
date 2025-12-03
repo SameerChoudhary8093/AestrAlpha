@@ -78,7 +78,7 @@ export default function HeroSection() {
 
      
         <Image
-          src={"/home/HeroImage.png"}
+          src={"/home/Heroimage.svg"}
           alt="Hero Visual"
           height={700}
           width={1312}

@@ -10,7 +10,7 @@ export const tracks: TrackType[] = [
     description:
       "Admin, Flows, Automation, Org access, Real use-cases. Learn it all to become a Salesforce Guru.",
     image: {
-      src: "/ChooseYourTrack/Mask group.png",
+      src: "/ChooseYourTrack/Maskgroup-1.png",
       alt: "",
       height: 240,
       width: 405,
@@ -22,7 +22,7 @@ export const tracks: TrackType[] = [
     description:
       "Figma, design systems, research, real product design projects.",
     image: {
-      src: "/ChooseYourTrack/Mask group-2.png",
+      src: "/ChooseYourTrack/Maskgroup-2.png",
       alt: "",
       height: 240,
       width: 405,
@@ -34,7 +34,7 @@ export const tracks: TrackType[] = [
     description:
       "Prompting, Agents, workflows, AI automation, real use-cases.",
     image: {
-      src: "/ChooseYourTrack/Mask group-4.png",
+      src: "/ChooseYourTrack/Maskgroup-3.png",
       alt: "",
       height: 240,
       width: 405,
@@ -46,7 +46,7 @@ export const tracks: TrackType[] = [
     description:
       "HTML/CSS/JS basics, APIs, Webflow, Framer builds.",
     image: {
-      src: "/ChooseYourTrack/Mask group-1.png",
+      src: "/ChooseYourTrack/Maskgroup-4.png",
       alt: "",
       height: 240,
       width: 405,
@@ -58,7 +58,7 @@ export const tracks: TrackType[] = [
     description:
       "SQL, dashboards, insights, data storytelling.",
     image: {
-      src: "/ChooseYourTrack/Mask group-3.png",
+      src: "/ChooseYourTrack/Maskgroup-5.png",
       alt: "",
       height: 240,
       width: 405,
@@ -70,7 +70,7 @@ export const tracks: TrackType[] = [
     description:
       "Identity design, content creation, campaigns, video editing.",
     image: {
-      src: "/ChooseYourTrack/Mask group-5.png",
+      src: "/ChooseYourTrack/Maskgroup-6.png",
       alt: "",
       height: 240,
       width: 405,
