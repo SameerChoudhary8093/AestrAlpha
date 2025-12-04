@@ -41,7 +41,7 @@ export default function HeroSection() {
       <div className="absolute w-[60%] md:w-[30%] aspect-square -left-[20%] md:-left-[10%] top-[5%] md:top-[10%] bg-(--primary-color)/10 mix-blend-screen blur-[50px] md:blur-[77px] rounded-full pointer-events-none" />
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-12 md:gap-24 pt-20 md:pt-0">
         <div className="flex flex-col items-center justify-center gap-6 md:gap-8 px-4 text-center">
-          <div className="flex flex-col justify-center items-center font-bold text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] text-center gap-2 md:gap-0.5 font-orbitron text-[#FCFFE4] mt-12 md:mt-40 leading-none">
+          <div className="flex flex-col justify-center items-center font-bold text-[3rem] sm:text-6xl md:text-7xl lg:text-[6rem] text-center gap-2 md:gap-0.5 font-orbitron text-[#FCFFE4] mt-12 md:mt-40 leading-tight">
             <div className="flex flex-row justify-center items-center flex-wrap gap-2 md:gap-0">
               <h1>{homeHeading[0]}</h1>
               <Image
