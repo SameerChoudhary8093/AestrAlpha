@@ -67,9 +67,9 @@ export default function TicketHeroSection() {
                  Changes: removed fixed width/height prop dominance and used responsive CSS height 
                  to match the text size on mobile vs desktop.
               */}
-              <div className="relative h-8 w-auto sm:h-14 md:h-20 lg:h-[100px] aspect-[104/130]">
+              <div className="relative h-18 w-auto sm:h-18 md:h-25 lg:h-[115px] aspect-[104/130]">
                 <Image
-                  src={"/Ticket/Elements.svg"}
+                  src={"/Workshop/Elements.svg"}
                   alt="Decorative Element"
                   fill
                   className="object-contain"

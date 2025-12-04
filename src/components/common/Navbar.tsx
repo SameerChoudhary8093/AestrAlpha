@@ -19,9 +19,9 @@ export default function Navbar() {
     if (pathname === "/") {
       return {
         text: "Aestr Workshop",
-        href: "/Ticket"
+        href: "/Workshop"
       };
-    } else if (pathname === "/Ticket") {
+    } else if (pathname === "/Workshop") {
       return {
         text: "Aestr Alpha",
         href: "/"
@@ -36,7 +36,7 @@ export default function Navbar() {
 
   const buttonConfig = getButtonConfig();
 
-  const currentNavLinks = pathname === "/Ticket" ? TicketNavigationLinks : NavigationLinks;
+  const currentNavLinks = pathname === "/Workshop" ? TicketNavigationLinks : NavigationLinks;
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-background border-b border-white/10">

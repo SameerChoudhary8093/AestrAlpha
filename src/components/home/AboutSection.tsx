@@ -48,7 +48,7 @@ export default function AboutSection() {
       </div>
 
       <Link
-        href="/Ticket"
+        href="/Workshop"
         className="button-secondary mt-4"
       >
         <StarIcon className="h-6 w-auto md:h-8 mr-2 text-(--primary-color)" />

@@ -63,7 +63,7 @@ export default function HeroSection() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center items-center w-full">
             <Link
-              href="/Ticket"
+              href="/Workshop"
               className="button-primary w-full sm:w-auto justify-center"
             >
               <StarIcon className="h-6 w-auto mr-2" />

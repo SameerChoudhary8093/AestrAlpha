@@ -150,7 +150,7 @@ Jaipur into a city built by its own talent.`;
 
         {/* Secondary Button */}
         <Link
-          href="/Ticket#agenda"
+          href="/Workshop#agenda"
           className="w-[205px] h-[53.8px] flex items-center justify-center gap-2 px-6 py-3 rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] border border-[#D7F601] text-[#D7F601] font-orbitron font-black text-[16px] leading-[1.5] bg-transparent"
         >
           <StarIcon className="h-[29.8px] w-[28px] text-[#D7F601]" />
