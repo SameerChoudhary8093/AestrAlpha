@@ -7,9 +7,9 @@ export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" 
       className={`w-full p-8 py-32 ${backgroundColor} text-black flex flex-col justify-center items-center gap-4`}
       id="gallery"
     >
-      <div className="font-orbitron text-5xl font-bold">{heading}</div>
-      <div className="mb-16">{byline}</div>
-      <div className="columns-3 gap-1 w-full space-y-2">
+      <div className="font-orbitron text-5xl font-bold text-center md:text-left w-full">{heading}</div>
+      <div className="mb-16 text-center md:text-left w-full max-w-3xl">{byline}</div>
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-1 w-full space-y-2">
         {galleryImages.map((image, index) => (
           <div key={index} className="break-inside-avoid mb-2">
             <Image

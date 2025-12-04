@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AestrIcon from "@/components/icons/Aestr";
-import { NavigationLinks } from "@/data/navigation";
+import { NavigationLinks, TicketNavigationLinks } from "@/data/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +36,8 @@ export default function Navbar() {
 
   const buttonConfig = getButtonConfig();
 
+  const currentNavLinks = pathname === "/Ticket" ? TicketNavigationLinks : NavigationLinks;
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-background border-b border-white/10">
       <div className="flex flex-row justify-between items-center px-6 py-4 md:px-8">
@@ -60,7 +62,7 @@ export default function Navbar() {
 
        
         <div className="hidden md:flex flex-row items-center justify-center gap-6">
-          {NavigationLinks.map((link) => (
+          {currentNavLinks.map((link) => (
             <Link 
               key={link.href} 
               href={link.href} 
@@ -122,11 +124,12 @@ export default function Navbar() {
    
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-white/10 shadow-xl flex flex-col items-center gap-6 py-8 px-4 animate-in fade-in slide-in-from-top-5 duration-200">
-          {NavigationLinks.map((link) => (
+          {currentNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className="nav-link text-lg font-medium"
+              onClick={() => setIsOpen(false)}
             >
               {link.label}
             </Link>

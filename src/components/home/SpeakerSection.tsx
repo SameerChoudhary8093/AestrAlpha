@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function SpeakerSection() {
   return (
     <section 
+      id="speakers"
       className="w-full px-20 py-16 md:p-20 md:py-32 flex flex-col justify-center items-start bg-(--primary-color) text-black"
     >
       <h2 className="text-3xl md:text-5xl font-bold mb-4 font-orbitron w-full text-left">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   ticketHeading,
@@ -9,7 +12,23 @@ import {
 import StarIcon from "../icons/Star";
 import Link from "next/link";
 
+const ticketImages = [
+  "/Herosection/herosectionimage4.svg",
+  "/Herosection/herosectionimage5.svg",
+  "/Herosection/herosectionimage6.svg",
+];
+
 export default function TicketHeroSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % ticketImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       className="relative w-full min-h-[100dvh] overflow-hidden flex flex-col items-start justify-start"
@@ -89,15 +108,44 @@ export default function TicketHeroSection() {
           </div>
         </div>
 
-        {/* Bottom Image */}
-        <Image
-          src={"/Ticket/Ticketabout.svg"}
-          alt="Ticket Hero Visual"
-          height={700}
-          width={1312}
-          className="w-full md:w-[95%] h-auto aspect-auto mb-8 md:mb-40 object-contain self-start" 
-          priority
-        />
+        {/* Mobile: auto-sliding carousel (match main hero behavior) */}
+        <div className="w-full max-w-[95%] overflow-hidden mb-8 md:mb-40 sm:hidden">
+          <div
+            className="flex w-full"
+            style={{
+              transform: `translateX(-${activeIndex * 100}%)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          >
+            {ticketImages.map((src, idx) => (
+              <div key={src} className="w-full flex-shrink-0">
+                <Image
+                  src={src}
+                  alt="Ticket Hero Visual"
+                  height={700}
+                  width={1312}
+                  className="w-full h-100 object-cover"
+                  priority={idx === 0}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop / tablet: 3-column grid, similar to main hero */}
+        <div className="w-full max-w-[95%] grid grid-cols-1 sm:grid-cols-3 gap-0 mb-8 md:mb-40 hidden sm:grid">
+          {ticketImages.map((src, idx) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Ticket Hero Visual"
+              height={700}
+              width={438}
+              className="w-full h-auto md:h-[700px] object-cover"
+              priority={idx === 0}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
