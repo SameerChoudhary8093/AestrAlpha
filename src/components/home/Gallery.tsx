@@ -1,4 +1,5 @@
 import { heading, byline, galleryImages } from "@/data/gallery";
+import Image from "next/image";
 
 export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" }) {
   return (
@@ -11,13 +12,13 @@ export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" 
       <div className="columns-3 gap-1 w-full space-y-2">
         {galleryImages.map((image, index) => (
           <div key={index} className="break-inside-avoid mb-2">
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
               className="w-full h-auto object-cover"
-              loading="lazy"
+              quality={100}
             />
           </div>
         ))}
