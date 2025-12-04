@@ -2,7 +2,7 @@ import { BoardMember } from "@/types/data/board.types";
 import LinkedInIcon from "@/components/icons/LinkedIn";
 import XIcon from "@/components/icons/X";
 
-export const heading = "Board Members";
+export const heading = "Core Team";
 export const byline =
   "Meet the visionaries steering our organization towards success.";
 
@@ -12,7 +12,7 @@ export const boardMembers: BoardMember[] = [
     name: "Dr. Shudhanshu",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Dr.Sudhanshu.svg",
+      src: "/BoardMembers/Shudhanshu.png",
       alt: "",
       height: 395,
       width: 395,
@@ -31,7 +31,7 @@ export const boardMembers: BoardMember[] = [
     name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/kanishk.webp",
+      src: "/BoardMembers/Kanishk.png",
       alt: "",
       height: 8256,
       width: 5504,
@@ -51,7 +51,7 @@ export const boardMembers: BoardMember[] = [
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Arastu.svg",
+      src: "/BoardMembers/Arastu.png",
       alt: "",
       height: 395,
       width: 395,
@@ -71,7 +71,7 @@ export const boardMembers: BoardMember[] = [
     name: "Satyanand Gora",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/satya.jpeg",
+      src: "/BoardMembers/Satya.png",
       alt: "",
       height: 395,
       width: 395,
@@ -91,7 +91,7 @@ export const boardMembers: BoardMember[] = [
     name: "Himanshu Varshney",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/himanshu.png",
+      src: "/BoardMembers/Himanshu.png",
       alt: "",
       height: 395,
       width: 395,
@@ -111,7 +111,7 @@ export const boardMembers: BoardMember[] = [
     name: "Rishabh Sehgal",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/rishab.png",
+      src: "/BoardMembers/Rishabh.png",
       alt: "",
       height: 395,
       width: 395,
