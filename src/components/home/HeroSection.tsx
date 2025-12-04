@@ -69,14 +69,13 @@ export default function HeroSection() {
               <StarIcon className="h-6 w-auto mr-2" />
               {primaryButtonText}
             </Link>
-            <Link href="/AestrAlphaBrochure.pdf" passHref legacyBehavior>
-              <a
-                className="button-secondary w-full sm:w-auto justify-center"
-                download
-              >
-                <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
-                {secondaryButtonText}
-              </a>
+            <Link
+              href="/AestrAlphaBrochure.pdf"
+              className="button-secondary w-full sm:w-auto justify-center"
+              download
+            >
+              <StarIcon className="h-6 w-auto mr-2 text-(--primary-color)" />
+              {secondaryButtonText}
             </Link>
           </div>
         </div>
