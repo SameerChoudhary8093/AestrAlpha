@@ -76,7 +76,7 @@ export default function TicketHeroSection() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start items-center w-full">
             <Link 
-              href="#" 
+              href="https://finance.gyanvihar.org/aestr-alpha" 
               className="button-primary w-full sm:w-auto justify-center"
             >
               <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2" />

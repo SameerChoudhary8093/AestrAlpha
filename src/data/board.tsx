@@ -31,10 +31,10 @@ export const boardMembers: BoardMember[] = [
     name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
-      src: "/BoardMembers/Kanishk.JPG",
+      src: "/BoardMembers/Kanishk.jpg",
       alt: "",
-      height: 395,
-      width: 395,
+      height: 8256,
+      width: 5504,
     },
     bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
     social: [
