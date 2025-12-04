@@ -108,7 +108,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     id: 6,
-    name: "Rishabh Seghal",
+    name: "Rishabh Sehgal",
     position: "Chairperson",
     photo: {
       src: "/BoardMembers/rishab.png",
