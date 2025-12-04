@@ -19,7 +19,7 @@ export const FooterLinks: FooterLink[] = [
 ];
 
 export const FooterContact: FooterContactDetails = {
-  phone: "9828781952",
+  phone: "+91-9828781952",
   email: "info@aestralpha.com",
 };
 
