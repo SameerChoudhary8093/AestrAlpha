@@ -49,7 +49,7 @@ export default function HeroSection() {
                 alt="Decorative Element"
                 height={710}
                 width={973}
-                className="h-10 sm:h-16 md:h-24 lg:h-[10rem] w-auto mx-2 md:mx-4"
+                className="h-18 sm:h-18 md:h-24 lg:h-[10rem] w-auto mx-2 md:mx-4"
               />
               <h1>{homeHeading[1]}</h1>
             </div>
