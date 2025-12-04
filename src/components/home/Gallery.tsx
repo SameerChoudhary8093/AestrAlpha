@@ -18,7 +18,6 @@ export default function Gallery({ backgroundColor = "bg-[var(--primary-color)]" 
               width={image.width}
               height={image.height}
               className="w-full h-auto object-cover"
-              quality={100}
             />
           </div>
         ))}

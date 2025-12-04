@@ -5,13 +5,13 @@ export const byline = "A selection of photos from our collection.";
 
 export const galleryImages: ImageType[] = [
   {
-    src: "/gallery/Image1.svg",
+    src: "/gallery/Image1.png",
     alt: "",
     width: 416,
     height: 416,
   },
   {
-    src: "/gallery/Image2.svg",
+    src: "/gallery/Image2.png",
     alt: "",
     width: 416,
     height: 416,
@@ -23,7 +23,7 @@ export const galleryImages: ImageType[] = [
     height: 234,
   },
   {
-    src: "/gallery/Image4.svg",
+    src: "/gallery/Image4.png",
     alt: "",
     width: 416,
     height: 234,
@@ -41,7 +41,7 @@ export const galleryImages: ImageType[] = [
     height: 416,
   },
   {
-    src: "/gallery/Image7.svg",
+    src: "/gallery/Image7.png",
     alt: "",
     width: 416,
     height: 416,
