@@ -1,9 +1,30 @@
+"use client";
+
 import { heading, byline, boardMembers, buttonText } from "@/data/board";
 import StarIcon from "@/components/icons/Star";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function BoardMembers() {
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Handle responsive detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Show 3 members on mobile, 6 on desktop initially, rest when "View All" is clicked
+  const visibleMembers = showAll ? boardMembers : (isMobile ? boardMembers.slice(0, 3) : boardMembers.slice(0, 6));
+
   return (
     <section 
       className="w-full px-10 py-8 md:p-10 md:py-20 flex flex-col justify-center items-start bg-[#1C1825] text-white"
@@ -18,7 +39,7 @@ export default function BoardMembers() {
 
     
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-12 w-full justify-between items-start">
-        {boardMembers.map((member) => (
+        {visibleMembers.map((member) => (
           <div
             key={member.id}
             className="flex flex-col items-start justify-start gap-6 w-full max-w-[395px]"
@@ -60,9 +81,12 @@ export default function BoardMembers() {
 
     
       <div className="flex flex-row items-center justify-center w-full mt-12 md:mt-24">
-        <button className="button-secondary text-white! border-white!">
+        <button 
+          onClick={() => setShowAll(!showAll)}
+          className="button-secondary text-white! border-white!"
+        >
           <StarIcon className="h-6 w-6 mr-2 text-(--primary-color)" />
-          {buttonText}
+          {showAll ? "Show Less" : buttonText}
         </button>
       </div>
     </section>
