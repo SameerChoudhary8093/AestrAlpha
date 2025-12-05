@@ -121,7 +121,7 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
+        url: "https://www.linkedin.com/in/navdeepshrivastava/?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
 
@@ -141,7 +141,7 @@ export const boardMembers: BoardMember[] = [
     social: [
       {
         platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
+        url: "https://www.linkedin.com/in/shresthapk/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
 
