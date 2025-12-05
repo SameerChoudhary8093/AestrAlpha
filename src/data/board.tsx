@@ -9,25 +9,6 @@ export const byline =
 export const boardMembers: BoardMember[] = [
   {
     id: 1,
-    name: "Dr. Shudhanshu",
-    position: "Chairperson",
-    photo: {
-      src: "/BoardMembers/Shudhanshu.png",
-      alt: "",
-      height: 395,
-      width: 395,
-    },
-    bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
-    social: [
-      {
-        platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/dr-sudhanshu-62ba2958/",
-        icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-    ],
-  },
-  {
-    id: 2,
     name: "Kanishk Sharma",
     position: "Chairperson",
     photo: {
@@ -43,11 +24,11 @@ export const boardMembers: BoardMember[] = [
         url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      
+
     ],
   },
   {
-    id: 3,
+    id: 2,
     name: "Dr. Arastu Sharma",
     position: "Chairperson",
     photo: {
@@ -67,7 +48,7 @@ export const boardMembers: BoardMember[] = [
   },
 
   {
-    id: 4,
+    id: 3,
     name: "Satyanand Gora",
     position: "Chairperson",
     photo: {
@@ -83,11 +64,11 @@ export const boardMembers: BoardMember[] = [
         url: "https://www.linkedin.com/in/satyanand-gora-06719b30b/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      
+
     ],
   },
   {
-    id: 5,
+    id: 4,
     name: "Himanshu Varshney",
     position: "Chairperson",
     photo: {
@@ -103,11 +84,11 @@ export const boardMembers: BoardMember[] = [
         url: "https://www.linkedin.com/in/himanshu-varshney-58b143a8/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      
+
     ],
   },
   {
-    id: 6,
+    id: 5,
     name: "Rishabh Sehgal",
     position: "Chairperson",
     photo: {
@@ -123,10 +104,50 @@ export const boardMembers: BoardMember[] = [
         url: "https://www.linkedin.com/in/rishabh-sehgal-a68b771b2/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
-      
+
     ],
   },
-  
+  {
+    id: 6,
+    name: "Navdeep Shrivastava",
+    position: "Chairperson",
+    photo: {
+      src: "/BoardMembers/NavdeepShrivastava.png",
+      alt: "",
+      height: 8256,
+      width: 5504,
+    },
+    bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
+    social: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
+        icon: <LinkedInIcon className="h-8 w-auto" />,
+      },
+
+    ],
+  },
+  {
+    id: 7,
+    name: "Prashant Kulshrestha",
+    position: "Chairperson",
+    photo: {
+      src: "/BoardMembers/PrashantKulshrestha.png",
+      alt: "",
+      height: 8256,
+      width: 5504,
+    },
+    bio: "Alice has over 20 years of experience in corporate governance and strategic planning.",
+    social: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/kanishk-sharma-195aa2178/",
+        icon: <LinkedInIcon className="h-8 w-auto" />,
+      },
+
+    ],
+  },
+
 ];
 
 export const buttonText = "View All Members";
