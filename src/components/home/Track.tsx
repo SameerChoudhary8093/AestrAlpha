@@ -96,7 +96,17 @@ const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: 
   );
 };
 
-export default function Track() {
+interface TrackProps {
+  heading?: React.ReactNode;
+  byline?: string;
+  alignDesktop?: "center" | "start" | "end" | "left" | "right";
+}
+
+export default function Track({ heading, byline, alignDesktop = "center" }: TrackProps) {
+  // Normalize alignDesktop to valid flex alignment
+  const alignment = alignDesktop === "left" || alignDesktop === "start" ? "flex-start" : alignDesktop === "right" || alignDesktop === "end" ? "flex-end" : "center";
+  const textAlign = alignDesktop === "left" || alignDesktop === "start" ? "left" : alignDesktop === "right" || alignDesktop === "end" ? "right" : "center";
+
   // Exact data from the uploaded image
   const cardData = [
     {
@@ -132,6 +142,22 @@ export default function Track() {
     }
   ];
 
+  const defaultHeading = (
+    <h2 style={{
+      fontFamily: "var(--font-orbitron), sans-serif",
+      fontWeight: 700,
+      fontSize: "48px",
+      lineHeight: "120%",
+      color: "#EAF0BD",
+      margin: 0,
+      textAlign: textAlign as any
+    }}>
+      Choose Your Track
+    </h2>
+  );
+
+  const defaultByline = "(Or explore multiple, based on your clarity.)";
+
   return (
     <section
       id="choose-your-track"
@@ -157,34 +183,48 @@ export default function Track() {
           maxWidth: "1312px",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start", // Left align text as per image
+          alignItems: alignment, // Dynamic alignment
           gap: "24px" // Increased gap as requested
         }}>
-          <h2 style={{
-            fontFamily: "var(--font-orbitron), sans-serif",
-            fontWeight: 700,
-            fontSize: "48px",
-            lineHeight: "120%",
-            color: "#EAF0BD",
-            margin: 0,
-            textAlign: "left"
-          }}>
-            Choose Your Track
-          </h2>
-          <p style={{
-            fontFamily: "var(--font-roboto), sans-serif",
-            fontWeight: 400,
-            fontSize: "18px",
-            lineHeight: "150%",
-            color: "#EAF0BD",
-            marginTop: "0px",
-            marginBottom: "0px",
-            marginLeft: "0px",
-            marginRight: "0px",
-            textAlign: "left"
-          }}>
-            (Or explore multiple, based on your clarity.)
-          </p>
+          {heading ? heading : defaultHeading}
+
+          {/* Render byline if it's provided or if we fall back to default when heading wasn't provided either? 
+              Actually, the user might provide heading but empty byline. 
+              The Workshop page passes `byline=""` so we should respect empty string.
+              If `byline` prop is passed (even empty), use it. If undefined, use default.
+          */}
+          {(byline !== undefined) ? (
+            byline && <p style={{
+              fontFamily: "var(--font-roboto), sans-serif",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "150%",
+              color: "#EAF0BD",
+              marginTop: "0px",
+              marginBottom: "0px",
+              marginLeft: "0px",
+              marginRight: "0px",
+              textAlign: textAlign as any
+            }}>
+              {byline}
+            </p>
+          ) : (
+            <p style={{
+              fontFamily: "var(--font-roboto), sans-serif",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "150%",
+              color: "#EAF0BD",
+              marginTop: "0px",
+              marginBottom: "0px",
+              marginLeft: "0px",
+              marginRight: "0px",
+              textAlign: textAlign as any
+            }}>
+              {defaultByline}
+            </p>
+          )}
+
         </div>
 
         {/* Cards Container - Row 1 */}
