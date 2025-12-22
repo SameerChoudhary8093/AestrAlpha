@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
@@ -12,14 +13,10 @@ interface WorkShopProps {
 export default function WorkShop({ heading, description, date }: WorkShopProps) {
   const defaultHeading = (
     <h2
+      className="text-[#181818] font-bold text-center leading-[120%]"
       style={{
         fontFamily: "var(--font-orbitron), sans-serif",
-        fontWeight: 700, // Bold
-        fontSize: "50px",
-        lineHeight: "120%",
-        textAlign: "center",
-        color: "#181818",
-        margin: 0
+        fontSize: "clamp(32px, 5vw, 50px)"
       }}
     >
       What You Graduate With
@@ -30,63 +27,25 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
 
   return (
     <section
-      style={{
-        width: "100%",
-        background: "#D8F602",
-        display: "flex",
-        justifyContent: "center",
-        padding: "112px 64px 112px 64px",
-        boxSizing: "border-box"
-      }}
+      className="w-full bg-[#D8F602] flex justify-center py-28 px-4 md:px-16 box-border"
     >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "1440px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "80px"
-        }}
-      >
+      <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+
         {/* Header */}
-        <div
-          style={{
-            width: "768px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "24px"
-          }}
-        >
+        <div className="w-full max-w-[768px] flex flex-col items-center gap-6 text-center">
           {heading ? heading : defaultHeading}
 
           <p
-            style={{
-              fontFamily: "var(--font-roboto), sans-serif",
-              fontWeight: 400, // Regular
-              fontSize: "18px",
-              lineHeight: "150%",
-              textAlign: "center",
-              color: "#181818",
-              margin: 0,
-              whiteSpace: "pre-line"
-            }}
+            className="text-[#181818] font-normal text-lg leading-[150%] text-center whitespace-pre-line"
+            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
           >
             {description ? description : defaultDescription}
           </p>
 
           {date && (
             <div
-              style={{
-                fontFamily: "var(--font-roboto), sans-serif",
-                fontWeight: 700,
-                fontSize: "18px",
-                lineHeight: "150%",
-                textAlign: "center",
-                color: "#181818",
-                marginTop: "0px"
-              }}
+              className="text-[#181818] font-bold text-lg leading-[150%] text-center mt-0"
+              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
             >
               {date}
             </div>
@@ -94,66 +53,32 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
         </div>
 
         {/* Main Content Area */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column", // Mobile responsiveness default, but prompt implies row for desktop
-            alignItems: "center",
-            gap: "48px"
-          }}
-        >
+        <div className="w-full flex flex-col items-center gap-12">
+
           {/* 3-Column Layout Container */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              // width: "1312px", // As per prompt max width roughly
-              gap: "48px",
-              flexWrap: "wrap"
-            }}
-          >
+          <div className="w-full flex flex-col lg:flex-row justify-center gap-12 lg:gap-12 flex-wrap items-center lg:items-center">
+
             {/* Left Column */}
-            <div style={{ width: "303px", display: "flex", flexDirection: "column", gap: "64px" }}>
+            <div className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
               {/* Item 1 */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
-                {/* Logo Placeholder */}
+              <div className="flex flex-col items-center gap-6">
                 <Image src="/ImmersiveWorkshop/logo-1.svg" alt="Deployment History" width={68} height={68} />
-                <p style={{
-                  width: "240px",
-                  fontFamily: "Arial, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "24px",
-                  lineHeight: "140%",
-                  textAlign: "center",
-                  color: "#181818",
-                  margin: 0
-                }}>
+                <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   A deployment history (not just a certificate)
                 </p>
               </div>
 
               {/* Item 2 */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
-                {/* Logo Placeholder */}
+              <div className="flex flex-col items-center gap-6">
                 <Image src="/ImmersiveWorkshop/logo-2.svg" alt="Documented Artifacts" width={95} height={69} />
-                <p style={{
-                  width: "240px",
-                  fontFamily: "Arial, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "24px",
-                  lineHeight: "140%",
-                  textAlign: "center",
-                  color: "#181818",
-                  margin: 0
-                }}>
+                <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   Documented artifacts: demos, walkthroughs, architecture notes
                 </p>
               </div>
             </div>
 
             {/* Center Image */}
-            <div style={{ width: "610px", height: "540px", borderRadius: "16px", overflow: "hidden", background: "#E5E5E5" }}>
+            <div className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0">
               <Image
                 src="/ImmersiveWorkshop/CenterImage.svg"
                 alt="Graduate Info"
@@ -164,97 +89,44 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
             </div>
 
             {/* Right Column */}
-            <div style={{ width: "303px", display: "flex", flexDirection: "column", gap: "64px" }}>
+            <div className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
               {/* Item 3 */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
-                {/* Logo Placeholder */}
+              <div className="flex flex-col items-center gap-6">
                 <Image src="/ImmersiveWorkshop/logo-3.svg" alt="GitHub Portfolio" width={95} height={68} />
-                <p style={{
-                  width: "240px",
-                  fontFamily: "Arial, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "24px",
-                  lineHeight: "140%",
-                  textAlign: "center",
-                  color: "#181818",
-                  margin: 0
-                }}>
+                <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   A public GitHub portfolio with real projects
                 </p>
               </div>
 
               {/* Item 4 */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
-                {/* Logo Placeholder */}
+              <div className="flex flex-col items-center gap-6">
                 <Image src="/ImmersiveWorkshop/logo-4.svg" alt="Delivery Maturity" width={99} height={53} />
-                <p style={{
-                  width: "240px",
-                  fontFamily: "Arial, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "24px",
-                  lineHeight: "140%",
-                  textAlign: "center",
-                  color: "#181818",
-                  margin: 0
-                }}>
+                <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   Delivery maturity: sprints, reviews, collaboration
                 </p>
               </div>
             </div>
+
           </div>
 
           {/* Buttons Section */}
-          <div style={{ display: "flex", gap: "24px", marginTop: "48px" }}>
+          <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
             {/* Button 1: Apply */}
             <button
-              style={{
-                width: "300px",
-                height: "54px",
-                background: "#181818",
-                border: "1px solid #181818",
-                borderRadius: "4px 20px 4px 4px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                cursor: "pointer"
-              }}
+              className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] md:rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
             >
               <StarIcon style={{ width: "28px", height: "30px", color: "#D8F602" }} />
-              <span style={{
-                fontFamily: "var(--font-orbitron), sans-serif",
-                fontWeight: 900,
-                fontSize: "16px",
-                color: "#D8F602",
-                lineHeight: "150%"
-              }}>
+              <span className="font-black text-base text-[#D8F602] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
                 Apply for the Residency
               </span>
             </button>
 
             {/* Button 2: Talk to Counselor */}
             <button
-              style={{
-                width: "260px",
-                height: "54px",
-                background: "transparent",
-                border: "1px solid #181818",
-                borderRadius: "4px 20px 4px 4px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                cursor: "pointer"
-              }}
+              className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
             >
               <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
-              <span style={{
-                fontFamily: "var(--font-orbitron), sans-serif",
-                fontWeight: 900,
-                fontSize: "16px",
-                color: "#181818",
-                lineHeight: "150%"
-              }}>
+              <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
                 Talk to a Counselor
               </span>
             </button>

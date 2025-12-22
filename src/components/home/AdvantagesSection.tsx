@@ -12,7 +12,8 @@ const AdvantageCard = ({ title, description }: { title: string, description: str
       onMouseLeave={() => setIsHovered(false)}
       className={`flex flex-col cursor-pointer transition-transform duration-300 ${isHovered ? 'scale-105' : 'scale-100'}`}
       style={{
-        width: "405.33px"
+        width: "100%",
+        maxWidth: "405px"
       }}
     >
       <h3
@@ -49,39 +50,29 @@ export default function AdvantagesSection() {
     <section
       style={{
         width: "100%",
-        // height: "561px", // Removed fixed height to allow scaling content without cutoff if needed
         minHeight: "561px",
         background: "#D7F601",
-        margin: "112px auto 0",
+        // margin: "112px auto 0", // Can be handled by usage
         paddingTop: "112px",
-        paddingRight: "64px",
         paddingBottom: "112px",
-        paddingLeft: "64px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
       }}
+      className="px-4 md:px-16"
     >
       {/* Header Section */}
       <div
-        style={{
-          width: "1312px",
-          // height: "159px", 
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          alignItems: "center"
-        }}
+        className="w-full max-w-[1312px] flex flex-col items-center gap-4"
       >
         <h2
+          className="w-full md:max-w-[516px] text-center"
           style={{
-            width: "516px",
             fontFamily: "var(--font-orbitron), sans-serif",
             fontWeight: 700,
-            fontSize: "48px",
+            fontSize: "clamp(32px, 5vw, 48px)",
             lineHeight: "120%",
-            textAlign: "center",
             color: "#1C1825",
             margin: 0
           }}
@@ -89,13 +80,12 @@ export default function AdvantagesSection() {
           {heading}
         </h2>
         <p
+          className="w-full max-w-[1312px] text-center"
           style={{
-            width: "1312px",
             fontFamily: "Arial, sans-serif",
             fontWeight: 400,
-            fontSize: "18px",
+            fontSize: "clamp(16px, 2vw, 18px)",
             lineHeight: "150%",
-            textAlign: "center",
             color: "#1C1825",
             margin: 0
           }}
@@ -106,13 +96,7 @@ export default function AdvantagesSection() {
 
       {/* Columns Section */}
       <div
-        style={{
-          width: "1312px",
-          marginTop: "80px",
-          display: "flex",
-          flexDirection: "row",
-          gap: "48px"
-        }}
+        className="w-full max-w-[1312px] flex flex-col md:flex-row gap-8 md:gap-12 mt-12 md:mt-20 justify-between items-start"
       >
         {advantages.map((advantage, index) => (
           <AdvantageCard key={index} title={advantage.title} description={advantage.description} />

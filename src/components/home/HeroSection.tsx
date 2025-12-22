@@ -7,7 +7,7 @@ import StarIcon from "../icons/Star";
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full flex flex-col items-center"
+      className="relative w-full flex flex-col items-center overflow-hidden"
       style={{
         marginTop: "119px",
         marginBottom: "100px",
@@ -15,56 +15,59 @@ export default function HeroSection() {
       }}
       id="home"
     >
+      {/* Background Graphic */}
       <div
         className="absolute rounded-full pointer-events-none"
         style={{
           width: "491px",
           height: "390px",
           top: "87px",
-          left: "-120px",
+          left: "50%",
+          transform: "translateX(-50%) md:translateX(-600px)", // Centered on mobile, offset on desktop
           background: "#D8F6021A",
           mixBlendMode: "screen",
           filter: "blur(154px)",
           zIndex: 0
         }}
       />
+
+      {/* Content Container */}
       <div
-        className="flex flex-col items-center"
+        className="flex flex-col items-center px-4 relative z-10"
         style={{
-          width: "900px",
+          width: "100%",
+          maxWidth: "900px",
           gap: "24px",
         }}
       >
         {/* Inner Content Section */}
         <div
-          className="flex flex-col items-center"
+          className="flex flex-col items-center w-full"
           style={{
-            width: "820px",
+            maxWidth: "820px",
             gap: "21.87px"
           }}
         >
-          {/* Main Heading "The [Logo] Workplace Is the Curriculum." */}
+          {/* Main Heading */}
           <h1
-            className="flex flex-col items-center"
+            className="flex flex-col items-center w-full text-center m-0"
             style={{
-              width: "820px",
               fontFamily: "var(--font-orbitron), sans-serif",
               fontWeight: 700,
-              fontSize: "71.07px",
+              // Responsive Font Size
+              fontSize: "clamp(32px, 5vw, 71.07px)",
               lineHeight: "120%",
-              textAlign: "center",
               color: "#FAFFD6",
-              margin: 0
             }}
           >
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
               <span>India’s</span>
               <Image
                 src="/home/TextImage.png"
                 alt="logo shadow"
                 width={193}
                 height={141}
-                className="object-contain"
+                className="object-contain w-[120px] h-auto md:w-[193px]"
               />
               <span>First</span>
             </div>
@@ -74,15 +77,14 @@ export default function HeroSection() {
 
           {/* Subtext description */}
           <p
+            className="text-center m-0 w-full"
             style={{
-              width: "820px",
+              maxWidth: "820px",
               fontFamily: "Arial, sans-serif",
               fontWeight: 400,
-              fontSize: "20px",
+              fontSize: "clamp(16px, 2vw, 20px)",
               lineHeight: "150%",
-              textAlign: "center",
               color: "#FAFFD6",
-              margin: 0
             }}
           >
             Aestr Alpha is a 6-Month Career Residency. We bridge the gap between a university degree and Day-1 at a top tech company. At Aestr Alpha, you don’t “attend classes” — you operate: stand-ups, tickets, reviews, shipping real work.
@@ -91,20 +93,17 @@ export default function HeroSection() {
 
         {/* Buttons Section */}
         <div
-          className="flex items-start justify-center"
+          className="flex flex-col md:flex-row items-center justify-center pt-4 w-full"
           style={{
-            width: "579px",
-            height: "69.8px",
+            maxWidth: "600px",
             gap: "16px",
-            paddingTop: "16px"
           }}
         >
           {/* Button 1: Primary */}
           <Link
             href="/Workshop"
-            className="flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px]"
             style={{
-              width: "300px",
               height: "53.8px",
               gap: "8px",
               padding: "12px 24px",
@@ -129,16 +128,15 @@ export default function HeroSection() {
                 fill: "currentColor"
               }}
             />
-            <span className="font-extrabold">Apply for the Residency</span>
+            <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
           </Link>
 
           {/* Button 2: Secondary (Outline) */}
           <Link
             href="/AestrAlphaBrochure.pdf"
             download
-            className="flex items-center justify-center hover:bg-white/5 transition-colors"
+            className="flex items-center justify-center hover:bg-white/5 transition-colors w-full md:w-[263px]"
             style={{
-              width: "263px",
               height: "53.8px",
               gap: "8px",
               padding: "12px 24px",
@@ -164,21 +162,17 @@ export default function HeroSection() {
                 fill: "currentColor"
               }}
             />
-            <span className="font-extrabold" style={{ whiteSpace: "nowrap" }}>Download Brochure</span>
+            <span className="font-extrabold whitespace-nowrap">Download Brochure</span>
           </Link>
         </div>
       </div>
 
       {/* Hero Main Image */}
       <div
+        className="w-full max-w-[1312px] flex justify-center px-4"
         style={{
-          marginTop: "179.33px",
+          marginTop: "clamp(60px, 10vw, 179.33px)",
           marginBottom: "112px",
-          width: "1312px",
-          height: "700px",
-          maxWidth: "100%", // Ensure responsiveness if screen is smaller
-          display: "flex",
-          justifyContent: "center"
         }}
       >
         <Image
@@ -187,7 +181,7 @@ export default function HeroSection() {
           width={1312}
           height={700}
           priority
-          className="w-full h-auto"
+          className="w-full h-auto object-contain"
         />
       </div>
     </section>

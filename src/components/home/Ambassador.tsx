@@ -12,10 +12,10 @@ export default function CampusAmbassador() {
       id="ambassador"
     >
 
-      <div className="flex flex-col md:flex-row justify-between items-start w-full md:w-[95%] gap-10 md:gap-4 mb-12 md:mb-24">
+      <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-[1312px] gap-10 md:gap-4 mb-12 md:mb-24">
 
 
-        <div className="text-[36px] md:text-[48px] font-orbitron font-bold leading-[1.2] whitespace-pre-line max-w-[616px] w-full md:w-1/2 text-left">
+        <div className="text-[32px] md:text-[48px] font-orbitron font-bold leading-[1.2] whitespace-pre-line max-w-[616px] w-full md:w-1/2 text-left">
           {heading}
         </div>
 
@@ -26,7 +26,6 @@ export default function CampusAmbassador() {
           <ul className="flex flex-col gap-3 text-base md:text-lg">
             {perks.map((perk, index) => (
               <div key={index} className="flex flex-row gap-4 items-start">
-                {/* Added shrink-0 so the star doesn't get squashed if text wraps */}
                 <DoubleStarIcon className="h-6 w-auto text-(--accent-color) shrink-0 mt-1" />
                 <span>{perk}</span>
               </div>
@@ -35,41 +34,30 @@ export default function CampusAmbassador() {
 
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSfX-l0DhYna7HIFA_qjP4b3OQpvGZJo-wdSx5XbvrOa3YbIgg/viewform?usp=publish-editor"
+            className="flex items-center justify-center gap-2 px-6 py-3 border border-black rounded-[4px] md:rounded-tr-[20px] bg-transparent text-black font-black text-base hover:bg-black/5 transition-colors mt-8 w-full md:w-auto"
             style={{
-              width: "181px",
               height: "54px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              padding: "12px 24px",
-              border: "1px solid #000000",
-              borderRadius: "4px 20px 4px 4px",
               fontFamily: "var(--font-orbitron), sans-serif",
-              fontWeight: 900,
-              fontSize: "16px",
               lineHeight: "150%",
-              color: "#000000",
-              background: "transparent",
-              boxSizing: "border-box",
               textDecoration: "none",
-              marginTop: "32px" // "Support cohort activities iske niche button" implies typical spacing, reusing previous mt-2 or increasing
             }}
           >
             <StarIcon style={{ width: "28px", height: "30px", color: "#5B1DD6" }} />
-            <span style={{ whiteSpace: "nowrap" }}>Apply Now</span>
+            <span className="whitespace-nowrap">Apply Now</span>
           </Link>
         </div>
       </div>
 
-      <Image
-        src={"/home/Image.svg"}
-        alt="Campus Ambassador Program"
-        width={1312}
-        height={662}
-        style={{ borderRadius: "16px" }}
-        className="w-full md:w-[95%] h-auto"
-      />
+      <div className="w-full max-w-[1312px] h-auto rounded-2xl overflow-hidden">
+        <Image
+          src={"/home/Image.svg"}
+          alt="Campus Ambassador Program"
+          width={1312}
+          height={662}
+          style={{ borderRadius: "16px" }}
+          className="w-full h-auto object-cover"
+        />
+      </div>
     </section>
   );
 }

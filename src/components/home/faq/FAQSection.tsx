@@ -17,36 +17,19 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
     return (
         <div
             onClick={onClick}
-            style={{
-                width: "732px",
-                // Height is dynamic based on content, though prompt gave fixed heights for specific rows. 
-                // We will let it grow based on content + openness, but set base padding/border.
-                border: "1px solid #FCFFE4",
-                padding: "20px 24px",
-                cursor: "pointer",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0px", // Content spacing handled internally
-                transition: "all 0.3s ease",
-                background: "transparent"
-            }}
+            className="w-full border border-[#FCFFE4] p-5 md:p-6 cursor-pointer flex flex-col gap-0 transition-all duration-300 bg-transparent"
         >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "24px" }}>
+            <div className="flex justify-between items-start gap-6">
                 {/* Question Text */}
-                <h3 style={{
-                    width: "600px", // Approx remaining width
-                    fontFamily: "var(--font-roboto), sans-serif",
-                    fontWeight: 700,
-                    fontSize: "18px",
-                    lineHeight: "150%",
-                    color: "#FCFFE4",
-                    margin: 0
-                }}>
+                <h3
+                    className="flex-1 font-bold text-lg leading-[150%] text-[#FCFFE4] m-0"
+                    style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+                >
                     {question}
                 </h3>
 
                 {/* Toggle Icon */}
-                <div style={{ width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div className="w-8 h-8 flex items-center justify-center shrink-0">
                     {isOpen ? (
                         <Minus size={32} color="#FCFFE4" />
                     ) : (
@@ -57,23 +40,13 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
 
             {/* Answer Section */}
             <div
-                style={{
-                    display: "grid",
-                    gridTemplateRows: isOpen ? "1fr" : "0fr",
-                    opacity: isOpen ? 1 : 0,
-                    marginTop: isOpen ? "16px" : "0px",
-                    transition: "all 0.3s ease-out"
-                }}
+                className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"}`}
             >
-                <div style={{ overflow: "hidden" }}>
-                    <p style={{
-                        fontFamily: "var(--font-roboto), sans-serif",
-                        fontWeight: 400, // Regular assumption for body
-                        fontSize: "18px",
-                        lineHeight: "150%",
-                        color: "#FCFFE4",
-                        margin: 0
-                    }}>
+                <div className="overflow-hidden">
+                    <p
+                        className="font-normal text-lg leading-[150%] text-[#FCFFE4] m-0"
+                        style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+                    >
                         {answer}
                     </p>
                 </div>
@@ -122,80 +95,44 @@ export default function FAQSection() {
     ];
 
     return (
-        <section style={{
-            width: "100%",
-            background: "#5B1DD6",
-            display: "flex",
-            justifyContent: "center",
-            padding: "112px 64px 112px 64px",
-            boxSizing: "border-box"
-        }}>
-            <div style={{
-                width: "100vw",
-                maxWidth: "1440px",
-                display: "flex",
-                flexDirection: "row", // Desktop default
-                alignItems: "flex-start",
-                justifyContent: "center",
-                gap: "80px",
-                flexWrap: "wrap" // Responsive wrap
-            }}>
+        <section
+            className="w-full bg-[#5B1DD6] flex justify-center py-28 px-4 md:px-16 box-border"
+        >
+            <div className="w-full max-w-[1440px] flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-20">
 
                 {/* Left Column: Title & CTA */}
-                <div style={{
-                    width: "500px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "24px",
-                    alignItems: "flex-start"
-                }}>
+                <div className="w-full lg:max-w-[500px] flex flex-col gap-6 items-start">
                     {/* FAQ Heading */}
-                    <h2 style={{
-                        fontFamily: "var(--font-orbitron), sans-serif",
-                        fontWeight: 700,
-                        fontSize: "48px",
-                        lineHeight: "120%",
-                        color: "#FCFFE4",
-                        margin: 0
-                    }}>
+                    <h2
+                        className="text-[#FCFFE4] font-bold leading-[120%]"
+                        style={{
+                            fontFamily: "var(--font-orbitron), sans-serif",
+                            fontSize: "clamp(32px, 5vw, 48px)"
+                        }}
+                    >
                         FAQs
                     </h2>
 
                     {/* Contact Button */}
-                    <button style={{
-                        width: "182px",
-                        height: "54px",
-                        background: "transparent",
-                        border: "1px solid #D7F601",
-                        borderRadius: "4px 20px 4px 4px",
-                        padding: "12px 24px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "8px",
-                        cursor: "pointer"
-                    }}>
+                    <button
+                        className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#D7F601] rounded-[4px] rounded-tr-[20px] cursor-pointer hover:bg-white/10 transition-colors"
+                        style={{
+                            width: "182px",
+                            height: "54px",
+                        }}
+                    >
                         <StarIcon style={{ width: "28px", height: "30px", color: "#D7F601" }} />
-                        <span style={{
-                            fontFamily: "var(--font-orbitron), sans-serif",
-                            fontWeight: 900,
-                            fontSize: "16px",
-                            lineHeight: "150%",
-                            color: "#D7F601",
-                            whiteSpace: "nowrap"
-                        }}>
+                        <span
+                            className="text-[#D7F601] font-black text-base leading-[150%] whitespace-nowrap"
+                            style={{ fontFamily: "var(--font-orbitron), sans-serif" }}
+                        >
                             Contact us
                         </span>
                     </button>
                 </div>
 
                 {/* Right Column: Accordion List */}
-                <div style={{
-                    width: "732px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "16px"
-                }}>
+                <div className="w-full lg:max-w-[732px] flex flex-col gap-4">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}

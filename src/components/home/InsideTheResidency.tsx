@@ -5,66 +5,42 @@ import Image from "next/image";
 // I will distribute the previous nice images into this new layout.
 
 const GalleryImage = ({ src, width, height, alt }: { src: string, width: number, height: number, alt: string }) => (
-  <div className="group cursor-pointer" style={{ width: `${width}px`, height: `${height}px`, overflow: "hidden", position: "relative" }}>
+  <div className="group cursor-pointer w-full relative overflow-hidden h-auto rounded-lg">
     <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
-      className="transition-transform duration-500 group-hover:scale-110"
-      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      className="transition-transform duration-500 group-hover:scale-110 w-full h-auto object-cover"
     />
   </div>
 );
 
 export default function InsideTheResidency() {
   return (
-    <section style={{
-      width: "100%",
-      display: "flex",
-      justifyContent: "center",
-      background: "#D7F601",
-      padding: "112px 64px 112px 64px",
-      boxSizing: "border-box"
-    }}>
-      <div style={{
-        width: "100%",
-        maxWidth: "1440px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "80px"
-      }}>
+    <section
+      className="w-full bg-[#D7F601] flex justify-center py-28 px-4 md:px-16 box-border"
+    >
+      <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+
         {/* Header */}
-        <div style={{
-          width: "100%", // Up to 768px centered
-          display: "flex",
-          justifyContent: "center"
-        }}>
-          <h2 style={{
-            width: "768px",
-            fontFamily: "var(--font-orbitron), sans-serif",
-            fontWeight: 700,
-            fontSize: "50px",
-            lineHeight: "120%",
-            textAlign: "center",
-            color: "#000000",
-            margin: 0
-          }}>
+        <div className="w-full flex justify-center">
+          <h2
+            className="w-full max-w-[768px] text-[#000000] font-bold text-center leading-[120%]"
+            style={{
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontSize: "clamp(32px, 5vw, 50px)"
+            }}
+          >
             Inside the Residency
           </h2>
         </div>
 
         {/* Images Grid Section */}
-        <div style={{
-          width: "1312px",
-          display: "flex",
-          flexDirection: "row",
-          gap: "32px",
-          justifyContent: "center"
-        }}>
+        <div className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {/* Column 1 */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px", width: "416px" }}>
+          <div className="flex flex-col gap-8 w-full">
             <GalleryImage
               src="/gallery/Image1.svg"
               alt="Gallery 1-1"
@@ -80,7 +56,7 @@ export default function InsideTheResidency() {
           </div>
 
           {/* Column 2 */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px", width: "416px" }}>
+          <div className="flex flex-col gap-8 w-full">
             <GalleryImage
               src="/gallery/Image3.svg"
               alt="Gallery 2-1"
@@ -102,7 +78,7 @@ export default function InsideTheResidency() {
           </div>
 
           {/* Column 3 */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px", width: "416px" }}>
+          <div className="flex flex-col gap-8 w-full">
             <GalleryImage
               src="/gallery/Image6.svg"
               alt="Gallery 3-1"

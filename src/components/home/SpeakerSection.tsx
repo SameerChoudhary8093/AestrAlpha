@@ -5,35 +5,36 @@ import Link from "next/link";
 
 export default function SpeakerSection() {
   return (
-    <section 
+    <section
       id="speakers"
-      className="w-full px-20 py-16 md:p-20 md:py-32 flex flex-col justify-center items-start bg-(--primary-color) text-black"
+      className="w-full px-6 py-16 md:p-20 md:py-32 flex flex-col justify-center items-start bg-(--primary-color) text-black"
     >
       <h2 className="text-3xl md:text-5xl font-bold mb-4 font-orbitron w-full text-left">
         {heading}
       </h2>
-  
+
       <p className="text-base md:text-lg mb-8 md:mb-16 max-w-3xl">
         {byline}
       </p>
 
-    
+
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-12 w-full justify-between items-start">
         {speakers.map((speaker) => (
           <div
             key={speaker.id}
-            className="flex flex-col items-start justify-start gap-6 w-full max-w-[395px] h-[588px]"
+            className="flex flex-col items-start justify-start gap-6 w-full max-w-[395px]"
           >
-            
-            <Image
-              src={speaker.photo.src}
-              alt={speaker.photo.alt}
-              width={speaker.photo.width}
-              height={speaker.photo.height}
-              className="w-[395px] h-[395px] object-cover rounded-[18px]"
-            />
-            
-            <div className="flex flex-col gap-3 w-full max-w-[395px]">
+
+            <div className="w-full aspect-square relative rounded-[18px] overflow-hidden">
+              <Image
+                src={speaker.photo.src}
+                alt={speaker.photo.alt}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="flex flex-col gap-3 w-full">
               <div className="flex flex-col gap-1">
                 <h3 className="text-2xl font-bold">{speaker.name}</h3>
                 <p className="text-base text-gray-900">{speaker.position}</p>
@@ -42,7 +43,7 @@ export default function SpeakerSection() {
                 {speaker.bio}
               </div>
             </div>
-            
+
             <div className="flex flex-row gap-4 items-center justify-start mt-2">
               {speaker.social.map((link) => (
                 <Link
@@ -59,7 +60,7 @@ export default function SpeakerSection() {
         ))}
       </div>
 
-    
+
       <div className="flex flex-row items-center justify-center w-full mt-12 md:mt-24">
         <button className="button-secondary text-black! border-black!">
           <StarIcon className="h-6 w-6 mr-2 text-black" />

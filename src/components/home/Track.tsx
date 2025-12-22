@@ -12,17 +12,13 @@ const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: 
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className="relative flex flex-col items-start cursor-pointer transition-transform duration-300"
       style={{
-        position: "relative",
-        width: "405.33px",
-        height: "410px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        cursor: "pointer",
-        transition: "transform 0.3s ease",
+        width: "100%",
+        maxWidth: "405px",
+        minHeight: "410px",
         transform: isHovered ? "scale(1.03)" : "scale(1)",
-        background: "transparent", // Explicitly ensure no bg color change on container
+        background: "transparent",
       }}>
       {/* Ellipse 190 */}
       <div style={{
@@ -39,57 +35,44 @@ const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: 
       }} />
 
       {/* Image */}
-      <div style={{
-        position: "relative",
-        zIndex: 1,
-        width: "405px",
-        height: "240px",
-        borderRadius: "8px",
-        borderImageSource: "linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%)",
-        borderImageSlice: 1,
-        // Using background origin trick for reliable rendering
-        background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%) border-box",
-        border: "1px solid transparent",
-        overflow: "hidden"
-      }}>
+      <div
+        className="relative z-10 w-full rounded-lg overflow-hidden border border-transparent"
+        style={{
+          height: "240px",
+          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%) border-box",
+        }}>
         <Image
           src={imageSrc}
           alt={title}
           width={405}
           height={240}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* Heading */}
-      <h3 style={{
-        position: "relative",
-        zIndex: 1,
-        marginTop: "32px",
-        width: "365.33px",
-        fontFamily: "var(--font-roboto), sans-serif",
-        fontWeight: 700,
-        fontSize: "24px",
-        lineHeight: "140%",
-        color: "#EAF0BD",
-        margin: "32px 0 0 0"
-      }}>
+      <h3
+        className="relative z-10 w-full mt-8"
+        style={{
+          fontFamily: "var(--font-roboto), sans-serif",
+          fontWeight: 700,
+          fontSize: "24px",
+          lineHeight: "140%",
+          color: "#EAF0BD",
+        }}>
         {title}
       </h3>
 
       {/* Subtext */}
-      <p style={{
-        position: "relative",
-        zIndex: 1,
-        marginTop: "16px",
-        width: "365.33px",
-        fontFamily: "var(--font-roboto), sans-serif",
-        fontWeight: 400,
-        fontSize: "16px",
-        lineHeight: "150%",
-        color: "#EAF0BD",
-        margin: "16px 0 0 0"
-      }}>
+      <p
+        className="relative z-10 w-full mt-4"
+        style={{
+          fontFamily: "var(--font-roboto), sans-serif",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "150%",
+          color: "#EAF0BD",
+        }}>
         {description}
       </p>
     </div>
@@ -146,7 +129,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
     <h2 style={{
       fontFamily: "var(--font-orbitron), sans-serif",
       fontWeight: 700,
-      fontSize: "48px",
+      fontSize: "clamp(32px, 5vw, 48px)",
       lineHeight: "120%",
       color: "#EAF0BD",
       margin: 0,
@@ -161,49 +144,23 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
   return (
     <section
       id="choose-your-track"
-      style={{
-        width: "100%",
-        backgroundColor: "#181818", // Explicitly set background color here
-        display: "flex",
-        justifyContent: "center",
-        padding: "112px 64px 112px 64px",
-        boxSizing: "border-box"
-      }}>
-      <div style={{
-        width: "100%",
-        maxWidth: "1440px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "80px"
-      }}>
+      className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16 box-border"
+    >
+      <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
         {/* Header */}
-        <div style={{
-          width: "100%",
-          maxWidth: "1312px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: alignment, // Dynamic alignment
-          gap: "24px" // Increased gap as requested
-        }}>
+        <div
+          className="w-full max-w-[1312px] flex flex-col gap-6"
+          style={{ alignItems: alignment }}
+        >
           {heading ? heading : defaultHeading}
 
-          {/* Render byline if it's provided or if we fall back to default when heading wasn't provided either? 
-              Actually, the user might provide heading but empty byline. 
-              The Workshop page passes `byline=""` so we should respect empty string.
-              If `byline` prop is passed (even empty), use it. If undefined, use default.
-          */}
           {(byline !== undefined) ? (
             byline && <p style={{
               fontFamily: "var(--font-roboto), sans-serif",
               fontWeight: 400,
-              fontSize: "18px",
+              fontSize: "clamp(16px, 2vw, 18px)",
               lineHeight: "150%",
               color: "#EAF0BD",
-              marginTop: "0px",
-              marginBottom: "0px",
-              marginLeft: "0px",
-              marginRight: "0px",
               textAlign: textAlign as any
             }}>
               {byline}
@@ -212,13 +169,9 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
             <p style={{
               fontFamily: "var(--font-roboto), sans-serif",
               fontWeight: 400,
-              fontSize: "18px",
+              fontSize: "clamp(16px, 2vw, 18px)",
               lineHeight: "150%",
               color: "#EAF0BD",
-              marginTop: "0px",
-              marginBottom: "0px",
-              marginLeft: "0px",
-              marginRight: "0px",
               textAlign: textAlign as any
             }}>
               {defaultByline}
@@ -227,16 +180,9 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
 
         </div>
 
-        {/* Cards Container - Row 1 */}
-        <div style={{
-          width: "1312px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "48px"
-        }}>
-          {cardData.slice(0, 3).map((card, i) => (
+        {/* Cards Container - Grid Layout */}
+        <div className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+          {cardData.map((card, i) => (
             <TrackCard
               key={i}
               imageSrc={card.img}
@@ -246,45 +192,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
           ))}
         </div>
 
-        {/* Cards Container - Row 2 */}
-        <div style={{
-          width: "1312px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "48px"
-        }}>
-          {cardData.slice(3, 6).map((card, i) => (
-            <TrackCard
-              key={i + 3}
-              imageSrc={card.img}
-              title={card.title}
-              description={card.desc}
-            />
-          ))}
-        </div>
-
         {/* Buttons Section */}
-        <div style={{
-          display: "flex",
-          gap: "24px",
-          marginTop: "0",
-          justifyContent: "center" // Centered buttons
-        }}>
+        <div className="flex flex-col md:flex-row gap-6 mt-0 w-full justify-center items-center">
           {/* Button 1: Apply Now */}
-          <button style={{
-            width: "181px",
-            height: "54px",
-            background: "#D7F601",
-            border: "1px solid #D7F601",
-            borderRadius: "4px 20px 4px 4px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px",
-            cursor: "pointer"
-          }}>
+          <button
+            className="group w-full md:w-[181px] h-[54px] bg-[#D7F601] border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
+          >
             <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
             <span style={{
               fontFamily: "var(--font-orbitron), sans-serif",
@@ -299,18 +212,9 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
           </button>
 
           {/* Button 2: Download Curriculum */}
-          <button style={{
-            width: "363px",
-            height: "54px",
-            background: "transparent",
-            border: "1px solid #D7F601",
-            borderRadius: "4px 20px 4px 4px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px",
-            cursor: "pointer"
-          }}>
+          <button
+            className="group w-full md:w-[363px] h-[54px] bg-transparent border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:bg-[#D7F601]/10 transition-colors"
+          >
             <StarIcon style={{ width: "28px", height: "30px", color: "#D7F601" }} />
             <span style={{
               fontFamily: "var(--font-orbitron), sans-serif",
