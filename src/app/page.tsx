@@ -2,13 +2,16 @@ import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import AboutSection from "@/components/home/AboutSection";
 import AdvantagesSection from "@/components/home/AdvantagesSection";
+import WorkSimulationSection from "@/components/home/WorkSimulationSection";
+import OperatingSystemSection from "@/components/home/OperatingSystemSection";
 import CampusAmbassador from "@/components/home/Ambassador";
 import BoardMembers from "@/components/home/BoardMembers";
-import Gallery from "@/components/home/Gallery";
 import HeroSection from "@/components/home/HeroSection";
 import LearningJourney from "@/components/home/LearningJourney";
 import Track from "@/components/home/Track";
 import WorkShop from "@/components/home/WorkShop";
+import InsideTheResidency from "@/components/home/InsideTheResidency";
+import FAQSection from "@/components/home/faq/FAQSection";
 
 export default function Home() {
   return (
@@ -17,12 +20,15 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <AdvantagesSection />
+      <WorkSimulationSection />
       <LearningJourney />
+      <OperatingSystemSection />
       <WorkShop />
       <Track />
       <CampusAmbassador />
       <BoardMembers />
-      <Gallery />
+      <InsideTheResidency />
+      <FAQSection />
       <Footer />
     </>
   );

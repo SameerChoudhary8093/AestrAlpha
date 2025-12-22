@@ -4,7 +4,7 @@ import AboutSection from "@/components/home/AboutSection";
 import AdvantagesSection from "@/components/home/AdvantagesSection";
 import CampusAmbassador from "@/components/home/Ambassador";
 import BoardMembers from "@/components/home/BoardMembers";
-import Gallery from "@/components/home/Gallery";
+import InsideTheResidency from "@/components/home/InsideTheResidency";
 import TicketHeroSection from "@/components/ticket/TicketHeroSection";
 import LearningJourney from "@/components/home/LearningJourney";
 import SpeakerSection from "@/components/home/SpeakerSection";
@@ -27,11 +27,11 @@ export default function Home() {
         byline=""
         alignDesktop="start"
       />
-      <SpeakerSection /> 
+      <SpeakerSection />
       <WorkShop
         heading={
           <>
-           WORKSHOP HIGHLIGHT
+            WORKSHOP HIGHLIGHT
           </>
         }
         description={`Dive deeper into the Aestr Alpha experience with premium sessions, networking, and exclusive content curated for attendees who want to go further.`}
@@ -43,9 +43,10 @@ export default function Home() {
       />
       <Agenda />
       <CampusAmbassador />
-      <Gallery backgroundColor="bg-[#5b1dd6]" />
-      
+      <InsideTheResidency />
+
       <Footer />
     </>
   );
 }
+

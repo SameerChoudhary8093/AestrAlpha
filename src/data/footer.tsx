@@ -24,7 +24,7 @@ export const FooterContact: FooterContactDetails = {
 };
 
 export const SocialMediaLinks: SocialMediaLink[] = [
- 
+
   {
     platform: "Instagram",
     icon: <InstagramIcon className="h-8 w-auto" />,
@@ -47,4 +47,4 @@ export const LegalLinks: LegalLink[] = [
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
-export const LegalText: string = `© ${new Date().getFullYear()} Aestr Alpha. All rights reserved.`;
+export const LegalText: string = `© ${new Date().getFullYear()} Aestr Alpha All right reserved.`;

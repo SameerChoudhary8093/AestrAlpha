@@ -1,38 +1,121 @@
+"use client";
+
 import { heading, byline, advantages } from "@/data/advantages";
-import DoubleStarIcon from "../icons/DoubleStar";
+import { useState } from "react";
+
+const AdvantageCard = ({ title, description }: { title: string, description: string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`flex flex-col cursor-pointer transition-transform duration-300 ${isHovered ? 'scale-105' : 'scale-100'}`}
+      style={{
+        width: "405.33px"
+      }}
+    >
+      <h3
+        style={{
+          fontFamily: "var(--font-roboto), sans-serif",
+          fontWeight: 700,
+          fontSize: "24px",
+          lineHeight: "140%",
+          color: "#1C1825",
+          margin: 0
+        }}
+      >
+        {title}
+      </h3>
+      <p
+        style={{
+          marginTop: "16px",
+          fontFamily: "var(--font-roboto), sans-serif",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "150%",
+          color: "#1C1825",
+          margin: "16px 0 0 0"
+        }}
+      >
+        {description}
+      </p>
+    </div>
+  );
+};
 
 export default function AdvantagesSection() {
   return (
-    <section className="w-full overflow-x-hidden flex flex-col items-center justify-center text-black gap-6 p-6 py-16 md:p-8 md:py-32 bg-(--primary-color)">
-      
-      
-      <div className="font-orbitron font-bold text-3xl md:text-5xl w-full flex flex-row items-center justify-center">
-        
-      
-        <div className="w-full md:w-[70%] lg:w-[35%] text-center leading-tight">
+    <section
+      style={{
+        width: "100%",
+        // height: "561px", // Removed fixed height to allow scaling content without cutoff if needed
+        minHeight: "561px",
+        background: "#D7F601",
+        margin: "112px auto 0",
+        paddingTop: "112px",
+        paddingRight: "64px",
+        paddingBottom: "112px",
+        paddingLeft: "64px",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      }}
+    >
+      {/* Header Section */}
+      <div
+        style={{
+          width: "1312px",
+          // height: "159px", 
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          alignItems: "center"
+        }}
+      >
+        <h2
+          style={{
+            width: "516px",
+            fontFamily: "var(--font-orbitron), sans-serif",
+            fontWeight: 700,
+            fontSize: "48px",
+            lineHeight: "120%",
+            textAlign: "center",
+            color: "#1C1825",
+            margin: 0
+          }}
+        >
           {heading}
-        </div>
+        </h2>
+        <p
+          style={{
+            width: "1312px",
+            fontFamily: "Arial, sans-serif",
+            fontWeight: 400,
+            fontSize: "18px",
+            lineHeight: "150%",
+            textAlign: "center",
+            color: "#1C1825",
+            margin: 0
+          }}
+        >
+          {byline}
+        </p>
       </div>
 
-      <div className="text-base md:text-lg text-center max-w-2xl px-4">
-        {byline}
-      </div>
-
-      <div className="flex flex-col lg:flex-row items-start mt-10 w-full justify-between gap-10 lg:gap-4 p-0 md:p-4">
+      {/* Columns Section */}
+      <div
+        style={{
+          width: "1312px",
+          marginTop: "80px",
+          display: "flex",
+          flexDirection: "row",
+          gap: "48px"
+        }}
+      >
         {advantages.map((advantage, index) => (
-          <div
-            key={index}
-         
-            className="flex flex-row items-start gap-3 justify-start lg:justify-center w-full lg:w-1/3"
-          >
-            <DoubleStarIcon className="h-10 w-auto md:h-12 shrink-0 text-(--accent-color)" />
-            <div className="flex flex-col justify-center items-start text-left">
-              <p className="font-bold text-xl md:text-2xl">{advantage.title}</p>
-              <p className="mt-2 text-left text-sm md:text-base leading-relaxed">
-                {advantage.description}
-              </p>
-            </div>
-          </div>
+          <AdvantageCard key={index} title={advantage.title} description={advantage.description} />
         ))}
       </div>
     </section>

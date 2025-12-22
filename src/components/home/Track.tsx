@@ -1,69 +1,290 @@
-import {
-  heading as defaultHeading,
-  byline as defaultByline,
-  tracks,
-} from "@/data/track";
-import Image from "next/image";
-import { ReactNode } from "react";
+"use client";
 
-type TrackProps = {
-  heading?: ReactNode;
-  byline?: ReactNode;
-  alignDesktop?: "center" | "start";
+import React, { useState } from 'react';
+import Image from "next/image";
+import StarIcon from "@/components/icons/Star";
+
+// Card Component
+const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: string, description: string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        position: "relative",
+        width: "405.33px",
+        height: "410px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        cursor: "pointer",
+        transition: "transform 0.3s ease",
+        transform: isHovered ? "scale(1.03)" : "scale(1)",
+        background: "transparent", // Explicitly ensure no bg color change on container
+      }}>
+      {/* Ellipse 190 */}
+      <div style={{
+        position: "absolute",
+        width: "286px",
+        height: "286px",
+        left: "11px",
+        top: "-95.24px",
+        background: "#D7F601",
+        filter: "blur(244px)",
+        borderRadius: "50%",
+        pointerEvents: "none",
+        zIndex: 0
+      }} />
+
+      {/* Image */}
+      <div style={{
+        position: "relative",
+        zIndex: 1,
+        width: "405px",
+        height: "240px",
+        borderRadius: "8px",
+        borderImageSource: "linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%)",
+        borderImageSlice: 1,
+        // Using background origin trick for reliable rendering
+        background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%) border-box",
+        border: "1px solid transparent",
+        overflow: "hidden"
+      }}>
+        <Image
+          src={imageSrc}
+          alt={title}
+          width={405}
+          height={240}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </div>
+
+      {/* Heading */}
+      <h3 style={{
+        position: "relative",
+        zIndex: 1,
+        marginTop: "32px",
+        width: "365.33px",
+        fontFamily: "var(--font-roboto), sans-serif",
+        fontWeight: 700,
+        fontSize: "24px",
+        lineHeight: "140%",
+        color: "#EAF0BD",
+        margin: "32px 0 0 0"
+      }}>
+        {title}
+      </h3>
+
+      {/* Subtext */}
+      <p style={{
+        position: "relative",
+        zIndex: 1,
+        marginTop: "16px",
+        width: "365.33px",
+        fontFamily: "var(--font-roboto), sans-serif",
+        fontWeight: 400,
+        fontSize: "16px",
+        lineHeight: "150%",
+        color: "#EAF0BD",
+        margin: "16px 0 0 0"
+      }}>
+        {description}
+      </p>
+    </div>
+  );
 };
 
-export default function Track({
-  heading = defaultHeading,
-  byline = defaultByline,
-  alignDesktop = "center",
-}: TrackProps) {
-  const headingAlignmentClass =
-    alignDesktop === "center"
-      ? "md:items-end md:justify-center"
-      : "md:items-start md:justify-start";
+export default function Track() {
+  // Exact data from the uploaded image
+  const cardData = [
+    {
+      title: "Salesforce Ecosystem Residency",
+      desc: "Enterprise CRM + Agentforce layer • Consulting & platform roles",
+      img: "/ChooseYourTrack/image-1.svg"
+    },
+    {
+      title: "AI Infrastructure & Cloud Native Residency",
+      desc: "Cloud + Kubernetes + LLMOps • Infra, SRE, platform roles",
+      img: "/ChooseYourTrack/image-2.svg"
+    },
+    {
+      title: "Enterprise Data Platform Residency",
+      desc: "Modern data stack + vector pipelines • Data engineering & AI data roles",
+      img: "/ChooseYourTrack/image-3.svg"
+    },
+    // Row 2
+    {
+      title: "ServiceNow Architect Residency",
+      desc: "Workflow systems + enterprise automation • ITSM + platform roles",
+      img: "/ChooseYourTrack/image-4.svg"
+    },
+    {
+      title: "Modern Enterprise Backend Residency (Java)",
+      desc: "Spring Boot + microservices + scale • BFSI & backend roles",
+      img: "/ChooseYourTrack/image-5.svg"
+    },
+    {
+      title: "Apple Ecosystem Residency (iOS)",
+      desc: "Native Swift + Apple lab ecosystem • Premium mobile roles",
+      img: "/ChooseYourTrack/image-6.svg"
+    }
+  ];
 
   return (
     <section
-      className="w-full p-6 md:p-8 flex flex-col gap-8 md:gap-4 items-start justify-center"
-      id="track"
-    >
-     
-      <div
-        className={`flex flex-col md:flex-row gap-2 md:gap-4 items-start justify-start text-(--secondary-color) mb-8 md:mb-12 w-full ${headingAlignmentClass}`}
-      >
-       
-        <div className="font-orbitron text-3xl md:text-5xl font-bold">
-          {heading}
+      id="choose-your-track"
+      style={{
+        width: "100%",
+        backgroundColor: "#181818", // Explicitly set background color here
+        display: "flex",
+        justifyContent: "center",
+        padding: "112px 64px 112px 64px",
+        boxSizing: "border-box"
+      }}>
+      <div style={{
+        width: "100%",
+        maxWidth: "1440px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "80px"
+      }}>
+        {/* Header */}
+        <div style={{
+          width: "100%",
+          maxWidth: "1312px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start", // Left align text as per image
+          gap: "24px" // Increased gap as requested
+        }}>
+          <h2 style={{
+            fontFamily: "var(--font-orbitron), sans-serif",
+            fontWeight: 700,
+            fontSize: "48px",
+            lineHeight: "120%",
+            color: "#EAF0BD",
+            margin: 0,
+            textAlign: "left"
+          }}>
+            Choose Your Track
+          </h2>
+          <p style={{
+            fontFamily: "var(--font-roboto), sans-serif",
+            fontWeight: 400,
+            fontSize: "18px",
+            lineHeight: "150%",
+            color: "#EAF0BD",
+            marginTop: "0px",
+            marginBottom: "0px",
+            marginLeft: "0px",
+            marginRight: "0px",
+            textAlign: "left"
+          }}>
+            (Or explore multiple, based on your clarity.)
+          </p>
         </div>
-        
-        <div className="text-base md:text-lg opacity-90 pb-1">{byline}</div>
-      </div>
 
-    
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch justify-center mb-16 md:mb-32 w-full">
-        {tracks.map((track) => (
-          <div
-            key={track.id}
-           
-            className="flex flex-col gap-4 items-start justify-start p-6 text-(--secondary-color) h-full border border-transparent hover:border-(--secondary-color)/20 rounded-xl transition-colors"
-          >
-            <Image
-              src={track.image.src}
-              alt={track.image.alt}
-              height={track.image.height}
-              width={track.image.width}
-             
-              className="object-cover w-full h-auto rounded-lg aspect-video"
+        {/* Cards Container - Row 1 */}
+        <div style={{
+          width: "1312px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "48px"
+        }}>
+          {cardData.slice(0, 3).map((card, i) => (
+            <TrackCard
+              key={i}
+              imageSrc={card.img}
+              title={card.title}
+              description={card.desc}
             />
-            <div className="text-xl md:text-2xl font-bold mt-2">{track.title}</div>
-            <div className="text-sm md:text-base leading-relaxed opacity-90">
-              {track.description}
-            </div>
-            
-           
-           
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Cards Container - Row 2 */}
+        <div style={{
+          width: "1312px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "48px"
+        }}>
+          {cardData.slice(3, 6).map((card, i) => (
+            <TrackCard
+              key={i + 3}
+              imageSrc={card.img}
+              title={card.title}
+              description={card.desc}
+            />
+          ))}
+        </div>
+
+        {/* Buttons Section */}
+        <div style={{
+          display: "flex",
+          gap: "24px",
+          marginTop: "0",
+          justifyContent: "center" // Centered buttons
+        }}>
+          {/* Button 1: Apply Now */}
+          <button style={{
+            width: "181px",
+            height: "54px",
+            background: "#D7F601",
+            border: "1px solid #D7F601",
+            borderRadius: "4px 20px 4px 4px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            cursor: "pointer"
+          }}>
+            <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
+            <span style={{
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 900,
+              fontSize: "16px",
+              lineHeight: "150%",
+              color: "#181818",
+              whiteSpace: "nowrap"
+            }}>
+              Apply Now
+            </span>
+          </button>
+
+          {/* Button 2: Download Curriculum */}
+          <button style={{
+            width: "363px",
+            height: "54px",
+            background: "transparent",
+            border: "1px solid #D7F601",
+            borderRadius: "4px 20px 4px 4px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            cursor: "pointer"
+          }}>
+            <StarIcon style={{ width: "28px", height: "30px", color: "#D7F601" }} />
+            <span style={{
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 900,
+              fontSize: "16px",
+              lineHeight: "150%",
+              color: "#D7F601",
+              whiteSpace: "nowrap"
+            }}>
+              Download complete curriculum
+            </span>
+          </button>
+        </div>
+
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { Orbitron, Roboto } from "next/font/google";
 import "./globals.css";
 
 const orbitron = Orbitron({
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "500", "700", "800", "900"],
   variable: "--font-orbitron",
   subsets: ["latin"],
 });
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable} ${orbitron.variable} antialiased`}>
         {children}
       </body>

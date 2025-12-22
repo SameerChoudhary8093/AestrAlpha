@@ -1,66 +1,143 @@
-import { heading, timeline } from "@/data/learning";
+import React from 'react';
 import Image from "next/image";
-import DoubleStarIcon from "@/components/icons/DoubleStar";
 
 export default function LearningJourney() {
   return (
-    <section 
-      
-      className="flex flex-col lg:flex-row justify-center items-start py-16 lg:py-32 gap-12 lg:gap-8 px-6 lg:px-0"
+    <section
+      style={{
+        width: "100%",
+        background: "#D7F601",
+        display: "flex",
+        justifyContent: "center"
+      }}
     >
-      
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1440px",
+          padding: "112px 64px",
+          boxSizing: "border-box",
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "80px"
+        }}
+      >
+        {/* Left Section: width 616 */}
+        <div style={{ width: "616px", display: "flex", flexDirection: "column" }}>
+          {/* Subheader: Your 6-Month Experience */}
+          <div
+            style={{
+              width: "182px",
+              height: "24px",
+              fontFamily: "var(--font-roboto), sans-serif",
+              fontWeight: 600,
+              fontSize: "16px",
+              lineHeight: "150%",
+              color: "#181818",
+              marginBottom: "16px"
+            }}
+          >
+            Your 6-Month Experience
+          </div>
 
-      <div className="flex flex-col justify-start items-center lg:items-start h-full gap-8 lg:gap-12 w-full lg:w-1/2 px-0 lg:px-8">
-        
-       
-        <p className="w-auto font-sans font-semibold text-base leading-6 tracking-[0%] text-[#EAF0BD] text-center lg:text-left ">
-          Your Story
-        </p>
+          {/* Heading: Your Learning Journey... */}
+          <h2
+            style={{
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 700,
+              fontSize: "48px",
+              lineHeight: "120%",
+              color: "#181818",
+              margin: "0 0 80px 0"
+            }}
+          >
+            Your Learning Journey Inside Aestr Alpha
+          </h2>
 
-        <div className="font-orbitron text-(--secondary-color) text-3xl md:text-5xl font-bold leading-tight text-center lg:text-left whitespace-pre-line">
-          {heading}
+          {/* Image */}
+          <div
+            style={{
+              width: "616px",
+              height: "579px",
+              borderRadius: "8px",
+              background: "transparent",
+              overflow: "hidden"
+            }}
+          >
+            <Image
+              src="/home/LearningJourney.svg"
+              alt="Learning Journey"
+              width={616}
+              height={579}
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
-        
-        <Image
-          src={"/home/AestrLogo.png"}
-          alt="Aestr Logo"
-          width={616}
-          height={579}
-          
-          className="w-full max-w-[616px] lg:w-[616px] h-auto lg:h-[579px] object-contain"
-        />
-      </div>
 
-      
-      <div className="flex flex-col w-full lg:w-1/2 h-full items-start justify-center pl-0 lg:pl-12">
-        {timeline.map((item, index) => {
-          const isLast = index === timeline.length - 1;
-
-          return (
-            <div
-              key={index}
-              className="flex flex-row items-stretch justify-start gap-4 w-full"
-            >
-              
-              <div className="flex flex-col items-center justify-start shrink-0 w-12 md:w-16">
-                <DoubleStarIcon className="h-8 w-auto md:h-12 text-(--primary-color) mb-2" />
-                {!isLast && (
-                  <div className="bg-(--primary-color) w-px grow rounded-full mb-2"></div>
-                )}
-              </div>
-
-          
-              <div className="flex flex-col items-start justify-start text-(--secondary-color) pb-8 gap-2 md:gap-3">
-                <p className="font-semibold text-sm md:text-base opacity-90">{item.time}</p>
-                
-                <p className="font-bold text-xl md:text-3xl">{item.title}</p>
-                
-                
-                <p className="text-base md:text-lg leading-relaxed">{item.description}</p>
-              </div>
+        {/* Right Section: width 616, gap 90px between items */}
+        <div
+          style={{
+            width: "616px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "90px"
+          }}
+        >
+          {/* Item 1 */}
+          <div style={{ width: "616px", display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "40px" }}>
+            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} style={{ flexShrink: 0 }} />
+            <div style={{ width: "518.47px" }}>
+              <h3 style={{ fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: "130%", color: "#181818", margin: 0 }}>
+                Office hours, not classroom hours
+              </h3>
+              <p style={{ marginTop: "10px", fontFamily: "Arial, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "150%", color: "#181818", margin: "10px 0 0 0" }}>
+                9:00 AM – 12:00 PM: Concepts (“Download”)<br />
+                1:00 PM – 6:00 PM: Build (“Work Simulation”)<br />
+                You’ll use Slack/Discord, Jira/Trello, Git — and operate in sprints
+              </p>
             </div>
-          );
-        })}
+          </div>
+
+          {/* Item 2 */}
+          <div style={{ width: "616px", display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "40px" }}>
+            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} style={{ flexShrink: 0 }} />
+            <div style={{ width: "518.47px" }}>
+              <h3 style={{ fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: "130%", color: "#181818", margin: 0 }}>
+                Hands-on guided One massive product. One team.
+              </h3>
+              <p style={{ marginTop: "10px", fontFamily: "Arial, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "150%", color: "#181818", margin: "10px 0 0 0" }}>
+                The entire cohort collaborates on a single large build to learn how real cross-functional teams ship. Developers, data, and product workflows operate together. & mentor sessions.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 3 */}
+          <div style={{ width: "616px", display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "40px" }}>
+            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} style={{ flexShrink: 0 }} />
+            <div style={{ width: "518.47px" }}>
+              <h3 style={{ fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: "130%", color: "#181818", margin: 0 }}>
+                Real client outcomes
+              </h3>
+              <p style={{ marginTop: "10px", fontFamily: "Arial, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "150%", color: "#181818", margin: "10px 0 0 0" }}>
+                Residents work with partner startups/SMEs to build real deliverables — with real feedback, documentation, and professional artifacts (LOR + live work links).
+              </p>
+            </div>
+          </div>
+
+          {/* Item 4 */}
+          <div style={{ width: "616px", display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "40px" }}>
+            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} style={{ flexShrink: 0 }} />
+            <div style={{ width: "518.47px" }}>
+              <h3 style={{ fontFamily: "Arial, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: "130%", color: "#181818", margin: 0 }}>
+                Portfolio + Career Prep
+              </h3>
+              <p style={{ marginTop: "10px", fontFamily: "Arial, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "150%", color: "#181818", margin: "10px 0 0 0" }}>
+                LinkedIn, Resume, Interviews, Portfolio review.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

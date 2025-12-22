@@ -3,10 +3,10 @@ import { Feature } from "@/types/data/about.types";
 export const headline: string =
   "Designed for Today. Relevant for Tomorrow. Built with the Industry.";
 
-export const heading: string = "WHAT IS AESTR ALPHA ?";
+export const heading: string = "We don’t teach subjects We simulate a workplace.";
 
 export const description: string =
-  "Aestr Alpha is a new-age, cohort-based learning experience where students don’t just attend classes — they learn by doing. Over 6 months, you work on real projects, learn directly from industry mentors, and build a portfolio that actually reflects what you can do.";
+  "Aestr Alpha is built like a modern Tech Ashram — structured, immersive, and designed for deep transformation.You check in, lock in, and spend six months building real systems with real accountability.";
 
 export const features: Feature[] = [
   {

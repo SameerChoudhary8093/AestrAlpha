@@ -1,8 +1,10 @@
-export const homeHeading: string[] = ["The", "New", "Age Cohort"];
+export const homeHeading: string[] = ["India’s", "First", "Career-Focused Tech Ashram."];
 export const homeTagLine: string =
-  "for Real Industry, Real Skills, Real Growth";
+  "";
 export const homeDescription: string =
-  "A 6-month immersive learning journey built with industry experts — where you learn real skills, work on real projects, and grow with a community that pushes you forward.";
+  "Aestr Alpha is a month Career Residency. We bridge the gap between a university degree and Day-1 at a top tech company. At Aestr Alpha, you dont 'attend classes' - you operate: stand-ups, tickets, reviews, shipping real work ";
 
-export const primaryButtonText: string = "Join The Experience ";
-export const secondaryButtonText: string = "Download Program Brochure";
+export const primaryButtonText: string = "Apply for the Residency ";
+export const secondaryButtonText: string = "Download Brochure";
+
+
