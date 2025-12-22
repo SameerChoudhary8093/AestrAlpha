@@ -3,7 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import StarIcon from "@/components/icons/Star";
 
-export default function WorkShop() {
+interface WorkShopProps {
+  heading?: React.ReactNode;
+  description?: string;
+  date?: React.ReactNode;
+}
+
+export default function WorkShop({ heading, description, date }: WorkShopProps) {
+  const defaultHeading = (
+    <h2
+      style={{
+        fontFamily: "var(--font-orbitron), sans-serif",
+        fontWeight: 700, // Bold
+        fontSize: "50px",
+        lineHeight: "120%",
+        textAlign: "center",
+        color: "#181818",
+        margin: 0
+      }}
+    >
+      What You Graduate With
+    </h2>
+  );
+
+  const defaultDescription = `If you’re looking for shortcuts, this isn’t it.\nIf you’re ready to build real skills, real systems, and real proof — apply for the residency.`;
+
   return (
     <section
       style={{
@@ -35,19 +59,8 @@ export default function WorkShop() {
             gap: "24px"
           }}
         >
-          <h2
-            style={{
-              fontFamily: "var(--font-orbitron), sans-serif",
-              fontWeight: 700, // Bold
-              fontSize: "50px",
-              lineHeight: "120%",
-              textAlign: "center",
-              color: "#181818",
-              margin: 0
-            }}
-          >
-            What You Graduate With
-          </h2>
+          {heading ? heading : defaultHeading}
+
           <p
             style={{
               fontFamily: "var(--font-roboto), sans-serif",
@@ -60,9 +73,24 @@ export default function WorkShop() {
               whiteSpace: "pre-line"
             }}
           >
-            If you’re looking for shortcuts, this isn’t it.{'\n'}
-            If you’re ready to build real skills, real systems, and real proof — apply for the residency.
+            {description ? description : defaultDescription}
           </p>
+
+          {date && (
+            <div
+              style={{
+                fontFamily: "var(--font-roboto), sans-serif",
+                fontWeight: 700,
+                fontSize: "18px",
+                lineHeight: "150%",
+                textAlign: "center",
+                color: "#181818",
+                marginTop: "0px"
+              }}
+            >
+              {date}
+            </div>
+          )}
         </div>
 
         {/* Main Content Area */}
