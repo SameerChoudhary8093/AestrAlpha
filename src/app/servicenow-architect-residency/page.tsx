@@ -131,17 +131,26 @@ const Hero = () => (
                         Master the Operating System of the Fortune 500 + The Future of Enterprise Automation.
                     </p>
 
-                    <p>
-                        The Most Valuable Skill No One Is Talking About.
-                        Build the "Digital Nervous System" for Global Enterprises.
-                    </p>
-                    <p>
-                        A 6-month immersive residency in Jaipur. Move from "Java/JS Basics" to "Enterprise Workflow Architect."
-                    </p>
-                    <p>
-                        No hype. No saturated markets. Just 6 months of mastering the platform that runs IT, HR, and Customer Service for 85% of the Fortune 500.
-                        lding a production-grade Super-Org that gets you hired by the Big 4.
-                    </p>
+                    <div
+                        className="font-normal text-[18px] leading-[150%] space-y-4"
+                        style={{
+                            fontFamily: 'Arial, sans-serif',
+                            color: '#FAFFD6',
+                            opacity: 1
+                        }}
+                    >
+                        <p>
+                            The Most Valuable Skill No One Is Talking About.
+                            Build the "Digital Nervous System" for Global Enterprises.
+                        </p>
+                        <p>
+                            A 6-month immersive residency in Jaipur. Move from "Java/JS Basics" to "Enterprise Workflow Architect."
+                        </p>
+                        <p>
+                            No hype. No saturated markets. Just 6 months of mastering the platform that runs IT, HR, and Customer Service for 85% of the Fortune 500.
+                            lding a production-grade Super-Org that gets you hired by the Big 4.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Button Section */}
@@ -267,116 +276,142 @@ const InfoCard = ({
     </div>
 );
 
-const WhyThisTrack = () => (
-    <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
-        <div
-            className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
-        >
-            {/* Left Column (Sticky/Fixed content) */}
-            <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
-                {/* Heading */}
-                <h2
-                    className="font-bold text-[48px] leading-[120%] text-[#000000]"
-                    style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                >
-                    Why This Track?
-                </h2>
+const WhyThisTrack = () => {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-                {/* Subtext */}
-                <p
-                    className="font-normal text-[18px] leading-[150%] text-[#000000]"
-                    style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                    {/* The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500. */}
-                </p>
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            const scrollContainer = scrollContainerRef.current;
+            if (scrollContainer) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+                if (scrollWidth <= clientWidth) return;
 
-                {/* Buttons */}
-                <div className="flex flex-col md:flex-row gap-6 mt-6">
-                    {/* Button 1 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+                if (isEnd) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
+            <div
+                className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
+            >
+                {/* Left Column (Sticky/Fixed content) */}
+                <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
+                    {/* Heading */}
+                    <h2
+                        className="font-bold text-[48px] leading-[120%] text-[#000000]"
+                        style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
+                        Why This Track?
+                    </h2>
 
-                    {/* Button 2 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '260px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                    {/* Subtext */}
+                    <p
+                        className="font-normal text-[18px] leading-[150%] text-[#000000]"
+                        style={{ fontFamily: 'Arial, sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                        {/* The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500. */}
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col md:flex-row gap-6 mt-6">
+                        {/* Button 1 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                width: '176px',
-                                height: '24px'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Talk to a Counselor
-                        </span>
-                    </button>
-                </div>
-            </div>
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
+                                style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
 
-            {/* Right Column (Scrollable Cards) */}
-            <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The 'Sleeper Hit' Career"
-                        text="While everyone fights for React/Node.js jobs, ServiceNow Developers are being headhunted with blank checks. There is a massive global shortage of talent for this specific platform."
-                    />
+                        {/* Button 2 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                            style={{
+                                width: '260px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
+                            }}
+                        >
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    width: '176px',
+                                    height: '24px'
+                                }}
+                            >
+                                Talk to a Counselor
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The 'Golden Handcuffs'"
-                        text="Once a company installs ServiceNow, they never leave. It is backbone of their operations. This offers a level of job security that pure coding roles cannot match."
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The AI Pivot"
-                        text="ServiceNow is leading the Enterprise AI race with 'Now Assist' and 'GenAI Controller.' They aren't just using AI to chat; they are using it to automate complex corporate workflows. You will be among the first in India to master this." />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title=""
-                        text={`• 1 Million+ New Jobs predicted in the ServiceNow Ecosystem by 2027.
+
+                {/* Right Column (Scrollable Cards) */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+                >
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The 'Sleeper Hit' Career"
+                            text="While everyone fights for React/Node.js jobs, ServiceNow Developers are being headhunted with blank checks. There is a massive global shortage of talent for this specific platform."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The 'Golden Handcuffs'"
+                            text="Once a company installs ServiceNow, they never leave. It is backbone of their operations. This offers a level of job security that pure coding roles cannot match."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The AI Pivot"
+                            text="ServiceNow is leading the Enterprise AI race with 'Now Assist' and 'GenAI Controller.' They aren't just using AI to chat; they are using it to automate complex corporate workflows. You will be among the first in India to master this." />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title=""
+                            text={`• 1 Million+ New Jobs predicted in the ServiceNow Ecosystem by 2027.
 ₹8L - ₹25L Salary Potential (The fastest path to ₹20L+ packages in Service-based MNCs).
 100% Corporate Criticality, 0% Volatility.`}
-                    />
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 const TimelineRow = ({
     phaseNumber,

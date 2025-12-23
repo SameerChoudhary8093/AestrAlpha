@@ -47,7 +47,9 @@ export default function WorkSimulationSection() {
                 {/* Section 2: Three Columns */}
                 <div className="w-full max-w-[1312px] flex flex-col md:flex-row justify-between gap-12 md:gap-8 lg:gap-12">
                     {/* Column 1 */}
-                    <div className="w-full md:flex-1 flex flex-col items-center gap-6">
+                    <div
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    >
                         <Image
                             src="/Wedon't-Teach/Vector1.svg"
                             alt="Projects Icon"
@@ -68,7 +70,9 @@ export default function WorkSimulationSection() {
                     </div>
 
                     {/* Column 2 */}
-                    <div className="w-full md:flex-1 flex flex-col items-center gap-6">
+                    <div
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    >
                         <Image src="/Wedon't-Teach/Vector2.svg" alt="Mentor Icon" width={82} height={77} />
                         <div className="text-center">
                             <h3 className="text-[#EAF0BD] font-bold text-2xl leading-[130%]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -81,7 +85,9 @@ export default function WorkSimulationSection() {
                     </div>
 
                     {/* Column 3 */}
-                    <div className="w-full md:flex-1 flex flex-col items-center gap-6">
+                    <div
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    >
                         <Image src="/Wedon't-Teach/Vector3.svg" alt="Outcomes Icon" width={82} height={80} />
                         <div className="text-center">
                             <h3 className="text-[#EAF0BD] font-bold text-2xl leading-[130%]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -93,6 +99,7 @@ export default function WorkSimulationSection() {
                         </div>
                     </div>
                 </div>
+
 
                 {/* Button Section */}
                 <button

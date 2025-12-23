@@ -526,117 +526,145 @@ const InfoCard = ({
     </div>
 );
 
-const WhyThisTrack = () => (
-    <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
-        <div
-            className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
-        >
-            {/* Left Column (Sticky/Fixed content) */}
-            <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
-                {/* Heading */}
-                <h2
-                    className="font-bold text-[48px] leading-[120%] text-[#000000]"
-                    style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                >
-                    Why This Track?
-                </h2>
+const WhyThisTrack = () => {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-                {/* Subtext */}
-                <p
-                    className="font-normal text-[18px] leading-[150%] text-[#000000]"
-                    style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                    Your gateway to the engine room of the internet. From keeping global apps alive to deploying the next generation of AI models, this track puts you in control.
-                </p>
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            const scrollContainer = scrollContainerRef.current;
+            if (scrollContainer) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+                // Auto-scroll loop logic: if at end, scroll back to 0, else scroll forward
+                // Check if content is scrollable (i.e. mobile state where scrollWidth > clientWidth)
+                if (scrollWidth <= clientWidth) return;
 
-                {/* Buttons */}
-                <div className="flex flex-col md:flex-row gap-6 mt-6">
-                    {/* Button 1 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+                if (isEnd) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
+            <div
+                className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
+            >
+                {/* Left Column (Sticky/Fixed content) */}
+                <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
+                    {/* Heading */}
+                    <h2
+                        className="font-bold text-[48px] leading-[120%] text-[#000000]"
+                        style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
+                        Why This Track?
+                    </h2>
 
-                    {/* Button 2 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '260px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                    {/* Subtext */}
+                    <p
+                        className="font-normal text-[18px] leading-[150%] text-[#000000]"
+                        style={{ fontFamily: 'Arial, sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                        Your gateway to the engine room of the internet. From keeping global apps alive to deploying the next generation of AI models, this track puts you in control.
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col md:flex-row gap-6 mt-6">
+                        {/* Button 1 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                width: '176px',
-                                height: '24px'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Talk to a Counselor
-                        </span>
-                    </button>
-                </div>
-            </div>
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
+                                style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
 
-            {/* Right Column (Scrollable Cards) */}
-            <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The 'Invisible Power' Career"
-                        text="When ChatGPT goes down, the world panics. The people who fix it aren't 'Prompt Engineers'—they are Cloud Architects. They are the plumbers of the digital age, and they are paid handsomely to keep the lights on."
-                    />
+                        {/* Button 2 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                            style={{
+                                width: '260px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
+                            }}
+                        >
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    width: '176px',
+                                    height: '24px'
+                                }}
+                            >
+                                Talk to a Counselor
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The $1 Million Mistake"
-                        text="One wrong configuration in the cloud can cost a company millions in minutes. Companies don't hire 'Juniors' for this; they hire people who have proven they can handle production. We give you that proof."
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The AI Pivot"
-                        text={`AI models are heavy. They eat RAM and GPU power. The industry is desperate for engineers who know LLMOps—how to host, scale, and manage these massive AI models on their own servers (AWS/Azure) without going bankrupt.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title=""
-                        text={`40% Annual Growth in Cloud & DevOps Jobs globally.
+
+                {/* Right Column (Scrollable Cards) */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+                >
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The 'Invisible Power' Career"
+                            text="When ChatGPT goes down, the world panics. The people who fix it aren't 'Prompt Engineers'—they are Cloud Architects. They are the plumbers of the digital age, and they are paid handsomely to keep the lights on."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The $1 Million Mistake"
+                            text="One wrong configuration in the cloud can cost a company millions in minutes. Companies don't hire 'Juniors' for this; they hire people who have proven they can handle production. We give you that proof."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The AI Pivot"
+                            text={`AI models are heavy. They eat RAM and GPU power. The industry is desperate for engineers who know LLMOps—how to host, scale, and manage these massive AI models on their own servers (AWS/Azure) without going bankrupt.`}
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title=""
+                            text={`40% Annual Growth in Cloud & DevOps Jobs globally.
 ₹8L - ₹20L Starting Salary Potential for Skilled Cloud/SRE Engineers.
 100% Hard Engineering, 0% Fluff.`}
-                    />
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 const PersonaCard = ({
     title,

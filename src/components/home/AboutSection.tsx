@@ -23,6 +23,15 @@ const StrictCard = ({ image, title, description, className = "" }: Feature & { c
         borderRadius: "8px",
         border: "1px solid transparent",
         background: "linear-gradient(180deg, #181818 55% 0%, #181818 55%) padding-box, linear-gradient(180deg, #D7F601 0%, rgba(255, 255, 255, 0.08) 100%) border-box",
+        transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.05)";
+        e.currentTarget.style.zIndex = "10";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.zIndex = "1";
       }}
     >
       <div
@@ -170,7 +179,7 @@ export default function AboutSection() {
         {/* Cards Container */}
         <div
           ref={scrollContainerRef}
-          className="w-full max-w-[1312px] flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 md:gap-8 justify-items-center xl:justify-items-start scrollbar-hide"
+          className="w-full max-w-[1312px] flex overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-6 p-4 md:py-8 md:px-2 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 md:gap-8 justify-items-center xl:justify-items-start scrollbar-hide"
         >
           {features.map((feature, index) => (
             <StrictCard

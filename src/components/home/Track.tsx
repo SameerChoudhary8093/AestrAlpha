@@ -174,7 +174,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
 
   return (
     <section
-      id="choose-your-track"
+      id="track"
       className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16 box-border"
     >
       <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">

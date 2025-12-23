@@ -273,121 +273,147 @@ const InfoCard = ({
     </div>
 );
 
-const WhyThisTrack = () => (
-    <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
-        <div
-            className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
-        >
-            {/* Left Column (Sticky/Fixed content) */}
-            <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
-                {/* Heading */}
-                <h2
-                    className="font-bold text-[48px] leading-[120%] text-[#000000]"
-                    style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                >
-                    Why This Track?
-                </h2>
+const WhyThisTrack = () => {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-                {/* Subtext */}
-                <p
-                    className="font-normal text-[18px] leading-[150%] text-[#000000]"
-                    style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                    The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500.
-                </p>
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            const scrollContainer = scrollContainerRef.current;
+            if (scrollContainer) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+                if (scrollWidth <= clientWidth) return;
 
-                {/* Buttons */}
-                <div className="flex flex-col md:flex-row gap-6 mt-6">
-                    {/* Button 1 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+                if (isEnd) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
+            <div
+                className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
+            >
+                {/* Left Column (Sticky/Fixed content) */}
+                <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
+                    {/* Heading */}
+                    <h2
+                        className="font-bold text-[48px] leading-[120%] text-[#000000]"
+                        style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
+                        Why This Track?
+                    </h2>
 
-                    {/* Button 2 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '260px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                    {/* Subtext */}
+                    <p
+                        className="font-normal text-[18px] leading-[150%] text-[#000000]"
+                        style={{ fontFamily: 'Arial, sans-serif' }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                        The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500.
+                    </p>
+
+                    {/* Buttons */}
+                    <div className="flex flex-col md:flex-row gap-6 mt-6">
+                        {/* Button 1 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                width: '176px',
-                                height: '24px'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Talk to a Counselor
-                        </span>
-                    </button>
-                </div>
-            </div>
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
+                                style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
 
-            {/* Right Column (Scrollable Cards) */}
-            <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="Recession-Proof"
-                        text="Companies might fire marketing teams, but they never turn off their CRM. It is the heartbeat of revenue."
-                    />
+                        {/* Button 2 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                            style={{
+                                width: '260px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
+                            }}
+                        >
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    width: '176px',
+                                    height: '24px'
+                                }}
+                            >
+                                Talk to a Counselor
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The AI Pivot"
-                        text="The industry is shifting. Traditional dev jobs are fading. The new demand is for 'AI Architects' who can deploy Agentforce and Einstein GPT. We teach you exactly that."
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="3.3 Million New Jobs in the Salesforce Ecosystem by 2026."
-                        text={`Salesforce is not a trend — it's an infrastructure layer. As global enterprises digitize sales, service, and operations, demand for Salesforce professionals continues to compound across consulting firms, product companies, and global capability centers.\n\nThis growth isn’t speculative. It’s already happening — and accelerating.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="₹6L - ₹15L Starting Salary Range for Devs."
-                        text={`Salesforce developers are paid for business impact, not just code.\nFrom day one, you work on revenue systems, automation, and mission-critical workflows — which directly reflects in compensation.\n\nWith experience and specialization (AI, Architecture, Consulting), this ceiling rises rapidly.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="0% Hype, 100% Enterprise Utility."
-                        text={`This track is designed around what companies actually use, not what looks good on social media.\nEvery skill, tool, and project is mapped to real enterprise workflows, real clients, and real constraints.\n\nIf it doesn’t ship, scale, or solve a business problem — it doesn’t belong here.`}
-                    />
+
+                {/* Right Column (Scrollable Cards) */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+                >
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="Recession-Proof"
+                            text="Companies might fire marketing teams, but they never turn off their CRM. It is the heartbeat of revenue."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The AI Pivot"
+                            text="The industry is shifting. Traditional dev jobs are fading. The new demand is for 'AI Architects' who can deploy Agentforce and Einstein GPT. We teach you exactly that."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="3.3 Million New Jobs in the Salesforce Ecosystem by 2026."
+                            text={`Salesforce is not a trend — it's an infrastructure layer. As global enterprises digitize sales, service, and operations, demand for Salesforce professionals continues to compound across consulting firms, product companies, and global capability centers.\n\nThis growth isn’t speculative. It’s already happening — and accelerating.`}
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="₹6L - ₹15L Starting Salary Range for Devs."
+                            text={`Salesforce developers are paid for business impact, not just code.\nFrom day one, you work on revenue systems, automation, and mission-critical workflows — which directly reflects in compensation.\n\nWith experience and specialization (AI, Architecture, Consulting), this ceiling rises rapidly.`}
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="0% Hype, 100% Enterprise Utility."
+                            text={`This track is designed around what companies actually use, not what looks good on social media.\nEvery skill, tool, and project is mapped to real enterprise workflows, real clients, and real constraints.\n\nIf it doesn’t ship, scale, or solve a business problem — it doesn’t belong here.`}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 const TimelineRow = ({
     phaseNumber,
@@ -881,7 +907,7 @@ const BoxOfProof = () => {
                     <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
                         {/* Button 1: Apply */}
                         <button
-                            className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] md:rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
+                            className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
                         >
                             <StarIcon style={{ width: "28px", height: "30px", color: "#D8F602" }} />
                             <span className="font-black text-base text-[#D8F602] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
@@ -891,7 +917,7 @@ const BoxOfProof = () => {
 
                         {/* Button 2: Talk to Counselor */}
                         <button
-                            className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+                            className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
                         >
                             <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
                             <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>

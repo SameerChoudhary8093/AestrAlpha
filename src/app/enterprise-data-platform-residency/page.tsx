@@ -529,120 +529,146 @@ const InfoCard = ({
     </div>
 );
 
-const WhyThisTrack = () => (
-    <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
-        <div
-            className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
-        >
-            {/* Left Column (Sticky/Fixed content) */}
-            <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
-                {/* Heading */}
-                <h2
-                    className="font-bold text-[48px] leading-[120%] text-[#000000]"
-                    style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                >
-                    Why This Track?
-                </h2>
+const WhyThisTrack = () => {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-                {/* Subtext */}
-                <p
-                    className="font-normal text-[18px] leading-[150%] text-[#000000]"
-                    style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                    {/* Placeholder content if needed, but based on image it's just cards on right. The image doesn't show left subtext, but to keep layout I will reuse intro text or similar or just keep generic track intro. Wait, previous page kept it.
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            const scrollContainer = scrollContainerRef.current;
+            if (scrollContainer) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+                if (scrollWidth <= clientWidth) return;
+
+                const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+                if (isEnd) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
+            <div
+                className="max-w-[1440px] w-full flex flex-col lg:flex-row items-start justify-between box-border py-16 px-4 lg:py-28 lg:px-16 gap-10 lg:gap-20"
+            >
+                {/* Left Column (Sticky/Fixed content) */}
+                <div className="flex flex-col w-full lg:max-w-[616px] gap-6 lg:sticky lg:top-[150px]">
+                    {/* Heading */}
+                    <h2
+                        className="font-bold text-[48px] leading-[120%] text-[#000000]"
+                        style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                    >
+                        Why This Track?
+                    </h2>
+
+                    {/* Subtext */}
+                    <p
+                        className="font-normal text-[18px] leading-[150%] text-[#000000]"
+                        style={{ fontFamily: 'Arial, sans-serif' }}
+                    >
+                        {/* Placeholder content if needed, but based on image it's just cards on right. The image doesn't show left subtext, but to keep layout I will reuse intro text or similar or just keep generic track intro. Wait, previous page kept it.
                     Image doesn't show text below "Why This Track?" heading on the left, but I'll keep the buttons.
                     Actually, let's just use the subtext from the hero or a generic relevant one. "Data is the new oil" cliché? Or "Without data engineering, AI is just a toy." */}
-                    Your gateway to the backbone of modern intelligence. Without robust data pipelines, AI is hallucinatory and dashboards are empty.
-                </p>
+                        Your gateway to the backbone of modern intelligence. Without robust data pipelines, AI is hallucinatory and dashboards are empty.
+                    </p>
 
-                {/* Buttons */}
-                <div className="flex flex-col md:flex-row gap-6 mt-6">
-                    {/* Button 1 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
-                    >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
-
-                    {/* Button 2 */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
-                        style={{
-                            width: '260px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
-                    >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                    {/* Buttons */}
+                    <div className="flex flex-col md:flex-row gap-6 mt-6">
+                        {/* Button 1 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                width: '176px',
-                                height: '24px'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Talk to a Counselor
-                        </span>
-                    </button>
-                </div>
-            </div>
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
+                                style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
 
-            {/* Right Column (Scrollable Cards) */}
-            <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The 'High-Stakes' Career:"
-                        text="Data Scientists build models, but Data Engineers build the pipes that feed them. Without you, the AI starves. It is arguably the most stable, high-demand role in the tech ecosystem today."
-                    />
+                        {/* Button 2 */}
+                        <button
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                            style={{
+                                width: '260px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
+                            }}
+                        >
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    width: '176px',
+                                    height: '24px'
+                                }}
+                            >
+                                Talk to a Counselor
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The 'Garbage In, Garbage Out' Problem"
-                        text="AI models are only as good as the data they consume. Companies are drowning in dirty, unstructured data. They pay huge premiums for engineers who can turn that chaos into clean, usable intelligence."
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="The AI Pivot"
-                        text={`The future isn't just "Chatbots." It's RAG (Retrieval-Augmented Generation). Companies need engineers who can convert millions of PDF documents into Vector Embeddings so their AI can actually "read" their internal files.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title=""
-                        text={`• 50% Higher demand for Data Engineers than Data Scientists in 2025.
+
+                {/* Right Column (Scrollable Cards) */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+                >
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The 'High-Stakes' Career:"
+                            text="Data Scientists build models, but Data Engineers build the pipes that feed them. Without you, the AI starves. It is arguably the most stable, high-demand role in the tech ecosystem today."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The 'Garbage In, Garbage Out' Problem"
+                            text="AI models are only as good as the data they consume. Companies are drowning in dirty, unstructured data. They pay huge premiums for engineers who can turn that chaos into clean, usable intelligence."
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title="The AI Pivot"
+                            text={`The future isn't just "Chatbots." It's RAG (Retrieval-Augmented Generation). Companies need engineers who can convert millions of PDF documents into Vector Embeddings so their AI can actually "read" their internal files.`}
+                        />
+                    </div>
+                    <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                        <InfoCard
+                            title=""
+                            text={`• 50% Higher demand for Data Engineers than Data Scientists in 2025.
 ₹7L - ₹18L Starting Salary Range for specialized Data Engineers.
 100% Backend Logic, 0% Guesswork.`}
-                    />
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 const PersonaCard = ({
     title,
@@ -1025,23 +1051,24 @@ const BoxOfProof = () => {
                     </div>
 
                     {/* Buttons Section */}
-                    <div className="flex flex-col md:flex-row items-center gap-6 mt-12 w-full justify-center">
-                        {/* Button 1: Box Button */}
+                    <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
+                        {/* Button 1: Apply */}
                         <button
-                            className="w-[120px] h-[48px] bg-transparent border border-[#000000] flex items-center justify-center cursor-pointer hover:bg-black/5 transition-colors box-border"
-                            style={{ borderRadius: '0px' }}
+                            className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
                         >
-                            <span className="font-normal text-base text-[#000000]" style={{ fontFamily: "Arial, sans-serif" }}>
-                                Button
+                            <StarIcon style={{ width: "28px", height: "30px", color: "#D8F602" }} />
+                            <span className="font-black text-base text-[#D8F602] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
+                                Apply for the Residency
                             </span>
                         </button>
 
-                        {/* Button 2: Text Link */}
+                        {/* Button 2: Talk to Counselor */}
                         <button
-                            className="h-[48px] bg-transparent border-none flex items-center justify-center gap-1 cursor-pointer hover:opacity-70 transition-opacity"
+                            className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
                         >
-                            <span className="font-normal text-base text-[#000000]" style={{ fontFamily: "Arial, sans-serif" }}>
-                                Button &gt;
+                            <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
+                            <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
+                                Talk to a Counselor
                             </span>
                         </button>
                     </div>
