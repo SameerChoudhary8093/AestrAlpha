@@ -110,7 +110,7 @@ const Hero = () => (
                     {/* Main Image */}
                     <div className="relative w-full h-full overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                         <img
-                            src="/salesforce-ecosystem-residency/MainImage.svg"
+                            src="/home/Backend-Residency-Image.svg"
                             alt="Salesforce Ecosystem"
                             className="w-full h-full object-cover opacity-80"
                         />
@@ -218,7 +218,7 @@ const Hero = () => (
                 <div className="relative w-full h-auto aspect-[616/576] overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                     {/* Using a placeholder or the unsplash image with specific tint */}
                     <img
-                        src="/salesforce-ecosystem-residency/MainImage.svg"
+                        src="/home/Backend-Residency-Image.svg"
                         alt="Salesforce Ecosystem"
                         className="w-full h-full object-cover opacity-80"
                     />
