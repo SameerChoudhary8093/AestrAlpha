@@ -71,7 +71,7 @@ const Hero = () => (
                         opacity: 1
                     }}
                 >
-                    DATA ENGINEERING & ARCHITECTURE
+                    {/* DATA ENGINEERING & ARCHITECTURE     */}
                 </div>
 
                 {/* Main Heading */}
@@ -109,7 +109,7 @@ const Hero = () => (
                     {/* Main Image */}
                     <div className="relative w-full h-full overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                         <img
-                            src="/salesforce-ecosystem-residency/MainImage.svg" // Using existing image path until new one is available
+                            src="/home/Enterprise-Image.svg" // Using existing image path until new one is available
                             alt="Enterprise Cloud Architect"
                             className="w-full h-full object-cover opacity-80"
                         />
@@ -139,13 +139,13 @@ const Hero = () => (
                         }}
                     >
                         <p>
-                            Don't just move data. Engineer the "Truth" that Runs Decisions.
+                            Don't just move data. Engineer the "Truth" that Power Decisions.
                         </p>
                         <p>
-                            A 6-month immersive residency in Jaipur. Move from 'SQL Board' to 'Big Data Architect'. No spreadsheets. Heavy compute.
+                            A 6-month immersive residency in Jaipur. Move from 'SQL Basics' to 'Big Data Architect'. No spreadsheets. NO toy datasets.
                         </p>
                         <p>
-                            Just 6 months of building massive scale data pipelines, powering the messy reality of business data, and creating the AI context that everyone else is just talking about.
+                            Just 6 months of building massive scale data pipelines, cleaning the messy reality of business data, and feeding the AI models that everyone else is just talking about.
                         </p>
                     </div>
                 </div>
@@ -217,7 +217,7 @@ const Hero = () => (
                 {/* Main Image */}
                 <div className="relative w-full h-auto aspect-[616/576] overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                     <img
-                        src="/salesforce-ecosystem-residency/MainImage.svg"
+                        src="/home/Enterprise-Image.svg"
                         alt="Enterprise Cloud Architect"
                         className="w-full h-full object-cover opacity-80"
                     />
@@ -462,22 +462,22 @@ const Evolution = () => (
                     phaseNumber="Phase 1"
                     phaseName={<>The Foundation<br />(Months 1-2)</>}
                     role="Python and SQL Developer"
-                    focus="Advanced SQL, Window Functions, CTEs, Python for Data (Pandas/Polars), and API Extraction."
-                    project="Build a robust ETL Pipeline that scrapes real-time financial data (Stocks/Crypto), cleans it, and stores it in a Database automatically every minute."
+                    focus="Advanced SQL, (Window Functions, CTEs), Python for Data (Pandas/Polars), and API Extraction."
+                    project="Build a robust 'ETL Pipeline' that scrapes real-time financial data (Crypto/Stocks), cleans it, and stores it in a Database automatically every minute."
                 />
                 <TimelineRow
                     phaseNumber="Phase 2"
                     phaseName={<>The Warehouse<br />(Months 3-4)</>}
-                    role="Data Build Engineer"
-                    focus="Snowflake / Databricks, DBT (Data Build Tool), Airflow (Orchestration), Data Modeling (Star Schema)."
-                    project="The 'Modern Data Stack'. Build an end-to-end data warehouse for a 'Uber-like' startup, handling ride data and surge pricing logic."
+                    role="AnalyticsEngineer"
+                    focus="Snowflake & Databricks, (The Industry Standard), dbt (Data Build Tool), and Airflow (Orchestration)."
+                    project="The 'Modern Data Stack'. Architect a warehouse that Processes raw data into 'Gold Standard' tables ready for CEO-level dashboards."
                 />
                 <TimelineRow
                     phaseNumber="Phase 3"
                     phaseName={<>The Intelligence<br />(Months 5-6)</>}
                     role="AI Data Architect"
-                    focus="RAG Pipelines, Vector Databases (Pinecone/Weaviate), and Unstructured Data Engineering (Processing PDFs/Audio)."
-                    project="Build a 'Corporate Brain' — an internal RAG tool that ingests 100+ legal documents and allows users to query them via Natural Language. Connect the data pipeline to an LLM."
+                    focus="RAG Pipelines, Vector Databases (Pinecone/Weaviate), and Unstructured Data Engineering (processing audio/images/PDFs at scale)."
+                    project="Build a 'Corporate Brain'—a system that ingests 500+ legal contracts and allows users to query them using Natural Language, powered by the pipeline you built."
                     isLast={true}
                 />
             </div>
@@ -616,25 +616,27 @@ const WhyThisTrack = () => (
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
                         title="The 'High-Stakes' Career:"
-                        text="Decisions used to be made on gut feel. Now they are made on 'Truth'. You build that Truth. If the data is wrong, the company flies blind. It's a high-stress, high-impact role. And highly compensated too."
+                        text="Data Scientists build models, but Data Engineers build the pipes that feed them. Without you, the AI starves. It is arguably the most stable, high-demand role in the tech ecosystem today."
                     />
                 </div>
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
                         title="The 'Garbage In, Garbage Out' Problem"
-                        text="AI models are only as good as the data they consume. Companies are drowning in dirty, unconnected data. They pay huge premiums for Engineers who can turn that chaos into clean, usable intelligence."
+                        text="AI models are only as good as the data they consume. Companies are drowning in dirty, unstructured data. They pay huge premiums for engineers who can turn that chaos into clean, usable intelligence."
                     />
                 </div>
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
                         title="The AI Pivot"
-                        text={`The future isn't just 'Chatbots'. It's RAG (Retrieval Augmented Generation). Companies need engineeres who can connect Vector DBs to LLMs. That's precisely what you'll build here.`}
+                        text={`The future isn't just "Chatbots." It's RAG (Retrieval-Augmented Generation). Companies need engineers who can convert millions of PDF documents into Vector Embeddings so their AI can actually "read" their internal files.`}
                     />
                 </div>
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
-                        title="50% Higher Demand for Data Engineers than Data Scientists in 2024."
-                        text={`• ₹7L - ₹18L Starting Salary Range for specialized Data Engineers.\n• 100% Backend Logic, 0% Guesswork.`}
+                        title=""
+                        text={`• 50% Higher demand for Data Engineers than Data Scientists in 2025.
+₹7L - ₹18L Starting Salary Range for specialized Data Engineers.
+100% Backend Logic, 0% Guesswork.`}
                     />
                 </div>
             </div>
@@ -820,7 +822,7 @@ const BoxOfProof = () => {
                         className="text-[#181818] font-normal text-lg leading-[150%] text-center whitespace-pre-line"
                         style={{ fontFamily: "var(--font-roboto), sans-serif" }}
                     >
-                        {`We don’t give you a piece of paper. We give you a live architecture that proves your intellectual value.`}
+                        {`We don’t give you a piece of paper. We give you a live architecture that processes millions of rows.`}
                     </p>
                 </div>
 
@@ -871,7 +873,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A live link to a dashboard powered by a Snowflake warehouse you managed. Processing 1M+ rows of sales data in real-time. Lightning fast. No lag. Complex query logic.`}
+                                    {`A live link to a dashboard powered by a Snowflake instance you manage. It visualizes over 1 million rows of data in real-time, proving you understand partitioning, clustering, and query optimization.`}
                                 </p>
 
                             </div>
@@ -915,7 +917,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A functional demo where a recruiter can upload a PDF and ask questions. You built the backend, the chunking, embedding, and vector search. This proves you are ready for the AI Age. Totally.`}
+                                    {`A functional demo where a recruiter can upload a PDF and ask questions. Your backend handles the chunking, embedding, and retrieval. This proves you are ready for the "AI Age" of data`}
                                 </p>
                             </div>
                         </div>
@@ -972,7 +974,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A hosted docs site (automatic via dbt) showing the lineage of your data—where it comes from, how it transforms. This proves you write Clean, Reliable, Enterprise-Grade code. Not hacking projects.`}
+                                    {`A hosted documentation site generated by your dbt project. It shows the lineage of your data—how it moves from Source A to Table B. This demonstrates "Data Governance," a massive keyword for hiring managers.`}
                                 </p>
                             </div>
 
@@ -1000,7 +1002,7 @@ const BoxOfProof = () => {
                                         maxWidth: '240px',
                                     }}
                                 >
-                                    The "Optimizer" Case Study
+                                    The "Optimization" Case Study
                                 </p>
                                 <p
                                     className="text-center whitespace-pre-line"
@@ -1015,7 +1017,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A technical blog post where you explain how you cut query costs by 70% by optimizing table partitions and clustering keys. This proves you understand 'Scale' and 'Cost'.`}
+                                    {`A technical blog post titled "How I cut query latency by 50%." You detail how you rewrote bad SQL queries and optimized warehouse sizing to save money and time.`}
                                 </p>
                             </div>
                         </div>
@@ -1023,22 +1025,23 @@ const BoxOfProof = () => {
                     </div>
 
                     {/* Buttons Section */}
-                    <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
-                        {/* Button 1: Github */}
+                    <div className="flex flex-col md:flex-row items-center gap-6 mt-12 w-full justify-center">
+                        {/* Button 1: Box Button */}
                         <button
-                            className="w-full md:w-[200px] h-[48px] bg-transparent border border-[#000000] rounded-[4px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+                            className="w-[120px] h-[48px] bg-transparent border border-[#000000] flex items-center justify-center cursor-pointer hover:bg-black/5 transition-colors box-border"
+                            style={{ borderRadius: '0px' }}
                         >
-                            <span className="font-bold text-base text-[#000000] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-                                Github
+                            <span className="font-normal text-base text-[#000000]" style={{ fontFamily: "Arial, sans-serif" }}>
+                                Button
                             </span>
                         </button>
 
-                        {/* Button 2: Docs > */}
+                        {/* Button 2: Text Link */}
                         <button
-                            className="w-full md:w-[200px] h-[48px] bg-transparent border border-[#000000] rounded-[4px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+                            className="h-[48px] bg-transparent border-none flex items-center justify-center gap-1 cursor-pointer hover:opacity-70 transition-opacity"
                         >
-                            <span className="font-bold text-base text-[#000000] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-                                Docs &gt;
+                            <span className="font-normal text-base text-[#000000]" style={{ fontFamily: "Arial, sans-serif" }}>
+                                Button &gt;
                             </span>
                         </button>
                     </div>
@@ -1141,9 +1144,9 @@ const ToolsSection = () => (
             >
                 {[
                     ['Snowflake', 'Databricks'],
-                    ['Python', 'SQL (Adv)'],
+                    ['Python', 'SQL • dbt (Data Build Tool)'],
                     ['Apache Airflow', 'Pinecone (Vector DB)'],
-                    ['dbt (Data Build Tool)', 'Spark']
+                    [' AWS Glue',]
                 ].map((pair, rowIndex) => (
                     <div
                         key={rowIndex}
@@ -1152,7 +1155,7 @@ const ToolsSection = () => (
                         {pair.map((tool, toolIndex) => (
                             <div
                                 key={toolIndex}
-                                className="flex items-center justify-center border border-[#181818] rounded-[8px] w-full md:w-[304px] h-[52px] bg-transparent p-[14px]"
+                                className={`flex items-center justify-center border border-[#181818] rounded-[8px] h-[52px] bg-transparent p-[14px] ${pair.length === 1 ? 'w-full' : 'w-full md:w-[304px]'}`}
                             >
                                 <span
                                     style={{

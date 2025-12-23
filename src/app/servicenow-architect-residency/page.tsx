@@ -71,7 +71,7 @@ const Hero = () => (
                         opacity: 1
                     }}
                 >
-                    Salesforce Ecosystem Track
+                    {/* The Operating System of the Fortune 500 + The Future of Enterprise Automation. */}
                 </div>
 
                 {/* Main Heading */}
@@ -84,8 +84,8 @@ const Hero = () => (
                         opacity: 1
                     }}
                 >
-                    The Enterprise<br />
-                    Cloud Architect<br />
+                    The ServiceNow<br />
+                    Architect<br />
                     Residency
                 </h1>
 
@@ -110,7 +110,7 @@ const Hero = () => (
                     {/* Main Image */}
                     <div className="relative w-full h-full overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                         <img
-                            src="/salesforce-ecosystem-residency/MainImage.svg"
+                            src="/home/Service-now-Image.svg"
                             alt="Salesforce Ecosystem"
                             className="w-full h-full object-cover opacity-80"
                         />
@@ -128,26 +128,20 @@ const Hero = () => (
                             opacity: 1
                         }}
                     >
-                        Master the World’s #1 CRM (Salesforce) + The Future of Enterprise AI (Agentforce).
+                        Master the Operating System of the Fortune 500 + The Future of Enterprise Automation.
                     </p>
 
-                    <div
-                        className="font-normal text-[18px] leading-[150%] space-y-4"
-                        style={{
-                            fontFamily: 'Arial, sans-serif',
-                            color: '#FAFFD6',
-                            opacity: 1
-                        }}
-                    >
-                        <p>
-                            Don’t Just Learn Salesforce.<br />
-                            Build the Systems That Power the Global Economy.
-                        </p>
-                        <p>
-                            A 6-month immersive residency in Jaipur. Move from "Zero" to "AI-Ready Salesforce Developer."<br />
-                            No textbooks. No exams. Just 6 months of building a production-grade Super-Org that gets you hired by the Big 4.
-                        </p>
-                    </div>
+                    <p>
+                        The Most Valuable Skill No One Is Talking About.
+                        Build the "Digital Nervous System" for Global Enterprises.
+                    </p>
+                    <p>
+                        A 6-month immersive residency in Jaipur. Move from "Java/JS Basics" to "Enterprise Workflow Architect."
+                    </p>
+                    <p>
+                        No hype. No saturated markets. Just 6 months of mastering the platform that runs IT, HR, and Customer Service for 85% of the Fortune 500.
+                        lding a production-grade Super-Org that gets you hired by the Big 4.
+                    </p>
                 </div>
 
                 {/* Button Section */}
@@ -173,7 +167,7 @@ const Hero = () => (
                                 color: '#EAF0BD'
                             }}
                         >
-                            Apply for Aestr Alpha
+                            Apply for Team Alpha
                         </span>
                     </button>
                 </div>
@@ -218,7 +212,7 @@ const Hero = () => (
                 <div className="relative w-full h-auto aspect-[616/576] overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                     {/* Using a placeholder or the unsplash image with specific tint */}
                     <img
-                        src="/salesforce-ecosystem-residency/MainImage.svg"
+                        src="/home/Service-now-Image.svg"
                         alt="Salesforce Ecosystem"
                         className="w-full h-full object-cover opacity-80"
                     />
@@ -293,7 +287,7 @@ const WhyThisTrack = () => (
                     className="font-normal text-[18px] leading-[150%] text-[#000000]"
                     style={{ fontFamily: 'Arial, sans-serif' }}
                 >
-                    The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500.
+                    {/* The "Golden Handcuffs" Career: Salesforce developers are among the highest-paid tech professionals in India. It is the operating system for the Fortune 500. */}
                 </p>
 
                 {/* Buttons */}
@@ -356,32 +350,27 @@ const WhyThisTrack = () => (
             <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
-                        title="Recession-Proof"
-                        text="Companies might fire marketing teams, but they never turn off their CRM. It is the heartbeat of revenue."
+                        title="The 'Sleeper Hit' Career"
+                        text="While everyone fights for React/Node.js jobs, ServiceNow Developers are being headhunted with blank checks. There is a massive global shortage of talent for this specific platform."
+                    />
+                </div>
+                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
+                    <InfoCard
+                        title="The 'Golden Handcuffs'"
+                        text="Once a company installs ServiceNow, they never leave. It is backbone of their operations. This offers a level of job security that pure coding roles cannot match."
                     />
                 </div>
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
                         title="The AI Pivot"
-                        text="The industry is shifting. Traditional dev jobs are fading. The new demand is for 'AI Architects' who can deploy Agentforce and Einstein GPT. We teach you exactly that."
-                    />
+                        text="ServiceNow is leading the Enterprise AI race with 'Now Assist' and 'GenAI Controller.' They aren't just using AI to chat; they are using it to automate complex corporate workflows. You will be among the first in India to master this." />
                 </div>
                 <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                     <InfoCard
-                        title="3.3 Million New Jobs in the Salesforce Ecosystem by 2026."
-                        text={`Salesforce is not a trend — it's an infrastructure layer. As global enterprises digitize sales, service, and operations, demand for Salesforce professionals continues to compound across consulting firms, product companies, and global capability centers.\n\nThis growth isn’t speculative. It’s already happening — and accelerating.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="₹6L - ₹15L Starting Salary Range for Devs."
-                        text={`Salesforce developers are paid for business impact, not just code.\nFrom day one, you work on revenue systems, automation, and mission-critical workflows — which directly reflects in compensation.\n\nWith experience and specialization (AI, Architecture, Consulting), this ceiling rises rapidly.`}
-                    />
-                </div>
-                <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
-                    <InfoCard
-                        title="0% Hype, 100% Enterprise Utility."
-                        text={`This track is designed around what companies actually use, not what looks good on social media.\nEvery skill, tool, and project is mapped to real enterprise workflows, real clients, and real constraints.\n\nIf it doesn’t ship, scale, or solve a business problem — it doesn’t belong here.`}
+                        title=""
+                        text={`• 1 Million+ New Jobs predicted in the ServiceNow Ecosystem by 2027.
+₹8L - ₹25L Salary Potential (The fastest path to ₹20L+ packages in Service-based MNCs).
+100% Corporate Criticality, 0% Volatility.`}
                     />
                 </div>
             </div>
@@ -621,24 +610,24 @@ const Evolution = () => (
             >
                 <TimelineRow
                     phaseNumber="Phase 1"
-                    phaseName={<>The<br />Foundation (Months<br />1-2)</>}
-                    role="Salesforce Administrator & Consultant"
-                    focus="Understanding Business Logic, Security Models, Flows (No-code automation), and Data Modeling."
-                    project="Build a 'Hotel Management System' from scratch using only declarative tools."
+                    phaseName={<>The<br />Platform (Months<br />1-2)</>}
+                    role="ServiceNow Administrator (CSA)"
+                    focus="Understanding the Architecture, ITSM (IT Service Management), UI Policies, and Business Rules."
+                    project="Build a 'Smart Office' Portal where employees can request assets, book rooms, and report issues with automated approval flows."
                 />
                 <TimelineRow
                     phaseNumber="Phase 2"
-                    phaseName={<>The Code<br />(Months 3-4)</>}
-                    role="Salesforce Developer"
-                    focus="Apex (Backend logic), SOQL (Database), LWC (Lightning Web Components), and API Integrations."
-                    project="Custom interface development using JS (JSON) and Apex Triggers."
+                    phaseName={<>The Logic<br />(Months 3-4)</>}
+                    role="ServiceNow Application Developer (CAD)"
+                    focus="Server-side Scripting (JavaScript/Rhino), Client Scripts, REST API Integrations, and Flow Designer."
+                    project="The 'Integration Hub.' Build a system where a slack message automatically creates a ticket in ServiceNow, assigns it to a team, and updates a Jira board—all without human touch."
                 />
                 <TimelineRow
                     phaseNumber="Phase 3"
-                    phaseName={<>The AI &<br />Future Layer (Months<br />5-6)</>}
-                    role="AI CRM Architect"
-                    focus="Agentforce, Building Autonomous Agents, Einstein GPT, Prompt Builder, and Data Cloud basics."
-                    project="Deploy an AI Service Agent that handles customer tickets without human intervention."
+                    phaseName={<>The<br />Intelligence (Months<br />5-6)</>}
+                    role="AI & Virtual Agent Architect"
+                    focus=" Virtual Agent (Chatbots), Now Assist (GenAI Integration), and Predictive Intelligence."
+                    project="Deploy a 'Level 0' Support Bot that uses Generative AI to solve user problems (e.g., VPN resets, Software Access) and deflects 50% of tickets away from human agents."
                     isLast={true}
                 />
             </div>
@@ -671,7 +660,7 @@ const BoxOfProof = () => {
                         className="text-[#181818] font-normal text-lg leading-[150%] text-center whitespace-pre-line"
                         style={{ fontFamily: "var(--font-roboto), sans-serif" }}
                     >
-                        {`We don’t give you a piece of paper. We give you a portfolio that forces recruiters to listen.`}
+                        {`We don’t give you a piece of paper. We give you a live architecture that processes millions of rows.`}
                     </p>
                 </div>
 
@@ -708,7 +697,7 @@ const BoxOfProof = () => {
                                         // height: '68px', // Ensuring height implies layout space
                                     }}
                                 >
-                                    The "Super-Org" Access
+                                    The "Custom App" (PDI)
                                 </p>
                                 <p
                                     className="text-center whitespace-pre-line"
@@ -723,7 +712,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`You will build one massive, complex Salesforce Organization over 6 months. You will provide recruiters with a Guest Login to this Org so they can click through your flows, test your automations, and see your code live.`}
+                                    {`A live walkthrough of a fully custom application you built on your Personal Developer Instance (PDI). It demonstrates complex form logic, ACLs (Security), and custom workflows.`}
                                 </p>
 
                             </div>
@@ -753,7 +742,7 @@ const BoxOfProof = () => {
                                         // height: '68px',
                                     }}
                                 >
-                                    The LWC Component Library
+                                    The "Deflection" Demo
                                 </p>
                                 <p
                                     className="text-center whitespace-pre-line"
@@ -768,7 +757,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A GitHub repository containing 5 custom-built Lightning Web Components (e.g., A dynamic EMI calculator, A Google Maps API integration). Documented to industry standards.`}
+                                    {`A video recording of your AI Virtual Agent in action. You show how it interprets natural language, triggers a backend workflow, and solves a problem. This is the #1 metric CIOs care about: "Ticket Deflection."`}
                                 </p>
                             </div>
                         </div>
@@ -811,7 +800,7 @@ const BoxOfProof = () => {
                                         // height: '68px',
                                     }}
                                 >
-                                    The "Agentforce" Implementation
+                                    The Certification (The Golden Ticket)
                                 </p>
                                 <p
                                     className="text-center whitespace-pre-line"
@@ -826,7 +815,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A live demo video of an AI Agent you built, handling a complex conversation, retrieving data from the CRM, and updating records—all autonomously.`}
+                                    {`We prepare you to clear the CSA (Certified System Administrator) exam. Note: In this ecosystem, this certificate functions like a passport. It gets you past the HR filter instantly.`}
                                 </p>
                             </div>
 
@@ -855,7 +844,7 @@ const BoxOfProof = () => {
                                         // height: '68px',
                                     }}
                                 >
-                                    The Consultancy Audit
+                                    The "Process Audit"
                                 </p>
                                 <p
                                     className="text-center whitespace-pre-line"
@@ -870,7 +859,7 @@ const BoxOfProof = () => {
                                         height: 'auto'
                                     }}
                                 >
-                                    {`A 10-minute Loom video where you audit a "broken" Salesforce environment, identify security risks, and explain your solution. Proves you can communicate like a consultant.`}
+                                    {`A consulting-style presentation where you take a messy manual process (e.g., "New Employee Onboarding") and map out how you automated it using ServiceNow Flow Designer, calculating the time saved.`}
                                 </p>
                             </div>
                         </div>
@@ -980,7 +969,7 @@ const WhoIsThisFor = () => (
                         color: '#EAF0BD',
                     }}
                 >
-                    Designed for Today. Relevant for Tomorrow. Built with the Industry.
+                    {/* Designed for Today. Relevant for Tomorrow. Built with the Industry. */}
                 </div>
 
                 {/* Main Heading */}
@@ -1017,16 +1006,16 @@ const WhoIsThisFor = () => (
                 className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-12 lg:mt-[80px] w-full max-w-[1312px] gap-12 lg:gap-12"
             >
                 <PersonaCard
-                    title='The "Non-Coder" Switcher:'
-                    desc="You fear complex coding but have a logical mind. Start with Admin/Flows and ease into development."
+                    title='The "Process Engineer"'
+                    desc=" You like efficient systems. You hate chaos. You enjoy mapping out 'If This, Then That' logic."
                 />
                 <PersonaCard
-                    title='The Developer:'
-                    desc="You know Java/JS/Python but want a domain that pays better and has a clearer ladder (Consultant -> Architect -> CTA)."
+                    title='The JavaScript Dev'
+                    desc="You know JS, but you're tired of rebuilding buttons and nav-bars. You want to apply your logic to backend enterprise problems."
                 />
                 <PersonaCard
-                    title='The MBA/BBA Grad:'
-                    desc="You understand business processes (Sales/Service) and want to translate that into technical implementation."
+                    title='The Stability Seeker'
+                    desc="You want a career path that leads directly to top Consulting firms (Deloitte, KPMG, Accenture) and huge MNCs."
                 />
             </div>
 
@@ -1051,7 +1040,7 @@ const WhoIsThisFor = () => (
                             color: '#EAF0BD'
                         }}
                     >
-                        Apply for Residency
+                        Apply for Aestr Alpha
                     </span>
                 </button>
             </div>
@@ -1150,9 +1139,11 @@ const ToolsSection = () => (
                 className="flex flex-col w-full lg:w-[616px] gap-2 lg:gap-2"
             >
                 {[
-                    ['Salesforce Cloud', 'Apex'],
-                    ['Lightning Web Components (LWC)', 'Visual Studio Code'],
-                    ['Git/GitHub + Postman (APIs)', 'Jira (Agile) + Agentforce (New!)']
+                    ['ServiceNow Platform', 'JavaScript (Rhino)'],
+                    ['Flow Designer', 'Virtual Agent'],
+                    ['REST/SOAP APIs', 'Now Assist (GenAI)'],
+                    ['UI Builder'],
+                    ['Cursor (AI Code Editor)'],
                 ].map((pair, rowIndex) => (
                     <div
                         key={rowIndex}
@@ -1161,7 +1152,7 @@ const ToolsSection = () => (
                         {pair.map((tool, toolIndex) => (
                             <div
                                 key={toolIndex}
-                                className="flex items-center justify-center border border-[#181818] rounded-[8px] w-full md:w-[304px] h-[52px] bg-transparent p-[14px]"
+                                className={`flex items-center justify-center border border-[#181818] rounded-[8px] h-[52px] bg-transparent p-[14px] ${pair.length === 1 ? 'w-full' : 'w-full md:w-[304px]'}`}
                             >
                                 <span
                                     style={{
@@ -1196,10 +1187,10 @@ export default function LandingPage() {
         <div className="min-h-screen bg-[#181818] selection:bg-[#D2F628] selection:text-black">
             <Navbar />
             <Hero />
+            <WhoIsThisFor />
             <WhyThisTrack />
             <Evolution />
             <BoxOfProof />
-            <WhoIsThisFor />
             <ToolsSection />
             <Footer />
         </div>
