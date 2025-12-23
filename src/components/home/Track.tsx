@@ -3,23 +3,24 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import StarIcon from "@/components/icons/Star";
+import Link from "next/link";
 
 // Card Component
-const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: string, description: string }) => {
+const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, title: string, description: string, href?: string }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative flex flex-col items-start cursor-pointer transition-transform duration-300"
-      style={{
-        width: "100%",
-        maxWidth: "405px",
-        minHeight: "410px",
-        transform: isHovered ? "scale(1.03)" : "scale(1)",
-        background: "transparent",
-      }}>
+  const containerStyle = {
+    width: "100%",
+    maxWidth: "405px",
+    minHeight: "410px",
+    transform: isHovered ? "scale(1.03)" : "scale(1)",
+    background: "transparent",
+  };
+
+  const className = "relative flex flex-col items-start cursor-pointer transition-transform duration-300";
+
+  const content = (
+    <>
       {/* Ellipse 190 */}
       <div style={{
         position: "absolute",
@@ -75,6 +76,30 @@ const TrackCard = ({ imageSrc, title, description }: { imageSrc: string, title: 
         }}>
         {description}
       </p>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={className}
+        style={containerStyle}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={className}
+      style={containerStyle}>
+      {content}
     </div>
   );
 };
@@ -95,33 +120,39 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
     {
       title: "Salesforce Ecosystem Residency",
       desc: "Enterprise CRM + Agentforce layer • Consulting & platform roles",
-      img: "/ChooseYourTrack/image-1.svg"
+      img: "/ChooseYourTrack/image-1.svg",
+      href: "/salesforce-ecosystem-residency"
     },
     {
       title: "AI Infrastructure & Cloud Native Residency",
       desc: "Cloud + Kubernetes + LLMOps • Infra, SRE, platform roles",
-      img: "/ChooseYourTrack/image-2.svg"
+      img: "/ChooseYourTrack/image-2.svg",
+      href: "/ai-infrastructure-cloud-native-residency"
     },
     {
       title: "Enterprise Data Platform Residency",
       desc: "Modern data stack + vector pipelines • Data engineering & AI data roles",
-      img: "/ChooseYourTrack/image-3.svg"
+      img: "/ChooseYourTrack/image-3.svg",
+      href: "/enterprise-data-platform-residency"
     },
     // Row 2
     {
       title: "ServiceNow Architect Residency",
       desc: "Workflow systems + enterprise automation • ITSM + platform roles",
-      img: "/ChooseYourTrack/image-4.svg"
+      img: "/ChooseYourTrack/image-4.svg",
+      href: "/servicenow-architect-residency"
     },
     {
       title: "Modern Enterprise Backend Residency (Java)",
       desc: "Spring Boot + microservices + scale • BFSI & backend roles",
-      img: "/ChooseYourTrack/image-5.svg"
+      img: "/ChooseYourTrack/image-5.svg",
+      href: "/modern-enterprise-backend-residency"
     },
     {
       title: "Apple Ecosystem Residency (iOS)",
       desc: "Native Swift + Apple lab ecosystem • Premium mobile roles",
-      img: "/ChooseYourTrack/image-6.svg"
+      img: "/ChooseYourTrack/image-6.svg",
+      href: "/apple-ecosystem-residency"
     }
   ];
 
@@ -188,6 +219,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
               imageSrc={card.img}
               title={card.title}
               description={card.desc}
+              href={card.href}
             />
           ))}
         </div>

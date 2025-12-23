@@ -22,7 +22,7 @@ export default function Navbar() {
       style={{
         border: "1px solid transparent",
         borderRadius: "10px",
-        background: "linear-gradient(#111111, #111111) padding-box, linear-gradient(91.07deg, #D8F602 -79.46%, #181818 43.53%) border-box",
+        background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(91.07deg, #D8F602 -79.46%, #181818 43.53%) border-box",
       }}
     >
       {/* Logo */}
