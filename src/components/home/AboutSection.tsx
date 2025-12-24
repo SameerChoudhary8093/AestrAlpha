@@ -134,9 +134,8 @@ export default function AboutSection() {
 
   return (
     <section
-      className="relative w-full bg-[#181818] overflow-hidden"
+      className="relative w-full bg-[#181818] overflow-hidden py-0 md:py-28"
       style={{
-        padding: "112px 0",
       }}
       id="about"
     >

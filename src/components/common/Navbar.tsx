@@ -30,7 +30,13 @@ export default function Navbar() {
         href="/"
         aria-label="Aestr Home"
         className="shrink-0 text-[var(--primary-color)]"
-        onClick={() => setIsOpen(false)}
+        onClick={(e) => {
+          setIsOpen(false);
+          if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }}
       >
         <AestrIcon
           className="h-auto"

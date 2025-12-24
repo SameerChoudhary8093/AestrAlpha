@@ -20,7 +20,7 @@ const ModuleCard = ({
 }) => {
     return (
         <div
-            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden snap-center shrink-0"
+            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0"
             style={{
                 width: "100%",
                 maxWidth: "605px",
@@ -84,29 +84,8 @@ const ModuleCard = ({
 };
 
 export default function OperatingSystemSection() {
-    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+    // Scroll logic removed for vertical mobile layout
 
-    React.useEffect(() => {
-        const scrollContainer = scrollContainerRef.current;
-        if (!scrollContainer) return;
-
-        const interval = setInterval(() => {
-            // Check if scrollable
-            if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
-
-            const scrollStep = scrollContainer.clientWidth * 0.9; // Defined min-width is min(90vw, 605px), so scroll roughly one card width
-            const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-            if (scrollContainer.scrollLeft >= maxScrollLeft - 10) {
-                // Reset
-                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                scrollContainer.scrollBy({ left: scrollStep, behavior: 'smooth' });
-            }
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <section
@@ -135,8 +114,7 @@ export default function OperatingSystemSection() {
 
                 {/* Cards Container */}
                 <div
-                    ref={scrollContainerRef}
-                    className="flex flex-row overflow-x-auto snap-x snap-mandatory gap-6 w-full lg:justify-center lg:gap-24 lg:overflow-visible pb-8 lg:pb-0 scrollbar-hide"
+                    className="flex flex-col lg:flex-row items-center gap-6 w-full lg:justify-center lg:gap-24"
                 >
                     {/* Module A */}
                     <ModuleCard
