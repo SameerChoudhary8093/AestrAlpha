@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from "next/image";
 import StarIcon from "@/components/icons/Star";
 import Link from "next/link";
+import BrochureModal from "./BrochureModal";
 
 // Card Component
 const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, title: string, description: string, href?: string }) => {
@@ -111,6 +112,8 @@ interface TrackProps {
 }
 
 export default function Track({ heading, byline, alignDesktop = "center" }: TrackProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Normalize alignDesktop to valid flex alignment
   const alignment = alignDesktop === "left" || alignDesktop === "start" ? "flex-start" : alignDesktop === "right" || alignDesktop === "end" ? "flex-end" : "center";
   const textAlign = alignDesktop === "left" || alignDesktop === "start" ? "left" : alignDesktop === "right" || alignDesktop === "end" ? "right" : "center";
@@ -243,8 +246,9 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
             </span>
           </button>
 
-          {/* Button 2: Download Curriculum */}
+          {/* Button 2: Download Brochure */}
           <button
+            onClick={() => setIsModalOpen(true)}
             className="group w-full md:w-[363px] h-[54px] bg-transparent border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:bg-[#D7F601]/10 transition-colors"
           >
             <StarIcon style={{ width: "28px", height: "30px", color: "#D7F601" }} />
@@ -256,12 +260,13 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
               color: "#D7F601",
               whiteSpace: "nowrap"
             }}>
-              Download complete curriculum
+              Download Brochure
             </span>
           </button>
         </div>
 
       </div>
+      <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

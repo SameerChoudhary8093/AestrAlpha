@@ -4,7 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import StarIcon from "../icons/Star";
 
+import { useState } from "react";
+import BrochureModal from "./BrochureModal";
+
 export default function HeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       className="relative w-full flex flex-col items-center overflow-hidden"
@@ -131,11 +136,10 @@ export default function HeroSection() {
             <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
           </Link>
 
-          {/* Button 2: Secondary (Outline) */}
-          <Link
-            href="/AestrAlphaBrochure.pdf"
-            download
-            className="flex items-center justify-center hover:bg-white/5 transition-colors w-full md:w-[263px]"
+          {/* Button 2: Secondary (Outline) - Now opens Modal */}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center justify-center hover:bg-white/5 transition-colors w-full md:w-[263px] cursor-pointer"
             style={{
               height: "53.8px",
               gap: "8px",
@@ -163,7 +167,7 @@ export default function HeroSection() {
               }}
             />
             <span className="font-extrabold whitespace-nowrap">Download Brochure</span>
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -184,6 +188,8 @@ export default function HeroSection() {
           className="w-full h-auto object-contain"
         />
       </div>
+
+      <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

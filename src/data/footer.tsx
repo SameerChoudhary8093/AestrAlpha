@@ -5,8 +5,6 @@ import {
 } from "@/types/data/footer.types";
 import { SocialMediaLink } from "@/types/common.types";
 
-import FacebookIcon from "@/components/icons/Facebook";
-import TwitterIcon from "@/components/icons/Twitter";
 import LinkedInIcon from "@/components/icons/LinkedIn";
 import InstagramIcon from "@/components/icons/Instagram";
 
@@ -26,19 +24,9 @@ export const FooterContact: FooterContactDetails = {
 
 export const SocialMediaLinks: SocialMediaLink[] = [
   {
-    platform: "Facebook",
-    icon: <FacebookIcon className="h-8 w-auto" />,
-    url: "https://www.facebook.com/aestr.alpha",
-  },
-  {
     platform: "Instagram",
     icon: <InstagramIcon className="h-8 w-auto" />,
     url: "https://www.instagram.com/aestr.alpha/",
-  },
-  {
-    platform: "Twitter",
-    icon: <TwitterIcon className="h-8 w-auto" />,
-    url: "https://twitter.com/AestrAlpha",
   },
   {
     platform: "LinkedIn",

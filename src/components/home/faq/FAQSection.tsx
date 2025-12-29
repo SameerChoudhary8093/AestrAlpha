@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from "next/link";
 import { Plus, Minus } from 'lucide-react';
 import StarIcon from "@/components/icons/Star"; // Assuming this exists from previous steps
 
@@ -114,7 +115,8 @@ export default function FAQSection() {
                     </h2>
 
                     {/* Contact Button */}
-                    <button
+                    <Link
+                        href="/#footer"
                         className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#D7F601] rounded-[4px] rounded-tr-[20px] cursor-pointer hover:bg-white/10 transition-colors"
                         style={{
                             width: "182px",
@@ -128,7 +130,7 @@ export default function FAQSection() {
                         >
                             Contact us
                         </span>
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Right Column: Accordion List */}

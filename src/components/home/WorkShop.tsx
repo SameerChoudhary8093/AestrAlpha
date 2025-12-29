@@ -122,14 +122,18 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
             </button>
 
             {/* Button 2: Talk to Counselor */}
-            <button
-              className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+            <Link
+              href={`https://wa.me/919828781952?text=${encodeURIComponent(
+                "Hi, I went through the “What You Graduate With” section on Aestr Alpha and would like to talk to a counselor."
+              )}`}
+              target="_blank"
+              className="w-full md:w-[320px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
             >
               <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
               <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-                Talk to a Counselor
+                Talk to a Counselor (Free 1:1)
               </span>
-            </button>
+            </Link>
           </div>
 
         </div>
