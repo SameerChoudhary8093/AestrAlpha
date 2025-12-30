@@ -1,6 +1,11 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import { speakers } from "@/data/speaker";
+import StarIcon from "@/components/icons/Star";
+import ApplicationModal from './ApplicationModal';
 
 const LinkedInIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -8,13 +13,16 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-const GuestMentorCard = () => (
-  <div className="w-full md:max-w-[395px] flex flex-col transition-transform duration-300 hover:scale-[1.02] cursor-pointer">
+const GuestMentorCard = ({ speaker }: { speaker: any }) => (
+  <div className="w-full md:max-w-[395px] flex flex-col transition-transform duration-300">
     {/* Image */}
-    <div className="w-full aspect-square relative rounded-lg overflow-hidden">
+    <div
+      className="w-full aspect-square relative rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+      style={{ background: "linear-gradient(180deg, #D8F602 0%, #181818 100%)" }}
+    >
       <Image
-        src="/FeaturesSpeakers/Mentor.svg"
-        alt="Mentor"
+        src={speaker.photo.src}
+        alt={speaker.name}
         fill
         className="object-cover"
       />
@@ -23,33 +31,49 @@ const GuestMentorCard = () => (
     {/* Text Section */}
     <div className="flex flex-col mt-6">
       {/* Name */}
-      <h3 className="w-full font-semibold text-xl leading-[150%] text-[#EAF0BD] m-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
-        Full name
+      <h3
+        className="w-full text-[#EAF0BD] m-0"
+        style={{
+          fontFamily: "Arial, sans-serif",
+          fontWeight: 700,
+          fontSize: "32px",
+          lineHeight: "150%"
+        }}
+      >
+        {speaker.name}
       </h3>
-      {/* Title */}
-      <p className="w-full font-normal text-lg leading-[150%] text-[#EAF0BD] m-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
-        Job title
-      </p>
-
-      {/* Bio */}
-      <p className="w-full font-normal text-base leading-[150%] text-[#EAF0BD] mt-4 mb-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+      {/* Title/Bio */}
+      <p
+        className="w-full text-[#EAF0BD] m-0 mt-2"
+        style={{
+          fontFamily: "var(--font-roboto), sans-serif",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "150%"
+        }}
+      >
+        {speaker.position}
       </p>
 
       {/* Social Icons */}
       <div className="mt-6 flex gap-[14px]">
-        <Link href="#" aria-label="LinkedIn">
-          <LinkedInIcon />
-        </Link>
+        {speaker.social.map((s: any, idx: number) => (
+          <Link key={idx} href={s.url} aria-label={s.platform} target="_blank">
+            <LinkedInIcon />
+          </Link>
+        ))}
       </div>
     </div>
   </div>
 );
 
 export default function BoardMembers() {
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+
   return (
     <section
-      className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16"
+      className="w-full flex flex-col items-center justify-center py-16 px-4 md:py-28 md:px-16"
+      style={{ backgroundColor: "#5B1DD6" }}
     >
       <div className="w-full max-w-[1280px] flex flex-col items-center">
         {/* Header Section */}
@@ -61,26 +85,52 @@ export default function BoardMembers() {
               fontSize: "clamp(32px, 5vw, 50px)"
             }}
           >
-            Our Guests Mentors
+            Our Mentors
           </h2>
-          <p
-            className="w-full text-[#EAF0BD] font-normal text-lg leading-[150%]"
-            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
         </div>
 
         {/* Content Container */}
         <div className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Row 1 */}
-          <GuestMentorCard />
-          <GuestMentorCard />
-          <GuestMentorCard />
-          {/* Row 2 */}
-          <GuestMentorCard />
-          <GuestMentorCard />
-          <GuestMentorCard />
+          {speakers.map((speaker) => (
+            <GuestMentorCard key={speaker.id} speaker={speaker} />
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div style={{ marginTop: "120px" }}>
+          <button
+            onClick={() => setIsAppModalOpen(true)}
+            className="flex items-center justify-center hover:opacity-90 transition-opacity"
+            style={{
+              width: "300px",
+              height: "53.8px",
+              gap: "8px",
+              padding: "12px 24px",
+              borderTopLeftRadius: "4px",
+              borderTopRightRadius: "20px",
+              borderBottomRightRadius: "4px",
+              borderBottomLeftRadius: "4px",
+              backgroundColor: "#D8F602",
+              color: "#181818",
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 800,
+              fontSize: "16px",
+              lineHeight: "150%",
+              textDecoration: "none",
+              cursor: "pointer"
+            }}
+          >
+            <StarIcon
+              style={{
+                width: "28px",
+                height: "29.8px",
+                color: "#181818",
+                fill: "currentColor"
+              }}
+            />
+            <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
+          </button>
+          <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
         </div>
 
       </div>

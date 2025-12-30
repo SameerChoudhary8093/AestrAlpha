@@ -32,9 +32,9 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
                 {/* Toggle Icon */}
                 <div className="w-8 h-8 flex items-center justify-center shrink-0">
                     {isOpen ? (
-                        <Minus size={32} color="#FCFFE4" />
+                        <Minus size={32} color="#D7F601" />
                     ) : (
-                        <Plus size={32} color="#FCFFE4" />
+                        <Plus size={32} color="#D7F601" />
                     )}
                 </div>
             </div>
@@ -97,7 +97,7 @@ export default function FAQSection() {
 
     return (
         <section
-            className="w-full bg-[#5B1DD6] flex justify-center py-28 px-4 md:px-16 box-border"
+            className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16 box-border"
         >
             <div className="w-full max-w-[1440px] flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-20">
 

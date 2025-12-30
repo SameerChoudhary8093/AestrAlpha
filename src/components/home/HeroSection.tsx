@@ -6,16 +6,16 @@ import StarIcon from "../icons/Star";
 
 import { useState } from "react";
 import BrochureModal from "./BrochureModal";
+import ApplicationModal from "./ApplicationModal";
 
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
 
   return (
     <section
-      className="relative w-full flex flex-col items-center overflow-hidden"
+      className="relative w-full flex flex-col items-center overflow-hidden pt-[150px] md:pt-[227px] mt-[-108px] mb-0"
       style={{
-        marginTop: "119px",
-        marginBottom: "100px",
         background: "radial-gradient(112.15% 91.53% at 110.03% 77.26%, #667015 9.13%, #181818 68.08%)",
       }}
       id="home"
@@ -27,8 +27,7 @@ export default function HeroSection() {
           width: "491px",
           height: "390px",
           top: "87px",
-          left: "50%",
-          transform: "translateX(-50%) md:translateX(-600px)", // Centered on mobile, offset on desktop
+          left: "-120px",
           background: "#D8F6021A",
           mixBlendMode: "screen",
           filter: "blur(154px)",
@@ -105,9 +104,9 @@ export default function HeroSection() {
           }}
         >
           {/* Button 1: Primary */}
-          <Link
-            href="/Workshop"
-            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px]"
+          <button
+            onClick={() => setIsAppModalOpen(true)}
+            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px] cursor-pointer"
             style={{
               height: "53.8px",
               gap: "8px",
@@ -122,7 +121,6 @@ export default function HeroSection() {
               fontWeight: 800,
               fontSize: "16px",
               lineHeight: "150%",
-              textDecoration: "none"
             }}
           >
             <StarIcon
@@ -134,7 +132,7 @@ export default function HeroSection() {
               }}
             />
             <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
-          </Link>
+          </button>
 
           {/* Button 2: Secondary (Outline) - Now opens Modal */}
           <button
@@ -173,10 +171,9 @@ export default function HeroSection() {
 
       {/* Hero Main Image */}
       <div
-        className="w-full max-w-[1312px] flex justify-center px-4"
+        className="w-full max-w-[1312px] flex justify-center px-4 mb-16 md:mb-[112px]"
         style={{
           marginTop: "clamp(60px, 10vw, 179.33px)",
-          marginBottom: "112px",
         }}
       >
         <Image
@@ -190,6 +187,7 @@ export default function HeroSection() {
       </div>
 
       <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
     </section>
   );
 }

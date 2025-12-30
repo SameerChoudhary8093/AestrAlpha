@@ -1,10 +1,16 @@
 import React from 'react';
 import Image from "next/image";
 
+const ContentIcon = ({ className }: { className?: string }) => (
+  <svg width="58" height="61" viewBox="0 0 58 62" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M28.7644 61.2344C28.7644 38.0358 21.7947 30.6172 0 30.6172C21.7947 30.6172 28.7644 23.1986 28.7644 0C28.7644 23.1986 35.7341 30.6172 57.5288 30.6172C35.7258 30.626 28.7644 38.0358 28.7644 61.2344Z" fill="#181818" />
+  </svg>
+);
+
 export default function LearningJourney() {
   return (
     <section
-      className="w-full bg-[#D7F601] flex justify-center py-28 px-4 md:px-16"
+      className="w-full bg-[#D7F601] flex justify-center py-16 px-4 md:py-28 md:px-16"
     >
       <div className="w-full max-w-[1440px] flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
 
@@ -32,7 +38,7 @@ export default function LearningJourney() {
           {/* Image */}
           <div className="w-full aspect-square md:aspect-auto md:h-[579px] rounded-lg overflow-hidden relative">
             <Image
-              src="/home/LearningJourney.svg"
+              src="/ImmersiveWorkshop/CenterImage.svg"
               alt="Learning Journey"
               fill
               className="object-cover"
@@ -45,7 +51,7 @@ export default function LearningJourney() {
 
           {/* Item 1 */}
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
-            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} className="shrink-0" />
+            <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
                 Office hours, not classroom hours
@@ -60,7 +66,7 @@ export default function LearningJourney() {
 
           {/* Item 2 */}
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
-            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} className="shrink-0" />
+            <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
                 Hands-on guided One massive product. One team.
@@ -73,7 +79,7 @@ export default function LearningJourney() {
 
           {/* Item 3 */}
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
-            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} className="shrink-0" />
+            <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
                 Real client outcomes
@@ -86,7 +92,7 @@ export default function LearningJourney() {
 
           {/* Item 4 */}
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
-            <Image src="/home/Content.svg" alt="Icon" width={58} height={61} className="shrink-0" />
+            <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
                 Portfolio + Career Prep

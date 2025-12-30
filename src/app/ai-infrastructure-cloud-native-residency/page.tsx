@@ -1,12 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Sparkles, Menu, X, Linkedin, Instagram, Twitter } from 'lucide-react';
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import StarIcon from "@/components/icons/Star";
+import ApplicationModal from "@/components/home/ApplicationModal";
+import BrochureModal from "@/components/home/BrochureModal";
 
 // --- Shared Components ---
 
@@ -56,59 +58,167 @@ const SectionHeader = ({ title, className = "" }: { title: string, className?: s
 
 // --- Sections ---
 
-const Hero = () => (
-    <section className="bg-[#181818] text-white overflow-hidden relative min-h-screen lg:min-h-[888px]">
-        <div className="max-w-[1440px] mx-auto relative h-full flex flex-col lg:flex-row items-center lg:items-start justify-center pt-28 pb-16 px-4 lg:px-16 gap-10 lg:gap-20">
-            {/* Left Content */}
-            <div className="flex flex-col items-center lg:items-start w-full lg:max-w-[616px] z-10">
-                {/* Badge Text */}
-                <div
-                    className="font-bold text-base leading-[120%]"
-                    style={{
-                        fontFamily: 'Arial, sans-serif',
-                        color: '#FAFFD6',
-                        height: '19px',
-                        opacity: 1
-                    }}
-                >
-                    Infrastructure & Cloud Native Track
+const Hero = () => {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+    return (
+        <section className="bg-[#181818] text-white overflow-hidden relative min-h-screen lg:min-h-[888px]">
+            <div className="max-w-[1440px] mx-auto relative h-full flex flex-col lg:flex-row items-center lg:items-start justify-center pt-28 pb-16 px-4 lg:px-16 gap-10 lg:gap-20">
+                {/* Left Content */}
+                <div className="flex flex-col items-center lg:items-start w-full lg:max-w-[616px] z-10">
+                    {/* Badge Text */}
+                    <div
+                        className="font-bold text-base leading-[120%]"
+                        style={{
+                            fontFamily: 'Arial, sans-serif',
+                            color: '#FAFFD6',
+                            height: '19px',
+                            opacity: 1
+                        }}
+                    >
+                        Infrastructure & Cloud Native Track
+                    </div>
+
+                    {/* Main Heading */}
+                    <h1
+                        className="font-bold text-[40px] md:text-[56px] leading-[120%] mt-[8px]"
+                        style={{
+                            fontFamily: 'var(--font-orbitron), sans-serif',
+                            color: '#FAFFD6',
+                            opacity: 1
+                        }}
+                    >
+                        The AI<br />
+                        Infrastructure &<br />
+                        Cloud Native<br />
+                        Residency
+                    </h1>
+
+                    {/* Mobile Image Section (Visible only on mobile) */}
+                    <div className="relative w-full h-auto aspect-[616/576] flex justify-center z-10 my-8 lg:hidden">
+                        {/* Ellipse 2 (Background Blur - Reduced for Mobile) */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                top: '-20%',
+                                left: '-20%',
+                                background: 'rgba(216, 246, 2, 0.1)',
+                                filter: 'blur(80px)',
+                                mixBlendMode: 'screen',
+                                pointerEvents: 'none',
+                                zIndex: -1,
+                            }}
+                        />
+
+                        {/* Main Image */}
+                        <div className="relative w-full h-full overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
+                            <img
+                                src="/home/ai-infra-Image.svg"
+                                alt="AI Infrastructure"
+                                className="w-full h-full object-cover opacity-80"
+                            />
+                            <div className="absolute inset-0 bg-[#D7F601] mix-blend-overlay opacity-20"></div>
+                        </div>
+                    </div>
+
+                    {/* Description */}
+                    <div className="flex flex-col gap-[24px] mt-[24px]">
+                        <p
+                            className="font-normal text-[24px] leading-[150%]"
+                            style={{
+                                fontFamily: 'Arial, sans-serif',
+                                color: '#FAFFD6',
+                                opacity: 1
+                            }}
+                        >
+                            Master the Cloud Backbone (Kubernetes) + The Future of AI Infra (LLMOps).
+                        </p>
+
+                        <div
+                            className="font-normal text-[18px] leading-[150%] space-y-4"
+                            style={{
+                                fontFamily: 'Arial, sans-serif',
+                                color: '#FAFFD6',
+                                opacity: 1
+                            }}
+                        >
+                            <p>
+                                A 6-month immersive residency in Jaipur. Move from "Linux Beginner" to "Cloud Native Architect."
+                                No textbooks. No multiple-choice quizzes. Just 6 months of building a private cloud, deploying massive AI models, and mastering the infrastructure that runs the modern internet.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    {/* Button Section */}
+                    <div className="pt-[24px]">
+                        <button
+                            onClick={() => setIsAppModalOpen(true)}
+                            className="flex items-center justify-center gap-[8px] border border-[#EAF0BD] bg-transparent hover:bg-[#EAF0BD]/10 transition-colors box-border"
+                            style={{
+                                width: '280px', // Precise width
+                                height: '54px', // Precise height
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
+                            }}
+                        >
+                            {/* Logo / Icon */}
+                            <div style={{ width: '28px', height: '29.8px', color: '#181818' }}>
+                                <StarIcon className="w-full h-full text-[#D7F601]" />
+                            </div>
+                            {/* Button Text */}
+                            <span
+                                className="font-black text-[16px] leading-[150%] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    color: '#EAF0BD'
+                                }}
+                            >
+                                Apply for Team Alpha
+                            </span>
+                        </button>
+                        <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
+                    </div>
                 </div>
 
-                {/* Main Heading */}
-                <h1
-                    className="font-bold text-[40px] md:text-[56px] leading-[120%] mt-[8px]"
-                    style={{
-                        fontFamily: 'var(--font-orbitron), sans-serif',
-                        color: '#FAFFD6',
-                        opacity: 1
-                    }}
-                >
-                    The AI<br />
-                    Infrastructure &<br />
-                    Cloud Native<br />
-                    Residency
-                </h1>
-
-                {/* Mobile Image Section (Visible only on mobile) */}
-                <div className="relative w-full h-auto aspect-[616/576] flex justify-center z-10 my-8 lg:hidden">
-                    {/* Ellipse 2 (Background Blur - Reduced for Mobile) */}
+                {/* Right Image Section (Hidden on Mobile) */}
+                <div className="hidden lg:flex relative w-full lg:max-w-[616px] h-full justify-center lg:justify-end z-10 mt-12 lg:mt-0">
+                    {/* Ellipse 2 (Background Blur) */}
                     <div
                         style={{
                             position: 'absolute',
-                            width: '100%',
-                            height: '100%',
-                            top: '-20%',
-                            left: '-20%',
+                            width: '1436px',
+                            height: '811px',
+                            top: '-150px',
+                            left: '-200px',
                             background: 'rgba(216, 246, 2, 0.1)',
-                            filter: 'blur(80px)',
+                            filter: 'blur(154px)',
                             mixBlendMode: 'screen',
                             pointerEvents: 'none',
                             zIndex: -1,
+                            transform: 'translateZ(0)'
+                        }}
+                    />
+                    {/* Ellipse 1 (Background Blur) */}
+                    <div
+                        style={{
+                            position: 'absolute',
+                            width: '1745px',
+                            height: '715px',
+                            top: '100px',
+                            left: '-200px',
+                            background: 'rgba(216, 246, 2, 0.1)',
+                            filter: 'blur(154px)',
+                            mixBlendMode: 'screen',
+                            pointerEvents: 'none',
+                            zIndex: -1,
+                            transform: 'translateZ(0)'
                         }}
                     />
 
                     {/* Main Image */}
-                    <div className="relative w-full h-full overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
+                    <div className="relative w-full h-auto aspect-[616/576] overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
                         <img
                             src="/home/ai-infra-Image.svg"
                             alt="AI Infrastructure"
@@ -117,113 +227,10 @@ const Hero = () => (
                         <div className="absolute inset-0 bg-[#D7F601] mix-blend-overlay opacity-20"></div>
                     </div>
                 </div>
-
-                {/* Description */}
-                <div className="flex flex-col gap-[24px] mt-[24px]">
-                    <p
-                        className="font-normal text-[24px] leading-[150%]"
-                        style={{
-                            fontFamily: 'Arial, sans-serif',
-                            color: '#FAFFD6',
-                            opacity: 1
-                        }}
-                    >
-                        Master the Cloud Backbone (Kubernetes) + The Future of AI Infra (LLMOps).
-                    </p>
-
-                    <div
-                        className="font-normal text-[18px] leading-[150%] space-y-4"
-                        style={{
-                            fontFamily: 'Arial, sans-serif',
-                            color: '#FAFFD6',
-                            opacity: 1
-                        }}
-                    >
-                        <p>
-                            A 6-month immersive residency in Jaipur. Move from "Linux Beginner" to "Cloud Native Architect."
-                            No textbooks. No multiple-choice quizzes. Just 6 months of building a private cloud, deploying massive AI models, and mastering the infrastructure that runs the modern internet.
-                        </p>
-
-                    </div>
-                </div>
-
-                {/* Button Section */}
-                <div className="pt-[24px]">
-                    <button
-                        className="flex items-center justify-center gap-[8px] border border-[#EAF0BD] bg-transparent hover:bg-[#EAF0BD]/10 transition-colors box-border"
-                        style={{
-                            width: '280px', // Precise width
-                            height: '54px', // Precise height
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
-                    >
-                        {/* Logo / Icon */}
-                        <div style={{ width: '28px', height: '29.8px', color: '#181818' }}>
-                            <StarIcon className="w-full h-full text-[#D7F601]" />
-                        </div>
-                        {/* Button Text */}
-                        <span
-                            className="font-black text-[16px] leading-[150%] whitespace-nowrap"
-                            style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                color: '#EAF0BD'
-                            }}
-                        >
-                            Apply for Team Alpha
-                        </span>
-                    </button>
-                </div>
             </div>
-
-            {/* Right Image Section (Hidden on Mobile) */}
-            <div className="hidden lg:flex relative w-full lg:max-w-[616px] h-full justify-center lg:justify-end z-10 mt-12 lg:mt-0">
-                {/* Ellipse 2 (Background Blur) */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        width: '1436px',
-                        height: '811px',
-                        top: '-150px',
-                        left: '-200px',
-                        background: 'rgba(216, 246, 2, 0.1)',
-                        filter: 'blur(154px)',
-                        mixBlendMode: 'screen',
-                        pointerEvents: 'none',
-                        zIndex: -1,
-                        transform: 'translateZ(0)'
-                    }}
-                />
-                {/* Ellipse 1 (Background Blur) */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        width: '1745px',
-                        height: '715px',
-                        top: '100px',
-                        left: '-200px',
-                        background: 'rgba(216, 246, 2, 0.1)',
-                        filter: 'blur(154px)',
-                        mixBlendMode: 'screen',
-                        pointerEvents: 'none',
-                        zIndex: -1,
-                        transform: 'translateZ(0)'
-                    }}
-                />
-
-                {/* Main Image */}
-                <div className="relative w-full h-auto aspect-[616/576] overflow-hidden rounded-lg border border-[rgba(234,240,189,0.3)] bg-[#EAF0BD]/5 box-border">
-                    <img
-                        src="/home/ai-infra-Image.svg"
-                        alt="AI Infrastructure"
-                        className="w-full h-full object-cover opacity-80"
-                    />
-                    <div className="absolute inset-0 bg-[#D7F601] mix-blend-overlay opacity-20"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 const TimelineRow = ({
     phaseNumber,
@@ -353,134 +360,142 @@ const TimelineRow = ({
     </div>
 );
 
-const Evolution = () => (
-    <section
-        className="flex flex-col items-center box-border w-full bg-[#181818] py-16 px-4 lg:py-28 lg:px-16 gap-16 lg:gap-28"
-    >
-        <div className="flex flex-col items-center w-full max-w-[1440px] gap-16 lg:gap-28">
-            {/* Header Section */}
-            <div
-                className="flex flex-col items-center gap-6 w-full max-w-[768px]"
-            >
-                <h2
-                    style={{
-                        fontFamily: 'var(--font-orbitron), sans-serif',
-                        fontWeight: 700,
-                        fontSize: '48px',
-                        lineHeight: '120%',
-                        textAlign: 'center',
-                        color: '#FAFFD6',
-                        width: '100%'
-                    }}
-                >
-                    Your 6-Month Evolution
-                </h2>
-
-                {/* Buttons Container */}
+const Evolution = () => {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+    const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+    return (
+        <section
+            className="flex flex-col items-center box-border w-full bg-[#181818] py-16 px-4 lg:py-28 lg:px-16 gap-16 lg:gap-28"
+        >
+            <div className="flex flex-col items-center w-full max-w-[1440px] gap-16 lg:gap-28">
+                {/* Header Section */}
                 <div
-                    className="flex flex-col md:flex-row justify-center items-center pt-4 gap-6"
+                    className="flex flex-col items-center gap-6 w-full max-w-[768px]"
                 >
-                    {/* Button 1 */}
-                    <button
-                        className="flex items-center justify-center box-border hover:opacity-90 transition-opacity"
+                    <h2
                         style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            gap: '8px',
-                            backgroundColor: '#D8F602',
-                            borderRadius: '4px 20px 4px 4px'
+                            fontFamily: 'var(--font-orbitron), sans-serif',
+                            fontWeight: 700,
+                            fontSize: '48px',
+                            lineHeight: '120%',
+                            textAlign: 'center',
+                            color: '#FAFFD6',
+                            width: '100%'
                         }}
                     >
-                        {/* Logo */}
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        {/* Text */}
-                        <span
-                            style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                fontWeight: 900,
-                                fontSize: '16px',
-                                lineHeight: '150%',
-                                color: '#181818',
-                                whiteSpace: 'nowrap'
-                            }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
+                        Your 6-Month Evolution
+                    </h2>
 
-                    {/* Button 2 */}
-                    <button
-                        className="flex items-center justify-center box-border hover:bg-white/5 transition-colors"
-                        style={{
-                            width: '263px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            gap: '8px',
-                            backgroundColor: 'transparent',
-                            borderRadius: '4px 20px 4px 4px',
-                            border: '1px solid #FAFFD6'
-                        }}
+                    {/* Buttons Container */}
+                    <div
+                        className="flex flex-col md:flex-row justify-center items-center pt-4 gap-6"
                     >
-                        {/* Logo */}
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        {/* Text */}
-                        <span
+                        {/* Button 1 */}
+                        <button
+                            onClick={() => setIsAppModalOpen(true)}
+                            className="flex items-center justify-center box-border hover:opacity-90 transition-opacity"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                fontWeight: 900,
-                                fontSize: '16px',
-                                lineHeight: '150%',
-                                color: '#EAF0BD',
-                                whiteSpace: 'nowrap'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                gap: '8px',
+                                backgroundColor: '#D8F602',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Download Brochure
-                        </span>
-                    </button>
+                            {/* Logo */}
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            {/* Text */}
+                            <span
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    fontWeight: 900,
+                                    fontSize: '16px',
+                                    lineHeight: '150%',
+                                    color: '#181818',
+                                    whiteSpace: 'nowrap'
+                                }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
+
+                        {/* Button 2 */}
+                        <button
+                            onClick={() => setIsBrochureModalOpen(true)}
+                            className="flex items-center justify-center box-border hover:bg-white/5 transition-colors"
+                            style={{
+                                width: '263px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                gap: '8px',
+                                backgroundColor: 'transparent',
+                                borderRadius: '4px 20px 4px 4px',
+                                border: '1px solid #FAFFD6'
+                            }}
+                        >
+                            {/* Logo */}
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            {/* Text */}
+                            <span
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    fontWeight: 900,
+                                    fontSize: '16px',
+                                    lineHeight: '150%',
+                                    color: '#EAF0BD',
+                                    whiteSpace: 'nowrap'
+                                }}
+                            >
+                                Download Brochure
+                            </span>
+                        </button>
+                        <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
+                        <BrochureModal isOpen={isBrochureModalOpen} onClose={() => setIsBrochureModalOpen(false)} />
+                    </div>
+                </div>
+
+                {/* Timeline Section */}
+                <div
+                    className="flex flex-col items-center w-full max-w-[1312px] mt-16 lg:mt-[112px]"
+                >
+                    <TimelineRow
+                        phaseNumber="Phase 1"
+                        phaseName={<>The Metal<br />(Months 1-2)</>}
+                        role=" Linux System Admin & Cloud Associate"
+                        focus="Mastering the Command Line (Bash), Networking (VPCs, Subnets, DNS), and Core AWS Services (EC2, S3, IAM)."
+                        project="Manually architect a secure, multi-tier web application network on AWS without using any automation."
+                    />
+                    <TimelineRow
+                        phaseNumber="Phase 2"
+                        phaseName={<>The Container<br />(Months 3-4)</>}
+                        role="DevOps Engineer"
+                        focus=" Docker (Containerization), Kubernetes (Orchestration), and Terraform (Infrastructure as Code).s"
+                        project="The 'One-Click Deploy.' Write a script that spins up a fully functional server cluster from scratch in under 3 minutes."
+                    />
+                    <TimelineRow
+                        phaseNumber="Phase 3"
+                        phaseName={<>The Intelligence<br />(Months 5-6)</>}
+                        role="LLMOps & AI Architect"
+                        focus="Deploying Open Source LLMs (Llama-3/Mistral) on private GPUs, Vector Databases (Pinecone/Weaviate), and Auto-scaling based on traffic."
+                        project="Build and host a private 'ChatGPT' for a specific industry that runs entirely on your own infrastructure."
+                        isLast={true}
+                    />
                 </div>
             </div>
-
-            {/* Timeline Section */}
-            <div
-                className="flex flex-col items-center w-full max-w-[1312px] mt-16 lg:mt-[112px]"
-            >
-                <TimelineRow
-                    phaseNumber="Phase 1"
-                    phaseName={<>The Metal<br />(Months 1-2)</>}
-                    role=" Linux System Admin & Cloud Associate"
-                    focus="Mastering the Command Line (Bash), Networking (VPCs, Subnets, DNS), and Core AWS Services (EC2, S3, IAM)."
-                    project="Manually architect a secure, multi-tier web application network on AWS without using any automation."
-                />
-                <TimelineRow
-                    phaseNumber="Phase 2"
-                    phaseName={<>The Container<br />(Months 3-4)</>}
-                    role="DevOps Engineer"
-                    focus=" Docker (Containerization), Kubernetes (Orchestration), and Terraform (Infrastructure as Code).s"
-                    project="The 'One-Click Deploy.' Write a script that spins up a fully functional server cluster from scratch in under 3 minutes."
-                />
-                <TimelineRow
-                    phaseNumber="Phase 3"
-                    phaseName={<>The Intelligence<br />(Months 5-6)</>}
-                    role="LLMOps & AI Architect"
-                    focus="Deploying Open Source LLMs (Llama-3/Mistral) on private GPUs, Vector Databases (Pinecone/Weaviate), and Auto-scaling based on traffic."
-                    project="Build and host a private 'ChatGPT' for a specific industry that runs entirely on your own infrastructure."
-                    isLast={true}
-                />
-            </div>
-        </div>
-    </section>
-);
+        </section >
+    );
+};
 
 const InfoCard = ({
     title,
@@ -528,14 +543,13 @@ const InfoCard = ({
 
 const WhyThisTrack = () => {
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
 
     React.useEffect(() => {
         const interval = setInterval(() => {
             const scrollContainer = scrollContainerRef.current;
             if (scrollContainer) {
                 const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-                // Auto-scroll loop logic: if at end, scroll back to 0, else scroll forward
-                // Check if content is scrollable (i.e. mobile state where scrollWidth > clientWidth)
                 if (scrollWidth <= clientWidth) return;
 
                 const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
@@ -577,6 +591,7 @@ const WhyThisTrack = () => {
                     <div className="flex flex-col md:flex-row gap-6 mt-6">
                         {/* Button 1 */}
                         <button
+                            onClick={() => setIsAppModalOpen(true)}
                             className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
                                 width: '300px',
@@ -600,13 +615,16 @@ const WhyThisTrack = () => {
                         </button>
 
                         {/* Button 2 */}
-                        <button
+                        <Link
+                            href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the AI Infrastructure & Cloud Native Residency at Aestr Alpha and would like to talk to a counselor.")}`}
+                            target="_blank"
                             className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                width: '260px',
+                                width: '300px',
                                 height: '54px',
                                 padding: '12px 24px',
-                                borderRadius: '4px 20px 4px 4px'
+                                borderRadius: '4px 20px 4px 4px',
+                                textDecoration: 'none'
                             }}
                         >
                             <div
@@ -619,14 +637,14 @@ const WhyThisTrack = () => {
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
                                 style={{
                                     fontFamily: 'var(--font-orbitron), sans-serif',
-                                    width: '176px',
-                                    height: '24px'
+                                    // Removed fixed width for fluid text
                                 }}
                             >
-                                Talk to a Counselor
+                                Talk to a Counselor (Free 1:1)
                             </span>
-                        </button>
+                        </Link>
                     </div>
+                    <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
                 </div>
 
                 {/* Right Column (Scrollable Cards) */}
@@ -722,105 +740,111 @@ const PersonaCard = ({
     </div>
 );
 
-const WhoIsThisFor = () => (
-    <section
-        className="flex flex-col items-center box-border w-full bg-[#181818] py-16 px-4 lg:py-28 lg:px-16 gap-20"
-    >
-        <div className="flex flex-col items-center w-full max-w-[1440px]">
-            {/* Header Section */}
-            <div className="flex flex-col items-center">
-                {/* Tagline */}
-                <div
-                    className="text-center w-full max-w-[477px] mb-4"
-                    style={{
-                        fontFamily: 'Roboto, sans-serif',
-                        fontWeight: 600,
-                        fontSize: '16px',
-                        lineHeight: '150%',
-                        color: '#EAF0BD',
-                    }}
-                >
-                    Designed for the "Builder" Mindset. Built with the Industry.
-                </div>
-
-                {/* Main Heading */}
-                <h2
-                    className="text-center m-0 w-full max-w-[768px] mb-6"
-                    style={{
-                        fontFamily: 'var(--font-orbitron), sans-serif',
-                        fontWeight: 700,
-                        fontSize: '48px',
-                        lineHeight: '120%',
-                        color: '#EAF0BD',
-                    }}
-                >
-                    Who Is This For?
-                </h2>
-
-                <div
-                    className="text-center w-full max-w-[477px] mb-4"
-                    style={{
-                        fontFamily: 'Roboto, sans-serif',
-                        fontWeight: 600,
-                        fontSize: '16px',
-                        lineHeight: '150%',
-                        color: '#EAF0BD',
-                    }}
-                >
-                    Aestr Alpha is built like a modern Tech Ashram — structured, immersive, and designed for deep transformation.You check in, lock in, and spend six months building real systems with real accountability.
-                </div>
-
-            </div>
-
-            {/* Cards Container */}
-            <div
-                className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-12 lg:mt-[80px] w-full max-w-[1312px] gap-12 lg:gap-12"
-            >
-                <PersonaCard
-                    title='The "Systems Thinker"'
-                    desc="You love logic and structure but hate designing UI/UX. You prefer a black terminal screen over Figma."
-                />
-                <PersonaCard
-                    title='The CS Engineer'
-                    desc="You learned theory in college but have no idea how to actually deploy code to the internet."
-                />
-                <PersonaCard
-                    title='The Upgrade Seeker'
-                    desc="You work in IT Support or traditional testing and want to break into the high-paying world of Cloud & DevOps."
-                />
-            </div>
-
-            {/* Apply Button (Visual match for provided image) */}
-            <div className="mt-[80px]">
-                <button
-                    className="flex items-center justify-center gap-[8px] border border-[#EAF0BD] bg-transparent hover:bg-[#EAF0BD]/10 transition-colors box-border"
-                    style={{
-                        width: '280px',
-                        height: '54px',
-                        padding: '12px 24px',
-                        borderRadius: '4px 20px 4px 4px'
-                    }}
-                >
-                    <div style={{ width: '28px', height: '29.8px' }}>
-                        <StarIcon className="w-full h-full text-[#D7F601]" />
-                    </div>
-                    <span
-                        className="font-black text-[16px] leading-[150%] whitespace-nowrap"
+const WhoIsThisFor = () => {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+    return (
+        <section
+            className="flex flex-col items-center box-border w-full bg-[#181818] py-16 px-4 lg:py-28 lg:px-16 gap-20"
+        >
+            <div className="flex flex-col items-center w-full max-w-[1440px]">
+                {/* Header Section */}
+                <div className="flex flex-col items-center">
+                    {/* Tagline */}
+                    <div
+                        className="text-center w-full max-w-[477px] mb-4"
                         style={{
-                            fontFamily: 'var(--font-orbitron), sans-serif',
-                            color: '#EAF0BD'
+                            fontFamily: 'Roboto, sans-serif',
+                            fontWeight: 600,
+                            fontSize: '16px',
+                            lineHeight: '150%',
+                            color: '#EAF0BD',
                         }}
                     >
-                        Apply for Residency
-                    </span>
-                </button>
+                        Designed for the "Builder" Mindset. Built with the Industry.
+                    </div>
+
+                    {/* Main Heading */}
+                    <h2
+                        className="text-center m-0 w-full max-w-[768px] mb-6"
+                        style={{
+                            fontFamily: 'var(--font-orbitron), sans-serif',
+                            fontWeight: 700,
+                            fontSize: '48px',
+                            lineHeight: '120%',
+                            color: '#EAF0BD',
+                        }}
+                    >
+                        Who Is This For?
+                    </h2>
+
+                    <div
+                        className="text-center w-full max-w-[477px] mb-4"
+                        style={{
+                            fontFamily: 'Roboto, sans-serif',
+                            fontWeight: 600,
+                            fontSize: '16px',
+                            lineHeight: '150%',
+                            color: '#EAF0BD',
+                        }}
+                    >
+                        Aestr Alpha is built like a modern Tech Ashram — structured, immersive, and designed for deep transformation.You check in, lock in, and spend six months building real systems with real accountability.
+                    </div>
+
+                </div>
+
+                {/* Cards Container */}
+                <div
+                    className="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-12 lg:mt-[80px] w-full max-w-[1312px] gap-12 lg:gap-12"
+                >
+                    <PersonaCard
+                        title='The "Systems Thinker"'
+                        desc="You love logic and structure but hate designing UI/UX. You prefer a black terminal screen over Figma."
+                    />
+                    <PersonaCard
+                        title='The CS Engineer'
+                        desc="You learned theory in college but have no idea how to actually deploy code to the internet."
+                    />
+                    <PersonaCard
+                        title='The Upgrade Seeker'
+                        desc="You work in IT Support or traditional testing and want to break into the high-paying world of Cloud & DevOps."
+                    />
+                </div>
+
+                {/* Apply Button (Visual match for provided image) */}
+                <div className="mt-[80px]">
+                    <button
+                        onClick={() => setIsAppModalOpen(true)}
+                        className="flex items-center justify-center gap-[8px] border border-[#EAF0BD] bg-transparent hover:bg-[#EAF0BD]/10 transition-colors box-border"
+                        style={{
+                            width: '280px',
+                            height: '54px',
+                            padding: '12px 24px',
+                            borderRadius: '4px 20px 4px 4px'
+                        }}
+                    >
+                        <div style={{ width: '28px', height: '29.8px' }}>
+                            <StarIcon className="w-full h-full text-[#D7F601]" />
+                        </div>
+                        <span
+                            className="font-black text-[16px] leading-[150%] whitespace-nowrap"
+                            style={{
+                                fontFamily: 'var(--font-orbitron), sans-serif',
+                                color: '#EAF0BD'
+                            }}
+                        >
+                            Apply for Residency
+                        </span>
+                    </button>
+                    <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
+                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 
 const BoxOfProof = () => {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
     return (
         <section
             className="w-full bg-[#D8F602] flex justify-center py-28 px-4 md:px-16 box-border"
@@ -946,7 +970,7 @@ const BoxOfProof = () => {
                         {/* Center Image */}
                         <div className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0">
                             <Image
-                                src="/ImmersiveWorkshop/CenterImage.svg"
+                                src="/home/Graduate-Image.svg"
                                 alt="Graduate Info"
                                 width={610}
                                 height={540}
@@ -1049,6 +1073,7 @@ const BoxOfProof = () => {
                     <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
                         {/* Button 1: Apply */}
                         <button
+                            onClick={() => setIsAppModalOpen(true)}
                             className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] md:rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
                         >
                             <StarIcon style={{ width: "28px", height: "30px", color: "#D8F602" }} />
@@ -1058,15 +1083,18 @@ const BoxOfProof = () => {
                         </button>
 
                         {/* Button 2: Talk to Counselor */}
-                        <button
+                        <Link
+                            href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the AI Infrastructure & Cloud Native Residency at Aestr Alpha and would like to talk to a counselor.")}`}
+                            target="_blank"
                             className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
                         >
                             <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
                             <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-                                Talk to a Counselor
+                                Talk to a Counselor (Free 1:1)
                             </span>
-                        </button>
+                        </Link>
                     </div>
+                    <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
 
                 </div>
             </div>
@@ -1074,134 +1102,141 @@ const BoxOfProof = () => {
     );
 };
 
-const ToolsSection = () => (
-    <section
-        className="flex justify-center items-center overflow-hidden w-full py-16 px-4 lg:py-28 lg:px-16"
-        style={{
-            backgroundColor: '#D7F601',
-        }}
-    >
-        <div
-            className="flex flex-col lg:flex-row items-center justify-between box-border w-full max-w-[1440px] gap-16 lg:gap-20"
+const ToolsSection = () => {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+    return (
+        <section
+            className="flex justify-center items-center overflow-hidden w-full py-16 px-4 lg:py-28 lg:px-16"
+            style={{
+                backgroundColor: '#D7F601',
+            }}
         >
-            {/* Left Column: Heading & Buttons */}
             <div
-                className="flex flex-col items-center lg:items-start w-full lg:w-[616px] gap-6"
+                className="flex flex-col lg:flex-row items-center justify-between box-border w-full max-w-[1440px] gap-16 lg:gap-20"
             >
-                {/* Heading */}
-                <h2
-                    className="m-0 text-center lg:text-left w-full lg:w-[616px]"
-                    style={{
-                        fontFamily: 'var(--font-orbitron), sans-serif',
-                        fontWeight: 700,
-                        fontSize: '48px',
-                        lineHeight: '120%',
-                        color: '#000000'
-                    }}
-                >
-                    Tools You Will Master
-                </h2>
-
-                {/* Buttons Container */}
+                {/* Left Column: Heading & Buttons */}
                 <div
-                    className="flex flex-col md:flex-row items-center pt-4 gap-6 w-full lg:w-auto"
+                    className="flex flex-col items-center lg:items-start w-full lg:w-[616px] gap-6"
                 >
-                    {/* Button 1: Apply (Matching BoxOfProof Apply Button) */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                    {/* Heading */}
+                    <h2
+                        className="m-0 text-center lg:text-left w-full lg:w-[616px]"
                         style={{
-                            width: '300px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
+                            fontFamily: 'var(--font-orbitron), sans-serif',
+                            fontWeight: 700,
+                            fontSize: '48px',
+                            lineHeight: '120%',
+                            color: '#000000'
                         }}
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#D8F602]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
-                        >
-                            Apply for the Residency
-                        </span>
-                    </button>
+                        Tools You Will Master
+                    </h2>
 
-                    {/* Button 2: Talk to Counselor (Matching BoxOfProof Talk Button) */}
-                    <button
-                        className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:bg-[#181818]/5 transition-colors box-border"
-                        style={{
-                            width: '260px',
-                            height: '54px',
-                            padding: '12px 24px',
-                            borderRadius: '4px 20px 4px 4px'
-                        }}
+                    {/* Buttons Container */}
+                    <div
+                        className="flex flex-col md:flex-row items-center pt-4 gap-6 w-full lg:w-auto"
                     >
-                        <div
-                            className="flex items-center justify-center"
-                            style={{ width: '28px', height: '29.8px' }}
-                        >
-                            <StarIcon className="w-full h-full text-[#181818]" />
-                        </div>
-                        <span
-                            className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                        {/* Button 1: Apply (Matching BoxOfProof Apply Button) */}
+                        <button
+                            onClick={() => setIsAppModalOpen(true)}
+                            className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                fontFamily: 'var(--font-orbitron), sans-serif',
-                                width: '176px', // Matching specific width from earlier
-                                height: '24px'
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px'
                             }}
                         >
-                            Talk to a Counselor
-                        </span>
-                    </button>
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
+                                style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+                            >
+                                Apply for the Residency
+                            </span>
+                        </button>
+
+                        {/* Button 2: Talk to Counselor (Matching BoxOfProof Talk Button) */}
+                        <Link
+                            href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the AI Infrastructure & Cloud Native Residency at Aestr Alpha and would like to talk to a counselor.")}`}
+                            target="_blank"
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:bg-[#181818]/5 transition-colors box-border"
+                            style={{
+                                width: '300px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px',
+                                textDecoration: 'none'
+                            }}
+                        >
+                            <div
+                                className="flex items-center justify-center"
+                                style={{ width: '28px', height: '29.8px' }}
+                            >
+                                <StarIcon className="w-full h-full text-[#181818]" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                    // Removed fixed width for fluid text
+                                }}
+                            >
+                                Talk to a Counselor (Free 1:1)
+                            </span>
+                        </Link>
+                    </div>
+                    <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
+                </div>
+
+                {/* Right Column: Tools List */}
+                <div
+                    className="flex flex-col w-full lg:w-[616px] gap-2 lg:gap-2"
+                >
+                    {[
+                        ['AWS', 'Linux'],
+                        ['Kubernetes (K8s)', 'Docker'],
+                        ['Terraform • Python', 'Prometheus/Grafana'],
+                        ['LangChain (Deployment)', 'Vector DBs']
+                    ].map((pair, rowIndex) => (
+                        <div
+                            key={rowIndex}
+                            className="flex flex-col md:flex-row w-full lg:w-[616px] h-auto gap-2"
+                        >
+                            {pair.map((tool, toolIndex) => (
+                                <div
+                                    key={toolIndex}
+                                    className="flex items-center justify-center border border-[#181818] rounded-[8px] w-full md:w-[304px] h-[52px] bg-transparent p-[14px]"
+                                >
+                                    <span
+                                        style={{
+                                            fontFamily: 'Arial, sans-serif',
+                                            fontWeight: 700,
+                                            fontSize: '16px',
+                                            lineHeight: '150%',
+                                            color: '#181818',
+                                            textAlign: 'center',
+                                            whiteSpace: 'nowrap',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis'
+                                        }}
+                                    >
+                                        {tool}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </div>
-
-            {/* Right Column: Tools List */}
-            <div
-                className="flex flex-col w-full lg:w-[616px] gap-2 lg:gap-2"
-            >
-                {[
-                    ['AWS', 'Linux'],
-                    ['Kubernetes (K8s)', 'Docker'],
-                    ['Terraform • Python', 'Prometheus/Grafana'],
-                    ['LangChain (Deployment)', 'Vector DBs']
-                ].map((pair, rowIndex) => (
-                    <div
-                        key={rowIndex}
-                        className="flex flex-col md:flex-row w-full lg:w-[616px] h-auto gap-2"
-                    >
-                        {pair.map((tool, toolIndex) => (
-                            <div
-                                key={toolIndex}
-                                className="flex items-center justify-center border border-[#181818] rounded-[8px] w-full md:w-[304px] h-[52px] bg-transparent p-[14px]"
-                            >
-                                <span
-                                    style={{
-                                        fontFamily: 'Arial, sans-serif',
-                                        fontWeight: 700,
-                                        fontSize: '16px',
-                                        lineHeight: '150%',
-                                        color: '#181818',
-                                        textAlign: 'center',
-                                        whiteSpace: 'nowrap',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis'
-                                    }}
-                                >
-                                    {tool}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // --- Main Page Component ---
 

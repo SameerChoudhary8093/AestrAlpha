@@ -20,7 +20,7 @@ export default function InsideTheResidency() {
   return (
     <section
       id="gallery"
-      className="w-full bg-[#D7F601] flex justify-center py-28 px-4 md:px-16 box-border"
+      className="w-full bg-[#D7F601] flex justify-center py-16 px-4 md:py-28 md:px-16 box-border"
     >
       <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
 

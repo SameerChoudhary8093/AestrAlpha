@@ -20,20 +20,14 @@ const ModuleCard = ({
 }) => {
     return (
         <div
-            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0"
+            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0 flex flex-col items-start box-border p-6 md:p-[0_53px_40px_53px]"
             style={{
                 width: "100%",
                 maxWidth: "605px",
-                minWidth: "min(90vw, 605px)", // On mobile, take 90% width; ensure it doesn't exceed 605px on larger screens
-                minHeight: "579px", // Ensure minimum height to maintain integrity
-                borderRadius: borderRadius,
-                background: "linear-gradient(180deg, rgba(46, 54, 15, 0.6) 0%, #181818 100%) padding-box, linear-gradient(180deg, #D7F601 0%, #666666 100%) border-box",
+                minHeight: "579px",
+                borderRadius: "8px",
+                background: "linear-gradient(180deg, #2E360F 0%, #181818 40%, #181818 100%) padding-box, linear-gradient(180deg, #D7F601 0%, #666666 100%) border-box",
                 border: "1px solid transparent",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                padding: "0 8% 40px 8%", // Percentage padding to respond to width
-                boxSizing: "border-box"
             }}
         >
             {children}
@@ -56,7 +50,7 @@ const ModuleCard = ({
 
             {/* Title */}
             <h3
-                className="w-full text-left font-bold text-[32px] md:text-[40px] leading-[120%] tracking-[-0.02em] text-[#EAF0BD] mt-4 relative z-10"
+                className="w-full text-left font-bold text-[32px] md:text-[40px] leading-[120%] tracking-[-0.02em] text-[#EAF0BD] mt-[16px] relative z-10"
                 style={{ fontFamily: "Arial, sans-serif" }}
             >
                 {title}
@@ -64,11 +58,18 @@ const ModuleCard = ({
 
             {/* Divider */}
             <div
-                className="mt-9 h-[1px] w-full max-w-[481px] bg-[radial-gradient(39.09%_18400%_at_50%_50%,_#D7F601_0%,_#181818_100%)] relative z-10"
+                className="mt-[36.76px] relative z-10"
+                style={{
+                    width: "100%",
+                    maxWidth: "481px",
+                    height: "1px",
+                    background: "radial-gradient(39.09% 18400% at 50% 50%, #D7F601 0%, #181818 100%)",
+                    opacity: 1
+                }}
             />
 
             {/* Points */}
-            <div className="w-full text-[#EAF0BD] text-left mt-3 relative z-10" style={{ fontFamily: "Arial, sans-serif" }}>
+            <div className="w-full text-[#EAF0BD] text-left mt-[50px] relative z-10" style={{ fontFamily: "Arial, sans-serif" }}>
                 <ul className="list-none p-0 m-0">
                     {points.map((point, i) => (
                         <li key={i} className="text-lg leading-[150%] mb-2 flex items-start gap-3">
@@ -159,7 +160,24 @@ export default function OperatingSystemSection() {
                             <span key="3"><strong>Learn to sustain 4-hour flow states.</strong></span>,
                             <span key="4"><strong>Weekly presentations. Stage → boardroom.</strong></span>
                         ]}
-                    />
+                    >
+                        {/* Ellipse 1 (Copied from Module A for consistency) */}
+                        <div
+                            style={{
+                                position: "absolute",
+                                width: "1005px",
+                                height: "200px",
+                                left: "-279px",
+                                top: "-168.24px",
+                                background: "#D8F60294",
+                                mixBlendMode: "screen",
+                                filter: "blur(320.16px)",
+                                borderRadius: "50%",
+                                pointerEvents: "none",
+                                zIndex: 1
+                            }}
+                        />
+                    </ModuleCard>
                 </div>
 
             </div>

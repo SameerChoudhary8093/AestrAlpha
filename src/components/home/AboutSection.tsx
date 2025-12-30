@@ -11,18 +11,18 @@ interface Feature {
 
 // --- Card Component ---
 // Refined Card Component using responsive sizing
-const StrictCard = ({ image, title, description, className = "" }: Feature & { className?: string }) => {
+const StrictCard = ({ image, title, description, titleGap = "6px", className = "" }: Feature & { className?: string; titleGap?: string }) => {
   return (
     <div
       className={`relative flex flex-col items-start overflow-hidden box-border snap-center shrink-0 ${className}`}
       style={{
         width: "100%",
-        maxWidth: "304px", // Max width on desktop
-        minWidth: "304px", // Ensure it doesn't shrink on mobile slider
+        maxWidth: "304px",
+        minWidth: "304px",
         minHeight: "414px",
         borderRadius: "8px",
         border: "1px solid transparent",
-        background: "linear-gradient(180deg, #181818 55% 0%, #181818 55%) padding-box, linear-gradient(180deg, #D7F601 0%, rgba(255, 255, 255, 0.08) 100%) border-box",
+        background: "linear-gradient(180deg, #D7F601 0%, rgba(255, 255, 255, 0.08) 100%) border-box",
         transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
       }}
       onMouseEnter={(e) => {
@@ -34,33 +34,37 @@ const StrictCard = ({ image, title, description, className = "" }: Feature & { c
         e.currentTarget.style.zIndex = "1";
       }}
     >
+      {/* Remove previous blur logic if not needed or adjust z-index if it interferes */}
+
+      {/* Image Container */}
       <div
+        className="relative w-[304px] h-[160px] z-[1]"
         style={{
-          position: "absolute",
-          width: "286px",
-          height: "232px",
-          top: "-126px",
-          left: "-21px",
-          background: "#D7F601",
-          filter: "blur(244px)",
-          zIndex: 0
+          borderRadius: "9px",
+          width: "304px",
+          height: "160px"
         }}
-      />
-      {/* Image */}
-      <div className="relative w-full h-[160px] rounded-[9px] z-[1]">
+      >
         <img src={image} alt="" className="w-full h-full object-cover rounded-[9px]" />
       </div>
 
-      {/* Text Container */}
-      <div className="relative z-[1] w-full px-[22px] mt-8 pb-8">
+      {/* Text Container: 32px gap from image */}
+      <div
+        className="relative z-[1] w-[304px] flex flex-col px-[22px]"
+        style={{
+          marginTop: "32px",
+          height: "222px" // Fixed height for text section if needed, or let it flow
+        }}
+      >
         <div
           style={{
             fontFamily: "Arial, sans-serif",
             fontWeight: 700,
             fontSize: "20px",
             lineHeight: "130%",
-            color: "#EAF0BD",
-            marginBottom: "6px"
+            color: "#181818",
+            marginBottom: titleGap,
+            whiteSpace: "pre-line"
           }}
         >
           {title}
@@ -71,7 +75,7 @@ const StrictCard = ({ image, title, description, className = "" }: Feature & { c
             fontWeight: 400,
             fontSize: "16px",
             lineHeight: "140%",
-            color: "#EAF0BD"
+            color: "#181818"
           }}
         >
           {description}
@@ -127,14 +131,14 @@ export default function AboutSection() {
     },
     {
       image: "/About/Card-4.svg",
-      title: "Built for GDC hiring reality.",
+      title: "Built for GDC\nhiring reality.",
       description: "We design our exit profile around what Global Capability Centers actually hire for — enterprise stacks, delivery maturity, and proof of work"
     }
   ];
 
   return (
     <section
-      className="relative w-full bg-[#181818] overflow-hidden py-0 md:py-28"
+      className="relative w-full bg-[#D7F601] overflow-hidden py-0 md:py-28"
       style={{
       }}
       id="about"
@@ -151,7 +155,7 @@ export default function AboutSection() {
               fontWeight: 700,
               fontSize: "clamp(32px, 5vw, 48px)",
               lineHeight: "120%",
-              color: "#EAF0BD",
+              color: "#181818",
               margin: 0
             }}
           >
@@ -166,7 +170,7 @@ export default function AboutSection() {
               fontWeight: 400,
               fontSize: "clamp(16px, 2vw, 18px)",
               lineHeight: "150%",
-              color: "#EAF0BD"
+              color: "#181818"
             }}
           >
             <p className="m-0">Online courses are cheaper. Degrees are everywhere.</p>
@@ -186,6 +190,7 @@ export default function AboutSection() {
               image={feature.image}
               title={feature.title}
               description={feature.description}
+              titleGap={index < 2 ? "6px" : "32px"}
             />
           ))}
         </div>

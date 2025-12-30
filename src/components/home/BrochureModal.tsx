@@ -3,6 +3,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import StarIcon from "@/components/icons/Star";
 
 interface BrochureModalProps {
     isOpen: boolean;
@@ -27,12 +28,12 @@ const INTENT_OPTIONS = [
 ];
 
 const TRACK_OPTIONS = [
-    "UI/UX & Product Design",
-    "AI & Emerging Technologies",
-    "Full-Stack / No-Code Development",
-    "Data & Analytics",
-    "Branding & Creative Industries",
-    "Not sure yet",
+    "Salesforce Ecosystem Residency",
+    "AI Infrastructure & Cloud Native Residency",
+    "Enterprise Data Platform Residency",
+    "ServiceNow Architect Residency",
+    "Modern Enterprise Backend Residency (Java)",
+    "Apple Ecosystem Residency (iOS)",
 ];
 
 export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
@@ -351,10 +352,30 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full py-3.5 rounded-lg bg-[#D8F602] text-[#181818] font-bold text-lg hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4 shadow-[0_0_20px_rgba(216,246,2,0.3)] hover:shadow-[0_0_30px_rgba(216,246,2,0.5)]"
-                            style={{ fontFamily: "var(--font-orbitron), sans-serif" }}
+                            className="flex items-center justify-center hover:opacity-90 transition-opacity mx-auto"
+                            style={{
+                                width: "300px",
+                                height: "53.8px",
+                                gap: "8px",
+                                padding: "12px 24px",
+                                borderTopLeftRadius: "4px",
+                                borderTopRightRadius: "20px",
+                                borderBottomRightRadius: "4px",
+                                borderBottomLeftRadius: "4px",
+                                backgroundColor: "#D8F602",
+                                color: "#181818",
+                                fontFamily: "var(--font-orbitron), sans-serif",
+                                fontWeight: 800,
+                                fontSize: "16px",
+                                lineHeight: "150%",
+                            }}
                         >
-                            {isSubmitting ? 'Processing...' : 'Get Brochure Now'}
+                            {isSubmitting ? 'Processing...' : (
+                                <>
+                                    <StarIcon style={{ width: "28px", height: "29.8px", color: "#181818", fill: "currentColor" }} />
+                                    <span className="font-extrabold whitespace-nowrap">Get Brochure Now</span>
+                                </>
+                            )}
                         </button>
 
                     </form>

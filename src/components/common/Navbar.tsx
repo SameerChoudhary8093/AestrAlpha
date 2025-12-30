@@ -16,7 +16,15 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  const currentNavLinks = pathname === "/Workshop" ? TicketNavigationLinks : NavigationLinks;
+  // Modify NavigationLinks and TicketNavigationLinks to update the href for "Pricing"
+  const updatedNavigationLinks = NavigationLinks.map(link =>
+    link.label === "Pricing" ? { ...link, href: "#pricing" } : link
+  );
+  const updatedTicketNavigationLinks = TicketNavigationLinks.map(link =>
+    link.label === "Pricing" ? { ...link, href: "#pricing" } : link
+  );
+
+  const currentNavLinks = pathname === "/Workshop" ? updatedTicketNavigationLinks : updatedNavigationLinks;
 
   return (
     <>
@@ -25,7 +33,7 @@ export default function Navbar() {
         style={{
           border: "1px solid transparent",
           borderRadius: "10px",
-          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(91.07deg, #D8F602 -79.46%, #181818 43.53%) border-box",
+          background: "linear-gradient(#111111, #111111) padding-box, linear-gradient(91.07deg, #D8F602 -79.46%, #181818 43.53%) border-box",
         }}
       >
         {/* Logo */}
@@ -55,12 +63,12 @@ export default function Navbar() {
         {/* Desktop Menu - Custom Breakpoint for ~1350px width */}
         <div className="hidden min-[1350px]:flex items-center">
           {/* Links Section with specific margins and gap */}
-          <div className="flex items-center gap-[32px] ml-[173.7px] w-[661px]">
+          <div className="flex items-center gap-[32px] ml-[161.7px]">
             {currentNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-orbitron font-extrabold text-[18px] leading-[150%] text-[#EAF0BD] hover:opacity-80 transition-opacity whitespace-nowrap"
+                className="font-orbitron font-extrabold text-[18px] leading-[150%] transition-opacity whitespace-nowrap text-[#EAF0BD] hover:opacity-80"
               >
                 {link.label}
               </Link>

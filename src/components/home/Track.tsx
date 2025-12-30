@@ -16,24 +16,28 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
     minHeight: "410px",
     transform: isHovered ? "scale(1.03)" : "scale(1)",
     background: "transparent",
+    overflow: "hidden",
   };
 
   const className = "relative flex flex-col items-start cursor-pointer transition-transform duration-300";
 
   const content = (
     <>
+
+
       {/* Ellipse 190 */}
       <div style={{
         position: "absolute",
         width: "286px",
         height: "286px",
-        left: "11px",
-        top: "-95.24px",
+        left: "46px",
+        top: "-81.24px",
         background: "#D7F601",
         filter: "blur(244px)",
         borderRadius: "50%",
+        opacity: 1,
         pointerEvents: "none",
-        zIndex: 0
+        zIndex: 20
       }} />
 
       {/* Image */}
@@ -41,7 +45,7 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
         className="relative z-10 w-full rounded-lg overflow-hidden border border-transparent"
         style={{
           height: "240px",
-          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, rgba(255, 255, 255, 0.11) 100%) border-box",
+          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, transparent 100%) border-box",
         }}>
         <Image
           src={imageSrc}
@@ -52,31 +56,37 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
         />
       </div>
 
-      {/* Heading */}
-      <h3
-        className="relative z-10 w-full mt-8"
-        style={{
-          fontFamily: "var(--font-roboto), sans-serif",
-          fontWeight: 700,
-          fontSize: "24px",
-          lineHeight: "140%",
-          color: "#EAF0BD",
-        }}>
-        {title}
-      </h3>
+      {/* Text Content */}
+      <div className="relative z-10 w-full mt-8 px-[20px] flex flex-col gap-4">
+        {/* Heading */}
+        <h3
+          className="w-full"
+          style={{
+            fontFamily: "var(--font-roboto), sans-serif",
+            fontWeight: 700,
+            fontSize: "24px",
+            lineHeight: "140%",
+            color: "#EAF0BD",
+            margin: 0
+          }}>
+          {title}
+        </h3>
 
-      {/* Subtext */}
-      <p
-        className="relative z-10 w-full mt-4"
-        style={{
-          fontFamily: "var(--font-roboto), sans-serif",
-          fontWeight: 400,
-          fontSize: "16px",
-          lineHeight: "150%",
-          color: "#EAF0BD",
-        }}>
-        {description}
-      </p>
+        {/* Subtext */}
+        <p
+          className="w-full"
+          style={{
+            fontFamily: "var(--font-roboto), sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "150%",
+            color: "#EAF0BD",
+            margin: 0,
+            whiteSpace: "pre-line"
+          }}>
+          {description}
+        </p>
+      </div>
     </>
   );
 
@@ -122,13 +132,13 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
   const cardData = [
     {
       title: "Salesforce Ecosystem Residency",
-      desc: "Enterprise CRM + Agentforce layer • Consulting & platform roles",
+      desc: "Enterprise CRM + Agentforce layer • Consulting\n& platform roles",
       img: "/ChooseYourTrack/image-1.svg",
       href: "/salesforce-ecosystem-residency"
     },
     {
       title: "AI Infrastructure & Cloud Native Residency",
-      desc: "Cloud + Kubernetes + LLMOps • Infra, SRE, platform roles",
+      desc: "Cloud + Kubernetes + LLMOps • Infra, SRE, platform\nroles",
       img: "/ChooseYourTrack/image-2.svg",
       href: "/ai-infrastructure-cloud-native-residency"
     },
@@ -178,7 +188,8 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
   return (
     <section
       id="track"
-      className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16 box-border"
+      className="w-full flex justify-center py-16 px-4 md:py-28 md:px-16 box-border"
+      style={{ backgroundColor: "#181818" }}
     >
       <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
         {/* Header */}

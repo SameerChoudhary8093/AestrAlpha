@@ -1,11 +1,16 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from "next/image";
 import StarIcon from "../icons/Star";
+import ApplicationModal from "./ApplicationModal";
 
 export default function WorkSimulationSection() {
+    const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+
     return (
         <section
-            className="w-full bg-[#181818] flex flex-col items-center box-border px-4 md:px-16 py-28"
+            className="w-full bg-[#181818] flex flex-col items-center box-border px-4 md:px-16 py-16 md:py-28"
             style={{
                 marginTop: "0", // Gap handled by padding/margin logic
             }}
@@ -103,6 +108,7 @@ export default function WorkSimulationSection() {
 
                 {/* Button Section */}
                 <button
+                    onClick={() => setIsAppModalOpen(true)}
                     className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#EAF0BD] text-[#EAF0BD] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] cursor-pointer hover:bg-white/5 transition-colors -mt-8 md:mt-0"
                     style={{
                         width: "280px",
@@ -117,6 +123,7 @@ export default function WorkSimulationSection() {
                         Apply for Aestr Alpha
                     </span>
                 </button>
+                <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
             </div>
         </section>
     );

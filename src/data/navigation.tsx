@@ -1,11 +1,11 @@
 import { NavItem } from "@/types/data/navigation.types";
 
 export const NavigationLinks: NavItem[] = [
-  { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
   { label: "Tracks", href: "/#track" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Ambassador", href: "/#ambassador" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Contact Us", href: "/#footer" },
 ];
 
