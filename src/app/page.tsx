@@ -13,14 +13,14 @@ import WorkShop from "@/components/home/WorkShop";
 import InsideTheResidency from "@/components/home/InsideTheResidency";
 import InvestmentSection from "@/components/home/InvestmentSection";
 import FAQSection from "@/components/home/faq/FAQSection";
-import FloatingForm from "@/components/home/FloatingForm";
+
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <HeroSection />
-      <FloatingForm />
+
       <AboutSection />
       {/* <AdvantagesSection /> */}
       <WorkSimulationSection />

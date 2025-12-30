@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import StarIcon from "@/components/icons/Star";
@@ -54,7 +55,19 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    if (!isOpen) return null;
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -132,39 +145,10 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         }, 1500);
     };
 
-    if (isSuccess) {
-        return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-                <div
-                    className="relative w-full max-w-md p-8 rounded-2xl border border-[#D8F602]/30 bg-[#181818] text-center"
-                    style={{ boxShadow: "0 0 40px rgba(216, 246, 2, 0.1)" }}
-                >
-                    <div className="flex justify-center mb-6">
-                        <div className="w-16 h-16 rounded-full bg-[#D8F602]/10 flex items-center justify-center border border-[#D8F602]">
-                            <svg className="w-8 h-8 text-[#D8F602]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#FAFFD6] mb-2" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>You're In!</h3>
-                    <p className="text-gray-300 mb-6">
-                        Thanks for your interest. The brochure is on its way to your inbox.
-                        <br />
-                        Downloading now...
-                    </p>
-                    <button
-                        onClick={onClose}
-                        className="px-6 py-2 rounded-lg bg-[#D8F602] text-[#181818] font-bold hover:opacity-90 transition-opacity"
-                    >
-                        Close
-                    </button>
-                </div>
-            </div>
-        );
-    }
+    if (!mounted || !isOpen) return null;
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 text-left overflow-y-auto">
+    const modalContent = (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 text-left overflow-y-auto">
             <div
                 className="relative w-full max-w-2xl my-8 rounded-2xl border border-[#D8F602]/20 bg-[#121212]/95 backdrop-blur-md shadow-2xl flex flex-col max-h-[90vh]"
                 style={{ boxShadow: "0 0 40px rgba(216, 246, 2, 0.05)" }}
@@ -383,4 +367,6 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             </div>
         </div>
     );
+
+    return createPortal(modalContent, document.body);
 }

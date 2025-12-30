@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
+import { createPortal } from "react-dom";
 import StarIcon from "@/components/icons/Star";
 
 interface ApplicationModalProps {
@@ -79,8 +80,19 @@ export default function ApplicationModal({ isOpen, onClose }: ApplicationModalPr
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
-    if (!isOpen) return null;
+    useEffect(() => {
+        setMounted(true);
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isOpen]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target;
@@ -112,8 +124,9 @@ export default function ApplicationModal({ isOpen, onClose }: ApplicationModalPr
     };
 
     if (isSuccess) {
-        return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+        if (!mounted || !isOpen) return null;
+        return createPortal(
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
                 <div className="relative w-full max-w-md p-8 rounded-2xl border border-[#D8F602]/30 bg-[#181818] text-center" style={{ boxShadow: "0 0 40px rgba(216, 246, 2, 0.1)" }}>
                     <h3 className="text-2xl font-bold text-[#FAFFD6] mb-4" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>Application Received</h3>
                     <p className="text-gray-300 mb-6">
@@ -123,12 +136,15 @@ export default function ApplicationModal({ isOpen, onClose }: ApplicationModalPr
                     </p>
                     <button onClick={onClose} className="px-6 py-2 rounded-lg bg-[#D8F602] text-[#181818] font-bold hover:opacity-90">Close</button>
                 </div>
-            </div>
+            </div>,
+            document.body
         );
     }
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+    if (!mounted || !isOpen) return null;
+
+    return createPortal(
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
             <div className="relative w-full max-w-4xl my-8 rounded-2xl border border-[#D8F602]/20 bg-[#121212] shadow-2xl flex flex-col max-h-[90vh]" style={{ boxShadow: "0 0 40px rgba(216, 246, 2, 0.05)" }}>
 
                 {/* Header */}
@@ -288,7 +304,8 @@ export default function ApplicationModal({ isOpen, onClose }: ApplicationModalPr
                     </form>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
 
