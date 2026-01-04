@@ -177,7 +177,7 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src="/Herosection/Heromainimage.svg"
+          src="/Herosection/Hero.jpeg"
           alt="Hero Main Visual"
           width={1312}
           height={700}
