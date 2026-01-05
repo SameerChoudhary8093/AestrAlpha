@@ -138,7 +138,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className="relative w-full bg-[#D7F601] overflow-hidden py-12 md:py-28"
+      className="relative w-full bg-[#D7F601] overflow-hidden py-12 md:py-20 lg:py-28"
       style={{
       }}
       id="about"

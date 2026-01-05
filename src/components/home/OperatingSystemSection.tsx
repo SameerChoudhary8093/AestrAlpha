@@ -20,10 +20,8 @@ const ModuleCard = ({
 }) => {
     return (
         <div
-            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0 flex flex-col items-start box-border p-6 md:p-[0_53px_40px_53px]"
+            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0 flex flex-col items-start box-border p-6 md:p-[0_53px_40px_53px] w-full max-w-[605px] md:max-w-[480px] lg:max-w-[605px]"
             style={{
-                width: "100%",
-                maxWidth: "605px",
                 minHeight: "579px",
                 borderRadius: "8px",
                 background: "linear-gradient(180deg, #2E360F 0%, #181818 40%, #181818 100%) padding-box, linear-gradient(180deg, #D7F601 0%, #666666 100%) border-box",

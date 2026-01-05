@@ -88,7 +88,7 @@ export const speakers: Speakers[] = [
     name: "Sanjay Gupta",
     position: "Founder & CEO SkillHorizon | Career Architect | India's Renowned Salesforce Educator | Content Creator",
     photo: {
-      src: "/Herosection/sanjay.jpeg",
+      src: "/FeaturesSpeakers/sanjay.jpeg",
       alt: "Sanjay Gupta",
       height: 395,
       width: 395,
@@ -156,6 +156,25 @@ export const speakers: Speakers[] = [
       {
         platform: "LinkedIn",
         url: "https://www.linkedin.com/in/rishabh-sehgal-a68b771b2/",
+        icon: <LinkedInIcon className="h-8 w-auto" />,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: "Prashant Kulshrestha",
+    position: "Co-Founder @ Naventum | Product Designer | Webflow Developer | Ex-Salesforce | Ex-Apprio (Wipro)",
+    photo: {
+      src: "/FeaturesSpeakers/Prashant.jpeg",
+      alt: "Prashant Kulshrestha",
+      height: 395,
+      width: 395,
+    },
+    bio: "",
+    social: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/shresthapk/",
         icon: <LinkedInIcon className="h-8 w-auto" />,
       },
     ],

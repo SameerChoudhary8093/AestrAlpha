@@ -11,6 +11,7 @@ import LearningJourney from "@/components/home/LearningJourney";
 import Track from "@/components/home/Track";
 import WorkShop from "@/components/home/WorkShop";
 import InsideTheResidency from "@/components/home/InsideTheResidency";
+import ExperienceSection from "@/components/home/ExperienceSection";
 import InvestmentSection from "@/components/home/InvestmentSection";
 import FAQSection from "@/components/home/faq/FAQSection";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
@@ -22,6 +23,7 @@ export default function Home() {
       <WhatsAppButton />
       <HeroSection />
 
+      <ExperienceSection />
       <AboutSection />
       {/* <AdvantagesSection /> */}
       <WorkSimulationSection />

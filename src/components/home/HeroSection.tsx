@@ -14,7 +14,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center overflow-hidden pt-[150px] md:pt-[227px] mt-[-108px] mb-0"
+      className="relative w-full flex flex-col items-center overflow-hidden pt-[120px] md:pt-[160px] lg:pt-[227px] mt-[-108px] mb-0"
       style={{
         background: "radial-gradient(112.15% 91.53% at 110.03% 77.26%, #667015 9.13%, #181818 68.08%)",
       }}

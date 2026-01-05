@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.variable} ${orbitron.variable} antialiased`}>
+      <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full`}>
         {children}
       </body>
     </html>

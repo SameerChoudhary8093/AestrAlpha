@@ -69,15 +69,18 @@ const GuestMentorCard = ({ speaker }: { speaker: any }) => (
 );
 
 export default function BoardMembers() {
-  const [showAll, setShowAll] = useState(false);
   const [isAppModalOpen, setIsAppModalOpen] = useState(false);
 
-  // Show only 3 speakers initially (1 row on desktop), or all if toggled
-  const displayedSpeakers = showAll ? speakers : speakers.slice(0, 3);
+  // WhatsApp redirect handler for counselor button
+  const handleCounselorClick = () => {
+    const message = "Hi, I went through the “What You Graduate With” section on Aestr Alpha and would like to talk to a counselor.";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/9828781952?text=${encodedMessage}`, "_blank");
+  };
 
   return (
     <section
-      className="w-full flex flex-col items-center justify-center py-16 px-4 md:py-28 md:px-16"
+      className="w-full flex flex-col items-center justify-center py-16 px-4 md:py-20 md:px-8 lg:py-28 lg:px-16"
       style={{ backgroundColor: "#5B1DD6" }}
     >
       <div className="w-full max-w-[1280px] flex flex-col items-center">
@@ -101,79 +104,46 @@ export default function BoardMembers() {
 
         {/* Content Container */}
         <div className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {displayedSpeakers.map((speaker) => (
+          {speakers.map((speaker) => (
             <GuestMentorCard key={speaker.id} speaker={speaker} />
           ))}
         </div>
 
-        {/* View More Button (Replaces Apply Button) */}
-        {!showAll && speakers.length > 3 && (
-          <div style={{ marginTop: "120px" }}>
-            <button
-              onClick={() => setShowAll(true)}
-              className="flex items-center justify-center hover:opacity-90 transition-opacity"
+        {/* Talk to Counselor Button */}
+        <div style={{ marginTop: "120px" }}>
+          <button
+            onClick={handleCounselorClick}
+            className="flex items-center justify-center hover:opacity-90 transition-opacity"
+            style={{
+              width: "360px", // Slightly wider for longer text
+              height: "53.8px",
+              gap: "8px",
+              padding: "12px 24px",
+              borderTopLeftRadius: "4px",
+              borderTopRightRadius: "20px",
+              borderBottomRightRadius: "4px",
+              borderBottomLeftRadius: "4px",
+              backgroundColor: "#D8F602",
+              color: "#181818",
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 800,
+              fontSize: "16px",
+              lineHeight: "150%",
+              textDecoration: "none",
+              cursor: "pointer"
+            }}
+          >
+            <StarIcon
               style={{
-                width: "300px",
-                height: "53.8px",
-                gap: "8px",
-                padding: "12px 24px",
-                borderTopLeftRadius: "4px",
-                borderTopRightRadius: "20px",
-                borderBottomRightRadius: "4px",
-                borderBottomLeftRadius: "4px",
-                backgroundColor: "#D8F602",
+                width: "28px",
+                height: "29.8px",
                 color: "#181818",
-                fontFamily: "var(--font-orbitron), sans-serif",
-                fontWeight: 800,
-                fontSize: "16px",
-                lineHeight: "150%",
-                textDecoration: "none",
-                cursor: "pointer"
+                fill: "currentColor"
               }}
-            >
-              <StarIcon
-                style={{
-                  width: "28px",
-                  height: "29.8px",
-                  color: "#181818",
-                  fill: "currentColor"
-                }}
-              />
-              <span className="font-extrabold whitespace-nowrap">View All Members</span>
-            </button>
-          </div>
-        )}
-
-        {/* Optional: 'Show Less' button if needed, but user only asked for 'View More' */}
-        {showAll && (
-          <div style={{ marginTop: "120px" }}>
-            <button
-              onClick={() => setShowAll(false)}
-              className="flex items-center justify-center hover:opacity-90 transition-opacity"
-              style={{
-                width: "300px",
-                height: "53.8px",
-                gap: "8px",
-                padding: "12px 24px",
-                borderTopLeftRadius: "4px",
-                borderTopRightRadius: "20px",
-                borderBottomRightRadius: "4px",
-                borderBottomLeftRadius: "4px",
-                backgroundColor: "transparent",
-                border: "1px solid #D8F602",
-                color: "#D8F602",
-                fontFamily: "var(--font-orbitron), sans-serif",
-                fontWeight: 800,
-                fontSize: "16px",
-                lineHeight: "150%",
-                textDecoration: "none",
-                cursor: "pointer"
-              }}
-            >
-              <span className="font-extrabold whitespace-nowrap">Show Less</span>
-            </button>
-          </div>
-        )}
+            />
+            <span className="font-extrabold whitespace-nowrap">Talk to a Counselor (Free 1:1)</span>
+          </button>
+        </div>
 
         <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
 
