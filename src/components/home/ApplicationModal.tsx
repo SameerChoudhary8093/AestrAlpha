@@ -3,6 +3,7 @@
 import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import { createPortal } from "react-dom";
 import StarIcon from "@/components/icons/Star";
+import { supabase } from "@/lib/supabase";
 
 interface ApplicationModalProps {
     isOpen: boolean;
@@ -113,14 +114,62 @@ export default function ApplicationModal({ isOpen, onClose }: ApplicationModalPr
         }
     };
 
+
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API
-        setTimeout(() => {
-            setIsSubmitting(false);
+
+        try {
+            // 2. Map camelCase state to snake_case DB columns
+            const { error } = await supabase
+                .from('applications')
+                .insert([
+                    {
+                        ground_rules: formData.groundRules,
+                        full_name: formData.fullName,
+                        email: formData.email,
+                        phone: formData.phone,
+                        city_state: formData.cityState,
+                        age: parseInt(formData.age),
+                        education: formData.education,
+                        status: formData.status,
+                        track: formData.track,
+                        why_aestr: formData.whyAestr,
+                        uncomfortable_handling: formData.uncomfortableHandling,
+                        commitment: formData.commitment,
+                        relocation: formData.relocation,
+                        constraints: formData.constraints,
+                        constraint_details: formData.constraintDetails,
+                        last_difficult_thing: formData.lastDifficultThing,
+                        accountability_meaning: formData.accountabilityMeaning,
+                        consistency_rating: formData.consistencyRating,
+                        feedback_rating: formData.feedbackRating,
+                        stress_rating: formData.stressRating,
+                        ownership_rating: formData.ownershipRating,
+                        skills: formData.skills,
+                        tools: formData.tools,
+                        portfolio_link: formData.portfolioLink,
+                        failure_story: formData.failureStory,
+                        fee_awareness: formData.feeAwareness,
+                        fee_management: formData.feeManagement,
+                        performance_post_residency: formData.performancePostResidency,
+                        professional_treatment: formData.professionalTreatment,
+                        blunt_feedback: formData.bluntFeedback,
+                        ego_challenge: formData.egoChallenge,
+                        earn_outcome: formData.earnOutcome,
+                        why_invest: formData.whyInvest
+                    }
+                ]);
+
+            if (error) throw error;
+
             setIsSuccess(true);
-        }, 1500);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (isSuccess) {

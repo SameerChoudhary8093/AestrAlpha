@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import StarIcon from "@/components/icons/Star";
+import { supabase } from "@/lib/supabase";
 
 interface BrochureModalProps {
     isOpen: boolean;
@@ -125,24 +126,45 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
 
         setIsSubmitting(true);
 
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            // 2. Insert into Supabase
+            const { error } = await supabase
+                .from('brochure_requests')
+                .insert([
+                    {
+                        full_name: formData.fullName,
+                        email: formData.email,
+                        mobile: formData.mobile,
+                        status: formData.status,
+                        intent: formData.intent,
+                        tracks: formData.tracks,
+                        college: formData.college,
+                        city: formData.city,
+                        consent: formData.consent,
+                    }
+                ]);
+
+            if (error) throw error;
+
+            // 3. Success logic (Download + UI update)
             setIsSuccess(true);
 
-            // Auto-redirect to brochure download
-            setTimeout(() => {
-                const link = document.createElement('a');
-                link.href = '/AestrAlphaBrochure.pdf';
-                link.download = 'AestrAlphaBrochure.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+            const link = document.createElement('a');
+            link.href = '/AestrAlphaBrochure.pdf';
+            link.download = 'AestrAlphaBrochure.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-                // Close modal after redirect
-                // setTimeout(onClose, 3000); 
-            }, 1500);
-        }, 1500);
+            // Optional: Close modal after a short delay
+            setTimeout(onClose, 2000);
+
+        } catch (error) {
+            console.error("Error saving brochure request:", error);
+            alert("Failed to process request. Please check your connection.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (!mounted || !isOpen) return null;
