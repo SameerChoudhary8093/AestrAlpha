@@ -37,55 +37,100 @@ export default function ExperienceSection() {
                 </div>
 
                 {/* Right Logos */}
-                {/* Mobile/Tablet: 2x2 Grid. Desktop (>xl): Flex Row */}
-                <div
-                    className="grid grid-cols-2 xl:flex items-center justify-center xl:justify-end gap-x-8 gap-y-8 xl:gap-8"
-                    style={{
-                        maxWidth: "928px",
-                    }}
-                >
-                    {/* Microsoft Logo */}
-                    <div className="relative flex justify-center xl:block w-full xl:w-auto h-[110px]" style={{ minWidth: "212px" }}>
-                        <Image
-                            src="/Herosection/Microsoft.svg"
-                            alt="Microsoft"
-                            width={212}
-                            height={110}
-                            className="object-contain"
-                        />
+                <div style={{ maxWidth: "928px" }} className="w-full xl:w-auto">
+
+                    {/* MOBILE LAYOUT (< md) */}
+                    <div className="flex flex-col gap-6 md:hidden w-full">
+                        {/* Row 1: Microsoft & Cambridge - Left aligned, 2px gap */}
+                        <div className="flex items-center justify-start gap-[2px] pl-[2px] w-full">
+                            {/* Microsoft */}
+                            <div className="relative h-[80px] w-1/2 xs:w-auto" style={{ minWidth: "120px", maxWidth: "212px" }}>
+                                <Image
+                                    src="/Herosection/Microsoft.svg"
+                                    alt="Microsoft"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
+                            {/* Cambridge */}
+                            <div className="relative h-[32px] w-1/2 xs:w-auto" style={{ minWidth: "120px", maxWidth: "200px" }}>
+                                <Image
+                                    src="/Herosection/Cambridge.svg"
+                                    alt="University of Cambridge"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Row 2: Shodh & DRDO - Center aligned */}
+                        <div className="flex items-center justify-center gap-8 w-full">
+                            {/* Shodh AI */}
+                            <div className="relative h-[40px] w-auto" style={{ width: "160px" }}>
+                                <Image
+                                    src="/Herosection/Shodh.svg"
+                                    alt="Shodh AI"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            {/* DRDO */}
+                            <div className="relative h-[60px] w-auto" style={{ width: "80px" }}>
+                                <Image
+                                    src="/Herosection/DRDO.svg"
+                                    alt="DRDO"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Cambridge Logo */}
-                    <div className="relative flex justify-center xl:block w-full xl:w-auto h-[42px]" style={{ minWidth: "200px" }}>
-                        <Image
-                            src="/Herosection/Cambridge.svg"
-                            alt="University of Cambridge"
-                            width={200}
-                            height={42}
-                            className="object-contain"
-                        />
-                    </div>
+                    {/* TABLET & DESKTOP LAYOUT (>= md) */}
+                    <div className="hidden md:grid md:grid-cols-2 xl:flex items-center justify-center xl:justify-end gap-x-8 gap-y-8 xl:gap-8 w-full">
+                        {/* Microsoft Logo */}
+                        <div className="relative flex justify-start xl:block w-full xl:w-auto h-[110px]" style={{ minWidth: "212px" }}>
+                            <Image
+                                src="/Herosection/Microsoft.svg"
+                                alt="Microsoft"
+                                width={212}
+                                height={110}
+                                className="object-contain"
+                            />
+                        </div>
 
-                    {/* Shodh AI Logo */}
-                    <div className="relative flex justify-center xl:block w-full xl:w-auto h-[47px]" style={{ minWidth: "200px" }}>
-                        <Image
-                            src="/Herosection/Shodh.svg"
-                            alt="Shodh AI"
-                            width={200}
-                            height={47}
-                            className="object-contain"
-                        />
-                    </div>
+                        {/* Cambridge Logo */}
+                        <div className="relative flex justify-start xl:block w-full xl:w-auto h-[42px]" style={{ minWidth: "200px" }}>
+                            <Image
+                                src="/Herosection/Cambridge.svg"
+                                alt="University of Cambridge"
+                                width={200}
+                                height={42}
+                                className="object-contain"
+                            />
+                        </div>
 
-                    {/* DRDO Logo */}
-                    <div className="relative flex justify-center xl:block w-full xl:w-auto h-[84px]" style={{ minWidth: "108px" }}>
-                        <Image
-                            src="/Herosection/DRDO.svg"
-                            alt="DRDO"
-                            width={108}
-                            height={84}
-                            className="object-contain"
-                        />
+                        {/* Shodh AI Logo */}
+                        <div className="relative flex justify-end xl:block w-full xl:w-auto h-[47px]" style={{ minWidth: "200px" }}>
+                            <Image
+                                src="/Herosection/Shodh.svg"
+                                alt="Shodh AI"
+                                width={200}
+                                height={47}
+                                className="object-contain"
+                            />
+                        </div>
+
+                        {/* DRDO Logo */}
+                        <div className="relative flex justify-start xl:block w-full xl:w-auto h-[84px]" style={{ minWidth: "108px" }}>
+                            <Image
+                                src="/Herosection/DRDO.svg"
+                                alt="DRDO"
+                                width={108}
+                                height={84}
+                                className="object-contain"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
