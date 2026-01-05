@@ -67,7 +67,10 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
             fontSize: "24px",
             lineHeight: "140%",
             color: "#EAF0BD",
-            margin: 0
+            margin: 0,
+            minHeight: "72px", // Fixed height for alignment (accommodates 2 lines)
+            display: "flex",
+            alignItems: "flex-start", // Top align text
           }}>
           {title}
         </h3>
@@ -78,11 +81,12 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
           style={{
             fontFamily: "var(--font-roboto), sans-serif",
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: "14px", // Reduced to fit long single-line descriptions
             lineHeight: "150%",
             color: "#EAF0BD",
             margin: 0,
-            whiteSpace: "pre-line"
+            whiteSpace: "pre-line",
+            letterSpacing: "-0.01em"
           }}>
           {description}
         </p>

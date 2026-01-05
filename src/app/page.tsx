@@ -13,12 +13,13 @@ import WorkShop from "@/components/home/WorkShop";
 import InsideTheResidency from "@/components/home/InsideTheResidency";
 import InvestmentSection from "@/components/home/InvestmentSection";
 import FAQSection from "@/components/home/faq/FAQSection";
-
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <WhatsAppButton />
       <HeroSection />
 
       <AboutSection />

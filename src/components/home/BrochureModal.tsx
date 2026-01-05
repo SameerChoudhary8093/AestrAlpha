@@ -150,8 +150,8 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             setIsSuccess(true);
 
             const link = document.createElement('a');
-            link.href = '/AestrAlphaBrochure.pdf';
-            link.download = 'AestrAlphaBrochure.pdf';
+            link.href = '/AestrAlpha.pdf';
+            link.download = 'AestrAlpha.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
