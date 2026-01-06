@@ -66,7 +66,7 @@ const FeaturedMentor = () => {
                         fontFamily: 'Arial, sans-serif'
                     }}
                 >
-                    Our founding team includes engineers from Shodh AI (USA) and other global tech leaders. Here, you won’t be taught by disconnected faculty, you’ll learn from full-time software developers, AI practitioners, and system architects who are shaping the real world.
+                    Dr. Arastu is a highly experienced technology and research professional with a strong background in innovation, leadership, and real-world problem solving. Our founding team includes engineers from Shodh AI (USA) and other global tech leaders. Here, students don’t learn from disconnected faculty — they are mentored by full-time software developers, AI practitioners, and system architects who are actively shaping the real world. Dr. Arastu is passionate about building future-ready talent through industry-driven education and cutting-edge technology.
                 </p>
             </div>
 

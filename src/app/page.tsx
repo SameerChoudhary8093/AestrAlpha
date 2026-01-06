@@ -1,20 +1,23 @@
+import dynamic from 'next/dynamic';
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
-import AboutSection from "@/components/home/AboutSection";
-import AdvantagesSection from "@/components/home/AdvantagesSection";
-import WorkSimulationSection from "@/components/home/WorkSimulationSection";
-import OperatingSystemSection from "@/components/home/OperatingSystemSection";
-import CampusAmbassador from "@/components/home/Ambassador";
-import BoardMembers from "@/components/home/BoardMembers";
 import HeroSection from "@/components/home/HeroSection";
-import LearningJourney from "@/components/home/LearningJourney";
-import Track from "@/components/home/Track";
-import WorkShop from "@/components/home/WorkShop";
-import InsideTheResidency from "@/components/home/InsideTheResidency";
 import ExperienceSection from "@/components/home/ExperienceSection";
-import InvestmentSection from "@/components/home/InvestmentSection";
-import FAQSection from "@/components/home/faq/FAQSection";
+import AboutSection from "@/components/home/AboutSection";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
+
+// Lazy load below-the-fold components
+const WorkSimulationSection = dynamic(() => import("@/components/home/WorkSimulationSection"));
+const AdvantagesSection = dynamic(() => import("@/components/home/AdvantagesSection"));
+const OperatingSystemSection = dynamic(() => import("@/components/home/OperatingSystemSection"));
+const LearningJourney = dynamic(() => import("@/components/home/LearningJourney"));
+const WorkShop = dynamic(() => import("@/components/home/WorkShop"));
+const Track = dynamic(() => import("@/components/home/Track"));
+const CampusAmbassador = dynamic(() => import("@/components/home/Ambassador"));
+const InvestmentSection = dynamic(() => import("@/components/home/InvestmentSection"));
+const BoardMembers = dynamic(() => import("@/components/home/BoardMembers"));
+const InsideTheResidency = dynamic(() => import("@/components/home/InsideTheResidency"));
+const FAQSection = dynamic(() => import("@/components/home/faq/FAQSection"));
 
 export default function Home() {
   return (

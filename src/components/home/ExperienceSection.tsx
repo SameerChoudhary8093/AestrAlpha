@@ -57,7 +57,7 @@ export default function ExperienceSection() {
                         {/* Row 1: Microsoft & Cambridge - Left aligned, 2px gap */}
                         <div className="flex items-center justify-start gap-[2px] pl-[2px] w-full">
                             {/* Microsoft */}
-                            <div className="relative h-[80px] w-1/2 xs:w-auto" style={{ minWidth: "120px", maxWidth: "212px" }}>
+                            <div className="relative h-[80px] w-auto" style={{ width: "160px" }}>
                                 <Image
                                     src="/Herosection/Microsoft.svg"
                                     alt="Microsoft"
@@ -67,19 +67,19 @@ export default function ExperienceSection() {
                                 />
                             </div>
                             {/* Cambridge */}
-                            <div className="relative h-[32px] w-1/2 xs:w-auto" style={{ minWidth: "120px", maxWidth: "200px" }}>
+                            <div className="relative h-[32px] w-auto" style={{ width: "180px" }}>
                                 <Image
                                     src="/Herosection/Cambridge.svg"
                                     alt="University of Cambridge"
                                     fill
                                     sizes="(max-width: 768px) 50vw, 33vw"
-                                    className="object-contain object-left"
+                                    className="object-contain object-center"
                                 />
                             </div>
                         </div>
 
-                        {/* Row 2: Shodh & DRDO - Center aligned */}
-                        <div className="flex items-center justify-center gap-8 w-full">
+                        {/* Row 2: Shodh & DRDO - Left aligned to match above */}
+                        <div className="flex items-center justify-start gap-[2px] pl-[2px] w-full">
                             {/* Shodh AI */}
                             <div className="relative h-[40px] w-auto" style={{ width: "160px" }}>
                                 <Image
@@ -87,11 +87,11 @@ export default function ExperienceSection() {
                                     alt="Shodh AI"
                                     fill
                                     sizes="(max-width: 768px) 50vw, 33vw"
-                                    className="object-contain"
+                                    className="object-contain object-left"
                                 />
                             </div>
                             {/* DRDO */}
-                            <div className="relative h-[60px] w-auto" style={{ width: "80px" }}>
+                            <div className="relative h-[60px] w-auto" style={{ width: "180px" }}>
                                 <Image
                                     src="/Herosection/DRDO.svg"
                                     alt="DRDO"

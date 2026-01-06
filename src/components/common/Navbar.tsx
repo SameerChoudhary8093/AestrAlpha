@@ -16,15 +16,7 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  // Modify NavigationLinks and TicketNavigationLinks to update the href for "Pricing"
-  const updatedNavigationLinks = NavigationLinks.map(link =>
-    link.label === "Pricing" ? { ...link, href: "#pricing" } : link
-  );
-  const updatedTicketNavigationLinks = TicketNavigationLinks.map(link =>
-    link.label === "Pricing" ? { ...link, href: "#pricing" } : link
-  );
-
-  const currentNavLinks = pathname === "/Workshop" ? updatedTicketNavigationLinks : updatedNavigationLinks;
+  const currentNavLinks = pathname === "/Workshop" ? TicketNavigationLinks : NavigationLinks;
 
   return (
     <>
