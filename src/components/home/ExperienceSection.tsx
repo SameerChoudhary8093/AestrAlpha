@@ -21,7 +21,7 @@ export default function ExperienceSection() {
             >
                 {/* Left Text */}
                 <div
-                    className="w-full xl:w-[320px] text-center xl:text-left"
+                    className="w-full xl:w-[500px] text-center xl:text-left"
                     style={{
                         color: "#000000",
                         fontFamily: "Arial, sans-serif",
@@ -31,9 +31,22 @@ export default function ExperienceSection() {
                         letterSpacing: "0%",
                     }}
                 >
-                    <p className="m-0">Experience shaped inside</p>
-                    <p className="m-0">companies that set the</p>
-                    <p className="m-0">standard.</p>
+                    <p
+                        className="m-0 mb-4 whitespace-nowrap"
+                        style={{
+                            fontFamily: "var(--font-orbitron), sans-serif",
+                            fontSize: "32px",
+                            fontWeight: 700,
+                            lineHeight: "120%"
+                        }}
+                    >
+                        Built by AI Engineers.
+                    </p>
+                    <p className="m-0">
+                        Powered by Experience.<br />
+                        From Microsoft to Cambridge,<br />
+                        we bring real-world tech to your career journey.
+                    </p>
                 </div>
 
                 {/* Right Logos */}
@@ -49,6 +62,7 @@ export default function ExperienceSection() {
                                     src="/Herosection/Microsoft.svg"
                                     alt="Microsoft"
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -58,6 +72,7 @@ export default function ExperienceSection() {
                                     src="/Herosection/Cambridge.svg"
                                     alt="University of Cambridge"
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -71,6 +86,7 @@ export default function ExperienceSection() {
                                     src="/Herosection/Shodh.svg"
                                     alt="Shodh AI"
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
                                     className="object-contain"
                                 />
                             </div>
@@ -80,6 +96,7 @@ export default function ExperienceSection() {
                                     src="/Herosection/DRDO.svg"
                                     alt="DRDO"
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
                                     className="object-contain"
                                 />
                             </div>

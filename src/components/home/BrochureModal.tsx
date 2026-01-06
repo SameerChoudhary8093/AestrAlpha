@@ -55,7 +55,6 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -74,7 +73,6 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
     ) => {
         const { name, value, type } = e.target;
-
         if (type === "checkbox") {
             const checked = (e.target as HTMLInputElement).checked;
             if (name === "consent") {
@@ -88,13 +86,10 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                 });
             }
         } else if (name === "intent") {
-            // Radio buttons for intent
             setFormData(prev => ({ ...prev, intent: value }));
         } else {
             setFormData((prev) => ({ ...prev, [name]: value }));
         }
-
-        // Clear error when user types
         if (errors[name]) {
             setErrors((prev) => {
                 const newErrors = { ...prev };
@@ -107,15 +102,11 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
     const validate = () => {
         const newErrors: { [key: string]: string } = {};
         if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
-        if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = "Invalid email format";
-        }
+        if (!formData.email.trim()) newErrors.email = "Email is required";
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Invalid email format";
         if (!formData.mobile.trim()) newErrors.mobile = "Mobile Number is required";
         if (!formData.status) newErrors.status = "Please select your current status";
         if (!formData.consent) newErrors.consent = "You must agree to the terms";
-
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -123,42 +114,30 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         if (!validate()) return;
-
         setIsSubmitting(true);
-
         try {
-            // 2. Insert into Supabase
             const { error } = await supabase
                 .from('brochure_requests')
-                .insert([
-                    {
-                        full_name: formData.fullName,
-                        email: formData.email,
-                        mobile: formData.mobile,
-                        status: formData.status,
-                        intent: formData.intent,
-                        tracks: formData.tracks,
-                        college: formData.college,
-                        city: formData.city,
-                        consent: formData.consent,
-                    }
-                ]);
-
+                .insert([{
+                    full_name: formData.fullName,
+                    email: formData.email,
+                    mobile: formData.mobile,
+                    status: formData.status,
+                    intent: formData.intent,
+                    tracks: formData.tracks,
+                    college: formData.college,
+                    city: formData.city,
+                    consent: formData.consent,
+                }]);
             if (error) throw error;
-
-            // 3. Success logic (Download + UI update)
             setIsSuccess(true);
-
             const link = document.createElement('a');
             link.href = '/AestrAlpha.pdf';
             link.download = 'AestrAlpha.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-
-            // Optional: Close modal after a short delay
             setTimeout(onClose, 2000);
-
         } catch (error) {
             console.error("Error saving brochure request:", error);
             alert("Failed to process request. Please check your connection.");
@@ -171,12 +150,19 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
 
     const modalContent = (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 text-left overflow-y-auto">
+
+            {/* Main Modal Container */}
             <div
-                className="relative w-full max-w-2xl my-8 rounded-2xl border border-[#D8F602]/20 bg-[#121212]/95 backdrop-blur-md shadow-2xl flex flex-col max-h-[90vh]"
-                style={{ boxShadow: "0 0 40px rgba(216, 246, 2, 0.05)" }}
+                // 1. Removed base bg color classes to let the style prop control the background completely
+                className="relative w-full max-w-2xl my-8 rounded-2xl border border-[#D8F602]/20 shadow-2xl flex flex-col max-h-[90vh]"
+                style={{
+                    background: "linear-gradient(180deg, #1d2603 0%, #121212 350px)",
+                    boxShadow: "0 0 40px rgba(216, 246, 2, 0.05)"
+                }}
             >
                 {/* Header */}
-                <div className="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#121212]/95 z-10 rounded-t-2xl">
+                {/* 3. Transparent background + Backdrop Blur allows the green gradient to shine through */}
+                <div className="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-transparent backdrop-blur-xl z-10 rounded-t-2xl">
                     <div>
                         <h2 className="text-xl md:text-2xl font-bold text-[#FAFFD6]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>Unlock the Brochure</h2>
                         <p className="text-sm text-gray-400 mt-1">Fill in the details to get instant access</p>
@@ -203,7 +189,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                                         value={formData.fullName}
                                         onChange={handleChange}
                                         className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.fullName ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                        placeholder="John Doe"
+                                        placeholder="Enter your name"
                                     />
                                     {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
                                 </div>
@@ -215,7 +201,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                        placeholder="john@example.com"
+                                        placeholder="Enter your email"
                                     />
                                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                                 </div>
@@ -230,7 +216,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                                         value={formData.mobile}
                                         onChange={handleChange}
                                         className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.mobile ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                        placeholder="+91 98765 43210"
+                                        placeholder="Enter your mobile number"
                                     />
                                     {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
                                 </div>

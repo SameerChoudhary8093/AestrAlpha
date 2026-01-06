@@ -182,6 +182,8 @@ export default function HeroSection() {
           width={1312}
           height={700}
           priority
+          sizes="100vw"
+          unoptimized
           className="w-full h-auto object-contain"
         />
       </div>

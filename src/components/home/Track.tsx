@@ -23,8 +23,6 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
 
   const content = (
     <>
-
-
       {/* Ellipse 190 */}
       <div style={{
         position: "absolute",
@@ -40,13 +38,14 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
         zIndex: 20
       }} />
 
-      {/* Image */}
+      {/* Image Container */}
       <div
         className="relative z-10 w-full rounded-lg overflow-hidden border border-transparent"
         style={{
           height: "240px",
-          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, transparent 100%) border-box",
+          background: "linear-gradient(#181818, #181818) padding-box, linear-gradient(180deg, #D8F602 0%, rgba(216, 246, 2, 0) 100%) border-box",
         }}>
+
         <Image
           src={imageSrc}
           alt={title}
@@ -54,10 +53,36 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
           height={240}
           className="w-full h-full object-cover"
         />
+
+        {/* --- ADDED: Gradient Overlay --- */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            // Gradient fades to transparent by 90% to ensure the bottom is completely clean
+            background: "linear-gradient(180deg, rgba(215, 246, 1, 0.6) 0%, rgba(252, 252, 249, 0) 90%)",
+            mixBlendMode: "multiply",
+            zIndex: 10
+          }}
+        />
+        {/* Fade to Background Color (#181818) Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, #181818 100%)",
+            zIndex: 11
+          }}
+        />
+        {/* ------------------------------- */}
+
       </div>
 
       {/* Text Content */}
-      <div className="relative z-10 w-full mt-8 px-[20px] flex flex-col gap-4">
+      <div
+        className="relative z-10 w-full pt-10 px-[20px] flex flex-col gap-4"
+        style={{
+          background: "radial-gradient(100% 100% at 50% 0%, #2E360F 0%, transparent 100%)"
+        }}
+      >
         {/* Heading */}
         <h3
           className="w-full"
@@ -68,9 +93,9 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
             lineHeight: "140%",
             color: "#EAF0BD",
             margin: 0,
-            minHeight: "72px", // Fixed height for alignment (accommodates 2 lines)
+            minHeight: "72px",
             display: "flex",
-            alignItems: "flex-start", // Top align text
+            alignItems: "flex-start",
           }}>
           {title}
         </h3>
@@ -81,7 +106,7 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
           style={{
             fontFamily: "var(--font-roboto), sans-serif",
             fontWeight: 400,
-            fontSize: "14px", // Reduced to fit long single-line descriptions
+            fontSize: "14px",
             lineHeight: "150%",
             color: "#EAF0BD",
             margin: 0,

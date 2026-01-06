@@ -109,7 +109,8 @@ export default function InvestmentSection() {
                         lineHeight: "120%",
                         textAlign: "center",
                         color: "#D7F601",
-                        margin: 0
+                        margin: 0,
+                        letterSpacing: "0.05em" // Digital look
                     }}>
                         ₹2,40,000
                     </p>
@@ -125,88 +126,108 @@ export default function InvestmentSection() {
                     }}>
                         Early Bird Offer: 50% Off
                     </p>
-                </div>
 
-                {/* Price Info */}
-                <div className="flex flex-col items-center" style={{ gap: "8px" }}>
-                    <p style={{
-                        fontFamily: "var(--font-roboto), sans-serif",
-                        fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "140%",
-                        textAlign: "center",
-                        color: "#D7F601",
-                        margin: 0
-                    }}>
-                        Early Bird Price
-                    </p>
-                    <p style={{
-                        fontFamily: "Arial, sans-serif",
-                        fontWeight: 900,
-                        fontSize: "clamp(36px, 10vw, 64px)",
-                        lineHeight: "120%",
-                        textAlign: "center",
-                        color: "#D7F601",
-                        margin: 0
-                    }}>
-                        ₹1,20,000
-                    </p>
-                </div>
-
-                {/* Features Info */}
-                <div className="flex flex-col box-border" style={{
-                    width: "100%",
-                    gap: "16px",
-                    paddingTop: "8px",
-                    paddingBottom: "8px"
-                }}>
-                    {/* Item 1 */}
-                    <div className="flex flex-row" style={{ gap: "16px" }}>
-                        <div style={{
-                            width: "26px",
-                            height: "27.67px",
-                            color: "#D7F601",
-                            flexShrink: 0
-                        }}>
-                            <StarIcon style={{ width: "100%", height: "100%", fill: "currentColor" }} />
-                        </div>
+                    {/* Limited Applicants Line */}
+                    <div className="flex items-center gap-2 mt-1">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#D7F601" />
+                        </svg>
                         <p style={{
                             fontFamily: "var(--font-roboto), sans-serif",
                             fontWeight: 400,
+                            fontSize: "14px",
+                            lineHeight: "150%",
+                            color: "#D7F601",
+                            margin: 0
+                        }}>
+                            Limited to First 60 Selected Applicants
+                        </p>
+                    </div>
+                </div>
+
+                {/* Price Info */}
+                <div className="flex flex-col items-center" style={{ gap: "16px" }}>
+                    <div className="flex flex-col items-center gap-2">
+                        <p style={{
+                            fontFamily: "var(--font-roboto), sans-serif",
+                            fontWeight: 700,
+                            fontSize: "20px",
+                            lineHeight: "140%",
+                            textAlign: "center",
+                            color: "#D7F601",
+                            margin: 0
+                        }}>
+                            Early Bird Price
+                        </p>
+                        <p style={{
+                            fontFamily: "Arial, sans-serif",
+                            fontWeight: 900,
+                            fontSize: "clamp(48px, 10vw, 64px)",
+                            lineHeight: "100%",
+                            textAlign: "center",
+                            color: "#D7F601",
+                            margin: 0
+                        }}>
+                            ₹1,20,000
+                        </p>
+                    </div>
+
+                    {/* Seats Pill */}
+                    <div style={{
+                        padding: "8px 24px",
+                        border: "1px solid #D7F601",
+                        borderRadius: "100px",
+                        backgroundColor: "transparent"
+                    }}>
+                        <p style={{
+                            fontFamily: "var(--font-roboto), sans-serif",
+                            fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "150%",
                             color: "#D7F601",
-                            margin: 0,
-                            whiteSpace: "pre-line"
+                            margin: 0
                         }}>
-                            Real industry projects, expert mentorship, soft-skills{"\n"}
-                            training, portfolio development, on-campus immersion,{"\n"}
+                            Only 60 Early Bird Seats Available
+                        </p>
+                    </div>
+                </div>
+
+                {/* Features Info */}
+                <div className="flex flex-col box-border w-full gap-4 pt-2 pb-2">
+                    {/* Item 1 */}
+                    <div className="flex flex-row gap-4">
+                        <div className="w-6 h-6 shrink-0 text-[#D7F601] mt-1">
+                            <StarIcon style={{ width: "100%", height: "100%", fill: "currentColor" }} />
+                        </div>
+                        <p className="text-[#D7F601] text-base leading-[150%] font-normal m-0 font-roboto">
+                            Real industry projects, expert mentorship, soft-skills
+                            training, portfolio development, on-campus immersion,
                             and Aestr Alpha certification.
                         </p>
                     </div>
 
                     {/* Item 2 */}
-                    <div className="flex flex-row" style={{ gap: "16px" }}>
-                        <div style={{
-                            width: "26px",
-                            height: "27.67px",
-                            color: "#D7F601",
-                            flexShrink: 0
-                        }}>
+                    <div className="flex flex-row gap-4">
+                        <div className="w-6 h-6 shrink-0 text-[#D7F601] mt-1">
                             <StarIcon style={{ width: "100%", height: "100%", fill: "currentColor" }} />
                         </div>
-                        <p style={{
-                            fontFamily: "var(--font-roboto), sans-serif",
-                            fontWeight: 400,
-                            fontSize: "16px",
-                            lineHeight: "150%",
-                            color: "#D7F601",
-                            margin: 0,
-                            whiteSpace: "pre-line"
-                        }}>
-                            One-time payment or installments (shared after selection).{"\n"}
-                            Admissions are selection-based. Payment applies only{"\n"}
+                        <p className="text-[#D7F601] text-base leading-[150%] font-normal m-0 font-roboto">
+                            One-time payment or installments (shared after selection).
+                            Admissions are selection-based. Payment applies only
                             after acceptance.
+                        </p>
+                    </div>
+
+                    {/* Item 3 - Lightning */}
+                    <div className="flex flex-row gap-4">
+                        <div className="w-6 h-6 shrink-0 text-[#D7F601] mt-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 2V13H10V22L17 10H14L17 2H7ZM9 4H15L13 12H15L10 18V11H12L9 4Z" fill="currentColor" />
+                                <path d="M7 2H17L14 10H17L10 22V13H7V2Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <p className="text-[#D7F601] text-base leading-[150%] font-bold m-0 font-roboto">
+                            <span className="text-[#D7F601]">60 Early Bird Seats Only</span> — Applications Closing Soon
                         </p>
                     </div>
                 </div>

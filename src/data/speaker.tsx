@@ -179,6 +179,44 @@ export const speakers: Speakers[] = [
       },
     ],
   },
+  {
+    id: 10,
+    name: "Parina Hassani",
+    position: "Program Manager | Account Management | Project Governance | Agile & Waterfall Practitioner | 3x Salesforce Certified",
+    photo: {
+      src: "/FeaturesSpeakers/Parina.jpeg",
+      alt: "Parina Hassani",
+      height: 395,
+      width: 395,
+    },
+    bio: "",
+    social: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/parina-hassani/",
+        icon: <LinkedInIcon className="h-8 w-auto" />,
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: "Dr Sonali N. Tholia",
+    position: "Top Voice – Public Speaking | Founder Director @ MindSpark | Life Skills Coach | Public Speaker | Emcee | Leader",
+    photo: {
+      src: "/FeaturesSpeakers/Sonali.jpeg",
+      alt: "Dr Sonali N. Tholia",
+      height: 395,
+      width: 395,
+    },
+    bio: "",
+    social: [
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/dr-sonali-n-tholia-56928b17/",
+        icon: <LinkedInIcon className="h-8 w-auto" />,
+      },
+    ],
+  },
 ];
 
 export const buttonText = "View All Members";

@@ -27,7 +27,7 @@ const FeaturedMentor = () => {
                     }}
                 >
                     <Image
-                        src="/FeaturesSpeakers/Arastu.jpg"
+                        src="/FeaturesSpeakers/Arastu.jpeg"
                         alt="Featured Mentor"
                         fill
                         className="object-cover"
@@ -37,7 +37,7 @@ const FeaturedMentor = () => {
                 {/* Social Media IDs */}
                 <div className="flex items-center gap-3">
                     <span className="text-[#EAF0BD] font-bold text-sm uppercase tracking-wide">Connect:</span>
-                    <a href="https://www.linkedin.com/in/chaitanayasethi/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                    <a href="https://www.linkedin.com/in/drarastu/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         {/* Using inline SVG to match BoardMembers style exactly */}
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 0H5C2.239 0 0 2.239 0 5V19C0 21.761 2.239 24 5 24H19C21.762 24 24 21.761 24 19V5C24 2.239 21.762 0 19 0ZM8 19H5V8H8V19ZM6.5 6.732C5.534 6.732 4.75 5.942 4.75 4.968C4.75 4.024 5.534 3.235 6.5 3.235C7.466 3.235 8.25 4.024 8.25 4.968C8.25 5.942 7.466 6.732 6.5 6.732ZM20 19H17V13.396C17 10.028 13 10.283 13 13.396V19H10V8H13V9.765C14.396 7.179 20 6.988 20 12.241V19Z" fill="#EAF0BD" />
