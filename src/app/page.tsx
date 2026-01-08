@@ -3,6 +3,7 @@ import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import HeroSection from "@/components/home/HeroSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
+import MentorSection from "@/components/home/MentorSection";
 import AboutSection from "@/components/home/AboutSection";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <HeroSection />
 
       <ExperienceSection />
+      <MentorSection />
       <AboutSection />
       {/* <AdvantagesSection /> */}
       <WorkSimulationSection />

@@ -14,7 +14,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full flex flex-col items-center overflow-hidden pt-[120px] md:pt-[160px] lg:pt-[227px] mt-[-108px] mb-0"
+      className="relative w-full flex flex-col items-center overflow-hidden pt-[110px] md:pt-[130px] lg:pt-[200px] mt-[-108px] mb-0"
       style={{
         background: "radial-gradient(112.15% 91.53% at 110.03% 77.26%, #667015 9.13%, #181818 68.08%)",
       }}
@@ -41,7 +41,7 @@ export default function HeroSection() {
         style={{
           width: "100%",
           maxWidth: "900px",
-          gap: "24px",
+          gap: "16px",
         }}
       >
         {/* Inner Content Section */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           className="flex flex-col items-center w-full"
           style={{
             maxWidth: "820px",
-            gap: "21.87px"
+            gap: "12px"
           }}
         >
           {/* Main Heading */}
@@ -80,19 +80,97 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtext description */}
-          <p
-            className="text-center m-0 w-full"
+          {/* "Built by" Text Block */}
+          <div className="flex flex-col items-center w-full mb-2">
+            <p
+              className="m-0 mb-4 whitespace-nowrap"
+              style={{
+                fontFamily: "var(--font-orbitron), sans-serif",
+                fontSize: "32px",
+                fontWeight: 700,
+                lineHeight: "120%",
+                color: "#FAFFD6",
+              }}
+            >
+              Built by AI Engineers.
+            </p>
+            <p
+              className="text-center m-0 w-full"
+              style={{
+                maxWidth: "820px",
+                fontFamily: "Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "clamp(16px, 2vw, 24px)",
+                lineHeight: "150%",
+                color: "#FAFFD6",
+              }}
+            >
+              Powered by Experience.<br />
+              We bring real-world tech to your career journey.
+            </p>
+          </div>
+
+          {/* Logos Section (Horizontal Row) */}
+          {/* Logos Section (Horizontal Row) */}
+          {/* Logos Section (Horizontal Row - Single Line) */}
+          <div
+            className="flex flex-nowrap items-center justify-center gap-3 md:gap-10 w-full max-w-[1000px] mb-8 px-4 py-6 md:py-8"
             style={{
-              maxWidth: "820px",
-              fontFamily: "Arial, sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(16px, 2vw, 20px)",
-              lineHeight: "150%",
-              color: "#FAFFD6",
+              backgroundColor: "#D7F601",
+              borderRadius: "16px",
             }}
           >
-            Aestr Alpha is a 6-Month Career Residency. We bridge the gap between a university degree and Day-1 at a top tech company. At Aestr Alpha, you don’t “attend classes” — you operate: stand-ups, tickets, reviews, shipping real work.
-          </p>
+            {/* Microsoft */}
+            <div className="relative h-[30px] md:h-[60px] w-auto">
+              <Image
+                src="/Herosection/Microsoft.svg"
+                alt="Microsoft"
+                width={140}
+                height={60}
+                className="w-auto h-full object-contain"
+              />
+            </div>
+            {/* Cambridge */}
+            <div className="relative h-[16px] md:h-[32px] w-auto">
+              <Image
+                src="/Herosection/Cambridge.svg"
+                alt="University of Cambridge"
+                width={160}
+                height={32}
+                className="w-auto h-full object-contain object-center"
+              />
+            </div>
+            {/* India AI (Placeholder) */}
+            <div className="relative h-[25px] md:h-[50px] w-auto">
+              <Image
+                src="/Herosection/India-ai.png"
+                alt="India AI"
+                width={120}
+                height={50}
+                className="w-auto h-full object-contain object-center"
+              />
+            </div>
+            {/* Shodh AI */}
+            <div className="relative h-[18px] md:h-[35px] w-auto">
+              <Image
+                src="/Herosection/Shodh.svg"
+                alt="Shodh AI"
+                width={140}
+                height={35}
+                className="w-auto h-full object-contain object-center"
+              />
+            </div>
+            {/* DRDO */}
+            <div className="relative h-[25px] md:h-[50px] w-auto">
+              <Image
+                src="/Herosection/DRDO.svg"
+                alt="DRDO"
+                width={100}
+                height={50}
+                className="w-auto h-full object-contain object-center"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Buttons Section */}

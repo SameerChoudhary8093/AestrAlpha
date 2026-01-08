@@ -6,11 +6,19 @@ import StarIcon from "@/components/icons/Star";
 import Link from "next/link";
 import BrochureModal from "./BrochureModal";
 
+import {
+  SalesforceIcon, ApexIcon, LwcIcon, VsCodeIcon, GitHubIcon, PostmanIcon, JiraIcon, AgentforceIcon,
+  KubernetesIcon, DockerIcon, PythonIcon, TerraformIcon, AwsIcon,
+  DatabaseIcon, ServiceNowIcon, JavaScriptIcon,
+  JavaIcon, SpringIcon, KafkaIcon, SwiftIcon, XcodeIcon, AppleIcon
+} from "@/components/common/ToolIcons";
+
 // Card Component
-const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, title: string, description: string, href?: string }) => {
+const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc: string, title: string, description: string, href?: string, toolIcons?: { icon: React.ReactNode, label: string }[] }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const containerStyle = {
+    // ... existing style
     width: "100%",
     maxWidth: "405px",
     minHeight: "410px",
@@ -78,7 +86,7 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
 
       {/* Text Content */}
       <div
-        className="relative z-10 w-full pt-10 px-[20px] flex flex-col gap-4"
+        className="relative z-10 w-full pt-10 px-[20px] pb-6 flex flex-col gap-4"
         style={{
           background: "radial-gradient(100% 100% at 50% 0%, #2E360F 0%, transparent 100%)"
         }}
@@ -115,6 +123,22 @@ const TrackCard = ({ imageSrc, title, description, href }: { imageSrc: string, t
           }}>
           {description}
         </p>
+
+        {/* Tool Icons Section */}
+        {toolIcons && (
+          <div className="grid grid-cols-2 gap-y-3 gap-x-2 mt-4 w-full">
+            {toolIcons.map((tool, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <div className="w-5 h-5 flex-shrink-0">
+                  {tool.icon}
+                </div>
+                <span className="text-[12px] leading-[140%] text-[#EAF0BD] opacity-80 font-sans truncate">
+                  {tool.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
@@ -163,39 +187,86 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       title: "Salesforce Ecosystem Residency",
       desc: "Enterprise CRM + Agentforce layer • Consulting\n& platform roles",
       img: "/ChooseYourTrack/image-1.svg",
-      href: "/salesforce-ecosystem-residency"
+      href: "/salesforce-ecosystem-residency",
+      toolIcons: [
+        { icon: <SalesforceIcon className="w-full h-full" />, label: "Salesforce Cloud" },
+        { icon: <ApexIcon className="w-full h-full" />, label: "Apex" },
+        { icon: <LwcIcon className="w-full h-full" />, label: "LWC" },
+        { icon: <VsCodeIcon className="w-full h-full" />, label: "VS Code" },
+        { icon: <div className="flex gap-[-4px]"><GitHubIcon className="w-full h-full" /><PostmanIcon className="w-full h-full ml-1" /></div>, label: "Git + Postman" },
+        { icon: <div className="flex gap-[-4px]"><JiraIcon className="w-full h-full" /><AgentforceIcon className="w-full h-full ml-1" /></div>, label: "Jira + Agentforce" },
+      ]
     },
     {
       title: "AI Infrastructure & Cloud Native Residency",
-      desc: "Cloud + Kubernetes + LLMOps • Infra, SRE, platform\nroles",
+      desc: "Cloud + Kubernetes + LLMOps • Infra, SRE,\nplatform roles",
       img: "/ChooseYourTrack/image-2.svg",
-      href: "/ai-infrastructure-cloud-native-residency"
+      href: "/ai-infrastructure-residency",
+      toolIcons: [
+        { icon: <KubernetesIcon className="w-full h-full" />, label: "Kubernetes" },
+        { icon: <DockerIcon className="w-full h-full" />, label: "Docker" },
+        { icon: <PythonIcon className="w-full h-full" />, label: "Python/Go" },
+        { icon: <TerraformIcon className="w-full h-full" />, label: "Terraform" },
+        { icon: <AwsIcon className="w-full h-full" />, label: "AWS/GCP" },
+        { icon: <div className="flex gap-[-4px]"><GitHubIcon className="w-full h-full" /></div>, label: "CI/CD (Git)" },
+      ]
     },
     {
       title: "Enterprise Data Platform Residency",
-      desc: "Modern data stack + vector pipelines • Data engineering & AI data roles",
+      desc: "Modern data stack + vector pipelines • Data\nengineering & AI data roles",
       img: "/ChooseYourTrack/image-3.svg",
-      href: "/enterprise-data-platform-residency"
+      href: "/enterprise-data-residency",
+      toolIcons: [
+        { icon: <PythonIcon className="w-full h-full" />, label: "Python" },
+        { icon: <DatabaseIcon className="w-full h-full" />, label: "SQL/NoSQL" },
+        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#29B5E8' }} />, label: "Snowflake" }, // Simulating Snowflake
+        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#00C7B7' }} />, label: "dbt/Airflow" },
+        { icon: <JavaScriptIcon className="w-full h-full" />, label: "Spark" }, // Placeholder
+        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#FF7000' }} />, label: "Vector DB" },
+      ]
     },
-    // Row 2
     {
       title: "ServiceNow Architect Residency",
-      desc: "Workflow systems + enterprise automation • ITSM + platform roles",
+      desc: "Workflow systems + enterprise automation • ITSM\n+ platform roles",
       img: "/ChooseYourTrack/image-4.svg",
-      href: "/servicenow-architect-residency"
+      href: "/servicenow-residency",
+      toolIcons: [
+        { icon: <ServiceNowIcon className="w-full h-full" />, label: "ServiceNow" },
+        { icon: <JavaScriptIcon className="w-full h-full" />, label: "JavaScript" },
+        { icon: <PostmanIcon className="w-full h-full" />, label: "REST APIs" },
+        { icon: <div className="flex gap-[-4px]"><JiraIcon className="w-full h-full" /></div>, label: "Flow Designer" }, // Using Jira as placeholder for Flow
+        { icon: <DatabaseIcon className="w-full h-full" />, label: "CMDB" },
+        { icon: <div className="flex gap-[-4px]"><AgentforceIcon className="w-full h-full" /></div>, label: "Virtual Agent" },
+      ]
     },
     {
       title: "Modern Enterprise Backend Residency (Java)",
-      desc: "Spring Boot + microservices + scale • BFSI & backend roles",
+      desc: "Spring Boot + microservices + scale • BFSI &\nbackend roles",
       img: "/ChooseYourTrack/image-5.svg",
-      href: "/modern-enterprise-backend-residency"
+      href: "/java-backend-residency",
+      toolIcons: [
+        { icon: <JavaIcon className="w-full h-full" />, label: "Java" },
+        { icon: <SpringIcon className="w-full h-full" />, label: "Spring Boot" },
+        { icon: <KafkaIcon className="w-full h-full" />, label: "Kafka" },
+        { icon: <DatabaseIcon className="w-full h-full" />, label: "PostgreSQL" },
+        { icon: <DockerIcon className="w-full h-full" />, label: "Microservices" },
+        { icon: <GitHubIcon className="w-full h-full" />, label: "Redis" }, // Placeholder
+      ]
     },
     {
       title: "Apple Ecosystem Residency (iOS)",
       desc: "Native Swift + Apple lab ecosystem • Premium mobile roles",
       img: "/ChooseYourTrack/image-6.svg",
-      href: "/apple-ecosystem-residency"
-    }
+      href: "/apple-ecosystem-residency",
+      toolIcons: [
+        { icon: <SwiftIcon className="w-full h-full" />, label: "Swift" },
+        { icon: <XcodeIcon className="w-full h-full" />, label: "Xcode" },
+        { icon: <AppleIcon className="w-full h-full" />, label: "iOS SDK" },
+        { icon: <div className="flex gap-[-4px]"><SalesforceIcon className="w-full h-full" /></div>, label: "Core Data" }, // Placeholder
+        { icon: <AgentforceIcon className="w-full h-full" />, label: "Core ML" },
+        { icon: <GitHubIcon className="w-full h-full" />, label: "TestFlight" },
+      ]
+    },
   ];
 
   const defaultHeading = (
@@ -263,6 +334,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
               title={card.title}
               description={card.desc}
               href={card.href}
+              toolIcons={card.toolIcons}
             />
           ))}
         </div>

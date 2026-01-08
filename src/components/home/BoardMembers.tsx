@@ -98,10 +98,7 @@ export default function BoardMembers() {
           </h2>
         </div>
 
-        {/* Featured Mentor Section */}
-        <div className="mt-20 w-full">
-          <FeaturedMentor />
-        </div>
+
 
         {/* Content Container */}
         <div className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
