@@ -17,6 +17,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Aestr Alpha",
   description: "For Real Industry, Real Skills, Real Growth",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
