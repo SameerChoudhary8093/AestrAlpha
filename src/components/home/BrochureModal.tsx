@@ -47,8 +47,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         status: "",
         intent: "",
         tracks: [] as string[],
-        college: "",
-        city: "",
+
         consent: false,
     });
 
@@ -125,8 +124,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                     status: formData.status,
                     intent: formData.intent,
                     tracks: formData.tracks,
-                    college: formData.college,
-                    city: formData.city,
+
                     consent: formData.consent,
                 }]);
             if (error) throw error;
@@ -292,34 +290,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                             </div>
                         </div>
 
-                        {/* Optional Fields */}
-                        <div className="space-y-4 pt-4 border-t border-white/10">
-                            <p className="text-xs text-gray-500 uppercase font-semibold tracking-wider">Optional but High-Value</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-1.5">College / Company Name</label>
-                                    <input
-                                        type="text"
-                                        name="college"
-                                        value={formData.college}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all"
-                                        placeholder="Institute name"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-1.5">City</label>
-                                    <input
-                                        type="text"
-                                        name="city"
-                                        value={formData.city}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all"
-                                        placeholder="Your city"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+
 
                         {/* Consent */}
                         <div className="pt-2">

@@ -79,140 +79,109 @@ export default function HeroSection() {
             <div>Tech Ashram.</div>
           </h1>
 
-          {/* Subtext description */}
-          {/* "Built by" Text Block */}
-          <div className="flex flex-col items-center w-full mb-2">
-            <p
-              className="m-0 mb-4 whitespace-nowrap"
-              style={{
-                fontFamily: "var(--font-orbitron), sans-serif",
-                fontSize: "32px",
-                fontWeight: 700,
-                lineHeight: "120%",
-                color: "#FAFFD6",
-              }}
-            >
-              Built by AI Engineers.
-            </p>
-            <p
-              className="text-center m-0 w-full"
-              style={{
-                maxWidth: "820px",
-                fontFamily: "Arial, sans-serif",
-                fontWeight: 400,
-                fontSize: "clamp(16px, 2vw, 24px)",
-                lineHeight: "150%",
-                color: "#FAFFD6",
-              }}
-            >
-              Powered by Experience.<br />
-              We bring real-world tech to your career journey.
-            </p>
-          </div>
-
-          {/* Logos Section (Horizontal Row) */}
-          {/* Logos Section (Horizontal Row) */}
-          {/* Logos Section (Horizontal Row - Single Line) */}
+          {/* New Green Tech Ashram Section */}
           <div
-            className="flex flex-nowrap items-center justify-center gap-3 md:gap-10 w-full max-w-[1000px] mb-8 px-4 py-6 md:py-8"
+            className="flex flex-col items-center justify-center w-full mt-[21.87px] mb-[24px]"
             style={{
-              backgroundColor: "#D7F601",
-              borderRadius: "16px",
+              width: "100%",
+              maxWidth: "820px",
+              // height: "227.942px", // Let content define height
+              borderRadius: "30px",
+              backgroundColor: "#D8F602",
+              padding: "45.56px 36.44px",
+              gap: "13.67px",
             }}
           >
-            {/* Microsoft */}
-            <div className="relative h-[30px] md:h-[60px] w-auto">
-              <Image
-                src="/Herosection/Microsoft.svg"
-                alt="Microsoft"
-                width={140}
-                height={60}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            {/* Cambridge */}
-            <div className="relative h-[16px] md:h-[32px] w-auto">
-              <Image
-                src="/Herosection/Cambridge.svg"
-                alt="University of Cambridge"
-                width={160}
-                height={32}
-                className="w-auto h-full object-contain object-center"
-              />
-            </div>
-            {/* India AI (Placeholder) */}
-            <div className="relative h-[25px] md:h-[50px] w-auto">
-              <Image
-                src="/Herosection/India-ai.png"
-                alt="India AI"
-                width={120}
-                height={50}
-                className="w-auto h-full object-contain object-center"
-              />
-            </div>
-            {/* Shodh AI */}
-            <div className="relative h-[18px] md:h-[35px] w-auto">
-              <Image
-                src="/Herosection/Shodh.svg"
-                alt="Shodh AI"
-                width={140}
-                height={35}
-                className="w-auto h-full object-contain object-center"
-              />
-            </div>
-            {/* DRDO */}
-            <div className="relative h-[25px] md:h-[50px] w-auto">
-              <Image
-                src="/Herosection/DRDO.svg"
-                alt="DRDO"
-                width={100}
-                height={50}
-                className="w-auto h-full object-contain object-center"
-              />
+            {/* Text inside Green Card */}
+            <p
+              className="m-0 text-center"
+              style={{
+                width: "100%",
+                maxWidth: "318.89px",
+                fontFamily: "Arial, sans-serif",
+                fontWeight: 700,
+                fontSize: "14px",
+                lineHeight: "150%",
+                color: "#000000",
+              }}
+            >
+              A 6-Month Career Residency. Built by AI Engineers. Powered by Experience.We bring real-world tech to your career journey.
+            </p>
+
+            {/* Logos Row */}
+            <div
+              className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-[27.33px] w-full"
+              style={{ maxWidth: "747.11px" }}
+            >
+              {/* Logo 1 (Microsoft) - Width 116.5 */}
+              <div className="relative h-[60px] w-auto flex items-center justify-center">
+                <Image
+                  src="/Herosection/Microsoft.svg"
+                  alt="Microsoft"
+                  width={116}
+                  height={60}
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: '116.5px' }}
+                />
+              </div>
+              {/* Logo 2 (Cambridge) - Width 103.6 */}
+              <div className="relative h-[22px] w-auto flex items-center justify-center">
+                <Image
+                  src="/Herosection/Cambridge.svg"
+                  alt="Cambridge"
+                  width={104}
+                  height={22}
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: '103.6px' }}
+                />
+              </div>
+              {/* Logo 3 (India AI) - Width 77 */}
+              <div className="relative h-[35px] w-auto flex items-center justify-center">
+                <Image
+                  src="/Herosection/India-ai.png"
+                  alt="India AI"
+                  width={77}
+                  height={35}
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: '77px' }}
+                />
+              </div>
+              {/* Logo 4 (Shodh AI) - Width 114.4 */}
+              <div className="relative h-[27px] w-auto flex items-center justify-center">
+                <Image
+                  src="/Herosection/Shodh.svg"
+                  alt="Shodh AI"
+                  width={114}
+                  height={27}
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: '114.39px' }}
+                />
+              </div>
+              {/* Logo 5 (DRDO) - Width 64.2 */}
+              <div className="relative h-[50px] w-auto flex items-center justify-center">
+                <Image
+                  src="/Herosection/DRDO.svg"
+                  alt="DRDO"
+                  width={64}
+                  height={50}
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: '64.22px' }}
+                />
+              </div>
             </div>
           </div>
+
         </div>
 
-        {/* Buttons Section */}
+        {/* Buttons Section - Reordered */}
         <div
-          className="flex flex-col md:flex-row items-center justify-center pt-4 w-full"
+          className="flex flex-col md:flex-row items-center justify-center w-full"
           style={{
             maxWidth: "600px",
-            gap: "16px",
+            gap: "24px",
           }}
         >
-          {/* Button 1: Primary */}
-          <button
-            onClick={() => setIsAppModalOpen(true)}
-            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px] cursor-pointer"
-            style={{
-              height: "53.8px",
-              gap: "8px",
-              padding: "12px 24px",
-              borderTopLeftRadius: "4px",
-              borderTopRightRadius: "20px",
-              borderBottomRightRadius: "4px",
-              borderBottomLeftRadius: "4px",
-              backgroundColor: "#D8F602",
-              color: "#181818",
-              fontFamily: "var(--font-orbitron), sans-serif",
-              fontWeight: 800,
-              fontSize: "16px",
-              lineHeight: "150%",
-            }}
-          >
-            <StarIcon
-              style={{
-                width: "28px",
-                height: "29.8px",
-                color: "#181818",
-                fill: "currentColor"
-              }}
-            />
-            <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
-          </button>
-
-          {/* Button 2: Secondary (Outline) - Now opens Modal */}
+          {/* Button 1: Download Brochure (First) */}
           <button
             onClick={() => setIsModalOpen(true)}
             className="flex items-center justify-center hover:bg-white/5 transition-colors w-full md:w-[263px] cursor-pointer"
@@ -243,6 +212,37 @@ export default function HeroSection() {
               }}
             />
             <span className="font-extrabold whitespace-nowrap">Download Brochure</span>
+          </button>
+
+          {/* Button 2: Apply for the Residency (Second) */}
+          <button
+            onClick={() => setIsAppModalOpen(true)}
+            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px] cursor-pointer"
+            style={{
+              height: "53.8px",
+              gap: "8px",
+              padding: "12px 24px",
+              borderTopLeftRadius: "4px",
+              borderTopRightRadius: "20px",
+              borderBottomRightRadius: "4px",
+              borderBottomLeftRadius: "4px",
+              backgroundColor: "#D8F602",
+              color: "#181818",
+              fontFamily: "var(--font-orbitron), sans-serif",
+              fontWeight: 800,
+              fontSize: "16px",
+              lineHeight: "150%",
+            }}
+          >
+            <StarIcon
+              style={{
+                width: "28px",
+                height: "29.8px",
+                color: "#181818",
+                fill: "currentColor"
+              }}
+            />
+            <span className="font-extrabold whitespace-nowrap">Apply for the Residency</span>
           </button>
         </div>
       </div>

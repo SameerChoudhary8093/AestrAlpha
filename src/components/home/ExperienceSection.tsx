@@ -30,14 +30,20 @@ export default function ExperienceSection() {
                     <p
                         className="m-0 w-full"
                         style={{
-                            fontFamily: "Arial, sans-serif",
-                            fontWeight: 700,
-                            fontSize: "24px",
-                            lineHeight: "150%",
-                            color: "#000000",
+                            fontFamily: "var(--font-roboto), Roboto, sans-serif",
+                            fontWeight: 400,
+                            fontSize: "clamp(24px, 4vw, 40px)",
+                            lineHeight: "140%",
+                            color: "#111111",
+                            textAlign: "center"
                         }}
                     >
-                        Aestr Alpha is a 6-Month Career Residency. We bridge the gap between a university degree and Day-1 at a top tech company. At Aestr Alpha, you don’t “attend classes” — you operate: stand-ups, tickets, reviews, shipping real work.
+                        Aestr Alpha is a 6-Month Career Residency.<br />
+                        We bridge the gap between a university<br />
+                        degree and Day-1 at a top tech company.<br />
+                        At Aestr Alpha, you don’t “attend classes”<br />
+                        — you operate: stand-ups, tickets, reviews,<br />
+                        shipping real work.
                     </p>
                 </div>
             </div>

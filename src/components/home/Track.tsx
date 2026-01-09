@@ -5,6 +5,7 @@ import Image from "next/image";
 import StarIcon from "@/components/icons/Star";
 import Link from "next/link";
 import BrochureModal from "./BrochureModal";
+import ApplicationModal from "./ApplicationModal";
 
 import {
   SalesforceIcon, ApexIcon, LwcIcon, VsCodeIcon, GitHubIcon, PostmanIcon, JiraIcon, AgentforceIcon,
@@ -18,7 +19,6 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
   const [isHovered, setIsHovered] = useState(false);
 
   const containerStyle = {
-    // ... existing style
     width: "100%",
     maxWidth: "405px",
     minHeight: "410px",
@@ -176,6 +176,7 @@ interface TrackProps {
 
 export default function Track({ heading, byline, alignDesktop = "center" }: TrackProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
 
   // Normalize alignDesktop to valid flex alignment
   const alignment = alignDesktop === "left" || alignDesktop === "start" ? "flex-start" : alignDesktop === "right" || alignDesktop === "end" ? "flex-end" : "center";
@@ -201,7 +202,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       title: "AI Infrastructure & Cloud Native Residency",
       desc: "Cloud + Kubernetes + LLMOps • Infra, SRE,\nplatform roles",
       img: "/ChooseYourTrack/image-2.svg",
-      href: "/ai-infrastructure-residency",
+      href: "/ai-infrastructure-cloud-native-residency",
       toolIcons: [
         { icon: <KubernetesIcon className="w-full h-full" />, label: "Kubernetes" },
         { icon: <DockerIcon className="w-full h-full" />, label: "Docker" },
@@ -215,7 +216,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       title: "Enterprise Data Platform Residency",
       desc: "Modern data stack + vector pipelines • Data\nengineering & AI data roles",
       img: "/ChooseYourTrack/image-3.svg",
-      href: "/enterprise-data-residency",
+      href: "/enterprise-data-platform-residency",
       toolIcons: [
         { icon: <PythonIcon className="w-full h-full" />, label: "Python" },
         { icon: <DatabaseIcon className="w-full h-full" />, label: "SQL/NoSQL" },
@@ -229,7 +230,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       title: "ServiceNow Architect Residency",
       desc: "Workflow systems + enterprise automation • ITSM\n+ platform roles",
       img: "/ChooseYourTrack/image-4.svg",
-      href: "/servicenow-residency",
+      href: "/servicenow-architect-residency",
       toolIcons: [
         { icon: <ServiceNowIcon className="w-full h-full" />, label: "ServiceNow" },
         { icon: <JavaScriptIcon className="w-full h-full" />, label: "JavaScript" },
@@ -243,7 +244,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       title: "Modern Enterprise Backend Residency (Java)",
       desc: "Spring Boot + microservices + scale • BFSI &\nbackend roles",
       img: "/ChooseYourTrack/image-5.svg",
-      href: "/java-backend-residency",
+      href: "/modern-enterprise-backend-residency",
       toolIcons: [
         { icon: <JavaIcon className="w-full h-full" />, label: "Java" },
         { icon: <SpringIcon className="w-full h-full" />, label: "Spring Boot" },
@@ -343,6 +344,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
         <div className="flex flex-col md:flex-row gap-6 mt-0 w-full justify-center items-center">
           {/* Button 1: Apply Now */}
           <button
+            onClick={() => setIsAppModalOpen(true)}
             className="group w-full md:w-[181px] h-[54px] bg-[#D7F601] border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
           >
             <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
@@ -379,6 +381,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
 
       </div>
       <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
     </section>
   );
 }

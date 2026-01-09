@@ -6,10 +6,12 @@ import { usePathname } from "next/navigation";
 import AestrIcon from "@/components/icons/Aestr";
 import { NavigationLinks, TicketNavigationLinks } from "@/data/navigation";
 import BrochureModal from "../home/BrochureModal";
+import ApplicationModal from "../home/ApplicationModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => {
@@ -69,10 +71,10 @@ export default function Navbar() {
 
           {/* Download Brochure Button */}
           <button
-            onClick={() => setIsModalOpen(true)}
-            className="ml-[32px] w-[219px] h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[20px] pt-[8px] pb-[8px] flex items-center justify-center hover:bg-opacity-90 transition-all whitespace-nowrap"
+            onClick={() => setIsAppModalOpen(true)}
+            className="ml-[32px] w-[137px] h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[20px] pt-[8px] pb-[8px] flex items-center justify-center hover:bg-opacity-90 transition-all whitespace-nowrap"
           >
-            Download Brochure
+            Apply Now
           </button>
         </div>
 
@@ -132,15 +134,16 @@ export default function Navbar() {
               className="w-full max-w-xs h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] flex items-center justify-center"
               onClick={() => {
                 setIsOpen(false);
-                setIsModalOpen(true);
+                setIsAppModalOpen(true);
               }}
             >
-              Download Brochure
+              Apply Now
             </button>
           </div>
         )}
       </nav>
       <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
     </>
   );
 }
