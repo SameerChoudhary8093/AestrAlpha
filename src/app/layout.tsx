@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   title: "Aestr Alpha",
   description: "For Real Industry, Real Skills, Real Growth",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/home/Favicon.svg",
+    shortcut: "/home/Favicon.svg",
+    apple: "/home/Favicon.svg",
   },
 };
 

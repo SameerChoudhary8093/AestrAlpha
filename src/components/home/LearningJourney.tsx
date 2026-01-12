@@ -38,7 +38,7 @@ export default function LearningJourney() {
           {/* Image */}
           <div className="w-full aspect-square md:aspect-auto md:h-[579px] rounded-lg overflow-hidden relative">
             <Image
-              src="/home/LearningJourney.png"
+              src="/home/LearningJourney.jpeg"
               alt="Learning Journey"
               fill
               className="object-cover"

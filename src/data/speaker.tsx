@@ -11,7 +11,7 @@ export const speakers: Speakers[] = [
     name: "Kanishk Sharma",
     position: "Director @ SGVU | EdTech Visionary | Social Entrepreneur | Impact Builder",
     photo: {
-      src: "/FeaturesSpeakers/Kanishk.jpeg",
+      src: "/FeaturesSpeakers/kanishk.jpeg",
       alt: "Kanishk Sharma",
       height: 395,
       width: 395,

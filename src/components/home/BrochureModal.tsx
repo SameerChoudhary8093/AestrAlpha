@@ -47,7 +47,6 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         status: "",
         intent: "",
         tracks: [] as string[],
-
         consent: false,
     });
 
@@ -62,6 +61,18 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
+            // Reset form when closed
+            setFormData({
+                fullName: "",
+                email: "",
+                mobile: "",
+                status: "",
+                intent: "",
+                tracks: [],
+                consent: false,
+            });
+            setErrors({});
+            setIsSuccess(false);
         }
         return () => {
             document.body.style.overflow = 'unset';
@@ -105,6 +116,8 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Invalid email format";
         if (!formData.mobile.trim()) newErrors.mobile = "Mobile Number is required";
         if (!formData.status) newErrors.status = "Please select your current status";
+        if (!formData.intent) newErrors.intent = "Please select your interest";
+        if (formData.tracks.length === 0) newErrors.tracks = "Please select at least one track";
         if (!formData.consent) newErrors.consent = "You must agree to the terms";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -124,7 +137,6 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                     status: formData.status,
                     intent: formData.intent,
                     tracks: formData.tracks,
-
                     consent: formData.consent,
                 }]);
             if (error) throw error;
@@ -244,7 +256,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                         {/* Qualification / Intent */}
                         <div className="space-y-4 pt-4 border-t border-white/10">
                             <div>
-                                <label className="block text-sm font-medium text-[#D8F602] mb-3">What best describes your interest right now?</label>
+                                <label className="block text-sm font-medium text-[#D8F602] mb-3">What best describes your interest right now? *</label>
                                 <div className="space-y-2">
                                     {INTENT_OPTIONS.map((opt) => (
                                         <label key={opt} className="flex items-center space-x-3 cursor-pointer group">
@@ -257,17 +269,18 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                                                     onChange={handleChange}
                                                     className="peer sr-only "
                                                 />
-                                                <div className="w-5 h-5 rounded-full border border-gray-500 peer-checked:border-[#D8F602] peer-checked:bg-[#D8F602]/20 transition-all"></div>
+                                                <div className={`w-5 h-5 rounded-full border ${errors.intent ? 'border-red-500' : 'border-gray-500'} peer-checked:border-[#D8F602] peer-checked:bg-[#D8F602]/20 transition-all`}></div>
                                                 <div className="absolute w-2.5 h-2.5 rounded-full bg-[#D8F602] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                             </div>
                                             <span className="text-gray-300 group-hover:text-white transition-colors text-sm">{opt}</span>
                                         </label>
                                     ))}
                                 </div>
+                                {errors.intent && <p className="text-red-500 text-xs mt-1">{errors.intent}</p>}
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#D8F602] mb-3">Which track are you most interested in?</label>
+                                <label className="block text-sm font-medium text-[#D8F602] mb-3">Which track are you most interested in? *</label>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                     {TRACK_OPTIONS.map((opt) => (
                                         <label key={opt} className="flex items-center space-x-3 cursor-pointer group p-2 rounded hover:bg-white/5 transition-colors">
@@ -280,16 +293,16 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                                                     onChange={handleChange}
                                                     className="peer sr-only"
                                                 />
-                                                <div className="w-5 h-5 rounded border border-gray-500 peer-checked:border-[#D8F602] peer-checked:bg-[#D8F602] transition-all"></div>
+                                                <div className={`w-5 h-5 rounded border ${errors.tracks ? 'border-red-500' : 'border-gray-500'} peer-checked:border-[#D8F602] peer-checked:bg-[#D8F602] transition-all`}></div>
                                                 <svg className="absolute w-3.5 h-3.5 text-black opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                                             </div>
                                             <span className="text-gray-300 group-hover:text-white transition-colors text-sm">{opt}</span>
                                         </label>
                                     ))}
                                 </div>
+                                {errors.tracks && <p className="text-red-500 text-xs mt-1">{errors.tracks}</p>}
                             </div>
                         </div>
-
 
 
                         {/* Consent */}
