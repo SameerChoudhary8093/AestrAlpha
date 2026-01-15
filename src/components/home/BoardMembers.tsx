@@ -111,9 +111,8 @@ export default function BoardMembers() {
         <div style={{ marginTop: "120px" }}>
           <button
             onClick={handleCounselorClick}
-            className="flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="flex items-center justify-center hover:opacity-90 transition-opacity w-full max-w-[360px]"
             style={{
-              width: "360px", // Slightly wider for longer text
               height: "53.8px",
               gap: "8px",
               padding: "12px 24px",

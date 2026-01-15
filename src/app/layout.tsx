@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         {/* Google Analytics */}
         <Script
@@ -47,7 +47,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full`}>
+      <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full bg-[#181818]`}>
         {children}
       </body>
     </html>

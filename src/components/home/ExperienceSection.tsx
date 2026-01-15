@@ -127,8 +127,8 @@ export default function ExperienceSection() {
                     From Shodh AI to Aestr Alpha
                 </h2>
 
-                <p
-                    className="w-full text-center"
+                <div
+                    className="w-full text-center flex flex-col items-center"
                     style={{
                         fontFamily: "Arial, sans-serif",
                         fontWeight: 400,
@@ -138,14 +138,24 @@ export default function ExperienceSection() {
                         margin: 0,
                     }}
                 >
-                    <span className="md:whitespace-nowrap"><strong>Arastu Sharma</strong> is the Founder & CEO of Aestr Alpha and the Founder of <strong>Shodh AI</strong>, a deep-tech AI company building <strong>India’s Sovereign “AI for Science” Foundation Model.</strong></span>
-                    <br className="hidden md:block" /><br className="hidden md:block" />
-                    <span className="block mt-4 md:mt-0">Through Shodh AI, Arastu leads national-scale AI systems backed by IndiaAI, with access to <strong>1.2M+ GPU hours</strong> and partnerships with NVIDIA, Yotta, and Amazon Web Services.</span>
-                    <br /><br />
-                    He was recently invited to meet <strong>Prime Minister Narendra Modi</strong> and was highlighted among the key contributors shaping India’s AI future.
-                    <br /><br />
-                    Aestr Alpha exists to transfer this real-world AI engineering experience to the next generation of builders.
-                </p>
+                    <span className="block md:whitespace-nowrap"><strong>Arastu Sharma</strong> is the Founder & CEO of Aestr Alpha and the Founder of <strong>Shodh AI</strong>, a deep-tech AI</span>
+                    <span className="block">company building <strong>India’s Sovereign “AI for Science” Foundation Model.</strong></span>
+
+                    <div className="mt-8 md:mt-10 flex flex-col items-center">
+                        <span className="block md:whitespace-nowrap">Through Shodh AI, Arastu leads national-scale AI systems backed by IndiaAI, with access to</span>
+                        <span className="block md:whitespace-nowrap"><strong>1.2M+ GPU hours</strong> and partnerships with NVIDIA, Yotta, and Amazon Web Services.</span>
+                    </div>
+
+                    <div className="mt-6 flex flex-col items-center">
+                        <span className="block md:whitespace-nowrap">He was recently invited to meet <strong>Prime Minister Narendra Modi</strong> and was highlighted among</span>
+                        <span className="block md:whitespace-nowrap">the key contributors shaping India’s AI future.</span>
+                    </div>
+
+                    <div className="mt-6 flex flex-col items-center">
+                        <span className="block md:whitespace-nowrap">Aestr Alpha exists to transfer this real-world AI engineering experience to the next generation of</span>
+                        <span className="block">builders.</span>
+                    </div>
+                </div>
 
                 {/* Logos Section */}
                 <div
