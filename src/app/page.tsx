@@ -28,16 +28,15 @@ export default function Home() {
       <HeroSection />
 
       <ExperienceSection />
-      <MentorSection />
-      <AboutSection />
       {/* <AdvantagesSection /> */}
       <WorkSimulationSection />
       <LearningJourney />
       <OperatingSystemSection />
       <WorkShop />
       <Track />
-      <CampusAmbassador />
+      <AboutSection />
       <InvestmentSection />
+      <CampusAmbassador />
       <BoardMembers />
       <InsideTheResidency />
       <FAQSection />

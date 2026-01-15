@@ -21,9 +21,31 @@ export default function CampusAmbassador() {
 
 
         <div className="flex flex-col justify-center items-start gap-6 w-full md:w-1/2">
-          <div className="text-base md:text-lg">{byline}</div>
+          {/* byline: Lead. Inspire. Represent. */}
+          <div
+            style={{
+              width: '100%',
+              maxWidth: '616px',
+              fontFamily: 'Arial, sans-serif',
+              fontWeight: 400,
+              fontSize: '18px',
+              lineHeight: '150%',
+              color: '#000000',
+            }}
+          >
+            {byline}
+          </div>
 
-          <ul className="flex flex-col gap-3 text-base md:text-lg">
+          <ul
+            className="flex flex-col gap-3"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontWeight: 400,
+              fontSize: '16px',
+              lineHeight: '150%',
+              color: '#000000',
+            }}
+          >
             {perks.map((perk, index) => (
               <div key={index} className="flex flex-row gap-4 items-start">
                 <DoubleStarIcon className="h-6 w-auto text-(--accent-color) shrink-0 mt-1" />
@@ -34,15 +56,25 @@ export default function CampusAmbassador() {
 
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSfX-l0DhYna7HIFA_qjP4b3OQpvGZJo-wdSx5XbvrOa3YbIgg/viewform?usp=publish-editor"
-            className="flex items-center justify-center gap-2 px-6 py-3 border border-black rounded-[4px] md:rounded-tr-[20px] bg-transparent text-black font-black text-base hover:bg-black/5 transition-colors mt-8 w-full md:w-auto"
+            className="flex items-center justify-center gap-2 hover:bg-black/5 transition-colors mt-8 w-full md:w-auto"
             style={{
-              height: "54px",
+              width: '181px',
+              height: '53.8px',
+              padding: '12px 24px',
+              borderTopLeftRadius: '4px',
+              borderTopRightRadius: '20px',
+              borderBottomRightRadius: '4px',
+              borderBottomLeftRadius: '4px',
+              border: '1px solid #000000',
               fontFamily: "var(--font-orbitron), sans-serif",
-              lineHeight: "150%",
-              textDecoration: "none",
+              fontWeight: 900,
+              fontSize: '16px',
+              lineHeight: '150%',
+              textDecoration: 'none',
+              color: '#000000',
             }}
           >
-            <StarIcon style={{ width: "28px", height: "30px", color: "#5B1DD6" }} />
+            <StarIcon style={{ width: "24px", height: "24px", color: "#000000" }} />
             <span className="whitespace-nowrap">Apply Now</span>
           </Link>
         </div>
@@ -50,7 +82,7 @@ export default function CampusAmbassador() {
 
       <div className="w-full max-w-[1312px] h-auto rounded-2xl overflow-hidden">
         <Image
-          src={"/home/Image.svg"}
+          src={"/home/ambassador.svg"}
           alt="Campus Ambassador Program"
           width={1312}
           height={662}

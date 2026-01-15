@@ -28,7 +28,7 @@ export default function HeroSection() {
           height: "390px",
           top: "87px",
           left: "-120px",
-          background: "#D8F6021A",
+          background: "#D8F60246",
           mixBlendMode: "screen",
           filter: "blur(154px)",
           zIndex: 0
@@ -85,10 +85,9 @@ export default function HeroSection() {
             style={{
               width: "100%",
               maxWidth: "820px",
-              // height: "227.942px", // Let content define height
-              borderRadius: "30px",
+              borderRadius: "8px",
               backgroundColor: "#D8F602",
-              padding: "45.56px 36.44px",
+              padding: "25.56px 36.44px",
               gap: "13.67px",
             }}
           >
@@ -97,7 +96,7 @@ export default function HeroSection() {
               className="m-0 text-center"
               style={{
                 width: "100%",
-                maxWidth: "318.89px",
+                maxWidth: "747px",
                 fontFamily: "Arial, sans-serif",
                 fontWeight: 700,
                 fontSize: "14px",
@@ -105,7 +104,10 @@ export default function HeroSection() {
                 color: "#000000",
               }}
             >
-              A 6-Month Career Residency. Built by AI Engineers. Powered by Experience.We bring real-world tech to your career journey.
+              A 6-Month Career Residency. Led by the<br />
+              Founder of Shodh AI — building India’s<br />
+              Sovereign AI for Science model. Powered by<br />
+              Experience with
             </p>
 
             {/* Logos Row */}
