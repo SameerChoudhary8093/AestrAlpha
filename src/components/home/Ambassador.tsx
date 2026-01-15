@@ -56,9 +56,8 @@ export default function CampusAmbassador() {
 
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSfX-l0DhYna7HIFA_qjP4b3OQpvGZJo-wdSx5XbvrOa3YbIgg/viewform?usp=publish-editor"
-            className="flex items-center justify-center gap-2 hover:bg-black/5 transition-colors mt-8 w-full md:w-auto"
+            className="flex items-center justify-center gap-2 hover:bg-black/5 transition-colors mt-8 w-full md:w-[181px]"
             style={{
-              width: '181px',
               height: '53.8px',
               padding: '12px 24px',
               borderTopLeftRadius: '4px',

@@ -30,7 +30,7 @@ export default function InvestmentSection() {
     return (
         <section
             id="pricing"
-            className="flex flex-col items-center box-border w-full bg-[#181818] min-h-[1053px] py-16 px-4 md:py-28 md:px-16 gap-20"
+            className="flex flex-col items-center box-border w-full bg-[#181818] min-h-auto py-12 px-4 md:py-28 md:px-16 gap-12 md:gap-20"
         >
             {/* Header Section */}
             <div
@@ -43,9 +43,9 @@ export default function InvestmentSection() {
             >
                 <h2
                     style={{
-                        fontFamily: "var(--font-orbitron), sans-serif", // Assuming variable since Orbitron is used elsewhere
+                        fontFamily: "var(--font-orbitron), sans-serif",
                         fontWeight: 700,
-                        fontSize: "48px",
+                        fontSize: "clamp(32px, 5vw, 48px)",
                         lineHeight: "120%",
                         textAlign: "center",
                         color: "#D7F601",
@@ -59,7 +59,7 @@ export default function InvestmentSection() {
                     style={{
                         fontFamily: "Arial, sans-serif",
                         fontWeight: 400,
-                        fontSize: "18px",
+                        fontSize: "clamp(16px, 2vw, 18px)",
                         lineHeight: "150%",
                         textAlign: "center",
                         color: "#D7F601",
@@ -82,7 +82,7 @@ export default function InvestmentSection() {
                     overflow: "hidden"
                 }}
             >
-                <div className="flex flex-col items-center w-full p-8 gap-8">
+                <div className="flex flex-col items-center w-full p-6 md:p-8 gap-6 md:gap-8">
 
                     {/* Fee Info */}
                     <div className="flex flex-col items-center" style={{ gap: "8px" }}>
@@ -132,7 +132,7 @@ export default function InvestmentSection() {
                             <p style={{
                                 fontFamily: "var(--font-roboto), sans-serif",
                                 fontWeight: 700,
-                                fontSize: "20px",
+                                fontSize: "clamp(18px, 4vw, 20px)",
                                 lineHeight: "140%",
                                 textAlign: "center",
                                 color: "#D7F601",
@@ -154,16 +154,11 @@ export default function InvestmentSection() {
                         </div>
 
                         {/* Seats Pill */}
-                        <div style={{
-                            padding: "8px 24px",
-                            border: "1px solid #D7F601",
-                            borderRadius: "100px",
-                            backgroundColor: "transparent"
-                        }}>
+                        <div className="px-5 py-2 md:px-6 md:py-2 border border-[#D7F601] rounded-full">
                             <p style={{
                                 fontFamily: "var(--font-roboto), sans-serif",
                                 fontWeight: 700,
-                                fontSize: "16px",
+                                fontSize: "clamp(14px, 1.5vw, 16px)",
                                 lineHeight: "150%",
                                 color: "#D7F601",
                                 margin: 0
@@ -177,7 +172,7 @@ export default function InvestmentSection() {
 
                 {/* Bottom Section with Gradient */}
                 <div
-                    className="flex flex-col items-center w-full p-8 gap-8"
+                    className="flex flex-col items-center w-full p-6 md:p-8 gap-8"
                     style={{
                         background: "linear-gradient(16.05deg, rgba(215, 246, 1, 0.50) -5.39%, #181818 55.41%)"
                     }}
@@ -186,10 +181,10 @@ export default function InvestmentSection() {
                     <div className="flex flex-col box-border w-full gap-4 pt-2 pb-2">
                         {/* Item 1 */}
                         <div className="flex flex-row gap-4">
-                            <div className="w-6 h-6 shrink-0 text-[#D7F601] mt-1">
+                            <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-[#D7F601] mt-1">
                                 <StarIcon style={{ width: "100%", height: "100%", fill: "currentColor" }} />
                             </div>
-                            <p className="text-[#D7F601] text-base leading-[150%] font-normal m-0 font-roboto">
+                            <p className="text-[#D7F601] text-sm md:text-base leading-[150%] font-normal m-0 font-roboto">
                                 Real industry projects, expert mentorship, soft-skills
                                 training, portfolio development, on-campus immersion,
                                 and Aestr Alpha certification.
@@ -198,10 +193,10 @@ export default function InvestmentSection() {
 
                         {/* Item 2 */}
                         <div className="flex flex-row gap-4">
-                            <div className="w-6 h-6 shrink-0 text-[#D7F601] mt-1">
+                            <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-[#D7F601] mt-1">
                                 <StarIcon style={{ width: "100%", height: "100%", fill: "currentColor" }} />
                             </div>
-                            <p className="text-[#D7F601] text-base leading-[150%] font-normal m-0 font-roboto">
+                            <p className="text-[#D7F601] text-sm md:text-base leading-[150%] font-normal m-0 font-roboto">
                                 One-time payment or installments (shared after selection).
                                 Admissions are selection-based. Payment applies only
                                 after acceptance.
@@ -212,9 +207,8 @@ export default function InvestmentSection() {
                     {/* Button - Styles matched to Hero Section as requested */}
                     <button
                         onClick={() => setIsAppModalOpen(true)}
-                        className="flex items-center justify-center hover:opacity-90 transition-opacity"
+                        className="flex items-center justify-center hover:opacity-90 transition-opacity w-full max-w-[300px]"
                         style={{
-                            width: "300px",
                             height: "53.8px",
                             gap: "8px",
                             padding: "12px 24px",
@@ -235,8 +229,8 @@ export default function InvestmentSection() {
                     >
                         <StarIcon
                             style={{
-                                width: "28px",
-                                height: "29.8px",
+                                width: "24px",
+                                height: "24px",
                                 color: "#181818",
                                 fill: "currentColor"
                             }}

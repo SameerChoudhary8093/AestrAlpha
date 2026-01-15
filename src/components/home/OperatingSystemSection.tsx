@@ -88,7 +88,7 @@ export default function OperatingSystemSection() {
 
     return (
         <section
-            className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16"
+            className="w-full bg-[#181818] flex justify-center py-16 px-4 md:py-28 md:px-16"
         >
             <div className="w-full max-w-[1440px] flex flex-col items-center gap-16">
                 {/* Header Section */}

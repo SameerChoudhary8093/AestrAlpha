@@ -39,22 +39,20 @@ export default function ExperienceSection() {
 
     return (
         <section
-            className="w-full flex flex-col items-center box-border"
+            className="w-full flex flex-col items-center box-border px-4 py-12 md:px-16 md:py-28"
             style={{
                 backgroundColor: "#D7F601",
-                padding: "112px 64px",
-                gap: "80px",
+                gap: "clamp(40px, 8vw, 80px)",
             }}
         >
-
-
             {/* Video Section */}
             <div
-                className="relative rounded-2xl overflow-hidden bg-black flex items-center justify-center"
+                className="relative rounded-2xl overflow-hidden bg-black flex items-center justify-center w-full"
                 style={{
-                    width: "100%",
                     maxWidth: "1312px",
-                    height: "700px",
+                    height: "auto",
+                    aspectRatio: "16 / 9",
+                    maxHeight: "700px"
                 }}
             >
                 <video
@@ -63,16 +61,17 @@ export default function ExperienceSection() {
                     src="/home/PM Video.mp4"
                     poster="/home/PM-Video-Image.svg"
                     loop
+                    playsInline
                 />
 
                 {/* Center Play Button */}
                 {!isPlaying && (
                     <button
                         onClick={togglePlay}
-                        className="absolute z-10 w-20 h-20 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center transition-all"
+                        className="absolute z-10 w-12 h-12 md:w-20 md:h-20 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center transition-all"
                         style={{ border: "none", cursor: "pointer" }}
                     >
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                        <svg width="24" height="24" className="md:w-[40px] md:h-[40px]" viewBox="0 0 24 24" fill="white">
                             <path d="M8 5v14l11-7z" />
                         </svg>
                     </button>
@@ -81,16 +80,16 @@ export default function ExperienceSection() {
                 {/* Bottom Right Volume Button */}
                 <button
                     onClick={toggleMute}
-                    className="absolute bottom-6 right-6 z-10 w-12 h-12 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all"
+                    className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all"
                     style={{ border: "none", cursor: "pointer" }}
                 >
                     {isMuted ? (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <svg width="20" height="20" md-width="24" md-height="24" viewBox="0 0 24 24" fill="white">
                             <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z" />
                             <line x1="1" y1="1" x2="23" y2="23" stroke="white" strokeWidth="2" />
                         </svg>
                     ) : (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <svg width="20" height="20" md-width="24" md-height="24" viewBox="0 0 24 24" fill="white">
                             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                         </svg>
                     )}
@@ -107,42 +106,41 @@ export default function ExperienceSection() {
 
             {/* Shodh AI Section */}
             <div
-                className="flex flex-col items-center"
+                className="flex flex-col items-center w-full"
                 style={{
-                    width: "100%",
-                    maxWidth: "768px",
+                    maxWidth: "1100px",
                     gap: "24px",
                 }}
             >
                 <h2
+                    className="w-full text-center"
                     style={{
                         fontFamily: "var(--font-orbitron), sans-serif",
                         fontWeight: 700,
-                        fontSize: "48px",
+                        fontSize: "clamp(32px, 5vw, 48px)",
                         lineHeight: "120%",
                         color: "#181818",
-                        textAlign: "center",
-                        margin: 0
+                        margin: 0,
+                        maxWidth: "600px" // To encourage 2 lines on mobile
                     }}
                 >
-                    From Shodh AI to<br />Aestr Alpha
+                    From Shodh AI to Aestr Alpha
                 </h2>
 
                 <p
+                    className="w-full text-center"
                     style={{
                         fontFamily: "Arial, sans-serif",
                         fontWeight: 400,
-                        fontSize: "18px",
+                        fontSize: "clamp(16px, 2vw, 18px)",
                         lineHeight: "150%",
                         color: "#181818",
-                        textAlign: "center",
                         margin: 0,
-                        maxWidth: "1312px", // Increased to full section width to allow single line
                     }}
                 >
-                    <span style={{ whiteSpace: 'nowrap' }}><strong>Arastu Sharma</strong> is the Founder & CEO of Aestr Alpha and the Founder of <strong>Shodh AI</strong>, a deep-tech AI company building <strong>India’s Sovereign “AI for Science” Foundation Model.</strong></span>
-                    <br /><br />
-                    Through Shodh AI, Arastu leads national-scale AI systems backed by IndiaAI, with access to <strong>1.2M+ GPU hours</strong> and partnerships with NVIDIA, Yotta, and Amazon Web Services.
+                    <span className="md:whitespace-nowrap"><strong>Arastu Sharma</strong> is the Founder & CEO of Aestr Alpha and the Founder of <strong>Shodh AI</strong>, a deep-tech AI company building <strong>India’s Sovereign “AI for Science” Foundation Model.</strong></span>
+                    <br className="hidden md:block" /><br className="hidden md:block" />
+                    <span className="block mt-4 md:mt-0">Through Shodh AI, Arastu leads national-scale AI systems backed by IndiaAI, with access to <strong>1.2M+ GPU hours</strong> and partnerships with NVIDIA, Yotta, and Amazon Web Services.</span>
                     <br /><br />
                     He was recently invited to meet <strong>Prime Minister Narendra Modi</strong> and was highlighted among the key contributors shaping India’s AI future.
                     <br /><br />
@@ -151,41 +149,30 @@ export default function ExperienceSection() {
 
                 {/* Logos Section */}
                 <div
-                    className="flex flex-row items-center justify-center flex-wrap"
-                    style={{
-                        width: "100%",
-                        maxWidth: "670px",
-                        gap: "32px",
-                        padding: "24px 0",
-                    }}
+                    className="flex flex-row items-center justify-center flex-wrap gap-6 md:gap-8 py-6 w-full"
+                    style={{ maxWidth: "670px" }}
                 >
-                    <div style={{ width: "206px", height: "116px", position: "relative" }}>
+                    <div className="relative w-32 h-16 md:w-[206px] md:h-[116px]">
                         <Image src="/home/nvidia.svg" alt="NVIDIA" fill className="object-contain" />
                     </div>
-                    <div style={{ width: "200px", height: "125px", position: "relative" }}>
+                    <div className="relative w-32 h-16 md:w-[200px] md:h-[125px]">
                         <Image src="/home/yotta.svg" alt="Yotta" fill className="object-contain" />
                     </div>
-                    <div style={{ width: "200px", height: "120px", position: "relative" }}>
+                    <div className="relative w-32 h-16 md:w-[200px] md:h-[120px]">
                         <Image src="/home/aws.svg" alt="AWS" fill className="object-contain" />
                     </div>
                 </div>
 
                 {/* Buttons Section */}
                 <div
-                    className="flex flex-row items-center justify-center flex-wrap"
-                    style={{
-                        width: "100%",
-                        maxWidth: "648px",
-                        gap: "24px",
-                        paddingTop: "16px",
-                    }}
+                    className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 pt-4 w-full"
+                    style={{ maxWidth: "648px" }}
                 >
                     {/* Know more button */}
                     <button
                         onClick={handleShodhClick}
-                        className="flex items-center justify-center hover:bg-black/5 transition-colors"
+                        className="flex items-center justify-center hover:bg-black/5 transition-colors w-full md:w-[324px]"
                         style={{
-                            width: "324px",
                             height: "53.8px",
                             padding: "12px 24px",
                             gap: "8px",
@@ -200,12 +187,11 @@ export default function ExperienceSection() {
                     >
                         <StarIcon style={{ width: "24px", height: "24px", color: "#181818" }} />
                         <span
+                            className="whitespace-nowrap font-black"
                             style={{
                                 fontFamily: "var(--font-orbitron), sans-serif",
-                                fontWeight: 900,
                                 fontSize: "16px",
                                 color: "#181818",
-                                whiteSpace: "nowrap"
                             }}
                         >
                             Know more about Shodh AI
@@ -215,9 +201,8 @@ export default function ExperienceSection() {
                     {/* Apply button */}
                     <button
                         onClick={handleApplyClick}
-                        className="flex items-center justify-center hover:opacity-90 transition-opacity"
+                        className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px]"
                         style={{
-                            width: "300px",
                             height: "53.8px",
                             padding: "12px 24px",
                             gap: "8px",
@@ -232,12 +217,11 @@ export default function ExperienceSection() {
                     >
                         <StarIcon style={{ width: "24px", height: "24px", color: "#D8F602" }} />
                         <span
+                            className="whitespace-nowrap font-black"
                             style={{
                                 fontFamily: "var(--font-orbitron), sans-serif",
-                                fontWeight: 900,
                                 fontSize: "16px",
                                 color: "#D8F602",
-                                whiteSpace: "nowrap"
                             }}
                         >
                             Apply for the Residency

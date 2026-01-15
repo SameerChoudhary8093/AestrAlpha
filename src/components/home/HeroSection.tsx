@@ -87,7 +87,7 @@ export default function HeroSection() {
               maxWidth: "820px",
               borderRadius: "8px",
               backgroundColor: "#D8F602",
-              padding: "25.56px 36.44px",
+              padding: "clamp(20px, 4vw, 25.56px) clamp(16px, 4vw, 36.44px)",
               gap: "13.67px",
             }}
           >
@@ -99,14 +99,14 @@ export default function HeroSection() {
                 maxWidth: "747px",
                 fontFamily: "Arial, sans-serif",
                 fontWeight: 700,
-                fontSize: "14px",
+                fontSize: "clamp(12px, 2vw, 14px)",
                 lineHeight: "150%",
                 color: "#000000",
               }}
             >
-              A 6-Month Career Residency. Led by the<br />
-              Founder of Shodh AI — building India’s<br />
-              Sovereign AI for Science model. Powered by<br />
+              A 6-Month Career Residency. Led by the<br className="hidden md:block" />
+              Founder of Shodh AI — building India’s<br className="hidden md:block" />
+              Sovereign AI for Science model. Powered by<br className="hidden md:block" />
               Experience with
             </p>
 
