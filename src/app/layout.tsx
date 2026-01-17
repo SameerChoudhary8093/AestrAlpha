@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Roboto } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const orbitron = Orbitron({
   weight: ["400", "500", "700", "800", "900"],
@@ -49,7 +50,10 @@ export default function RootLayout({
       </head>
       <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full bg-[#181818]`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
 }
+
+
