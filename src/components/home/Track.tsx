@@ -59,6 +59,7 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
           alt={title}
           width={405}
           height={240}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="w-full h-full object-cover"
         />
 

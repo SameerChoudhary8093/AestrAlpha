@@ -71,6 +71,7 @@ export default function HeroSection() {
                 alt="logo shadow"
                 width={193}
                 height={141}
+                priority
                 className="object-contain w-[120px] h-auto md:w-[193px]"
               />
               <span>First</span>
@@ -122,6 +123,7 @@ export default function HeroSection() {
                   alt="Microsoft"
                   width={116}
                   height={60}
+                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '116.5px' }}
                 />
@@ -133,6 +135,7 @@ export default function HeroSection() {
                   alt="Cambridge"
                   width={104}
                   height={22}
+                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '103.6px' }}
                 />
@@ -144,6 +147,7 @@ export default function HeroSection() {
                   alt="India AI"
                   width={77}
                   height={35}
+                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '77px' }}
                 />
@@ -155,6 +159,7 @@ export default function HeroSection() {
                   alt="Shodh AI"
                   width={114}
                   height={27}
+                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '114.39px' }}
                 />
@@ -166,6 +171,7 @@ export default function HeroSection() {
                   alt="DRDO"
                   width={64}
                   height={50}
+                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '64.22px' }}
                 />
@@ -263,7 +269,6 @@ export default function HeroSection() {
           height={700}
           priority
           sizes="100vw"
-          unoptimized
           className="w-full h-auto object-contain"
         />
       </div>

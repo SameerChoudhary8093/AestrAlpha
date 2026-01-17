@@ -11,6 +11,7 @@ const GalleryImage = ({ src, width, height, alt }: { src: string, width: number,
       alt={alt}
       width={width}
       height={height}
+      sizes="(max-width: 768px) 100vw, 33vw"
       className="transition-transform duration-500 group-hover:scale-110 w-full h-auto object-cover"
     />
   </div>

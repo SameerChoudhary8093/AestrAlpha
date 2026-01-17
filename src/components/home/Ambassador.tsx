@@ -85,6 +85,7 @@ export default function CampusAmbassador() {
           alt="Campus Ambassador Program"
           width={1312}
           height={662}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1312px"
           style={{ borderRadius: "16px" }}
           className="w-full h-auto object-cover"
         />

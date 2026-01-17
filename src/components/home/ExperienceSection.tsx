@@ -163,13 +163,13 @@ export default function ExperienceSection() {
                     style={{ maxWidth: "670px" }}
                 >
                     <div className="relative w-32 h-16 md:w-[206px] md:h-[116px]">
-                        <Image src="/home/nvidia.svg" alt="NVIDIA" fill className="object-contain" />
+                        <Image src="/home/nvidia.svg" alt="NVIDIA" fill sizes="(max-width: 768px) 128px, 206px" className="object-contain" />
                     </div>
                     <div className="relative w-32 h-16 md:w-[200px] md:h-[125px]">
-                        <Image src="/home/yotta.svg" alt="Yotta" fill className="object-contain" />
+                        <Image src="/home/yotta.svg" alt="Yotta" fill sizes="(max-width: 768px) 128px, 200px" className="object-contain" />
                     </div>
                     <div className="relative w-32 h-16 md:w-[200px] md:h-[120px]">
-                        <Image src="/home/aws.svg" alt="AWS" fill className="object-contain" />
+                        <Image src="/home/aws.svg" alt="AWS" fill sizes="(max-width: 768px) 128px, 200px" className="object-contain" />
                     </div>
                 </div>
 
