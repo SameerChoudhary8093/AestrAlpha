@@ -1,7 +1,7 @@
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import AboutSection from "@/components/home/AboutSection";
-import AdvantagesSection from "@/components/home/AdvantagesSection";
+
 import CampusAmbassador from "@/components/home/Ambassador";
 import BoardMembers from "@/components/home/BoardMembers";
 import InsideTheResidency from "@/components/home/InsideTheResidency";
