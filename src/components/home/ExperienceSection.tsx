@@ -61,6 +61,7 @@ export default function ExperienceSection() {
                     src="/home/PM Video.mp4"
                     poster="/home/PM-Video-Image.svg"
                     loop
+                    preload="none"
                     playsInline
                 />
 

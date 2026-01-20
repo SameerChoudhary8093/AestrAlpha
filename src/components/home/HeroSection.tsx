@@ -67,7 +67,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
               <span>India’s</span>
               <Image
-                src="/home/TextImage.png"
+                src="/home/TextImage.webp"
                 alt="logo shadow"
                 width={193}
                 height={141}
@@ -143,7 +143,7 @@ export default function HeroSection() {
               {/* Logo 3 (India AI) - Width 77 */}
               <div className="relative h-[35px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/India-ai.png"
+                  src="/Herosection/India-ai.webp"
                   alt="India AI"
                   width={77}
                   height={35}
@@ -263,7 +263,7 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src="/Herosection/new.jpeg"
+          src="/Herosection/new.webp"
           alt="Hero Main Visual"
           width={1312}
           height={700}

@@ -27,7 +27,7 @@ const FeaturedMentor = () => {
                     }}
                 >
                     <Image
-                        src="/FeaturesSpeakers/Arastu.jpeg"
+                        src="/FeaturesSpeakers/Arastu.webp"
                         alt="Featured Mentor"
                         fill
                         sizes="(max-width: 768px) 100vw, 300px"
