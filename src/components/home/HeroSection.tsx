@@ -73,6 +73,7 @@ export default function HeroSection() {
                 height={141}
                 priority
                 className="object-contain w-[120px] h-auto md:w-[193px]"
+                sizes="(max-width: 768px) 120px, 193px"
               />
               <span>First</span>
             </div>
@@ -150,6 +151,7 @@ export default function HeroSection() {
                   priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '77px' }}
+                  sizes="77px"
                 />
               </div>
               {/* Logo 4 (Shodh AI) - Width 114.4 */}
@@ -268,7 +270,7 @@ export default function HeroSection() {
           width={1312}
           height={700}
           priority
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1400px) 100vw, 1312px"
           className="w-full h-auto object-contain"
         />
       </div>

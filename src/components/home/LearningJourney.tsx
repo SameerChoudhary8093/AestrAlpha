@@ -42,6 +42,7 @@ export default function LearningJourney() {
               alt="Learning Journey"
               fill
               className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 616px"
             />
           </div>
         </div>
