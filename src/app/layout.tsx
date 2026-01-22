@@ -19,7 +19,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Aestr Alpha",
   description: "For Real Industry, Real Skills, Real Growth",
-
+  verification: {
+    google: "nZcfKuRij_5q_rkTUtab557y8BnR4y73PAGc2AaKC4k",
+  },
 };
 
 export default function RootLayout({
