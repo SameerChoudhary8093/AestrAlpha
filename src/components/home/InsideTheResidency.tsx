@@ -44,13 +44,13 @@ export default function InsideTheResidency() {
           {/* Column 1 */}
           <div className="flex flex-col gap-8 w-full">
             <GalleryImage
-              src="/home/test/Image-1.webp"
+              src="/test/Image-1.webp"
               alt="Gallery 1-1"
               width={416}
               height={416}
             />
             <GalleryImage
-              src="/home/test/Image-2.webp"
+              src="/test/Image-2.webp"
               alt="Gallery 1-2"
               width={416}
               height={416}
@@ -60,19 +60,19 @@ export default function InsideTheResidency() {
           {/* Column 2 */}
           <div className="flex flex-col gap-8 w-full">
             <GalleryImage
-              src="/home/test/Image-3.webp"
+              src="/test/Image-3.webp"
               alt="Gallery 2-1"
               width={416}
               height={234}
             />
             <GalleryImage
-              src="/home/test/Image-4.webp"
+              src="/test/Image-4.webp"
               alt="Gallery 2-2"
               width={416}
               height={234}
             />
             <GalleryImage
-              src="/home/test/Image-5.webp"
+              src="/test/Image-5.webp"
               alt="Gallery 2-3"
               width={416}
               height={416}
@@ -82,13 +82,13 @@ export default function InsideTheResidency() {
           {/* Column 3 */}
           <div className="flex flex-col gap-8 w-full">
             <GalleryImage
-              src="/home/test/Image-6.webp"
+              src="/test/Image-6.webp"
               alt="Gallery 3-1"
               width={416}
               height={416}
             />
             <GalleryImage
-              src="/home/test/Image-7.webp"
+              src="/test/Image-7.webp"
               alt="Gallery 3-2"
               width={416}
               height={416}
