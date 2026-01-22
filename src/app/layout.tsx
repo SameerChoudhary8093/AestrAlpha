@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 const orbitron = Orbitron({
   weight: ["400", "500", "700", "800", "900"],
+  display: "swap", // <--- This ensures text shows up instantly in a default font first
   variable: "--font-orbitron",
   subsets: ["latin"],
 });
@@ -18,11 +19,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Aestr Alpha",
   description: "For Real Industry, Real Skills, Real Growth",
-  icons: {
-    icon: "/home/Favicon.svg",
-    shortcut: "/home/Favicon.svg",
-    apple: "/home/Favicon.svg",
-  },
+
 };
 
 export default function RootLayout({

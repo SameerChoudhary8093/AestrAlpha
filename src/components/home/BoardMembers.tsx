@@ -25,7 +25,7 @@ const GuestMentorCard = ({ speaker }: { speaker: any }) => (
         src={speaker.photo.src}
         alt={speaker.name}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 395px"
         className="object-cover"
       />
     </div>

@@ -119,7 +119,7 @@ export default function HeroSection() {
               {/* Logo 1 (Microsoft) - Width 116.5 */}
               <div className="relative h-[60px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/Microsoft.svg"
+                  src="/HeroSection/Microsoft.svg"
                   alt="Microsoft"
                   width={116}
                   height={60}
@@ -131,7 +131,7 @@ export default function HeroSection() {
               {/* Logo 2 (Cambridge) - Width 103.6 */}
               <div className="relative h-[22px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/Cambridge.svg"
+                  src="/HeroSection/Cambridge.svg"
                   alt="Cambridge"
                   width={104}
                   height={22}
@@ -143,7 +143,7 @@ export default function HeroSection() {
               {/* Logo 3 (India AI) - Width 77 */}
               <div className="relative h-[35px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/India-ai.webp"
+                  src="/HeroSection/India-Ai.svg"
                   alt="India AI"
                   width={77}
                   height={35}
@@ -155,7 +155,7 @@ export default function HeroSection() {
               {/* Logo 4 (Shodh AI) - Width 114.4 */}
               <div className="relative h-[27px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/Shodh.svg"
+                  src="/HeroSection/Shodh.svg"
                   alt="Shodh AI"
                   width={114}
                   height={27}
@@ -167,7 +167,7 @@ export default function HeroSection() {
               {/* Logo 5 (DRDO) - Width 64.2 */}
               <div className="relative h-[50px] w-auto flex items-center justify-center">
                 <Image
-                  src="/Herosection/DRDO.svg"
+                  src="/HeroSection/DRDO.svg"
                   alt="DRDO"
                   width={64}
                   height={50}
@@ -263,7 +263,7 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src="/Herosection/new.webp"
+          src="/HeroSection/Hero-Main.svg"
           alt="Hero Main Visual"
           width={1312}
           height={700}

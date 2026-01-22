@@ -58,7 +58,7 @@ export default function ExperienceSection() {
                 <video
                     ref={videoRef}
                     className="w-full h-full object-cover"
-                    src="/home/PM Video.mp4"
+                    src="/home/pm-video.mp4"
                     poster="/home/PM-Video-Image.svg"
                     loop
                     preload="none"
