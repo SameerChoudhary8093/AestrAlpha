@@ -81,7 +81,7 @@ export default function CampusAmbassador() {
 
       <div className="w-full max-w-[1312px] h-auto rounded-2xl overflow-hidden">
         <Image
-          src={"/home/ambassador.svg"}
+          src={"/home/Ambassador.png"}
           alt="Campus Ambassador Program"
           width={1312}
           height={662}
