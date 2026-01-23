@@ -271,7 +271,7 @@ export default function HeroSection() {
           height={700}
           priority
           fetchPriority="high"
-          sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1400px) calc(100vw - 32px), 1312px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1312px"
           className="w-full h-auto object-contain"
         />
       </div>

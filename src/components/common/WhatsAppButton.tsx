@@ -65,7 +65,7 @@ const WhatsAppButton = () => {
                 >
                     <div style={{ position: "relative", width: "40px", height: "40px" }}>
                         <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                            src="/hero-assets/WhatsApp.svg"
                             alt="WhatsApp"
                             fill
                             style={{ objectFit: "contain" }}

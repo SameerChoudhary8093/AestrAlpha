@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Orbitron, Roboto } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const orbitron = Orbitron({
   weight: ["400", "500", "700", "800", "900"],
@@ -49,20 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2642WFKBWL"
-          strategy="lazyOnload"
-        />
-
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-2642WFKBWL');
-          `}
-        </Script>
+        <GoogleAnalytics gaId="G-2642WFKBWL" />
       </head>
       <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full bg-[#181818]`}>
         <main className="w-full relative">
