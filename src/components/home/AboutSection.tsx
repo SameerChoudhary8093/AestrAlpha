@@ -46,7 +46,13 @@ const StrictCard = ({ image, title, description, titleGap = "6px", className = "
           height: "160px"
         }}
       >
-        <img src={image} alt="" className="w-full h-full object-cover rounded-[9px]" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="304px"
+          className="w-full h-full object-cover rounded-[9px]"
+        />
       </div>
 
       {/* Text Container: 32px gap from image */}
@@ -116,22 +122,22 @@ export default function AboutSection() {
 
   const features = [
     {
-      image: "/About/Card-1.svg",
+      image: "/About/Card-1.webp",
       title: "Recruiters don’t hire certificates. They hire evidence.",
       description: "Everyone has a completion certificate. Aestr residents graduate with a deployment history — live systems, real projects, real proof."
     },
     {
-      image: "/About/Card-2.svg",
+      image: "/About/Card-2.webp",
       title: "Stop learning like a student. Start operating like a professional.",
       description: "Aestr Alpha is designed like a corporate environment. You clock in, collaborate, and ship outcomes — just like real teams."
     },
     {
-      image: "/About/Card-3.svg",
+      image: "/About/Card-3.webp",
       title: "We don’t chase trends. We build foundations.",
       description: "AI moves fast — but hiring still rewards strong fundamentals. We train you on the industrial backbone that runs global companies, and layer AI where it creates real value."
     },
     {
-      image: "/About/Card-4.svg",
+      image: "/About/Card-4.webp",
       title: "Built for GDC\nhiring reality.",
       description: "We design our exit profile around what Global Capability Centers actually hire for — enterprise stacks, delivery maturity, and proof of work"
     }

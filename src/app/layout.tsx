@@ -48,7 +48,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${roboto.variable} ${orbitron.variable} antialiased overflow-x-hidden w-full bg-[#181818]`}>
-        {children}
+        <main className="w-full relative">
+          {children}
+        </main>
         <Analytics />
       </body>
     </html>

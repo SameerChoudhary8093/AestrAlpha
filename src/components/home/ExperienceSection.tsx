@@ -69,6 +69,7 @@ export default function ExperienceSection() {
                 {!isPlaying && (
                     <button
                         onClick={togglePlay}
+                        aria-label="Play video"
                         className="absolute z-10 w-12 h-12 md:w-20 md:h-20 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center transition-all"
                         style={{ border: "none", cursor: "pointer" }}
                     >
@@ -81,6 +82,7 @@ export default function ExperienceSection() {
                 {/* Bottom Right Volume Button */}
                 <button
                     onClick={toggleMute}
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
                     className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center transition-all"
                     style={{ border: "none", cursor: "pointer" }}
                 >

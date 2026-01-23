@@ -47,10 +47,10 @@ export default function CampusAmbassador() {
             }}
           >
             {perks.map((perk, index) => (
-              <div key={index} className="flex flex-row gap-4 items-start">
+              <li key={index} className="flex flex-row gap-4 items-start">
                 <DoubleStarIcon className="h-6 w-auto text-(--accent-color) shrink-0 mt-1" />
                 <span>{perk}</span>
-              </div>
+              </li>
             ))}
           </ul>
 
