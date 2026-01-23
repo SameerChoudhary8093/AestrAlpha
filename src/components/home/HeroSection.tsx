@@ -124,7 +124,6 @@ export default function HeroSection() {
                   alt="Microsoft"
                   width={116}
                   height={60}
-                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '116.5px' }}
                 />
@@ -136,7 +135,6 @@ export default function HeroSection() {
                   alt="Cambridge"
                   width={104}
                   height={22}
-                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '103.6px' }}
                 />
@@ -148,7 +146,6 @@ export default function HeroSection() {
                   alt="India AI"
                   width={77}
                   height={35}
-                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '77px' }}
                   sizes="77px"
@@ -161,7 +158,6 @@ export default function HeroSection() {
                   alt="Shodh AI"
                   width={114}
                   height={27}
-                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '114.39px' }}
                 />
@@ -173,7 +169,6 @@ export default function HeroSection() {
                   alt="DRDO"
                   width={64}
                   height={50}
-                  priority
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '64.22px' }}
                 />
@@ -271,7 +266,7 @@ export default function HeroSection() {
           height={700}
           priority
           fetchPriority="high"
-          sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 90vw, 1312px"
+          sizes="(max-width: 400px) 380px, (max-width: 768px) 768px, (max-width: 1200px) 1024px, 1312px"
           className="w-full h-auto object-contain"
         />
       </div>
