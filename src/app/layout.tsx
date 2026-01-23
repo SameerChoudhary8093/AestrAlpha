@@ -17,8 +17,25 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Aestr Alpha",
-  description: "For Real Industry, Real Skills, Real Growth",
+  title: "Aestr Alpha | Career-Focused Tech Ashram",
+  description: "Aestr Alpha is India's first career-focused Tech Ashram. Join our 6-month residency led by industry experts to build real-world AI projects and launch your career.",
+  keywords: ["Aestr Alpha", "Tech Ashram", "AI Residency", "Coding Bootcamp India", "Career Growth", "Software Engineering", "Shodh AI"],
+  openGraph: {
+    title: "Aestr Alpha | Career-Focused Tech Ashram",
+    description: "Launch your tech career with Aestr Alpha's 6-month residency program. Build real AI projects, not just courses.",
+    url: "https://www.aestralpha.com",
+    siteName: "Aestr Alpha",
+    images: [
+      {
+        url: "https://www.aestralpha.com/test/Hero-Main.webp",
+        width: 1200,
+        height: 630,
+        alt: "Aestr Alpha Hero Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   verification: {
     google: "nZcfKuRij_5q_rkTUtab557y8BnR4y73PAGc2AaKC4k",
   },
