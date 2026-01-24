@@ -73,7 +73,7 @@ export default function CampusAmbassador() {
               color: '#000000',
             }}
           >
-            <StarIcon style={{ width: "24px", height: "24px", color: "#000000" }} />
+            <StarIcon style={{ width: "24px", height: "24px", color: "#5B1DD6" }} />
             <span className="whitespace-nowrap">Apply Now</span>
           </Link>
         </div>

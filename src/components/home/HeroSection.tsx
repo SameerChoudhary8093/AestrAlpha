@@ -72,7 +72,11 @@ export default function HeroSection() {
                 width={193}
                 height={141}
                 priority
-                className="object-contain w-[120px] h-auto md:w-[193px]"
+                className="object-contain w-[120px] h-auto md:w-[193px] md:h-[141px]"
+                style={{
+                  opacity: 1,
+                  transform: "rotate(0deg)",
+                }}
                 sizes="(max-width: 768px) 120px, 193px"
               />
               <span>First</span>
