@@ -115,9 +115,9 @@ export default function HeroSection() {
                 color: "#000000",
               }}
             >
-              A 6-Month Career Residency. Led by the<br className="hidden md:block" />
-              Founder of Shodh AI — building India’s<br className="hidden md:block" />
-              Sovereign AI for Science model. Powered by<br className="hidden md:block" />
+              A 6-Month Career Residency. Led by the<br />
+              Founder of Shodh AI — building India’s<br />
+              Sovereign AI for Science model. Powered by<br />
               Experience with
             </p>
 
