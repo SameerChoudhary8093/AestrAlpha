@@ -58,10 +58,14 @@ export default function HeroSection() {
             style={{
               fontFamily: "var(--font-orbitron), sans-serif",
               fontWeight: 700,
-              // Responsive Font Size
               fontSize: "clamp(32px, 5vw, 71.07px)",
               lineHeight: "120%",
+              letterSpacing: "0%",
+              textAlign: "center",
               color: "#FAFFD6",
+              maxWidth: "820px",
+              opacity: 1,
+              transform: "rotate(0deg)",
             }}
           >
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
