@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [320, 380, 420, 768, 1024, 1200, 1400, 1920],
+    deviceSizes: [320, 380, 420, 640, 750, 828, 1080, 1200, 1400, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
