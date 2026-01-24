@@ -80,6 +80,9 @@ export default function HeroSection() {
                 style={{
                   opacity: 1,
                   transform: "rotate(0deg)",
+                  // Applying dimensions strictly as requested for visual match
+                  width: "193px",
+                  height: "141px",
                 }}
                 sizes="(max-width: 768px) 120px, 193px"
               />
