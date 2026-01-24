@@ -235,7 +235,7 @@ const WhyThisTrack = () => {
                             }}
                         >
                             <div style={{ width: '28px', height: '29.8px' }}>
-                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
@@ -256,7 +256,7 @@ const WhyThisTrack = () => {
                             }}
                         >
                             <div style={{ width: '28px', height: '29.8px' }}>
-                                <StarIcon className="w-full h-full text-[#181818]" />
+                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
@@ -421,7 +421,7 @@ const ToolsSection = () => {
                         className="flex items-center justify-center gap-[8px] bg-[#181818] border border-[#181818] hover:opacity-90 transition-opacity box-border cursor-pointer"
                         style={{ width: '300px', height: '54px', padding: '12px 24px', borderRadius: '4px 20px 4px 4px' }}
                     >
-                        <div className="flex items-center justify-center" style={{ width: '28px', height: '29.8px' }}><StarIcon className="w-full h-full text-[#D8F602]" /></div>
+                        <div className="flex items-center justify-center" style={{ width: '28px', height: '29.8px' }}><StarIcon className="w-full h-full" style={{ color: '#D8F602' }} /></div>
                         <span className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap" style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}>Apply for the Residency</span>
                     </button>
                 </div>

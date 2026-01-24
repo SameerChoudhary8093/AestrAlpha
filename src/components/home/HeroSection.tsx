@@ -76,13 +76,11 @@ export default function HeroSection() {
                 width={193}
                 height={141}
                 priority
-                className="object-contain w-[120px] h-auto md:w-[193px] md:h-[141px]"
+                className="object-contain w-[80px] h-auto md:w-[193px] md:h-[141px]"
                 style={{
                   opacity: 1,
                   transform: "rotate(0deg)",
-                  // Applying dimensions strictly as requested for visual match
-                  width: "193px",
-                  height: "141px",
+                  height: "auto",
                 }}
                 sizes="(max-width: 768px) 120px, 193px"
               />

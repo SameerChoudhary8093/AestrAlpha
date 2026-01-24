@@ -370,7 +370,7 @@ const WhyThisTrack = () => {
                                 className="flex items-center justify-center"
                                 style={{ width: '28px', height: '29.8px' }}
                             >
-                                <StarIcon className="w-full h-full text-[#181818]" />
+                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
@@ -603,7 +603,7 @@ const Evolution = () => {
                                 className="flex items-center justify-center"
                                 style={{ width: '28px', height: '29.8px' }}
                             >
-                                <StarIcon className="w-full h-full text-[#181818]" />
+                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
                             </div>
                             {/* Text */}
                             <span
@@ -1191,7 +1191,7 @@ const ToolsSection = () => {
                                 className="flex items-center justify-center"
                                 style={{ width: '28px', height: '29.8px' }}
                             >
-                                <StarIcon className="w-full h-full text-[#181818]" />
+                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
