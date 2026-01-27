@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Sparkles, Menu, X, Linkedin, Instagram, Twitter } from 'lucide-react';
@@ -217,6 +217,45 @@ const InfoCard = ({
 
 const WhyThisTrack = () => {
     const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        if (!scrollContainer) return;
+
+        const scrollWidth = scrollContainer.scrollWidth;
+        const clientWidth = scrollContainer.clientWidth;
+
+        // Only enable auto-scroll if content is scrollable (e.g., mobile view)
+        if (scrollWidth <= clientWidth) return;
+
+        let scrollPos = 0;
+        const cardWidth = clientWidth * 0.85; // Approximate width based on 85vw
+        const gap = 16; // 1rem gap
+        const scrollItemWidth = cardWidth + gap;
+
+        const intervalId = setInterval(() => {
+            if (!scrollContainer) return;
+
+            // Calculate next scroll position
+            const currentScroll = scrollContainer.scrollLeft;
+            const maxScroll = scrollWidth - clientWidth;
+
+            let nextScroll = currentScroll + scrollItemWidth;
+
+            // If we reach the end, loop back significantly or reset
+            if (nextScroll >= maxScroll + (scrollItemWidth / 2)) {
+                // Smooth reset to 0 might be jarring, but "infinite" loop requires cloning. 
+                // Let's just scroll back to 0 smoothly.
+                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scrollContainer.scrollTo({ left: nextScroll, behavior: 'smooth' });
+            }
+        }, 3000); // 3 seconds interval
+
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
             <div
@@ -276,7 +315,10 @@ const WhyThisTrack = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
+                <div
+                    ref={scrollContainerRef}
+                    className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+                >
                     <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
                         <InfoCard
                             title='The "High-Stakes" Career'

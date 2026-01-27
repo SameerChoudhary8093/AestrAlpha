@@ -187,32 +187,32 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-1.svg",
       href: "/salesforce-ecosystem-residency",
       toolIcons: [
-        { icon: <Image src="/ChooseYourTrack/salesforce-cloud.png" alt="Salesforce Cloud" width={20} height={20} className="w-full h-full object-contain" />, label: "Salesforce Cloud" },
-        { icon: <Image src="/ChooseYourTrack/Apex.png" alt="Apex" width={20} height={20} className="w-full h-full object-contain" />, label: "Apex" },
-        { icon: <Image src="/ChooseYourTrack/LWC.png" alt="LWC" width={20} height={20} className="w-full h-full object-contain" />, label: "LWC" },
-        { icon: <Image src="/ChooseYourTrack/vs-code.png" alt="VS Code" width={20} height={20} className="w-full h-full object-contain" />, label: "VS Code" },
+        { icon: <Image src="/tracks/salesforce-cloud.png" alt="Salesforce Cloud" width={20} height={20} className="w-full h-full object-contain" />, label: "Salesforce Cloud" },
+        { icon: <Image src="/tracks/apex.png" alt="Apex" width={20} height={20} className="w-full h-full object-contain" />, label: "Apex" },
+        { icon: <Image src="/tracks/lwc.png" alt="LWC" width={20} height={20} className="w-full h-full object-contain" />, label: "LWC" },
+        { icon: <Image src="/tracks/vs-code.png" alt="VS Code" width={20} height={20} className="w-full h-full object-contain" />, label: "VS Code" },
         { icon: <Image src="https://cdn.simpleicons.org/git" alt="Git" width={20} height={20} className="w-full h-full object-contain" />, label: "Git" },
-        { icon: <Image src="/ChooseYourTrack/Jira.svg" alt="Jira" width={20} height={20} className="w-full h-full object-contain" />, label: "Jira" },
+        { icon: <Image src="/tracks/jira.svg" alt="Jira" width={20} height={20} className="w-full h-full object-contain" />, label: "Jira" },
       ]
     },
     {
       title: "AI Infrastructure & Cloud Native Residency",
       desc: "Cloud + Kubernetes + LLMOps • Infra, SRE,\nplatform roles",
-      img: "/ChooseYourTrack/image-2.svg",
+      img: "/tracks/image-2.svg",
       href: "/ai-infrastructure-cloud-native-residency",
       toolIcons: [
         { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Kubernetes" width={20} height={20} className="w-full h-full object-contain" />, label: "Kubernetes" },
         { icon: <Image src="https://cdn.simpleicons.org/docker" alt="Docker" width={20} height={20} className="w-full h-full object-contain" />, label: "Docker" },
         { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
         { icon: <Image src="https://cdn.simpleicons.org/terraform" alt="Terraform" width={20} height={20} className="w-full h-full object-contain" />, label: "Terraform" },
-        { icon: <Image src="/ChooseYourTrack/AWS.png" alt="AWS" width={20} height={20} className="w-full h-full object-contain" />, label: "AWS" },
+        { icon: <Image src="/tracks/aws.png" alt="AWS" width={20} height={20} className="w-full h-full object-contain" />, label: "AWS" },
         { icon: <Image src="https://cdn.simpleicons.org/googlecloud" alt="GCP" width={20} height={20} className="w-full h-full object-contain" />, label: "GCP" },
       ]
     },
     {
       title: "Enterprise Data Platform Residency",
       desc: "Modern data stack + vector pipelines • Data\nengineering & AI data roles",
-      img: "/ChooseYourTrack/image-3.svg",
+      img: "/tracks/image-3.svg",
       href: "/enterprise-data-platform-residency",
       toolIcons: [
         { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
@@ -220,32 +220,32 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
         { icon: <Image src="https://cdn.simpleicons.org/snowflake" alt="Snowflake" width={20} height={20} className="w-full h-full object-contain" />, label: "Snowflake" },
         { icon: <Image src="https://cdn.simpleicons.org/apacheairflow" alt="Airflow" width={20} height={20} className="w-full h-full object-contain" />, label: "Airflow" },
         { icon: <Image src="https://cdn.simpleicons.org/apachespark" alt="Spark" width={20} height={20} className="w-full h-full object-contain" />, label: "Spark" },
-        { icon: <Image src="/ChooseYourTrack/Vector-DB.png" alt="Vector DB" width={20} height={20} className="w-full h-full object-contain" />, label: "Vector DB" },
+        { icon: <Image src="/tracks/vector-db.png" alt="Vector DB" width={20} height={20} className="w-full h-full object-contain" />, label: "Vector DB" },
       ]
     },
     {
       title: "ServiceNow Architect Residency",
       desc: "Workflow systems + enterprise automation • ITSM\n+ platform roles",
-      img: "/ChooseYourTrack/image-4.svg",
+      img: "/tracks/image-4.svg",
       href: "/servicenow-architect-residency",
       toolIcons: [
-        { icon: <Image src="/ChooseYourTrack/servicenow.png" alt="ServiceNow" width={20} height={20} className="w-full h-full object-contain" />, label: "ServiceNow" },
+        { icon: <Image src="/tracks/servicenow.png" alt="ServiceNow" width={20} height={20} className="w-full h-full object-contain" />, label: "ServiceNow" },
         { icon: <Image src="https://cdn.simpleicons.org/javascript" alt="JavaScript" width={20} height={20} className="w-full h-full object-contain" />, label: "JavaScript" },
         { icon: <Image src="https://cdn.simpleicons.org/openapiinitiative" alt="REST APIs" width={20} height={20} className="w-full h-full object-contain" />, label: "REST APIs" },
-        { icon: <Image src="/ChooseYourTrack/Flow-designer.png" alt="Flow Designer" width={20} height={20} className="w-full h-full object-contain" />, label: "Flow Designer" },
-        { icon: <Image src="/ChooseYourTrack/CMDB.png" alt="CMDB" width={20} height={20} className="w-full h-full object-contain" />, label: "CMDB" },
-        { icon: <Image src="/ChooseYourTrack/Virtual-Agent.png" alt="Virtual Agent" width={20} height={20} className="w-full h-full object-contain" />, label: "Virtual Agent" },
+        { icon: <Image src="/tracks/flow-designer.png" alt="Flow Designer" width={20} height={20} className="w-full h-full object-contain" />, label: "Flow Designer" },
+        { icon: <Image src="/tracks/cmdb.png" alt="CMDB" width={20} height={20} className="w-full h-full object-contain" />, label: "CMDB" },
+        { icon: <Image src="/tracks/virtual-agent.png" alt="Virtual Agent" width={20} height={20} className="w-full h-full object-contain" />, label: "Virtual Agent" },
       ]
     },
     {
       title: "Modern Enterprise Backend Residency (Java)",
       desc: "Spring Boot + microservices + scale • BFSI &\nbackend roles",
-      img: "/ChooseYourTrack/image-5.svg",
+      img: "/tracks/image-5.svg",
       href: "/modern-enterprise-backend-residency",
       toolIcons: [
-        { icon: <Image src="/ChooseYourTrack/Java.png" alt="Java" width={20} height={20} className="w-full h-full object-contain" />, label: "Java" },
+        { icon: <Image src="/tracks/java.png" alt="Java" width={20} height={20} className="w-full h-full object-contain" />, label: "Java" },
         { icon: <Image src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" width={20} height={20} className="w-full h-full object-contain" />, label: "Spring Boot" },
-        { icon: <Image src="/ChooseYourTrack/Kafka.png" alt="Kafka" width={20} height={20} className="w-full h-full object-contain" />, label: "Kafka" },
+        { icon: <Image src="/tracks/kafka.png" alt="Kafka" width={20} height={20} className="w-full h-full object-contain" />, label: "Kafka" },
         { icon: <Image src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" width={20} height={20} className="w-full h-full object-contain" />, label: "PostgreSQL" },
         { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Microservices" width={20} height={20} className="w-full h-full object-contain" />, label: "Microservices" },
         { icon: <Image src="https://cdn.simpleicons.org/redis" alt="Redis" width={20} height={20} className="w-full h-full object-contain" />, label: "Redis" },
@@ -254,15 +254,15 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
     {
       title: "Apple Ecosystem Residency (iOS)",
       desc: "Native Swift + Apple lab ecosystem • Premium mobile roles",
-      img: "/ChooseYourTrack/image-6.svg",
+      img: "/tracks/image-6.svg",
       href: "/apple-ecosystem-residency",
       toolIcons: [
         { icon: <Image src="https://cdn.simpleicons.org/swift" alt="Swift" width={20} height={20} className="w-full h-full object-contain" />, label: "Swift" },
         { icon: <Image src="https://cdn.simpleicons.org/xcode" alt="Xcode" width={20} height={20} className="w-full h-full object-contain" />, label: "Xcode" },
-        { icon: <Image src="/ChooseYourTrack/IOS-SDK.png" alt="iOS SDK" width={20} height={20} className="w-full h-full object-contain" />, label: "iOS SDK" },
-        { icon: <Image src="/ChooseYourTrack/Core-data.png" alt="Core Data" width={20} height={20} className="w-full h-full object-contain" />, label: "Core Data" },
-        { icon: <Image src="/ChooseYourTrack/CoreML.png" alt="Core ML" width={20} height={20} className="w-full h-full object-contain" />, label: "Core ML" },
-        { icon: <Image src="/ChooseYourTrack/TestFlight.png" alt="TestFlight" width={20} height={20} className="w-full h-full object-contain" />, label: "TestFlight" },
+        { icon: <Image src="/tracks/ios-sdk.png" alt="iOS SDK" width={20} height={20} className="w-full h-full object-contain" />, label: "iOS SDK" },
+        { icon: <Image src="/tracks/core-data.png" alt="Core Data" width={20} height={20} className="w-full h-full object-contain" />, label: "Core Data" },
+        { icon: <Image src="/tracks/coreml.png" alt="Core ML" width={20} height={20} className="w-full h-full object-contain" />, label: "Core ML" },
+        { icon: <Image src="/tracks/testflight.png" alt="TestFlight" width={20} height={20} className="w-full h-full object-contain" />, label: "TestFlight" },
       ]
     },
   ];
