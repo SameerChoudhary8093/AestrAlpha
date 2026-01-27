@@ -191,7 +191,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
         { icon: <Image src="/tracks/apex.png" alt="Apex" width={20} height={20} className="w-full h-full object-contain" />, label: "Apex" },
         { icon: <Image src="/tracks/lwc.png" alt="LWC" width={20} height={20} className="w-full h-full object-contain" />, label: "LWC" },
         { icon: <Image src="/tracks/vs-code.png" alt="VS Code" width={20} height={20} className="w-full h-full object-contain" />, label: "VS Code" },
-        { icon: <Image src="https://cdn.simpleicons.org/git" alt="Git" width={20} height={20} className="w-full h-full object-contain" />, label: "Git" },
+        { icon: <Image src="/tracks/git.svg" alt="Git" width={20} height={20} className="w-full h-full object-contain" />, label: "Git" },
         { icon: <Image src="/tracks/jira.svg" alt="Jira" width={20} height={20} className="w-full h-full object-contain" />, label: "Jira" },
       ]
     },
@@ -201,12 +201,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/tracks/image-2.svg",
       href: "/ai-infrastructure-cloud-native-residency",
       toolIcons: [
-        { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Kubernetes" width={20} height={20} className="w-full h-full object-contain" />, label: "Kubernetes" },
-        { icon: <Image src="https://cdn.simpleicons.org/docker" alt="Docker" width={20} height={20} className="w-full h-full object-contain" />, label: "Docker" },
-        { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
-        { icon: <Image src="https://cdn.simpleicons.org/terraform" alt="Terraform" width={20} height={20} className="w-full h-full object-contain" />, label: "Terraform" },
+        { icon: <Image src="/tracks/kubernetes.svg" alt="Kubernetes" width={20} height={20} className="w-full h-full object-contain" />, label: "Kubernetes" },
+        { icon: <Image src="/tracks/docker.svg" alt="Docker" width={20} height={20} className="w-full h-full object-contain" />, label: "Docker" },
+        { icon: <Image src="/tracks/python.svg" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
+        { icon: <Image src="/tracks/terraform.svg" alt="Terraform" width={20} height={20} className="w-full h-full object-contain" />, label: "Terraform" },
         { icon: <Image src="/tracks/aws.png" alt="AWS" width={20} height={20} className="w-full h-full object-contain" />, label: "AWS" },
-        { icon: <Image src="https://cdn.simpleicons.org/googlecloud" alt="GCP" width={20} height={20} className="w-full h-full object-contain" />, label: "GCP" },
+        { icon: <Image src="/tracks/googlecloud.svg" alt="GCP" width={20} height={20} className="w-full h-full object-contain" />, label: "GCP" },
       ]
     },
     {
@@ -215,11 +215,11 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/tracks/image-3.svg",
       href: "/enterprise-data-platform-residency",
       toolIcons: [
-        { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
-        { icon: <Image src="https://cdn.simpleicons.org/mysql" alt="SQL" width={20} height={20} className="w-full h-full object-contain" />, label: "SQL" },
-        { icon: <Image src="https://cdn.simpleicons.org/snowflake" alt="Snowflake" width={20} height={20} className="w-full h-full object-contain" />, label: "Snowflake" },
-        { icon: <Image src="https://cdn.simpleicons.org/apacheairflow" alt="Airflow" width={20} height={20} className="w-full h-full object-contain" />, label: "Airflow" },
-        { icon: <Image src="https://cdn.simpleicons.org/apachespark" alt="Spark" width={20} height={20} className="w-full h-full object-contain" />, label: "Spark" },
+        { icon: <Image src="/tracks/python.svg" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
+        { icon: <Image src="/tracks/mysql.svg" alt="SQL" width={20} height={20} className="w-full h-full object-contain" />, label: "SQL" },
+        { icon: <Image src="/tracks/snowflake.svg" alt="Snowflake" width={20} height={20} className="w-full h-full object-contain" />, label: "Snowflake" },
+        { icon: <Image src="/tracks/apacheairflow.svg" alt="Airflow" width={20} height={20} className="w-full h-full object-contain" />, label: "Airflow" },
+        { icon: <Image src="/tracks/apachespark.svg" alt="Spark" width={20} height={20} className="w-full h-full object-contain" />, label: "Spark" },
         { icon: <Image src="/tracks/vector-db.png" alt="Vector DB" width={20} height={20} className="w-full h-full object-contain" />, label: "Vector DB" },
       ]
     },
@@ -230,8 +230,8 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       href: "/servicenow-architect-residency",
       toolIcons: [
         { icon: <Image src="/tracks/servicenow.png" alt="ServiceNow" width={20} height={20} className="w-full h-full object-contain" />, label: "ServiceNow" },
-        { icon: <Image src="https://cdn.simpleicons.org/javascript" alt="JavaScript" width={20} height={20} className="w-full h-full object-contain" />, label: "JavaScript" },
-        { icon: <Image src="https://cdn.simpleicons.org/openapiinitiative" alt="REST APIs" width={20} height={20} className="w-full h-full object-contain" />, label: "REST APIs" },
+        { icon: <Image src="/tracks/javascript.svg" alt="JavaScript" width={20} height={20} className="w-full h-full object-contain" />, label: "JavaScript" },
+        { icon: <Image src="/tracks/openapiinitiative.svg" alt="REST APIs" width={20} height={20} className="w-full h-full object-contain" />, label: "REST APIs" },
         { icon: <Image src="/tracks/flow-designer.png" alt="Flow Designer" width={20} height={20} className="w-full h-full object-contain" />, label: "Flow Designer" },
         { icon: <Image src="/tracks/cmdb.png" alt="CMDB" width={20} height={20} className="w-full h-full object-contain" />, label: "CMDB" },
         { icon: <Image src="/tracks/virtual-agent.png" alt="Virtual Agent" width={20} height={20} className="w-full h-full object-contain" />, label: "Virtual Agent" },
@@ -244,11 +244,11 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       href: "/modern-enterprise-backend-residency",
       toolIcons: [
         { icon: <Image src="/tracks/java.png" alt="Java" width={20} height={20} className="w-full h-full object-contain" />, label: "Java" },
-        { icon: <Image src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" width={20} height={20} className="w-full h-full object-contain" />, label: "Spring Boot" },
+        { icon: <Image src="/tracks/springboot.svg" alt="Spring Boot" width={20} height={20} className="w-full h-full object-contain" />, label: "Spring Boot" },
         { icon: <Image src="/tracks/kafka.png" alt="Kafka" width={20} height={20} className="w-full h-full object-contain" />, label: "Kafka" },
-        { icon: <Image src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" width={20} height={20} className="w-full h-full object-contain" />, label: "PostgreSQL" },
-        { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Microservices" width={20} height={20} className="w-full h-full object-contain" />, label: "Microservices" },
-        { icon: <Image src="https://cdn.simpleicons.org/redis" alt="Redis" width={20} height={20} className="w-full h-full object-contain" />, label: "Redis" },
+        { icon: <Image src="/tracks/postgresql.svg" alt="PostgreSQL" width={20} height={20} className="w-full h-full object-contain" />, label: "PostgreSQL" },
+        { icon: <Image src="/tracks/kubernetes.svg" alt="Microservices" width={20} height={20} className="w-full h-full object-contain" />, label: "Microservices" },
+        { icon: <Image src="/tracks/redis.svg" alt="Redis" width={20} height={20} className="w-full h-full object-contain" />, label: "Redis" },
       ]
     },
     {
@@ -257,8 +257,8 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/tracks/image-6.svg",
       href: "/apple-ecosystem-residency",
       toolIcons: [
-        { icon: <Image src="https://cdn.simpleicons.org/swift" alt="Swift" width={20} height={20} className="w-full h-full object-contain" />, label: "Swift" },
-        { icon: <Image src="https://cdn.simpleicons.org/xcode" alt="Xcode" width={20} height={20} className="w-full h-full object-contain" />, label: "Xcode" },
+        { icon: <Image src="/tracks/swift.svg" alt="Swift" width={20} height={20} className="w-full h-full object-contain" />, label: "Swift" },
+        { icon: <Image src="/tracks/xcode.svg" alt="Xcode" width={20} height={20} className="w-full h-full object-contain" />, label: "Xcode" },
         { icon: <Image src="/tracks/ios-sdk.png" alt="iOS SDK" width={20} height={20} className="w-full h-full object-contain" />, label: "iOS SDK" },
         { icon: <Image src="/tracks/core-data.png" alt="Core Data" width={20} height={20} className="w-full h-full object-contain" />, label: "Core Data" },
         { icon: <Image src="/tracks/coreml.png" alt="Core ML" width={20} height={20} className="w-full h-full object-contain" />, label: "Core ML" },
