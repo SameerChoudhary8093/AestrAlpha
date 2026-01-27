@@ -33,11 +33,7 @@
     "typescript": "5.9.3"
   },
   "browserslist": [
-    "chrome >= 100",
-    "safari >= 16",
-    "edge >= 100",
-    "firefox >= 100",
-    "ios >= 16",
-    "not dead"
+    "defaults",
+    "not IE 11"
   ]
 }
