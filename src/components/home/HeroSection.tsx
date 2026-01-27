@@ -123,7 +123,7 @@ export default function HeroSection() {
 
             {/* Logos Row */}
             <div
-              className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-[27.33px] w-full"
+              className="flex flex-wrap md:flex-nowrap items-center justify-center gap-y-1 gap-x-4 md:gap-[27.33px] w-full"
               style={{ maxWidth: "747.11px" }}
             >
               {/* Logo 1 (Microsoft) - Width 116.5 */}
@@ -135,6 +135,7 @@ export default function HeroSection() {
                   height={60}
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '116.5px' }}
+                  priority
                 />
               </div>
               {/* Logo 2 (Cambridge) - Width 103.6 */}
@@ -146,8 +147,13 @@ export default function HeroSection() {
                   height={22}
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '103.6px' }}
+                  priority
                 />
               </div>
+
+              {/* Force break on mobile */}
+              <div className="w-full md:hidden" />
+
               {/* Logo 3 (India AI) - Width 77 */}
               <div className="relative h-[35px] w-auto flex items-center justify-center">
                 <Image

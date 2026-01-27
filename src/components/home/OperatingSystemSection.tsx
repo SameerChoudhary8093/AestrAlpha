@@ -100,7 +100,7 @@ export default function OperatingSystemSection() {
                             fontSize: "clamp(32px, 5vw, 50px)"
                         }}
                     >
-                        The Aestr Operating<br />System
+                        The Aestr<br />Operating System
                     </h2>
                     <p
                         className="text-[#EAF0BD] font-normal text-lg leading-[150%] whitespace-pre-line"

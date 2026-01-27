@@ -28,10 +28,9 @@ export default function WorkSimulationSection() {
 
                     {/* Main Headline */}
                     <h2
-                        className="w-full text-[#EAF0BD] font-bold leading-[120%]"
+                        className="w-full text-[#EAF0BD] font-bold leading-[120%] text-[28px] md:text-[40px] lg:text-[48px]"
                         style={{
                             fontFamily: "var(--font-orbitron), sans-serif",
-                            fontSize: "clamp(32px, 5vw, 48px)"
                         }}
                     >
                         We don’t teach subjects. We simulate a workplace.

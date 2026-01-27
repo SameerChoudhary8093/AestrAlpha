@@ -340,10 +340,10 @@ const WhyThisTrack = () => {
                             }}
                         >
                             <div
-                                className="flex items-center justify-center"
+                                className="flex-shrink-0 flex items-center justify-center"
                                 style={{ width: '28px', height: '29.8px' }}
                             >
-                                <StarIcon className="w-full h-full text-[#D8F602]" />
+                                <StarIcon className="w-full h-full" fill="#D8F602" />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#D8F602] whitespace-nowrap"
@@ -359,7 +359,7 @@ const WhyThisTrack = () => {
                             target="_blank"
                             className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                width: '300px', // Adjusted to fit text
+                                width: '340px',
                                 height: '54px',
                                 padding: '12px 24px',
                                 borderRadius: '4px 20px 4px 4px',
@@ -367,16 +367,15 @@ const WhyThisTrack = () => {
                             }}
                         >
                             <div
-                                className="flex items-center justify-center"
+                                className="flex-shrink-0 flex items-center justify-center relative z-10"
                                 style={{ width: '28px', height: '29.8px' }}
                             >
-                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
+                                <StarIcon className="w-full h-full" fill="#181818" />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
                                 style={{
                                     fontFamily: 'var(--font-orbitron), sans-serif',
-                                    // Removed fixed width to allow fluid text
                                 }}
                             >
                                 Talk to a Counselor (Free 1:1)
@@ -823,7 +822,7 @@ const BoxOfProof = () => {
                         {/* Center Image */}
                         <div className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0">
                             <Image
-                                src="/home/Graduate-Image.svg"
+                                src="/ImmersiveWorkshop/CenterImage.svg"
                                 alt="Graduate Info"
                                 width={610}
                                 height={540}
@@ -941,10 +940,24 @@ const BoxOfProof = () => {
                         <Link
                             href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the Salesforce Ecosystem Residency at Aestr Alpha and would like to talk to a counselor.")}`}
                             target="_blank"
-                            className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
+                            style={{
+                                width: '340px',
+                                height: '54px',
+                                padding: '12px 24px',
+                                borderRadius: '4px 20px 4px 4px',
+                                textDecoration: 'none'
+                            }}
                         >
-                            <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
-                            <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
+                            <div className="flex-shrink-0 flex items-center justify-center relative z-10" style={{ width: '28px', height: '29.8px' }}>
+                                <StarIcon className="w-full h-full" fill="#181818" />
+                            </div>
+                            <span
+                                className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
+                                style={{
+                                    fontFamily: 'var(--font-orbitron), sans-serif',
+                                }}
+                            >
                                 Talk to a Counselor (Free 1:1)
                             </span>
                         </Link>
@@ -1178,26 +1191,22 @@ const ToolsSection = () => {
                         <Link
                             href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the Salesforce Ecosystem Residency at Aestr Alpha and would like to talk to a counselor.")}`}
                             target="_blank"
-                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:bg-[#181818]/5 transition-colors box-border"
+                            className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border"
                             style={{
-                                width: '300px',
+                                width: '340px',
                                 height: '54px',
                                 padding: '12px 24px',
                                 borderRadius: '4px 20px 4px 4px',
                                 textDecoration: 'none'
                             }}
                         >
-                            <div
-                                className="flex items-center justify-center"
-                                style={{ width: '28px', height: '29.8px' }}
-                            >
-                                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
+                            <div className="flex-shrink-0 flex items-center justify-center relative z-10" style={{ width: '28px', height: '29.8px' }}>
+                                <StarIcon className="w-full h-full" fill="#181818" />
                             </div>
                             <span
                                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
                                 style={{
                                     fontFamily: 'var(--font-orbitron), sans-serif',
-                                    // Removed fixed width for fluid text
                                 }}
                             >
                                 Talk to a Counselor (Free 1:1)

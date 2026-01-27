@@ -35,35 +35,16 @@ const WhatsAppButton = () => {
 
             <div
                 onClick={handleClick}
-                className="whatsapp-bounce"
-                style={{
-                    position: "fixed",
-                    right: "30px",
-                    bottom: "30px",
-                    zIndex: 9999, // Ensure it's on top of everything
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "12px",
-                    cursor: "pointer",
-                    flexFlow: "column",
-                }}
+                className="whatsapp-bounce fixed right-4 bottom-4 md:right-[30px] md:bottom-[30px] flex flex-col items-center gap-2 md:gap-3 cursor-pointer z-[9999]"
             >
                 {/* Icon Circle */}
                 <div
-                    className="hover:scale-110 transition-transform duration-200"
+                    className="hover:scale-110 transition-transform duration-200 w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex items-center justify-center rounded-full shadow-lg"
                     style={{
                         backgroundColor: "#25D366",
-                        borderRadius: "50%",
-                        width: "70px",
-                        height: "70px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        boxShadow: "0 4px 15px rgba(0,0,0,0.4)",
                     }}
                 >
-                    <div style={{ position: "relative", width: "40px", height: "40px" }}>
+                    <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">
                         <Image
                             src="/hero-assets/WhatsApp.svg"
                             alt="WhatsApp"
@@ -75,17 +56,9 @@ const WhatsAppButton = () => {
 
                 {/* Text Label */}
                 <span
+                    className="bg-[#D8F602] text-[#181818] px-3 py-1.5 md:px-4 md:py-2 rounded-full font-extrabold text-[12px] md:text-[14px] shadow-md whitespace-nowrap tracking-wide"
                     style={{
-                        backgroundColor: "#D8F602", // Site accent yellow
-                        color: "#181818",
-                        padding: "8px 16px",
-                        borderRadius: "20px",
-                        fontWeight: "800",
-                        fontSize: "14px",
                         fontFamily: "var(--font-orbitron), sans-serif",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-                        whiteSpace: "nowrap",
-                        letterSpacing: "0.5px"
                     }}
                 >
                     Talk to us

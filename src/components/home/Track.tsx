@@ -7,12 +7,7 @@ import Link from "next/link";
 import BrochureModal from "./BrochureModal";
 import ApplicationModal from "./ApplicationModal";
 
-import {
-  SalesforceIcon, ApexIcon, LwcIcon, VsCodeIcon, GitHubIcon, PostmanIcon, JiraIcon, AgentforceIcon,
-  KubernetesIcon, DockerIcon, PythonIcon, TerraformIcon, AwsIcon,
-  DatabaseIcon, ServiceNowIcon, JavaScriptIcon,
-  JavaIcon, SpringIcon, KafkaIcon, SwiftIcon, XcodeIcon, AppleIcon
-} from "@/components/common/ToolIcons";
+// No local tool icon imports needed as we use SimpleIcons CDN
 
 // Card Component
 const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc: string, title: string, description: string, href?: string, toolIcons?: { icon: React.ReactNode, label: string }[] }) => {
@@ -120,7 +115,8 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
             color: "#EAF0BD",
             margin: 0,
             whiteSpace: "pre-line",
-            letterSpacing: "-0.01em"
+            letterSpacing: "-0.01em",
+            minHeight: "42px"
           }}>
           {description}
         </p>
@@ -130,7 +126,7 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
           <div className="grid grid-cols-2 gap-y-3 gap-x-2 mt-4 w-full">
             {toolIcons.map((tool, idx) => (
               <div key={idx} className="flex items-center gap-2">
-                <div className="w-5 h-5 flex-shrink-0">
+                <div className="w-5 h-5 flex-shrink-0 flex items-center justify-center">
                   {tool.icon}
                 </div>
                 <span className="text-[12px] leading-[140%] text-[#EAF0BD] opacity-80 font-sans truncate">
@@ -191,12 +187,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-1.svg",
       href: "/salesforce-ecosystem-residency",
       toolIcons: [
-        { icon: <SalesforceIcon className="w-full h-full" />, label: "Salesforce Cloud" },
-        { icon: <ApexIcon className="w-full h-full" />, label: "Apex" },
-        { icon: <LwcIcon className="w-full h-full" />, label: "LWC" },
-        { icon: <VsCodeIcon className="w-full h-full" />, label: "VS Code" },
-        { icon: <div className="flex gap-[-4px]"><GitHubIcon className="w-full h-full" /><PostmanIcon className="w-full h-full ml-1" /></div>, label: "Git + Postman" },
-        { icon: <div className="flex gap-[-4px]"><JiraIcon className="w-full h-full" /><AgentforceIcon className="w-full h-full ml-1" /></div>, label: "Jira + Agentforce" },
+        { icon: <Image src="/ChooseYourTrack/salesforce-cloud.png" alt="Salesforce Cloud" width={20} height={20} className="w-full h-full object-contain" />, label: "Salesforce Cloud" },
+        { icon: <Image src="/ChooseYourTrack/Apex.png" alt="Apex" width={20} height={20} className="w-full h-full object-contain" />, label: "Apex" },
+        { icon: <Image src="/ChooseYourTrack/LWC.png" alt="LWC" width={20} height={20} className="w-full h-full object-contain" />, label: "LWC" },
+        { icon: <Image src="/ChooseYourTrack/vs-code.png" alt="VS Code" width={20} height={20} className="w-full h-full object-contain" />, label: "VS Code" },
+        { icon: <Image src="https://cdn.simpleicons.org/git" alt="Git" width={20} height={20} className="w-full h-full object-contain" />, label: "Git" },
+        { icon: <Image src="/ChooseYourTrack/Jira.svg" alt="Jira" width={20} height={20} className="w-full h-full object-contain" />, label: "Jira" },
       ]
     },
     {
@@ -205,12 +201,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-2.svg",
       href: "/ai-infrastructure-cloud-native-residency",
       toolIcons: [
-        { icon: <KubernetesIcon className="w-full h-full" />, label: "Kubernetes" },
-        { icon: <DockerIcon className="w-full h-full" />, label: "Docker" },
-        { icon: <PythonIcon className="w-full h-full" />, label: "Python/Go" },
-        { icon: <TerraformIcon className="w-full h-full" />, label: "Terraform" },
-        { icon: <AwsIcon className="w-full h-full" />, label: "AWS/GCP" },
-        { icon: <div className="flex gap-[-4px]"><GitHubIcon className="w-full h-full" /></div>, label: "CI/CD (Git)" },
+        { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Kubernetes" width={20} height={20} className="w-full h-full object-contain" />, label: "Kubernetes" },
+        { icon: <Image src="https://cdn.simpleicons.org/docker" alt="Docker" width={20} height={20} className="w-full h-full object-contain" />, label: "Docker" },
+        { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
+        { icon: <Image src="https://cdn.simpleicons.org/terraform" alt="Terraform" width={20} height={20} className="w-full h-full object-contain" />, label: "Terraform" },
+        { icon: <Image src="/ChooseYourTrack/AWS.png" alt="AWS" width={20} height={20} className="w-full h-full object-contain" />, label: "AWS" },
+        { icon: <Image src="https://cdn.simpleicons.org/googlecloud" alt="GCP" width={20} height={20} className="w-full h-full object-contain" />, label: "GCP" },
       ]
     },
     {
@@ -219,12 +215,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-3.svg",
       href: "/enterprise-data-platform-residency",
       toolIcons: [
-        { icon: <PythonIcon className="w-full h-full" />, label: "Python" },
-        { icon: <DatabaseIcon className="w-full h-full" />, label: "SQL/NoSQL" },
-        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#29B5E8' }} />, label: "Snowflake" }, // Simulating Snowflake
-        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#00C7B7' }} />, label: "dbt/Airflow" },
-        { icon: <JavaScriptIcon className="w-full h-full" />, label: "Spark" }, // Placeholder
-        { icon: <DatabaseIcon className="w-full h-full" style={{ color: '#FF7000' }} />, label: "Vector DB" },
+        { icon: <Image src="https://cdn.simpleicons.org/python" alt="Python" width={20} height={20} className="w-full h-full object-contain" />, label: "Python" },
+        { icon: <Image src="https://cdn.simpleicons.org/mysql" alt="SQL" width={20} height={20} className="w-full h-full object-contain" />, label: "SQL" },
+        { icon: <Image src="https://cdn.simpleicons.org/snowflake" alt="Snowflake" width={20} height={20} className="w-full h-full object-contain" />, label: "Snowflake" },
+        { icon: <Image src="https://cdn.simpleicons.org/apacheairflow" alt="Airflow" width={20} height={20} className="w-full h-full object-contain" />, label: "Airflow" },
+        { icon: <Image src="https://cdn.simpleicons.org/apachespark" alt="Spark" width={20} height={20} className="w-full h-full object-contain" />, label: "Spark" },
+        { icon: <Image src="/ChooseYourTrack/Vector-DB.png" alt="Vector DB" width={20} height={20} className="w-full h-full object-contain" />, label: "Vector DB" },
       ]
     },
     {
@@ -233,12 +229,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-4.svg",
       href: "/servicenow-architect-residency",
       toolIcons: [
-        { icon: <ServiceNowIcon className="w-full h-full" />, label: "ServiceNow" },
-        { icon: <JavaScriptIcon className="w-full h-full" />, label: "JavaScript" },
-        { icon: <PostmanIcon className="w-full h-full" />, label: "REST APIs" },
-        { icon: <div className="flex gap-[-4px]"><JiraIcon className="w-full h-full" /></div>, label: "Flow Designer" }, // Using Jira as placeholder for Flow
-        { icon: <DatabaseIcon className="w-full h-full" />, label: "CMDB" },
-        { icon: <div className="flex gap-[-4px]"><AgentforceIcon className="w-full h-full" /></div>, label: "Virtual Agent" },
+        { icon: <Image src="/ChooseYourTrack/servicenow.png" alt="ServiceNow" width={20} height={20} className="w-full h-full object-contain" />, label: "ServiceNow" },
+        { icon: <Image src="https://cdn.simpleicons.org/javascript" alt="JavaScript" width={20} height={20} className="w-full h-full object-contain" />, label: "JavaScript" },
+        { icon: <Image src="https://cdn.simpleicons.org/openapiinitiative" alt="REST APIs" width={20} height={20} className="w-full h-full object-contain" />, label: "REST APIs" },
+        { icon: <Image src="/ChooseYourTrack/Flow-designer.png" alt="Flow Designer" width={20} height={20} className="w-full h-full object-contain" />, label: "Flow Designer" },
+        { icon: <Image src="/ChooseYourTrack/CMDB.png" alt="CMDB" width={20} height={20} className="w-full h-full object-contain" />, label: "CMDB" },
+        { icon: <Image src="/ChooseYourTrack/Virtual-Agent.png" alt="Virtual Agent" width={20} height={20} className="w-full h-full object-contain" />, label: "Virtual Agent" },
       ]
     },
     {
@@ -247,12 +243,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-5.svg",
       href: "/modern-enterprise-backend-residency",
       toolIcons: [
-        { icon: <JavaIcon className="w-full h-full" />, label: "Java" },
-        { icon: <SpringIcon className="w-full h-full" />, label: "Spring Boot" },
-        { icon: <KafkaIcon className="w-full h-full" />, label: "Kafka" },
-        { icon: <DatabaseIcon className="w-full h-full" />, label: "PostgreSQL" },
-        { icon: <DockerIcon className="w-full h-full" />, label: "Microservices" },
-        { icon: <GitHubIcon className="w-full h-full" />, label: "Redis" }, // Placeholder
+        { icon: <Image src="/ChooseYourTrack/Java.png" alt="Java" width={20} height={20} className="w-full h-full object-contain" />, label: "Java" },
+        { icon: <Image src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" width={20} height={20} className="w-full h-full object-contain" />, label: "Spring Boot" },
+        { icon: <Image src="/ChooseYourTrack/Kafka.png" alt="Kafka" width={20} height={20} className="w-full h-full object-contain" />, label: "Kafka" },
+        { icon: <Image src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" width={20} height={20} className="w-full h-full object-contain" />, label: "PostgreSQL" },
+        { icon: <Image src="https://cdn.simpleicons.org/kubernetes" alt="Microservices" width={20} height={20} className="w-full h-full object-contain" />, label: "Microservices" },
+        { icon: <Image src="https://cdn.simpleicons.org/redis" alt="Redis" width={20} height={20} className="w-full h-full object-contain" />, label: "Redis" },
       ]
     },
     {
@@ -261,12 +257,12 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
       img: "/ChooseYourTrack/image-6.svg",
       href: "/apple-ecosystem-residency",
       toolIcons: [
-        { icon: <SwiftIcon className="w-full h-full" />, label: "Swift" },
-        { icon: <XcodeIcon className="w-full h-full" />, label: "Xcode" },
-        { icon: <AppleIcon className="w-full h-full" />, label: "iOS SDK" },
-        { icon: <div className="flex gap-[-4px]"><SalesforceIcon className="w-full h-full" /></div>, label: "Core Data" }, // Placeholder
-        { icon: <AgentforceIcon className="w-full h-full" />, label: "Core ML" },
-        { icon: <GitHubIcon className="w-full h-full" />, label: "TestFlight" },
+        { icon: <Image src="https://cdn.simpleicons.org/swift" alt="Swift" width={20} height={20} className="w-full h-full object-contain" />, label: "Swift" },
+        { icon: <Image src="https://cdn.simpleicons.org/xcode" alt="Xcode" width={20} height={20} className="w-full h-full object-contain" />, label: "Xcode" },
+        { icon: <Image src="/ChooseYourTrack/IOS-SDK.png" alt="iOS SDK" width={20} height={20} className="w-full h-full object-contain" />, label: "iOS SDK" },
+        { icon: <Image src="/ChooseYourTrack/Core-data.png" alt="Core Data" width={20} height={20} className="w-full h-full object-contain" />, label: "Core Data" },
+        { icon: <Image src="/ChooseYourTrack/CoreML.png" alt="Core ML" width={20} height={20} className="w-full h-full object-contain" />, label: "Core ML" },
+        { icon: <Image src="/ChooseYourTrack/TestFlight.png" alt="TestFlight" width={20} height={20} className="w-full h-full object-contain" />, label: "TestFlight" },
       ]
     },
   ];

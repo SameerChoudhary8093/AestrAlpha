@@ -284,6 +284,27 @@ const InfoCard = ({
 );
 
 const WhyThisTrack = () => {
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const scrollContainer = scrollContainerRef.current;
+      if (scrollContainer) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        if (scrollWidth <= clientWidth) return;
+
+        const isEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+        if (isEnd) {
+          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const [isAppModalOpen, setIsAppModalOpen] = useState(false);
   return (
     <section className="bg-[#D7F601] w-full flex justify-center items-center overflow-hidden">
@@ -333,34 +354,35 @@ const WhyThisTrack = () => {
               target="_blank"
               className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:opacity-90 transition-opacity box-border cursor-pointer"
               style={{
-                width: "260px",
+                width: "340px",
                 height: "54px",
                 padding: "12px 24px",
                 borderRadius: "4px 20px 4px 4px",
               }}
             >
               <div
-                className="flex items-center justify-center"
+                className="flex items-center justify-center flex-shrink-0 relative z-10"
                 style={{ width: "28px", height: "29.8px" }}
               >
-                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
+                <StarIcon className="w-full h-full text-[#181818]" />
               </div>
               <span
                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
                 style={{
                   fontFamily: "var(--font-orbitron), sans-serif",
-                  width: "176px",
-                  height: "24px",
                 }}
               >
-                Talk to a Counselor
+                Talk to a Counselor (Free 1:1)
               </span>
             </Link>
           </div>
         </div>
 
         {/* Right Column (Scrollable Cards) */}
-        <div className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
+        <div
+          ref={scrollContainerRef}
+          className="flex flex-row lg:flex-col w-full lg:max-w-[616px] gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory lg:snap-none scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0"
+        >
           <div className="min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center">
             <InfoCard
               title='The "Apple Tax" (In a Good Way)'
@@ -789,7 +811,7 @@ const BoxOfProof = () => {
             {/* Center Image */}
             <div className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0">
               <Image
-                src="/home/Graduate-Image.svg"
+                src="/ImmersiveWorkshop/CenterImage.svg"
                 alt="Graduate Info"
                 width={610}
                 height={540}
@@ -911,16 +933,13 @@ const BoxOfProof = () => {
             <Link
               href={`https://wa.me/919828781952?text=${encodeURIComponent("Hi, I am interested in the Apple Ecosystem Residency (iOS) at Aestr Alpha and would like to talk to a counselor.")}`}
               target="_blank"
-              className="w-full md:w-[260px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
+              className="w-full md:w-[340px] h-[54px] px-6 py-3 bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
             >
-              <StarIcon
-                style={{ width: "28px", height: "30px", color: "#181818" }}
-              />
-              <span
-                className="font-black text-base text-[#181818] leading-[150%]"
-                style={{ fontFamily: "var(--font-orbitron), sans-serif" }}
-              >
-                Talk to a Counselor
+              <div className="flex items-center justify-center flex-shrink-0" style={{ width: '28px', height: '29.8px' }}>
+                <StarIcon className="w-full h-full text-[#181818]" />
+              </div>
+              <span className="font-black text-[16px] text-[#181818] leading-[150%] whitespace-nowrap" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
+                Talk to a Counselor (Free 1:1)
               </span>
             </Link>
           </div>
@@ -1143,27 +1162,25 @@ const ToolsSection = () => {
               target="_blank"
               className="flex items-center justify-center gap-[8px] bg-transparent border border-[#181818] hover:bg-[#181818]/5 transition-colors box-border cursor-pointer"
               style={{
-                width: "260px",
+                width: "340px",
                 height: "54px",
                 padding: "12px 24px",
                 borderRadius: "4px 20px 4px 4px",
               }}
             >
               <div
-                className="flex items-center justify-center"
+                className="flex items-center justify-center flex-shrink-0"
                 style={{ width: "28px", height: "29.8px" }}
               >
-                <StarIcon className="w-full h-full" style={{ color: '#181818' }} />
+                <StarIcon className="w-full h-full text-[#181818]" />
               </div>
               <span
                 className="font-black text-[16px] leading-[150%] text-[#181818] whitespace-nowrap"
                 style={{
                   fontFamily: "var(--font-orbitron), sans-serif",
-                  width: "176px", // Matching specific width from earlier
-                  height: "24px",
                 }}
               >
-                Talk to a Counselor
+                Talk to a Counselor (Free 1:1)
               </span>
             </Link>
           </div>
