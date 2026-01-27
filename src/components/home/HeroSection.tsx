@@ -75,7 +75,6 @@ export default function HeroSection() {
                 alt="logo shadow"
                 width={193}
                 height={141}
-                priority
                 className="object-contain w-[80px] h-auto md:w-[193px] md:h-[141px]"
                 style={{
                   opacity: 1,
@@ -135,7 +134,6 @@ export default function HeroSection() {
                   height={60}
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '116.5px' }}
-                  priority
                 />
               </div>
               {/* Logo 2 (Cambridge) - Width 103.6 */}
@@ -147,7 +145,6 @@ export default function HeroSection() {
                   height={22}
                   className="w-auto h-full object-contain"
                   style={{ maxWidth: '103.6px' }}
-                  priority
                 />
               </div>
 
