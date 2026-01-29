@@ -12,6 +12,7 @@ import {
 import StarIcon from "../icons/Star";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import WorkshopRegistrationModal from "./WorkshopRegistrationModal";
 
 const ticketImages = [
   "/Workshop/ai_summit_1_v2.png",
@@ -21,6 +22,7 @@ const ticketImages = [
 
 export default function TicketHeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isWorkshopModalOpen, setIsWorkshopModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,8 +53,6 @@ export default function TicketHeroSection() {
     }
   };
 
-  // Specific variant for the rotating/floating element if desired, 
-  // currently just a simple fade in for consistency.
   const floatIn: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
@@ -124,13 +124,13 @@ export default function TicketHeroSection() {
 
           {/* Buttons */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-4 justify-start items-center w-full">
-            <Link
-              href="https://finance.gyanvihar.org/aestr-alpha"
+            <button
+              onClick={() => setIsWorkshopModalOpen(true)}
               className="button-primary w-full sm:w-auto justify-center cursor-pointer flex items-center transition-transform duration-200 hover:scale-105 active:scale-95"
             >
               <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2" />
               {primaryButtonText}
-            </Link>
+            </button>
             <Link
               href="#agenda"
               className="button-secondary w-full sm:w-auto justify-center cursor-pointer flex items-center transition-transform duration-200 hover:scale-105 active:scale-95"
@@ -196,6 +196,11 @@ export default function TicketHeroSection() {
           })}
         </motion.div>
       </div>
+
+      <WorkshopRegistrationModal
+        isOpen={isWorkshopModalOpen}
+        onClose={() => setIsWorkshopModalOpen(false)}
+      />
     </section>
   );
 }

@@ -1,10 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import WorkshopRegistrationModal from './WorkshopRegistrationModal';
 
 const AI_Summit_CTA = () => {
+    const [isWorkshopModalOpen, setIsWorkshopModalOpen] = useState(false);
+
     // Variants for staggered animations
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -84,13 +87,11 @@ const AI_Summit_CTA = () => {
                         whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(215,246,1,0.4)" }}
                         whileTap={{ scale: 0.95 }}
                         className="group relative bg-[#D7F601] text-black px-10 py-5 rounded-full font-black text-xl uppercase tracking-tighter flex items-center gap-3 overflow-hidden transition-all"
-                        onClick={() => window.open('https://finance.gyanvihar.org/aestr-alpha', '_blank')}
+                        onClick={() => setIsWorkshopModalOpen(true)}
                     >
                         Register Now
                         <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                     </motion.button>
-
-
                 </div>
 
 
@@ -101,6 +102,11 @@ const AI_Summit_CTA = () => {
                     </h2>
                 </div>
             </div>
+
+            <WorkshopRegistrationModal
+                isOpen={isWorkshopModalOpen}
+                onClose={() => setIsWorkshopModalOpen(false)}
+            />
         </section>
     );
 };
