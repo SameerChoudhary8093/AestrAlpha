@@ -1,8 +1,8 @@
-export const ticketHeading: string[] = ["Aestr Alpha","Experience 2025"];
+export const ticketHeading: string[] = ["Aestr Alpha", "Experience 2025"];
 export const ticketTagLine: string =
-  "Join the community that's helping students become industry-grade professionals — and \n turning Jaipur into a city built by its own talent.";
+  "Experience a power-packed tech event with a 24-hour Cyberthon and 5 parallel hands-on workshops led by industry experts.\nJoin innovators, startups, and tech enthusiasts for two days of learning, building, and networking.";
 export const ticketDescription: string =
-  "Jan 12, 2035, 9:00 AM I  Conference Venue";
+  "6–7 February | SGVU Campus, Library 3rd & 4th Floor";
 
-export const primaryButtonText: string = "Buy Ticket";
+export const primaryButtonText: string = "Register Now";
 export const secondaryButtonText: string = "View Agenda";

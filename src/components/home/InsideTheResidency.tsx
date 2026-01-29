@@ -1,32 +1,62 @@
+"use client";
+
 import React from 'react';
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
-// Reusing Unsplash images for demonstration, or placeholders if preferred. 
-// I will distribute the previous nice images into this new layout.
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
 
 const GalleryImage = ({ src, width, height, alt }: { src: string, width: number, height: number, alt: string }) => (
-  <div className="group cursor-pointer w-full relative overflow-hidden h-auto rounded-lg">
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      sizes="(max-width: 768px) 100vw, 33vw"
-      className="transition-transform duration-500 group-hover:scale-110 w-full h-auto object-cover"
-    />
-  </div>
+  <motion.div
+    variants={fadeInUp}
+    className="group cursor-pointer w-full relative overflow-hidden h-auto rounded-lg"
+  >
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full h-full"
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="w-full h-auto object-cover"
+      />
+    </motion.div>
+  </motion.div>
 );
 
 export default function InsideTheResidency() {
   return (
     <section
       id="gallery"
-      className="w-full bg-[#D7F601] flex justify-center py-16 px-4 md:py-28 md:px-16 box-border"
+      className="w-full bg-[#D7F601] flex justify-center py-16 px-4 md:py-28 md:px-16 box-border overflow-hidden"
     >
-      <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="w-full max-w-[1440px] flex flex-col items-center gap-20"
+      >
 
         {/* Header */}
-        <div className="w-full flex justify-center">
+        <motion.div variants={fadeInUp} className="w-full flex justify-center">
           <h2
             className="w-full max-w-[768px] text-[#000000] font-bold text-center leading-[120%]"
             style={{
@@ -36,10 +66,10 @@ export default function InsideTheResidency() {
           >
             Inside the Residency
           </h2>
-        </div>
+        </motion.div>
 
         {/* Images Grid Section */}
-        <div className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div variants={staggerContainer} className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {/* Column 1 */}
           <div className="flex flex-col gap-8 w-full">
@@ -94,9 +124,9 @@ export default function InsideTheResidency() {
               height={416}
             />
           </div>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

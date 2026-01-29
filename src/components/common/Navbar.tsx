@@ -57,7 +57,7 @@ export default function Navbar() {
         {/* Desktop Menu - Custom Breakpoint for ~1350px width */}
         <div className="hidden min-[1350px]:flex items-center">
           {/* Links Section with specific margins and gap */}
-          <div className="flex items-center gap-[32px] ml-[161.7px]">
+          <div className="flex items-center gap-[32px] ml-[40px]">
             {currentNavLinks.map((link) => (
               <Link
                 key={link.href}
@@ -69,10 +69,17 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Download Brochure Button */}
+          {pathname !== "/Workshop" && (
+            <Link
+              href="/Workshop"
+              className="ml-[32px] w-[184px] h-[40px] border border-[#D8F602] text-[#D8F602] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[16px] flex items-center justify-center hover:bg-[#D8F602] hover:text-[#181818] transition-all whitespace-nowrap"
+            >
+              AI Summit
+            </Link>
+          )}
           <button
             onClick={() => setIsAppModalOpen(true)}
-            className="ml-[32px] w-[137px] h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[20px] pt-[8px] pb-[8px] flex items-center justify-center hover:bg-opacity-90 transition-all whitespace-nowrap"
+            className="ml-[16px] w-[137px] h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[20px] pt-[8px] pb-[8px] flex items-center justify-center hover:bg-opacity-90 transition-all whitespace-nowrap"
           >
             Apply Now
           </button>
@@ -130,6 +137,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {pathname !== "/Workshop" && (
+              <Link
+                href="/Workshop"
+                className="w-full max-w-xs h-[40px] border border-[#D8F602] text-[#D8F602] font-orbitron font-black text-[16px] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] flex items-center justify-center hover:bg-[#D8F602] hover:text-[#181818] transition-all"
+                onClick={() => setIsOpen(false)}
+              >
+                AI Summit
+              </Link>
+            )}
             <button
               className="w-full max-w-xs h-[40px] bg-[#D8F602] text-[#181818] font-orbitron font-black text-[16px] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] flex items-center justify-center"
               onClick={() => {

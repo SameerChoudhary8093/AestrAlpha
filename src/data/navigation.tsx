@@ -14,8 +14,7 @@ export const TicketNavigationLinks: NavItem[] = [
   { label: "Home", href: "#tickets" },
   { label: "Agenda", href: "#agenda" },
   { label: "Workshops", href: "#track" },
-  { label: "Speakers", href: "#speakers" },
-  { label: "Buy Tickets", href: "https://finance.gyanvihar.org/aestr-alpha" },
+  { label: "Gallery", href: "#gallery" },
 ];
 
 export const NavigationButton: string = "Attend The Workshop";

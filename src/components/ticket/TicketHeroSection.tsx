@@ -13,9 +13,9 @@ import StarIcon from "../icons/Star";
 import Link from "next/link";
 
 const ticketImages = [
-  "/Herosection/herosectionimage4.svg",
-  "/Herosection/herosectionimage5.svg",
-  "/Herosection/herosectionimage6.svg",
+  "/Workshop/ai_summit_1_v2.png",
+  "/Workshop/ai_summit_2.png",
+  "/Workshop/ai_summit_3.png",
 ];
 
 export default function TicketHeroSection() {
@@ -49,23 +49,23 @@ export default function TicketHeroSection() {
           {/* HEADING AREA */}
           <div className="flex flex-col justify-center items-start font-bold text-left gap-2 md:gap-0.5 font-orbitron text-[#FCFFE4] mt-8 md:mt-40 leading-tight md:leading-none">
 
-            <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">
-              {ticketHeading[0]}
-            </div>
-
-            <div className="flex flex-row justify-start items-center flex-wrap gap-x-3 gap-y-0 md:gap-4">
-              <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">Experience</h1>
-
-              <div className="relative h-[4.5rem] w-auto sm:h-[4.5rem] md:h-[6.25rem] lg:h-[115px] aspect-[104/130]">
-                <Image
-                  src={"/Workshop/Elements.svg"}
-                  alt="Decorative Element"
-                  fill
-                  className="object-contain"
-                />
+            <div className="flex flex-col gap-0 md:gap-2">
+              <div className="flex flex-row items-center flex-wrap gap-x-3 gap-y-0 md:gap-4">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] leading-[0.9] md:leading-tight">
+                  AI Summit &
+                </h1>
+                <div className="relative h-[3.5rem] w-auto sm:h-[4.5rem] md:h-[5.5rem] lg:h-[115px] aspect-[104/130]">
+                  <Image
+                    src={"/Workshop/Elements.svg"}
+                    alt="Decorative Element"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
-
-              <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[96px]">2025</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] text-[#D8F602] leading-[0.9] md:leading-tight">
+                Cyberthon 2026
+              </h1>
             </div>
           </div>
 
@@ -113,7 +113,8 @@ export default function TicketHeroSection() {
                   alt="Ticket Hero Visual"
                   height={700}
                   width={1312}
-                  className="w-full h-auto object-cover aspect-[4/3]"
+                  className={`w-full h-auto aspect-[4/3] ${idx === 0 ? "object-contain bg-black" : "object-cover"
+                    }`}
                   priority={idx === 0}
                 />
               </div>
@@ -123,17 +124,21 @@ export default function TicketHeroSection() {
 
         {/* Desktop / tablet: 3-column grid, similar to main hero */}
         <div className="w-full max-w-[95%] grid grid-cols-1 sm:grid-cols-3 gap-0 mb-8 md:mb-40 hidden sm:grid">
-          {ticketImages.map((src, idx) => (
-            <Image
-              key={src}
-              src={src}
-              alt="Ticket Hero Visual"
-              height={700}
-              width={438}
-              className="w-full h-auto md:h-[700px] object-cover"
-              priority={idx === 0}
-            />
-          ))}
+          {[ticketImages[1], ticketImages[0], ticketImages[2]].map((src) => {
+            const isMain = src.includes("ai_summit_1_v2");
+            return (
+              <Image
+                key={src}
+                src={src}
+                alt="Ticket Hero Visual"
+                height={700}
+                width={438}
+                className={`w-full h-auto md:h-[700px] ${isMain ? "object-contain bg-black" : "object-cover"
+                  }`}
+                priority={isMain}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
