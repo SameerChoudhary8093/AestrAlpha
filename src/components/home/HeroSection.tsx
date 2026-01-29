@@ -55,6 +55,28 @@ export default function HeroSection() {
     }
   };
 
+  const blurIn: Variants = {
+    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const floating: Variants = {
+    initial: { y: 0 },
+    animate: {
+      y: [0, -10, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <section
       className="relative w-full flex flex-col items-center overflow-hidden pt-[110px] md:pt-[130px] lg:pt-[200px] mt-[-108px] mb-0"
@@ -104,7 +126,7 @@ export default function HeroSection() {
           {/* Main Heading */}
           <motion.h1
             className="flex flex-col items-center w-full text-center m-0"
-            variants={fadeInUp}
+            variants={staggerContainer}
             style={{
               fontFamily: "var(--font-orbitron), sans-serif",
               fontWeight: 700,
@@ -119,10 +141,12 @@ export default function HeroSection() {
             }}
           >
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
-              <span>India’s</span>
+              <motion.span variants={blurIn}>India’s</motion.span>
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                variants={floating}
+                initial="initial"
+                animate="animate"
+                whileHover={{ scale: 1.2, rotate: 10, transition: { duration: 0.3 } }}
               >
                 <Image
                   src="/test/Center-Logo.webp"
@@ -138,10 +162,15 @@ export default function HeroSection() {
                   sizes="(max-width: 768px) 120px, 193px"
                 />
               </motion.div>
-              <span>First</span>
+              <motion.span variants={blurIn}>First</motion.span>
             </div>
-            <div>Career-Focused</div>
-            <div>Tech Ashram.</div>
+            <motion.div variants={blurIn}>Career-Focused</motion.div>
+            <motion.div
+              variants={blurIn}
+              className="text-[#D8F602] drop-shadow-[0_0_15px_rgba(216,246,2,0.3)]"
+            >
+              Tech Ashram.
+            </motion.div>
           </motion.h1>
 
           {/* New Green Tech Ashram Section */}
