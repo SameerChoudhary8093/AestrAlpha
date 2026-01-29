@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Linkedin, Bot, Cpu, Box, Share2, Users, Presentation, Rocket } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 // --- Types ---
 interface Workshop {
@@ -106,12 +106,12 @@ const WorkshopCard = ({ workshop }: { workshop: Workshop }) => {
 };
 
 const AISummitSection = () => {
-    const fadeInUp = {
+    const fadeInUp: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };
 
-    const staggerContainer = {
+    const staggerContainer: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
