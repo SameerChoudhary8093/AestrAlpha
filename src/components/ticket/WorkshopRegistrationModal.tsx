@@ -191,7 +191,7 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
                                     value={formData.fullName}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.fullName ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                    placeholder="John Doe"
+                                    placeholder="Enter your full name"
                                 />
                                 {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
                             </div>
@@ -203,7 +203,7 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
                                     value={formData.email}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                    placeholder="john@example.com"
+                                    placeholder="Enter your email address"
                                 />
                                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                             </div>
@@ -215,7 +215,7 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
                                     value={formData.mobile}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.mobile ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                    placeholder="+91 9876543210"
+                                    placeholder="Enter your mobile number"
                                 />
                                 {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
                             </div>
@@ -227,7 +227,7 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
                                     value={formData.organization}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-2.5 rounded-lg bg-white/5 border ${errors.organization ? 'border-red-500' : 'border-white/10'} focus:border-[#D8F602] focus:ring-1 focus:ring-[#D8F602] text-white placeholder-gray-500 outline-none transition-all`}
-                                    placeholder="University Name"
+                                    placeholder="Enter your college or company name"
                                 />
                                 {errors.organization && <p className="text-red-500 text-xs mt-1">{errors.organization}</p>}
                             </div>
