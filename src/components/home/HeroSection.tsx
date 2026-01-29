@@ -23,12 +23,12 @@ export default function HeroSection() {
   };
 
   const staggerContainer: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 }, // Changed from 0 to 1 to avoid hiding the container layout
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        staggerChildren: 0.1, // Reduced stagger
+        delayChildren: 0 // Immediate start
       }
     }
   };
@@ -99,7 +99,8 @@ export default function HeroSection() {
           background: "#D8F60246",
           mixBlendMode: "screen",
           filter: "blur(154px)",
-          zIndex: 0
+          zIndex: 0,
+          willChange: "transform, opacity" // Performance hint
         }}
       />
 
@@ -141,12 +142,18 @@ export default function HeroSection() {
             }}
           >
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
-              <motion.span variants={blurIn}>India’s</motion.span>
+              <motion.span
+                variants={blurIn}
+                style={{ willChange: "transform, opacity, filter" }}
+              >
+                India’s
+              </motion.span>
               <motion.div
                 variants={floating}
                 initial="initial"
                 animate="animate"
                 whileHover={{ scale: 1.2, rotate: 10, transition: { duration: 0.3 } }}
+                style={{ willChange: "transform" }}
               >
                 <Image
                   src="/test/Center-Logo.webp"
@@ -162,12 +169,23 @@ export default function HeroSection() {
                   sizes="(max-width: 768px) 120px, 193px"
                 />
               </motion.div>
-              <motion.span variants={blurIn}>First</motion.span>
+              <motion.span
+                variants={blurIn}
+                style={{ willChange: "transform, opacity, filter" }}
+              >
+                First
+              </motion.span>
             </div>
-            <motion.div variants={blurIn}>Career-Focused</motion.div>
+            <motion.div
+              variants={blurIn}
+              style={{ willChange: "transform, opacity, filter" }}
+            >
+              Career-Focused
+            </motion.div>
             <motion.div
               variants={blurIn}
               className="text-[#D8F602] drop-shadow-[0_0_15px_rgba(216,246,2,0.3)]"
+              style={{ willChange: "transform, opacity, filter" }}
             >
               Tech Ashram.
             </motion.div>
