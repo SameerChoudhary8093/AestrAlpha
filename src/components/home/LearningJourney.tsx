@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Image from "next/image";
+import { motion, Variants } from 'framer-motion';
 
 const ContentIcon = ({ className }: { className?: string }) => (
   <svg width="58" height="61" viewBox="0 0 58 62" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -8,14 +11,39 @@ const ContentIcon = ({ className }: { className?: string }) => (
 );
 
 export default function LearningJourney() {
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
     <section
       className="w-full bg-[#D7F601] flex justify-center py-16 px-4 md:py-28 md:px-16"
     >
-      <div className="w-full max-w-[1440px] flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
+      <motion.div
+        className="w-full max-w-[1440px] flex flex-col lg:flex-row justify-between gap-12 lg:gap-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
 
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 max-w-[616px] flex flex-col mx-auto lg:mx-0">
+        <motion.div variants={fadeInUp} className="w-full lg:w-1/2 max-w-[616px] flex flex-col mx-auto lg:mx-0">
           {/* Subheader */}
           <div
             className="text-[#181818] font-semibold text-base leading-[150%] mb-4"
@@ -45,13 +73,13 @@ export default function LearningJourney() {
               sizes="(max-width: 1024px) 100vw, 616px"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
-        <div className="w-full lg:w-1/2 max-w-[616px] flex flex-col gap-12 lg:gap-[90px] mx-auto lg:mx-0">
+        <motion.div variants={staggerContainer} className="w-full lg:w-1/2 max-w-[616px] flex flex-col gap-12 lg:gap-[90px] mx-auto lg:mx-0">
 
           {/* Item 1 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
             <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -63,10 +91,10 @@ export default function LearningJourney() {
                 You’ll use Slack/Discord, Jira/Trello, Git — and operate in sprints
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Item 2 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
             <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -76,10 +104,10 @@ export default function LearningJourney() {
                 The entire cohort collaborates on a single large build to learn how real cross-functional teams ship. Developers, data, and product workflows operate together. & mentor sessions.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Item 3 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
             <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -89,10 +117,10 @@ export default function LearningJourney() {
                 Residents work with partner startups/SMEs to build real deliverables — with real feedback, documentation, and professional artifacts (LOR + live work links).
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Item 4 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
             <ContentIcon className="shrink-0" />
             <div className="flex flex-col gap-2">
               <h3 className="font-bold text-2xl md:text-[32px] leading-[130%] text-[#181818]" style={{ fontFamily: "Arial, sans-serif" }}>
@@ -102,10 +130,10 @@ export default function LearningJourney() {
                 LinkedIn, Resume, Interviews, Portfolio review.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

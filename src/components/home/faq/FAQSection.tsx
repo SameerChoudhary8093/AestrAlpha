@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Link from "next/link";
 import { Plus, Minus } from 'lucide-react';
-import StarIcon from "@/components/icons/Star"; // Assuming this exists from previous steps
+import StarIcon from "@/components/icons/Star";
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 // --- Types ---
 interface FAQItemProps {
@@ -16,11 +17,17 @@ interface FAQItemProps {
 // --- Individual FAQ Item Component ---
 const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
     return (
-        <div
-            onClick={onClick}
-            className="w-full border border-[#FCFFE4] p-5 md:p-6 cursor-pointer flex flex-col gap-0 transition-all duration-300 bg-transparent"
+        <motion.div
+            variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+            }}
+            className="w-full border border-[#FCFFE4] overflow-hidden bg-transparent"
         >
-            <div className="flex justify-between items-start gap-6">
+            <div
+                onClick={onClick}
+                className="p-5 md:p-6 cursor-pointer flex justify-between items-start gap-6"
+            >
                 {/* Question Text */}
                 <h3
                     className="flex-1 font-bold text-lg leading-[150%] text-[#FCFFE4] m-0"
@@ -31,28 +38,41 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
 
                 {/* Toggle Icon */}
                 <div className="w-8 h-8 flex items-center justify-center shrink-0">
-                    {isOpen ? (
-                        <Minus size={32} color="#D7F601" />
-                    ) : (
-                        <Plus size={32} color="#D7F601" />
-                    )}
+                    <motion.div
+                        initial={false}
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {isOpen ? (
+                            <Minus size={32} color="#D7F601" />
+                        ) : (
+                            <Plus size={32} color="#D7F601" />
+                        )}
+                    </motion.div>
                 </div>
             </div>
 
             {/* Answer Section */}
-            <div
-                className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"}`}
-            >
-                <div className="overflow-hidden">
-                    <p
-                        className="font-normal text-lg leading-[150%] text-[#FCFFE4] m-0"
-                        style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                        {answer}
-                    </p>
-                </div>
-            </div>
-        </div>
+                        <div className="px-5 pb-5 md:px-6 md:pb-6">
+                            <p
+                                className="font-normal text-lg leading-[150%] text-[#FCFFE4] m-0"
+                                style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+                            >
+                                {answer}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     );
 };
 
@@ -95,14 +115,40 @@ export default function FAQSection() {
         }
     ];
 
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
         <section
             className="w-full bg-[#181818] flex justify-center py-28 px-4 md:px-16 box-border"
         >
-            <div className="w-full max-w-[1440px] flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-20">
+            <motion.div
+                className="w-full max-w-[1440px] flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-20"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
+            >
 
                 {/* Left Column: Title & CTA */}
-                <div className="w-full lg:max-w-[500px] flex flex-col gap-6 items-start">
+                <motion.div variants={fadeInUp} className="w-full lg:max-w-[500px] flex flex-col gap-6 items-start">
                     {/* FAQ Heading */}
                     <h2
                         className="text-[#FCFFE4] font-bold leading-[120%]"
@@ -117,7 +163,7 @@ export default function FAQSection() {
                     {/* Contact Button */}
                     <Link
                         href="/#footer"
-                        className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#D7F601] rounded-[4px] rounded-tr-[20px] cursor-pointer hover:bg-white/10 transition-colors"
+                        className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#D7F601] rounded-[4px] rounded-tr-[20px] cursor-pointer hover:bg-white/10 transition-all duration-200 hover:scale-105 active:scale-95"
                         style={{
                             width: "182px",
                             height: "54px",
@@ -131,10 +177,10 @@ export default function FAQSection() {
                             Contact us
                         </span>
                     </Link>
-                </div>
+                </motion.div>
 
                 {/* Right Column: Accordion List */}
-                <div className="w-full lg:max-w-[732px] flex flex-col gap-4">
+                <motion.div variants={staggerContainer} className="w-full lg:max-w-[732px] flex flex-col gap-4">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}
@@ -144,9 +190,9 @@ export default function FAQSection() {
                             onClick={() => toggleItem(index)}
                         />
                     ))}
-                </div>
+                </motion.div>
 
-            </div>
+            </motion.div>
         </section>
     );
 }

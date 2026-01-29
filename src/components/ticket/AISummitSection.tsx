@@ -122,7 +122,7 @@ const AISummitSection = () => {
     };
 
     return (
-        <section className="bg-[#181818] py-20 px-6 font-sans overflow-hidden">
+        <section id="workshops" className="bg-[#181818] py-20 px-6 font-sans overflow-hidden">
             <div className="max-w-7xl mx-auto">
 
                 {/* Workshops Header */}

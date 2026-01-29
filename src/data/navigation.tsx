@@ -13,7 +13,7 @@ export const NavigationLinks: NavItem[] = [
 export const TicketNavigationLinks: NavItem[] = [
   { label: "Home", href: "#tickets" },
   { label: "Agenda", href: "#agenda" },
-  { label: "Workshops", href: "#track" },
+  { label: "Workshops", href: "#workshops" },
   { label: "Gallery", href: "#gallery" },
 ];
 

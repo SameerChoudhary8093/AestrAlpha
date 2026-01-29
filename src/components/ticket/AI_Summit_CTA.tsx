@@ -90,21 +90,14 @@ const AI_Summit_CTA = () => {
                         <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                     </motion.button>
 
-                    {/* Secondary Button */}
-                    <motion.button
-                        whileHover={{ backgroundColor: "rgba(215,246,1,0.1)", scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="border-2 border-[#D7F601] text-[#D7F601] px-10 py-5 rounded-full font-black text-xl uppercase tracking-tighter transition-all"
-                        onClick={() => window.open('https://finance.gyanvihar.org/aestr-alpha', '_blank')}
-                    >
-                        Become a Participant
-                    </motion.button>
+
                 </div>
+
 
                 {/* Floating background text (Decorative) */}
                 <div className="absolute -bottom-10 left-0 right-0 pointer-events-none select-none overflow-hidden whitespace-nowrap opacity-[0.02]">
                     <h2 className="text-[150px] font-black text-white uppercase italic">
-                        INNOVATE • CODE • DISRUPT • INNOVATE • CODE • DISRUPT
+                        INNOVATE
                     </h2>
                 </div>
             </div>

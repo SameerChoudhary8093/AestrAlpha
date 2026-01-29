@@ -6,7 +6,8 @@ import Link from "next/link";
 import { speakers } from "@/data/speaker";
 import StarIcon from "@/components/icons/Star";
 import ApplicationModal from './ApplicationModal';
-import FeaturedMentor from './FeaturedMentor';
+// import FeaturedMentor from './FeaturedMentor'; // Unused
+import { motion, Variants } from 'framer-motion';
 
 const LinkedInIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,10 +16,18 @@ const LinkedInIcon = () => (
 );
 
 const GuestMentorCard = ({ speaker }: { speaker: any }) => (
-  <div className="w-full md:max-w-[395px] flex flex-col transition-transform duration-300">
+  <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 30 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    }}
+    className="w-full md:max-w-[395px] flex flex-col"
+  >
     {/* Image */}
-    <div
-      className="w-full aspect-square relative rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+      className="w-full aspect-square relative rounded-lg overflow-hidden"
       style={{ background: "linear-gradient(180deg, #D8F602 0%, #181818 100%)" }}
     >
       <Image
@@ -28,7 +37,7 @@ const GuestMentorCard = ({ speaker }: { speaker: any }) => (
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 395px"
         className="object-cover"
       />
-    </div>
+    </motion.div>
 
     {/* Text Section */}
     <div className="flex flex-col mt-6">
@@ -60,13 +69,13 @@ const GuestMentorCard = ({ speaker }: { speaker: any }) => (
       {/* Social Icons */}
       <div className="mt-6 flex gap-[14px]">
         {speaker.social.map((s: any, idx: number) => (
-          <Link key={idx} href={s.url} aria-label={s.platform} target="_blank">
+          <Link key={idx} href={s.url} aria-label={s.platform} target="_blank" className="hover:opacity-80 transition-opacity">
             <LinkedInIcon />
           </Link>
         ))}
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default function BoardMembers() {
@@ -79,14 +88,40 @@ export default function BoardMembers() {
     window.open(`https://wa.me/9828781952?text=${encodedMessage}`, "_blank");
   };
 
+  // Animation Variants
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
   return (
     <section
       className="w-full flex flex-col items-center justify-center py-16 px-4 md:py-20 md:px-8 lg:py-28 lg:px-16"
       style={{ backgroundColor: "#5B1DD6" }}
     >
-      <div className="w-full max-w-[1280px] flex flex-col items-center">
+      <motion.div
+        className="w-full max-w-[1280px] flex flex-col items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         {/* Header Section */}
-        <div className="w-full flex flex-col gap-6 items-start text-left">
+        <motion.div variants={fadeInUp} className="w-full flex flex-col gap-6 items-start text-left">
           <h2
             className="w-full text-[#EAF0BD] font-bold leading-[120%]"
             style={{
@@ -96,21 +131,24 @@ export default function BoardMembers() {
           >
             Our Mentors
           </h2>
-        </div>
-
-
+        </motion.div>
 
         {/* Content Container */}
-        <div className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <motion.div
+          variants={staggerContainer}
+          className="mt-20 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+        >
           {speakers.map((speaker) => (
             <GuestMentorCard key={speaker.id} speaker={speaker} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Talk to Counselor Button */}
-        <div style={{ marginTop: "120px" }}>
-          <button
+        <motion.div variants={fadeInUp} style={{ marginTop: "120px" }}>
+          <motion.button
             onClick={handleCounselorClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="flex items-center justify-center hover:opacity-90 transition-opacity w-full max-w-[360px]"
             style={{
               height: "53.8px",
@@ -139,12 +177,12 @@ export default function BoardMembers() {
               }}
             />
             <span className="font-extrabold whitespace-nowrap">Talk to a Counselor (Free 1:1)</span>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
 
-      </div>
+      </motion.div>
     </section>
   );
 }

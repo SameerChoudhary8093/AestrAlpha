@@ -4,9 +4,30 @@ import React, { useState } from 'react';
 import Image from "next/image";
 import StarIcon from "../icons/Star";
 import ApplicationModal from "./ApplicationModal";
+import { motion, Variants } from "framer-motion";
 
 export default function WorkSimulationSection() {
     const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
 
     return (
         <section
@@ -15,9 +36,15 @@ export default function WorkSimulationSection() {
                 marginTop: "0", // Gap handled by padding/margin logic
             }}
         >
-            <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
+                className="w-full max-w-[1440px] flex flex-col items-center gap-20"
+            >
                 {/* Section 1: Header Text */}
-                <div className="w-full max-w-[768px] flex flex-col items-center gap-4 text-center">
+                <motion.div variants={fadeInUp} className="w-full max-w-[768px] flex flex-col items-center gap-4 text-center">
                     {/* Top Tagline */}
                     <div
                         className="text-[#EAF0BD] font-semibold text-base leading-[150%]"
@@ -46,13 +73,18 @@ export default function WorkSimulationSection() {
                     >
                         Aestr Alpha is built like a modern Tech Ashram — structured, immersive, and designed for deep transformation. You check in, lock in, and spend six months building real systems with real accountability.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Section 2: Three Columns */}
-                <div className="w-full max-w-[1312px] flex flex-col md:flex-row justify-between gap-12 md:gap-8 lg:gap-12">
+                <motion.div
+                    variants={staggerContainer}
+                    className="w-full max-w-[1312px] flex flex-col md:flex-row justify-between gap-12 md:gap-8 lg:gap-12"
+                >
                     {/* Column 1 */}
-                    <div
-                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    <motion.div
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 cursor-pointer"
                     >
                         <Image
                             src="/Wedon't-Teach/Vector1.svg"
@@ -71,11 +103,13 @@ export default function WorkSimulationSection() {
                                 Work on actual use-cases inspired by real companies and teams.
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Column 2 */}
-                    <div
-                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    <motion.div
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 cursor-pointer"
                     >
                         <Image src="/Wedon't-Teach/Vector2.svg" alt="Mentor Icon" width={82} height={77} />
                         <div className="text-center">
@@ -86,11 +120,13 @@ export default function WorkSimulationSection() {
                                 Learn from practitioners working in Salesforce, UI/UX, AI, Data, and more.
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Column 3 */}
-                    <div
-                        className="w-full md:flex-1 flex flex-col items-center gap-6 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    <motion.div
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        className="w-full md:flex-1 flex flex-col items-center gap-6 cursor-pointer"
                     >
                         <Image src="/Wedon't-Teach/Vector3.svg" alt="Outcomes Icon" width={82} height={80} />
                         <div className="text-center">
@@ -101,14 +137,17 @@ export default function WorkSimulationSection() {
                                 Portfolio, LinkedIn, interviews, and communication — all covered as part of the journey.
                             </p>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
 
                 {/* Button Section */}
-                <button
+                <motion.button
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setIsAppModalOpen(true)}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#EAF0BD] text-[#EAF0BD] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] cursor-pointer hover:bg-white/5 transition-colors -mt-8 md:mt-0"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-[#EAF0BD] text-[#EAF0BD] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] cursor-pointer transition-colors -mt-8 md:mt-0"
                     style={{
                         width: "280px",
                         height: "54px",
@@ -121,9 +160,9 @@ export default function WorkSimulationSection() {
                     >
                         Apply for Aestr Alpha
                     </span>
-                </button>
+                </motion.button>
                 <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
-            </div>
+            </motion.div>
         </section>
     );
 }

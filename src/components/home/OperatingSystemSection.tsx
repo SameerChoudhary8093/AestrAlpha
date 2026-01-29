@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 
 // --- Card Component ---
 const ModuleCard = ({
@@ -19,8 +20,13 @@ const ModuleCard = ({
     children?: React.ReactNode
 }) => {
     return (
-        <div
-            className="transition-transform duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden shrink-0 flex flex-col items-start box-border p-6 md:p-[0_53px_40px_53px] w-full max-w-[605px] md:max-w-[480px] lg:max-w-[605px]"
+        <motion.div
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+            }}
+            whileHover={{ scale: 1.02 }}
+            className="transition-transform duration-300 cursor-pointer relative overflow-hidden shrink-0 flex flex-col items-start box-border p-6 md:p-[0_53px_40px_53px] w-full max-w-[605px] md:max-w-[480px] lg:max-w-[605px]"
             style={{
                 minHeight: "579px",
                 borderRadius: "8px",
@@ -78,21 +84,44 @@ const ModuleCard = ({
                 </ul>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 
 export default function OperatingSystemSection() {
-    // Scroll logic removed for vertical mobile layout
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
 
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
 
     return (
         <section
             className="w-full bg-[#181818] flex justify-center py-16 px-4 md:py-28 md:px-16"
         >
-            <div className="w-full max-w-[1440px] flex flex-col items-center gap-16">
+            <motion.div
+                className="w-full max-w-[1440px] flex flex-col items-center gap-16"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
+            >
                 {/* Header Section */}
-                <div className="w-full max-w-[768px] flex flex-col items-center gap-6 text-center">
+                <motion.div variants={fadeInUp} className="w-full max-w-[768px] flex flex-col items-center gap-6 text-center">
                     <h2
                         className="text-[#EAF0BD] font-bold leading-[120%]"
                         style={{
@@ -109,10 +138,11 @@ export default function OperatingSystemSection() {
                         Beyond code. Built for Day-1.{'\n'}
                         Two foundational modules, mandatory for every resident.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Cards Container */}
-                <div
+                <motion.div
+                    variants={staggerContainer}
                     className="flex flex-col lg:flex-row items-center gap-6 w-full lg:justify-center lg:gap-24"
                 >
                     {/* Module A */}
@@ -176,9 +206,9 @@ export default function OperatingSystemSection() {
                             }}
                         />
                     </ModuleCard>
-                </div>
+                </motion.div>
 
-            </div>
+            </motion.div>
         </section>
     );
 }

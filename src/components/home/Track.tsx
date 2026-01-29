@@ -6,21 +6,26 @@ import StarIcon from "@/components/icons/Star";
 import Link from "next/link";
 import BrochureModal from "./BrochureModal";
 import ApplicationModal from "./ApplicationModal";
+import { motion, Variants } from 'framer-motion';
 
 // Card Component
 const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc: string, title: string, description: string, href?: string, toolIcons?: { icon: React.ReactNode, label: string }[] }) => {
-    const [isHovered, setIsHovered] = useState(false);
+
+    // Animation variant for individual card
+    const cardVariant = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    };
 
     const containerStyle = {
         width: "100%",
         maxWidth: "405px",
         minHeight: "410px",
-        transform: isHovered ? "scale(1.03)" : "scale(1)",
         background: "transparent",
         overflow: "hidden",
     };
 
-    const className = "relative flex flex-col items-start cursor-pointer transition-transform duration-300";
+    const className = "relative flex flex-col items-start cursor-pointer";
 
     const content = (
         <>
@@ -138,28 +143,18 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
         </>
     );
 
-    if (href) {
-        return (
-            <Link
-                href={href}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className={className}
-                style={containerStyle}
-            >
-                {content}
-            </Link>
-        );
-    }
+    const MotionWrapper = href ? motion.create(Link) : motion.div;
+    const props = href ? { href, className, style: containerStyle } : { className, style: containerStyle };
 
     return (
-        <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className={className}
-            style={containerStyle}>
+        <MotionWrapper
+            {...props as any}
+            variants={cardVariant}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
             {content}
-        </div>
+        </MotionWrapper>
     );
 };
 
@@ -177,7 +172,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
     const alignment = alignDesktop === "left" || alignDesktop === "start" ? "flex-start" : alignDesktop === "right" || alignDesktop === "end" ? "flex-end" : "center";
     const textAlign = alignDesktop === "left" || alignDesktop === "start" ? "left" : alignDesktop === "right" || alignDesktop === "end" ? "right" : "center";
 
-    // Exact data from the uploaded image
+    // Exact data from the uploaded image (kept same as before)
     const cardData = [
         {
             title: "Salesforce Ecosystem Residency",
@@ -281,15 +276,42 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
 
     const defaultByline = "(Or explore multiple, based on your clarity.)";
 
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
         <section
             id="track"
             className="w-full flex justify-center py-16 px-4 md:py-28 md:px-16 box-border"
             style={{ backgroundColor: "#181818" }}
         >
-            <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+            <motion.div
+                className="w-full max-w-[1440px] flex flex-col items-center gap-20"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
+            >
                 {/* Header */}
-                <div
+                <motion.div
+                    variants={fadeInUp}
                     className="w-full max-w-[1312px] flex flex-col gap-6"
                     style={{ alignItems: alignment }}
                 >
@@ -319,10 +341,10 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
                         </p>
                     )}
 
-                </div>
+                </motion.div>
 
                 {/* Cards Container - Grid Layout */}
-                <div className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+                <motion.div variants={staggerContainer} className="w-full max-w-[1312px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
                     {cardData.map((card, i) => (
                         <TrackCard
                             key={i}
@@ -333,13 +355,15 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
                             toolIcons={card.toolIcons}
                         />
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Buttons Section */}
-                <div className="flex flex-col md:flex-row gap-6 mt-0 w-full justify-center items-center">
+                <motion.div variants={fadeInUp} className="flex flex-col md:flex-row gap-6 mt-0 w-full justify-center items-center">
                     {/* Button 1: Apply Now */}
-                    <button
+                    <motion.button
                         onClick={() => setIsAppModalOpen(true)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         className="group w-full md:w-[181px] h-[54px] bg-[#D7F601] border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
                     >
                         <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
@@ -353,11 +377,13 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
                         }}>
                             Apply Now
                         </span>
-                    </button>
+                    </motion.button>
 
                     {/* Button 2: Download Brochure */}
-                    <button
+                    <motion.button
                         onClick={() => setIsModalOpen(true)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         className="group w-full md:w-[363px] h-[54px] bg-transparent border border-[#D7F601] rounded-[4px] md:rounded-tl-[4px] md:rounded-tr-[20px] md:rounded-br-[4px] md:rounded-bl-[4px] flex items-center justify-center gap-2 cursor-pointer hover:bg-[#D7F601]/10 transition-colors"
                     >
                         <StarIcon style={{ width: "28px", height: "30px", color: "#D7F601" }} />
@@ -371,10 +397,10 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
                         }}>
                             Download Brochure
                         </span>
-                    </button>
-                </div>
+                    </motion.button>
+                </motion.div>
 
-            </div>
+            </motion.div>
             <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
         </section>

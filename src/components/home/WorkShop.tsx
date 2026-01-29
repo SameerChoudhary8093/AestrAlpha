@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import StarIcon from "@/components/icons/Star";
 import ApplicationModal from "./ApplicationModal";
+import { motion, Variants } from 'framer-motion';
 
 interface WorkShopProps {
   heading?: React.ReactNode;
@@ -29,14 +30,49 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
 
   const defaultDescription = `If you’re looking for shortcuts, this isn’t it.\nIf you’re ready to build real skills, real systems, and real proof — apply for the residency.`;
 
+  // Animation Variants
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const scaleUp: Variants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
     <section
       className="w-full bg-[#D8F602] flex justify-center py-16 px-4 md:px-16 box-border"
     >
-      <div className="w-full max-w-[1440px] flex flex-col items-center gap-20">
+      <motion.div
+        className="w-full max-w-[1440px] flex flex-col items-center gap-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
 
         {/* Header */}
-        <div className="w-full max-w-[768px] flex flex-col items-center gap-6 text-center">
+        <motion.div variants={fadeInUp} className="w-full max-w-[768px] flex flex-col items-center gap-6 text-center">
           {heading ? heading : defaultHeading}
 
           <p
@@ -54,35 +90,38 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
               {date}
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Main Content Area */}
-        <div className="w-full flex flex-col items-center gap-12">
+        <motion.div variants={staggerContainer} className="w-full flex flex-col items-center gap-12">
 
           {/* 3-Column Layout Container */}
           <div className="w-full flex flex-col lg:flex-row justify-center gap-12 lg:gap-12 flex-wrap items-center lg:items-center">
 
             {/* Left Column */}
-            <div className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
+            <motion.div variants={staggerContainer} className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
               {/* Item 1 */}
-              <div className="flex flex-col items-center gap-6 cursor-default">
+              <motion.div variants={fadeInUp} className="flex flex-col items-center gap-6 cursor-default">
                 <Image src="/ImmersiveWorkshop/logo-1.svg" alt="Deployment History" width={68} height={68} />
                 <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   A deployment history (not just a certificate)
                 </p>
-              </div>
+              </motion.div>
 
               {/* Item 2 */}
-              <div className="flex flex-col items-center gap-6 cursor-default">
+              <motion.div variants={fadeInUp} className="flex flex-col items-center gap-6 cursor-default">
                 <Image src="/ImmersiveWorkshop/logo-2.svg" alt="Documented Artifacts" width={95} height={69} />
                 <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   Documented artifacts: demos, walkthroughs, architecture notes
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Center Image */}
-            <div className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0">
+            <motion.div
+              variants={scaleUp}
+              className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0"
+            >
               <Image
                 src="/home/Graduate-With.png"
                 alt="Graduate Info"
@@ -90,41 +129,43 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
                 height={540}
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
-            </div>
+            </motion.div>
 
             {/* Right Column */}
-            <div className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
+            <motion.div variants={staggerContainer} className="w-full max-w-[303px] flex flex-col gap-16 lg:gap-16">
               {/* Item 3 */}
-              <div className="flex flex-col items-center gap-6 cursor-default">
+              <motion.div variants={fadeInUp} className="flex flex-col items-center gap-6 cursor-default">
                 <Image src="/ImmersiveWorkshop/logo-3.svg" alt="GitHub Portfolio" width={95} height={68} />
                 <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   A public GitHub portfolio with real projects
                 </p>
-              </div>
+              </motion.div>
 
               {/* Item 4 */}
-              <div className="flex flex-col items-center gap-6 cursor-default">
+              <motion.div variants={fadeInUp} className="flex flex-col items-center gap-6 cursor-default">
                 <Image src="/ImmersiveWorkshop/logo-4.svg" alt="Delivery Maturity" width={99} height={53} />
                 <p className="w-[240px] text-[#181818] font-normal text-2xl leading-[140%] text-center m-0" style={{ fontFamily: "Arial, sans-serif" }}>
                   Delivery maturity: sprints, reviews, collaboration
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
           </div>
 
           {/* Buttons Section */}
-          <div className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
+          <motion.div variants={fadeInUp} className="flex flex-col md:flex-row gap-6 mt-12 w-full justify-center">
             {/* Button 1: Apply */}
-            <button
+            <motion.button
               onClick={() => setIsAppModalOpen(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="w-full md:w-[300px] h-[54px] bg-[#181818] border border-[#181818] rounded-[4px] md:rounded-tr-[20px] shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
             >
               <StarIcon style={{ width: "28px", height: "30px", color: "#D8F602" }} />
               <span className="font-black text-base text-[#D8F602] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
                 Apply for the Residency
               </span>
-            </button>
+            </motion.button>
 
             {/* Button 2: Talk to Counselor */}
             <Link
@@ -132,17 +173,23 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
                 "Hi, I went through the “What You Graduate With” section on Aestr Alpha and would like to talk to a counselor."
               )}`}
               target="_blank"
-              className="w-full md:w-[320px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer hover:bg-black/5 transition-colors"
             >
-              <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
-              <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-                Talk to a Counselor (Free 1:1)
-              </span>
+              <motion.div
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(0, 0, 0, 0.05)" }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full md:w-[320px] h-[54px] bg-transparent border border-[#181818] rounded-[4px] md:rounded-tr-[20px] flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <StarIcon style={{ width: "28px", height: "30px", color: "#181818" }} />
+                <span className="font-black text-base text-[#181818] leading-[150%]" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
+                  Talk to a Counselor (Free 1:1)
+                </span>
+              </motion.div>
             </Link>
-          </div>
+          </motion.div>
 
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
     </section >

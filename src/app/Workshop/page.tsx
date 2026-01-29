@@ -1,5 +1,6 @@
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import AboutSection from "@/components/home/AboutSection";
 
 import CampusAmbassador from "@/components/home/Ambassador";
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <WhatsAppButton />
       <TicketHeroSection />
       <EventOverview />
       <AISummitSection />

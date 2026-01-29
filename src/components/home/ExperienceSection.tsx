@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import StarIcon from "@/components/icons/Star";
 import ApplicationModal from "./ApplicationModal";
+import { motion, Variants } from "framer-motion";
 
 export default function ExperienceSection() {
     const [isAppModalOpen, setIsAppModalOpen] = useState(false);
@@ -37,6 +38,35 @@ export default function ExperienceSection() {
         window.open("https://shodh.ai", "_blank");
     };
 
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
+    const staggerContainer: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const scaleUp: Variants = {
+        hidden: { scale: 0.9, opacity: 0 },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
         <section
             className="w-full flex flex-col items-center box-border px-4 py-12 md:px-16 md:py-28"
@@ -46,7 +76,11 @@ export default function ExperienceSection() {
             }}
         >
             {/* Video Section */}
-            <div
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={scaleUp}
                 className="relative rounded-2xl overflow-hidden bg-black flex items-center justify-center w-full"
                 style={{
                     maxWidth: "1312px",
@@ -105,17 +139,22 @@ export default function ExperienceSection() {
                         onClick={togglePlay}
                     />
                 )}
-            </div>
+            </motion.div>
 
             {/* Shodh AI Section */}
-            <div
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
                 className="flex flex-col items-center w-full"
                 style={{
                     maxWidth: "1100px",
                     gap: "24px",
                 }}
             >
-                <h2
+                <motion.h2
+                    variants={fadeInUp}
                     className="w-full text-center"
                     style={{
                         fontFamily: "var(--font-orbitron), sans-serif",
@@ -128,9 +167,10 @@ export default function ExperienceSection() {
                     }}
                 >
                     From Shodh AI to Aestr Alpha
-                </h2>
+                </motion.h2>
 
-                <div
+                <motion.div
+                    variants={fadeInUp}
                     className="w-full text-center flex flex-col items-center"
                     style={{
                         fontFamily: "Arial, sans-serif",
@@ -158,32 +198,44 @@ export default function ExperienceSection() {
                         <span className="block md:whitespace-nowrap">Aestr Alpha exists to transfer this real-world AI engineering experience to the next generation of</span>
                         <span className="block">builders.</span>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Logos Section */}
-                <div
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
                     className="flex flex-row items-center justify-center flex-wrap gap-6 md:gap-8 py-6 w-full"
                     style={{ maxWidth: "670px" }}
                 >
-                    <div className="relative w-32 h-16 md:w-[206px] md:h-[116px]">
-                        <Image src="/home/nvidia.svg" alt="NVIDIA" fill sizes="(max-width: 768px) 128px, 206px" className="object-contain" />
-                    </div>
-                    <div className="relative w-32 h-16 md:w-[200px] md:h-[125px]">
-                        <Image src="/home/yotta.svg" alt="Yotta" fill sizes="(max-width: 768px) 128px, 200px" className="object-contain" />
-                    </div>
-                    <div className="relative w-32 h-16 md:w-[200px] md:h-[120px]">
-                        <Image src="/home/aws.svg" alt="AWS" fill sizes="(max-width: 768px) 128px, 200px" className="object-contain" />
-                    </div>
-                </div>
+                    {[
+                        { src: "/home/nvidia.svg", alt: "NVIDIA", width: 206, height: 116 },
+                        { src: "/home/yotta.svg", alt: "Yotta", width: 200, height: 125 },
+                        { src: "/home/aws.svg", alt: "AWS", width: 200, height: 120 }
+                    ].map((logo, index) => (
+                        <motion.div
+                            key={index}
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1 }}
+                            className="relative w-32 h-16 md:w-[206px] md:h-[116px] flex items-center justify-center"
+                        >
+                            <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+                        </motion.div>
+                    ))}
+                </motion.div>
 
                 {/* Buttons Section */}
-                <div
+                <motion.div
+                    variants={fadeInUp}
                     className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 pt-4 w-full"
                     style={{ maxWidth: "648px" }}
                 >
                     {/* Know more button */}
-                    <button
+                    <motion.button
                         onClick={handleShodhClick}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         className="flex items-center justify-center hover:bg-black/5 transition-colors w-full md:w-[324px]"
                         style={{
                             height: "53.8px",
@@ -209,11 +261,13 @@ export default function ExperienceSection() {
                         >
                             Know more about Shodh AI
                         </span>
-                    </button>
+                    </motion.button>
 
                     {/* Apply button */}
-                    <button
+                    <motion.button
                         onClick={handleApplyClick}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         className="flex items-center justify-center hover:opacity-90 transition-opacity w-full md:w-[300px]"
                         style={{
                             height: "53.8px",
@@ -239,9 +293,9 @@ export default function ExperienceSection() {
                         >
                             Apply for the Residency
                         </span>
-                    </button>
-                </div>
-            </div>
+                    </motion.button>
+                </motion.div>
+            </motion.div>
 
             <ApplicationModal isOpen={isAppModalOpen} onClose={() => setIsAppModalOpen(false)} />
         </section>

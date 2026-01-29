@@ -2,11 +2,22 @@
 
 import React from 'react';
 import Image from 'next/image';
-import LinkedInIcon from "@/components/icons/LinkedIn"; // Adjust path if necessary
+import { motion, Variants } from 'framer-motion';
 
 const FeaturedMentor = () => {
+
+    // Animation Variants
+    const fadeInUp: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
-        <div
+        <motion.div
             className="flex flex-col md:flex-row items-center md:items-start"
             style={{
                 width: '100%',
@@ -14,11 +25,28 @@ const FeaturedMentor = () => {
                 minHeight: '403px',
                 gap: '64px',
             }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                    opacity: 1,
+                    transition: {
+                        staggerChildren: 0.3
+                    }
+                }
+            }}
         >
             {/* Left Side: Image + Socials */}
-            <div className="flex flex-col gap-4 shrink-0">
+            <motion.div
+                variants={fadeInUp}
+                className="flex flex-col gap-4 shrink-0"
+            >
                 {/* Image Container */}
-                <div
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                     className="relative rounded-lg overflow-hidden"
                     style={{
                         width: '300px', // Adjust as needed or make responsive
@@ -33,7 +61,7 @@ const FeaturedMentor = () => {
                         sizes="(max-width: 768px) 100vw, 300px"
                         className="object-cover"
                     />
-                </div>
+                </motion.div>
 
                 {/* Social Media IDs */}
                 <div className="flex items-center gap-3">
@@ -45,10 +73,13 @@ const FeaturedMentor = () => {
                         </svg>
                     </a>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Right Side: Description */}
-            <div className="flex flex-col h-full justify-center">
+            <motion.div
+                variants={fadeInUp}
+                className="flex flex-col h-full justify-center"
+            >
                 <h3
                     className="font-bold text-[#EAF0BD] mb-4"
                     style={{
@@ -69,9 +100,9 @@ const FeaturedMentor = () => {
                 >
                     Dr. Arastu is a highly experienced technology and research professional with a strong background in innovation, leadership, and real-world problem solving. Our founding team includes engineers from Shodh AI (USA) and other global tech leaders. Here, students don’t learn from disconnected faculty — they are mentored by full-time software developers, AI practitioners, and system architects who are actively shaping the real world. Dr. Arastu is passionate about building future-ready talent through industry-driven education and cutting-edge technology.
                 </p>
-            </div>
+            </motion.div>
 
-        </div>
+        </motion.div>
     );
 };
 
