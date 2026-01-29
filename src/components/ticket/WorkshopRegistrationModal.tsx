@@ -24,6 +24,7 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -42,9 +43,11 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
                 consent: false,
             });
             setErrors({});
+            setIsSuccess(false); // Reset success state
         }
         return () => {
             document.body.style.overflow = 'unset';
+            setIsSuccess(false);
         };
     }, [isOpen]);
 
@@ -98,20 +101,10 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
 
             if (error) {
                 console.error("Supabase error:", error);
-                // If table doesn't exist, we might fail silently or show error. 
-                // For user experience, we'll proceed to payment mostly, but alerting error is safer during dev.
-                // Ideally we want to fail gracefully.
-                // alert("Error saving data. Proceeding to payment anyway.");
-            }
-
-            // Redirect to payment regardless (or only on success? User said "save data", so success is key)
-            // But if Supabase fails (e.g. table missing), user might get stuck.
-            // I'll assume success for the redirect logic, but log error.
-            if (!error) {
-                alert("Registration successful! Thank you.");
-                onClose();
+                // Graceful fail or retry logic here
+                alert("Something went wrong. Please try again.");
             } else {
-                alert("Something went wrong saving your details. Please try again or contact support.");
+                setIsSuccess(true); // Switch to success view
             }
 
         } catch (error) {
@@ -123,6 +116,42 @@ export default function WorkshopRegistrationModal({ isOpen, onClose }: WorkshopR
     };
 
     if (!mounted || !isOpen) return null;
+
+    // Success View Content
+    if (isSuccess) {
+        return createPortal(
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+                <div
+                    className="relative w-full max-w-md p-8 rounded-2xl flex flex-col items-center justify-center text-center gap-6 border border-[#D8F602]/20 shadow-2xl"
+                    style={{
+                        background: "#181818",
+                        boxShadow: "0 0 40px rgba(216, 246, 2, 0.05)"
+                    }}
+                >
+                    <h2
+                        className="text-2xl md:text-3xl font-bold text-[#FAFFD6] uppercase tracking-wide"
+                        style={{ fontFamily: "var(--font-orbitron), sans-serif" }}
+                    >
+                        Registration Successful
+                    </h2>
+
+                    <div className="text-gray-300 space-y-2 text-base md:text-lg">
+                        <p>Thank you for registering for the AI Summit 2026.</p>
+                        <p>Our team will review your details and contact you shortly regarding the next steps.</p>
+                    </div>
+
+                    <button
+                        onClick={onClose}
+                        className="mt-4 px-8 py-3 rounded-lg bg-[#D8F602] text-[#181818] font-bold text-lg hover:opacity-90 transition-opacity"
+                        style={{ fontFamily: "var(--font-orbitron), sans-serif" }}
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>,
+            document.body
+        );
+    }
 
     const modalContent = (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 text-left overflow-y-auto">
