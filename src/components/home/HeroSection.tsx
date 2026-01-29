@@ -166,6 +166,7 @@ export default function HeroSection() {
                     transform: "rotate(0deg)",
                     height: "auto",
                   }}
+                  loading="eager" // Force eager loading for LCP
                   sizes="(max-width: 768px) 120px, 193px"
                 />
               </motion.div>
