@@ -130,33 +130,17 @@ export default function InvestmentSection() {
                             }}>
                                 Program Fee:
                             </p>
-
-                            <p style={{
-                                textDecoration: "line-through",
-                                fontFamily: "var(--font-orbitron), sans-serif",
-                                fontWeight: 700,
-                                fontSize: "36px",
-                                lineHeight: "120%",
-                                textAlign: "center",
-                                color: "#D7F601",
-                                margin: 0,
-                                letterSpacing: "0.05em" // Digital look
-                            }}>
-                                ₹2,40,000
-                            </p>
-
                             <p style={{
                                 fontFamily: "var(--font-roboto), sans-serif",
-                                fontWeight: 400,
+                                fontWeight: 700,
                                 fontSize: "16px",
                                 lineHeight: "150%",
                                 textAlign: "center",
                                 color: "#D7F601",
                                 margin: 0
                             }}>
-                                Early Bird Offer: 50% Off
+                                New second cohort starting. Accommodation included.
                             </p>
-
                         </div>
 
                         {/* Price Info */}
@@ -169,17 +153,6 @@ export default function InvestmentSection() {
                         >
                             <div className="flex flex-col items-center gap-2">
                                 <p style={{
-                                    fontFamily: "var(--font-roboto), sans-serif",
-                                    fontWeight: 700,
-                                    fontSize: "clamp(18px, 4vw, 20px)",
-                                    lineHeight: "140%",
-                                    textAlign: "center",
-                                    color: "#D7F601",
-                                    margin: 0
-                                }}>
-                                    Early Bird Price
-                                </p>
-                                <p style={{
                                     fontFamily: "Arial, sans-serif",
                                     fontWeight: 900,
                                     fontSize: "clamp(48px, 10vw, 64px)",
@@ -188,7 +161,7 @@ export default function InvestmentSection() {
                                     color: "#D7F601",
                                     margin: 0
                                 }}>
-                                    ₹1,20,000
+                                    ₹2,40,000
                                 </p>
                             </div>
 
@@ -202,7 +175,7 @@ export default function InvestmentSection() {
                                     color: "#D7F601",
                                     margin: 0
                                 }}>
-                                    Only 60 Early Bird Seats Available
+                                    Limited Seats Available
                                 </p>
                             </div>
                         </motion.div>
@@ -229,6 +202,8 @@ export default function InvestmentSection() {
                                     and Aestr Alpha certification.
                                 </p>
                             </div>
+
+
 
                             {/* Item 2 */}
                             <div className="flex flex-row gap-4">

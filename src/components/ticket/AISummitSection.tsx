@@ -112,8 +112,9 @@ const AISummitSection = () => {
                     variants={fadeInUp}
                     className="mb-20 flex flex-col items-center text-center"
                 >
-                    <h2 className="text-[#D7F601] text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter font-orbitron">
-                        Parallel Hands-On Workshop
+                    <h2 className="text-[#D7F601] text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter font-orbitron flex flex-col md:block gap-4 md:gap-0">
+                        <span>Parallel Hands-On</span>
+                        <span className="md:ml-4">Workshop</span>
                     </h2>
                     <p className="text-[#C9C6C2] text-xl leading-relaxed">
                         Each workshop runs alongside the <span className="text-white font-bold italic underline decoration-[#D7F601]">Cybrathon</span> — designed to provide hands-on training in high-demand tech areas.
@@ -142,25 +143,26 @@ const AISummitSection = () => {
                     </div>
 
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <span className="bg-black text-[#D7F601] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                                 AI Summit Special
                             </span>
-                            <h2 className="text-black text-5xl md:text-6xl font-black mt-6 mb-4 uppercase leading-none font-orbitron">
-                                50 Startups <br /> Gathering
+                            <h2 className="text-black text-3xl sm:text-4xl md:text-6xl font-black mt-6 mb-4 uppercase leading-none font-orbitron">
+                                <span className="block">50 Startups</span>
+                                <span className="block">Gathering</span>
                             </h2>
                             <p className="text-black/80 text-lg mb-8 max-w-md font-medium">
                                 A curated gathering of 50 innovative startups showcasing their ideas, products, and the future of AI.
                             </p>
 
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
                                 {[
                                     { icon: <Presentation size={20} />, text: "Founder Panels" },
                                     { icon: <Users size={20} />, text: "Live Q&A" },
                                     { icon: <Rocket size={20} />, text: "Startup Journeys" },
                                     { icon: <Share2 size={20} />, text: "Investor Networking" }
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-black font-bold text-sm">
+                                    <div key={i} className="flex items-center gap-2 text-black font-bold text-sm justify-center lg:justify-start">
                                         <div className="bg-black/10 p-2 rounded-lg">{item.icon}</div>
                                         {item.text}
                                     </div>

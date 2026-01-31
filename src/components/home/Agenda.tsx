@@ -91,26 +91,30 @@ const AgendaSnapshot: React.FC = () => {
         {/* Venue Details Section */}
         <motion.div
           variants={fadeInUp}
-          className="mt-12 bg-[#D7F601] text-black rounded-3xl p-8 md:p-10 flex flex-col md:flex-row justify-between items-center gap-8 shadow-xl"
+          className="mt-12 bg-[#D7F601] text-black rounded-3xl p-8 md:p-12 flex flex-col items-center gap-8 shadow-xl text-center"
         >
 
-          <div className="text-left space-y-2">
-            <h4 className="text-xl font-black font-orbitron uppercase tracking-widest text-[#181818] mb-2 opacity-80">
-              Venue Details
-            </h4>
-            <div className="text-2xl md:text-3xl font-bold font-sans flex flex-col gap-1">
+          {/* Centered Main Heading on Desktop too */}
+          <h4 className="text-4xl md:text-5xl font-black font-orbitron uppercase tracking-widest text-[#181818] mb-4 w-full">
+            Venue Details
+          </h4>
+
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-8">
+            <div className="w-full md:w-auto text-left space-y-2">
+              <div className="text-black font-bold text-lg md:text-xl max-w-md leading-relaxed text-left">
+                <div className="text-3xl font-black font-orbitron mb-2">
+                  6-7 February 2026
+                </div>
+                <p className="opacity-80 text-base">
+                  Multiple halls will host the Cybrathon and all workshops simultaneously.
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full md:w-auto text-left md:text-right text-2xl md:text-3xl font-bold font-sans flex flex-col gap-1">
               <span>Library Building — 3rd & 4th Floor</span>
               <span className="text-xl font-medium opacity-90">SGVU Campus, Jaipur</span>
             </div>
-          </div>
-
-          <div className="text-right md:text-right text-black font-bold text-lg md:text-xl max-w-md leading-relaxed">
-            <div className="mb-2 text-3xl font-black font-orbitron">
-              6-7 February 2026
-            </div>
-            <p className="opacity-80 text-base">
-              Multiple halls will host the Cybrathon and all workshops simultaneously.
-            </p>
           </div>
 
         </motion.div>
