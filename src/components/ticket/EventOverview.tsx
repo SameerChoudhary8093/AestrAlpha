@@ -67,7 +67,7 @@ const EventOverview = () => {
                         className="space-y-8"
                     >
                         <motion.div variants={fadeInUp}>
-                            <h2 className="text-[#EAF0BD] text-sm font-bold tracking-[0.3em] uppercase mb-4">
+                            <h2 className="text-[#EAF0BD] text-sm font-bold tracking-[0.3em] uppercase mb-4 font-orbitron">
                                 The Main Event
                             </h2>
                             <h1 className="text-5xl md:text-6xl font-black text-white leading-tight font-orbitron">

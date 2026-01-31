@@ -51,7 +51,7 @@ const AI_Summit_CTA = () => {
                     initial={{ scale: 0.9, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="text-white text-6xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none"
+                    className="text-white text-6xl md:text-8xl font-black mb-10 uppercase italic tracking-tighter leading-none font-orbitron"
                 >
                     Join the <span className="text-[#D7F601] drop-shadow-[0_0_15px_rgba(215,246,1,0.4)]">AI Summit</span> 2026
                 </motion.h2>
@@ -97,7 +97,7 @@ const AI_Summit_CTA = () => {
 
                 {/* Floating background text (Decorative) */}
                 <div className="absolute -bottom-10 left-0 right-0 pointer-events-none select-none overflow-hidden whitespace-nowrap opacity-[0.02]">
-                    <h2 className="text-[150px] font-black text-white uppercase italic">
+                    <h2 className="text-[150px] font-black text-white uppercase italic font-orbitron">
                         INNOVATE
                     </h2>
                 </div>

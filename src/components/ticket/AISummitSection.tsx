@@ -72,7 +72,7 @@ const WorkshopCard = ({ workshop }: { workshop: Workshop }) => {
             </div>
 
             <div className="mt-4">
-                <h3 className="text-2xl font-bold text-white mb-1 leading-tight uppercase tracking-tighter">
+                <h3 className="text-2xl font-bold text-white mb-1 leading-tight uppercase tracking-tighter font-orbitron">
                     {workshop.title}
                 </h3>
                 <p className="text-[#D7F601] font-medium text-sm mb-4">{workshop.topic}</p>
@@ -133,7 +133,7 @@ const AISummitSection = () => {
                     variants={fadeInUp}
                     className="mb-20"
                 >
-                    <h2 className="text-[#D7F601] text-5xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter">
+                    <h2 className="text-[#D7F601] text-5xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter font-orbitron">
                         Parallel Hands-On <br /> Workshops
                     </h2>
                     <p className="text-[#C9C6C2] text-xl max-w-2xl leading-relaxed">
@@ -172,7 +172,7 @@ const AISummitSection = () => {
                             <span className="bg-black text-[#D7F601] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                                 AI Summit Special
                             </span>
-                            <h2 className="text-black text-5xl md:text-6xl font-black mt-6 mb-4 uppercase leading-none">
+                            <h2 className="text-black text-5xl md:text-6xl font-black mt-6 mb-4 uppercase leading-none font-orbitron">
                                 50 Startups <br /> Gathering
                             </h2>
                             <p className="text-black/80 text-lg mb-8 max-w-md font-medium">
@@ -195,7 +195,7 @@ const AISummitSection = () => {
                         </div>
 
                         <div className="bg-black rounded-[2rem] p-8 text-white shadow-2xl">
-                            <h4 className="text-[#D7F601] text-xl font-bold mb-4 uppercase">Panel Discussions</h4>
+                            <h4 className="text-[#D7F601] text-xl font-bold mb-4 uppercase font-orbitron">Panel Discussions</h4>
                             <p className="text-[#AFADAA] text-sm leading-relaxed mb-6">
                                 Get exclusive insights into real startup challenges and opportunities in the tech and AI space.
                                 Learn directly from industry leaders who have built scalable products.
