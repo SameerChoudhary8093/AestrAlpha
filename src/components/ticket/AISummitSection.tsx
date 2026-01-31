@@ -155,14 +155,14 @@ const AISummitSection = () => {
                                 A curated gathering of 50 innovative startups showcasing their ideas, products, and the future of AI.
                             </p>
 
-                            <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
+                            <div className="grid grid-cols-2 gap-4 w-fit mx-auto lg:mx-0">
                                 {[
                                     { icon: <Presentation size={20} />, text: "Founder Panels" },
                                     { icon: <Users size={20} />, text: "Live Q&A" },
                                     { icon: <Rocket size={20} />, text: "Startup Journeys" },
                                     { icon: <Share2 size={20} />, text: "Investor Networking" }
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-black font-bold text-sm justify-center lg:justify-start">
+                                    <div key={i} className="flex items-center gap-2 text-black font-bold text-sm justify-start">
                                         <div className="bg-black/10 p-2 rounded-lg">{item.icon}</div>
                                         {item.text}
                                     </div>
