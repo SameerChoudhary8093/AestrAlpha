@@ -13,13 +13,13 @@ const EventOverview = () => {
             tag: "Hackathon"
         },
         {
-            title: "5 Skill Workshops",
+            title: "4 Skill Workshops",
             description: "Master Robotics, 3D Printing, Gen AI, Web3, and App Dev with industry veterans.",
             icon: <Cpu className="w-6 h-6 text-[#181818]" />,
             tag: "Learning"
         },
         {
-            title: "50+ Startups Gathering",
+            title: "30+ Startups Gathering",
             description: "A massive showcase of emerging startups disrupting the tech landscape.",
             icon: <Rocket className="w-6 h-6 text-[#181818]" />,
             tag: "Exhibition"
