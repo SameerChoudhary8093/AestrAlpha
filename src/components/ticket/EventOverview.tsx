@@ -7,7 +7,7 @@ import { motion, Variants } from 'framer-motion';
 const EventOverview = () => {
     const features = [
         {
-            title: "24-Hour Cyberthon",
+            title: "24-Hour Cybrathon",
             description: "A high-intensity hackathon where developers build the future in real-time.",
             icon: <Shield className="w-6 h-6 text-[#181818]" />,
             tag: "Hackathon"
@@ -54,7 +54,7 @@ const EventOverview = () => {
     };
 
     return (
-        <section className="bg-[#181818] py-20 px-6 font-sans text-[#AFADAA] overflow-hidden">
+        <section className="bg-[#111111] py-20 px-6 font-sans text-[#AFADAA] overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -71,8 +71,7 @@ const EventOverview = () => {
                                 The Main Event
                             </h2>
                             <h1 className="text-5xl md:text-6xl font-black text-white leading-tight font-orbitron">
-                                What’s Happening at <br />
-                                <span className="text-[#D7F601]">AI Summit 2026?</span>
+                                What’s Happening at <span className="text-[#D7F601]">AI Summit 2026?</span>
                             </h1>
                             <p className="mt-6 text-lg text-[#B8B5AD] max-w-xl">
                                 A multi-track technology odyssey designed for the next generation of builders.

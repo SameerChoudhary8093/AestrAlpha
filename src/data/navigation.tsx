@@ -9,9 +9,9 @@ export const NavigationLinks: NavItem[] = [
   { label: "Contact Us", href: "/#footer" },
 ];
 
-// Workshop page specific navigation (used on /Workshop)
+// Workshop page specific navigation (used on /ai-summit)
 export const TicketNavigationLinks: NavItem[] = [
-  { label: "Home", href: "#tickets" },
+  { label: "Home", href: "#home" },
   { label: "Agenda", href: "#agenda" },
   { label: "Workshops", href: "#workshops" },
   { label: "Gallery", href: "#gallery" },

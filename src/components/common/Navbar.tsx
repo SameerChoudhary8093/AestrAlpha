@@ -18,7 +18,7 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  const currentNavLinks = pathname === "/Workshop" ? TicketNavigationLinks : NavigationLinks;
+  const currentNavLinks = pathname === "/ai-summit" ? TicketNavigationLinks : NavigationLinks;
 
   return (
     <>
@@ -35,11 +35,11 @@ export default function Navbar() {
           href="/"
           aria-label="Aestr Home"
           className="shrink-0 text-[var(--primary-color)]"
-          onClick={(e) => {
+          onClick={() => {
             setIsOpen(false);
             if (pathname === "/") {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              // Force a hard reload/navigation to clear hash
+              window.location.href = "/";
             }
           }}
         >
@@ -69,9 +69,9 @@ export default function Navbar() {
             ))}
           </div>
 
-          {pathname !== "/Workshop" && (
+          {pathname !== "/ai-summit" && (
             <Link
-              href="/Workshop"
+              href="/ai-summit"
               className="ml-[32px] w-[184px] h-[40px] border border-[#D8F602] text-[#D8F602] font-orbitron font-black text-[16px] leading-[150%] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] px-[16px] flex items-center justify-center hover:bg-[#D8F602] hover:text-[#181818] transition-all whitespace-nowrap"
             >
               AI Summit
@@ -137,9 +137,9 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            {pathname !== "/Workshop" && (
+            {pathname !== "/ai-summit" && (
               <Link
-                href="/Workshop"
+                href="/ai-summit"
                 className="w-full max-w-xs h-[40px] border border-[#D8F602] text-[#D8F602] font-orbitron font-black text-[16px] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[4px] rounded-bl-[4px] flex items-center justify-center hover:bg-[#D8F602] hover:text-[#181818] transition-all"
                 onClick={() => setIsOpen(false)}
               >

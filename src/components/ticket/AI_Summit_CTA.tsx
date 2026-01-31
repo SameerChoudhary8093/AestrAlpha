@@ -65,7 +65,7 @@ const AI_Summit_CTA = () => {
                     className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-16"
                 >
                     {[
-                        "24-Hour Cyberthon",
+                        "24-Hour Cybrathon",
                         "5 Expert-Led Workshops",
                         "Startup Panels & Networking"
                     ].map((text, index) => (
@@ -87,7 +87,7 @@ const AI_Summit_CTA = () => {
                         whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(215,246,1,0.4)" }}
                         whileTap={{ scale: 0.95 }}
                         className="group relative bg-[#D7F601] text-black px-10 py-5 rounded-full font-black text-xl uppercase tracking-tighter flex items-center gap-3 overflow-hidden transition-all"
-                        onClick={() => setIsWorkshopModalOpen(true)}
+                        onClick={() => window.open('https://luma.com/o5zmgf85', '_blank')}
                     >
                         Register Now
                         <ArrowRight className="group-hover:translate-x-2 transition-transform" />

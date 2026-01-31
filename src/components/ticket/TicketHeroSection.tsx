@@ -65,7 +65,7 @@ export default function TicketHeroSection() {
         background:
           "radial-gradient(112.15% 91.53% at 110.03% 77.26%, #426000 9.13%, #181818 68.08%)",
       }}
-      id="tickets"
+      id="home"
     >
       {/* Background Blur Element */}
       <motion.div
@@ -105,7 +105,7 @@ export default function TicketHeroSection() {
                 </div>
               </div>
               <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] text-[#D8F602] leading-[0.9] md:leading-tight">
-                Cyberthon 2026
+                Cybrathon 2026
               </motion.h1>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function TicketHeroSection() {
           {/* Buttons */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-4 justify-start items-center w-full">
             <button
-              onClick={() => setIsWorkshopModalOpen(true)}
+              onClick={() => window.open('https://luma.com/o5zmgf85', '_blank')}
               className="button-primary w-full sm:w-auto justify-center cursor-pointer flex items-center transition-transform duration-200 hover:scale-105 active:scale-95"
             >
               <StarIcon className="h-5 w-5 md:h-6 md:w-auto mr-2" />

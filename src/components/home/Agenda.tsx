@@ -20,7 +20,7 @@ const AgendaSnapshot: React.FC = () => {
   };
 
   return (
-    <section id="agenda" className="bg-[#0F0F0F] text-white py-20 px-4 flex justify-center overflow-hidden">
+    <section id="agenda" className="bg-[#050505] text-white py-20 px-4 flex justify-center overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -46,7 +46,7 @@ const AgendaSnapshot: React.FC = () => {
             <ul className="space-y-4">
               {[
                 "Opening Ceremony",
-                "Cyberthon Kickoff",
+                "Cybrathon Kickoff",
                 "Parallel Workshops",
                 "Startup Panel Discussions"
               ].map((item, idx) => (
@@ -69,7 +69,7 @@ const AgendaSnapshot: React.FC = () => {
             </div>
             <ul className="space-y-4">
               {[
-                "Cyberthon Continues",
+                "Cybrathon Continues",
                 "Advanced Workshops",
                 "Startup Pitches & Networking",
                 "Closing Ceremony & Awards"
@@ -109,7 +109,7 @@ const AgendaSnapshot: React.FC = () => {
               6-7 February 2026
             </div>
             <p className="opacity-80 text-base">
-              Multiple halls will host the Cyberthon and all workshops simultaneously.
+              Multiple halls will host the Cybrathon and all workshops simultaneously.
             </p>
           </div>
 
