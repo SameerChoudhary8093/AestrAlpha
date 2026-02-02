@@ -13,7 +13,7 @@ interface Feature {
 
 // --- Card Component ---
 // Refined Card Component using responsive sizing
-const StrictCard = ({ image, title, description, titleGap = "6px", className = "" }: Feature & { className?: string; titleGap?: string }) => {
+const StrictCard = ({ image, title, description, titleGap = "6px", className = "", priority = false }: Feature & { className?: string; titleGap?: string; priority?: boolean }) => {
   return (
     <motion.div
       variants={{
@@ -50,6 +50,8 @@ const StrictCard = ({ image, title, description, titleGap = "6px", className = "
           fill
           sizes="304px"
           className="w-full h-full object-cover rounded-[9px]"
+          quality={90}
+          priority={priority}
         />
       </div>
 
@@ -223,6 +225,7 @@ export default function AboutSection() {
               title={feature.title}
               description={feature.description}
               titleGap={index < 2 ? "6px" : "32px"}
+              priority={index < 4}
             />
           ))}
         </motion.div>

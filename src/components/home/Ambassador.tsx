@@ -133,6 +133,8 @@ export default function CampusAmbassador() {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1312px"
           style={{ borderRadius: "16px" }}
           className="w-full h-auto object-cover"
+          quality={100}
+          unoptimized
         />
       </motion.div>
     </section>

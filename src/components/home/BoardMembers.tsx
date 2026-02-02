@@ -36,6 +36,8 @@ const GuestMentorCard = ({ speaker }: { speaker: any }) => (
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 395px"
         className="object-cover"
+        quality={100}
+        unoptimized
       />
     </motion.div>
 

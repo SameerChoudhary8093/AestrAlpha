@@ -36,6 +36,8 @@ const GalleryImage = ({ src, width, height, alt }: { src: string, width: number,
         height={height}
         sizes="(max-width: 768px) 100vw, 33vw"
         className="w-full h-auto object-cover"
+        quality={100}
+        unoptimized
       />
     </motion.div>
   </motion.div>

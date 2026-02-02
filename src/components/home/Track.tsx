@@ -9,7 +9,7 @@ import ApplicationModal from "./ApplicationModal";
 import { motion, Variants } from 'framer-motion';
 
 // Card Component
-const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc: string, title: string, description: string, href?: string, toolIcons?: { icon: React.ReactNode, label: string }[] }) => {
+const TrackCard = ({ imageSrc, title, description, href, toolIcons, priority = false }: { imageSrc: string, title: string, description: string, href?: string, toolIcons?: { icon: React.ReactNode, label: string }[], priority?: boolean }) => {
 
     // Animation variant for individual card
     const cardVariant = {
@@ -59,6 +59,8 @@ const TrackCard = ({ imageSrc, title, description, href, toolIcons }: { imageSrc
                     height={240}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 405px"
                     className="w-full h-full object-cover"
+                    quality={90}
+                    priority={priority}
                 />
 
                 {/* --- ADDED: Gradient Overlay --- */}
@@ -353,6 +355,7 @@ export default function Track({ heading, byline, alignDesktop = "center" }: Trac
                             description={card.desc}
                             href={card.href}
                             toolIcons={card.toolIcons}
+                            priority={i < 4}
                         />
                     ))}
                 </motion.div>

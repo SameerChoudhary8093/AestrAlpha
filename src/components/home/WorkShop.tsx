@@ -123,7 +123,7 @@ export default function WorkShop({ heading, description, date }: WorkShopProps) 
               className="w-full max-w-[610px] aspect-square md:h-[540px] md:aspect-auto rounded-2xl overflow-hidden bg-[#E5E5E5] shrink-0"
             >
               <Image
-                src="/home/Graduate-With.png"
+                src="/home/Graduate-With-New.jpg"
                 alt="Graduate Info"
                 width={610}
                 height={540}

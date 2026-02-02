@@ -168,6 +168,8 @@ export default function HeroSection() {
                   }}
                   priority // Best practice for LCP images in Next.js
                   sizes="(max-width: 768px) 120px, 193px"
+                  quality={100}
+                  unoptimized
                 />
               </motion.div>
               <motion.span
@@ -245,6 +247,8 @@ export default function HeroSection() {
                     height={logo.height}
                     className="w-auto h-full object-contain max-h-[25px] md:max-h-full"
                     style={{ maxWidth: logo.maxWidth }}
+                    quality={100}
+                    unoptimized
                   />
                 </div>
               ))}
@@ -351,6 +355,8 @@ export default function HeroSection() {
           fetchPriority="high"
           sizes="(max-width: 400px) 380px, (max-width: 768px) 768px, (max-width: 1200px) 1024px, 1312px"
           className="w-full h-auto object-contain"
+          quality={100}
+          unoptimized
         />
       </motion.div>
 

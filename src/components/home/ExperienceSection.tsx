@@ -220,7 +220,7 @@ export default function ExperienceSection() {
                             whileHover={{ scale: 1.1 }}
                             className="relative w-32 h-16 md:w-[206px] md:h-[116px] flex items-center justify-center"
                         >
-                            <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+                            <Image src={logo.src} alt={logo.alt} fill className="object-contain" quality={100} unoptimized />
                         </motion.div>
                     ))}
                 </motion.div>
