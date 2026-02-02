@@ -19,7 +19,7 @@ const staggerContainer: Variants = {
   }
 };
 
-const GalleryImage = ({ src, width, height, alt }: { src: string, width: number, height: number, alt: string }) => (
+const GalleryImage = ({ src, width, height, alt, priority = false }: { src: string, width: number, height: number, alt: string, priority?: boolean }) => (
   <motion.div
     variants={fadeInUp}
     className="group cursor-pointer w-full relative overflow-hidden h-auto rounded-lg"
@@ -38,6 +38,7 @@ const GalleryImage = ({ src, width, height, alt }: { src: string, width: number,
         className="w-full h-auto object-cover"
         quality={100}
         unoptimized
+        priority={priority}
       />
     </motion.div>
   </motion.div>
@@ -80,6 +81,7 @@ export default function InsideTheResidency() {
               alt="Gallery 1-1"
               width={416}
               height={416}
+              priority={true}
             />
             <GalleryImage
               src="/test/Image-2.webp"
@@ -96,6 +98,7 @@ export default function InsideTheResidency() {
               alt="Gallery 2-1"
               width={416}
               height={234}
+              priority={true}
             />
             <GalleryImage
               src="/test/Image-4.webp"
@@ -118,6 +121,7 @@ export default function InsideTheResidency() {
               alt="Gallery 3-1"
               width={416}
               height={416}
+              priority={true}
             />
             <GalleryImage
               src="/test/Image-7.webp"
