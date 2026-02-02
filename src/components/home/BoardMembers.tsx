@@ -15,70 +15,75 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-const GuestMentorCard = ({ speaker }: { speaker: any }) => (
-  <motion.div
-    variants={{
-      hidden: { opacity: 0, y: 30 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
-    }}
-    className="w-full md:max-w-[395px] flex flex-col"
-  >
-    {/* Image */}
+const GuestMentorCard = ({ speaker }: { speaker: any }) => {
+  const [imageLoading, setImageLoading] = useState(true);
+
+  return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      className="w-full aspect-square relative rounded-lg overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #D8F602 0%, #181818 100%)" }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+      }}
+      className="w-full md:max-w-[395px] flex flex-col"
     >
-      <Image
-        src={speaker.photo.src}
-        alt={speaker.name}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 395px"
-        className="object-cover"
-        quality={100}
-        unoptimized
-      />
-    </motion.div>
-
-    {/* Text Section */}
-    <div className="flex flex-col mt-6">
-      {/* Name */}
-      <h3
-        className="w-full text-[#EAF0BD] m-0"
-        style={{
-          fontFamily: "Arial, sans-serif",
-          fontWeight: 700,
-          fontSize: "32px",
-          lineHeight: "150%"
-        }}
+      {/* Image */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+        className="w-full aspect-square relative rounded-lg overflow-hidden bg-[#181818]" // Default bg color
       >
-        {speaker.name}
-      </h3>
-      {/* Title/Bio */}
-      <p
-        className="w-full text-[#EAF0BD] m-0 mt-2"
-        style={{
-          fontFamily: "var(--font-roboto), sans-serif",
-          fontWeight: 400,
-          fontSize: "16px",
-          lineHeight: "150%"
-        }}
-      >
-        {speaker.position}
-      </p>
+        <Image
+          src={speaker.photo.src}
+          alt={speaker.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 395px"
+          className={`object-cover transition-opacity duration-700 ease-in-out ${imageLoading ? "opacity-0" : "opacity-100"
+            }`}
+          quality={100}
+          unoptimized
+          onLoad={() => setImageLoading(false)}
+        />
+      </motion.div>
 
-      {/* Social Icons */}
-      <div className="mt-6 flex gap-[14px]">
-        {speaker.social.map((s: any, idx: number) => (
-          <Link key={idx} href={s.url} aria-label={s.platform} target="_blank" className="hover:opacity-80 transition-opacity">
-            <LinkedInIcon />
-          </Link>
-        ))}
+      {/* Text Section */}
+      <div className="flex flex-col mt-6">
+        {/* Name */}
+        <h3
+          className="w-full text-[#EAF0BD] m-0"
+          style={{
+            fontFamily: "Arial, sans-serif",
+            fontWeight: 700,
+            fontSize: "32px",
+            lineHeight: "150%"
+          }}
+        >
+          {speaker.name}
+        </h3>
+        {/* Title/Bio */}
+        <p
+          className="w-full text-[#EAF0BD] m-0 mt-2"
+          style={{
+            fontFamily: "var(--font-roboto), sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "150%"
+          }}
+        >
+          {speaker.position}
+        </p>
+
+        {/* Social Icons */}
+        <div className="mt-6 flex gap-[14px]">
+          {speaker.social.map((s: any, idx: number) => (
+            <Link key={idx} href={s.url} aria-label={s.platform} target="_blank" className="hover:opacity-80 transition-opacity">
+              <LinkedInIcon />
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 export default function BoardMembers() {
   const [isAppModalOpen, setIsAppModalOpen] = useState(false);
