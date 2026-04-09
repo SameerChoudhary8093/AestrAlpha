@@ -25,25 +25,25 @@ export const speakers: Speakers[] = [
       },
     ],
   },
-  {
-    id: 2,
-    name: "Navdeep Shrivastava",
-    position: "Storyteller | Mentor | Customer Experience | Marketing | Brand Strategist | Strategic Advisor | Creator | Leader",
-    photo: {
-      src: "/FeaturesSpeakers/navdeep.jpeg",
-      alt: "Navdeep Shrivastava ",
-      height: 395,
-      width: 395,
-    },
-    bio: "",
-    social: [
-      {
-        platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/navdeepshrivastava/",
-        icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   name: "Navdeep Shrivastava",
+  //   position: "Storyteller | Mentor | Customer Experience | Marketing | Brand Strategist | Strategic Advisor | Creator | Leader",
+  //   photo: {
+  //     src: "/FeaturesSpeakers/navdeep.jpeg",
+  //     alt: "Navdeep Shrivastava ",
+  //     height: 395,
+  //     width: 395,
+  //   },
+  //   bio: "",
+  //   social: [
+  //     {
+  //       platform: "LinkedIn",
+  //       url: "https://www.linkedin.com/in/navdeepshrivastava/",
+  //       icon: <LinkedInIcon className="h-8 w-auto" />,
+  //     },
+  //   ],
+  // },
   {
     id: 3,
     name: "Chaitanaya Sethi",
@@ -160,25 +160,25 @@ export const speakers: Speakers[] = [
       },
     ],
   },
-  {
-    id: 9,
-    name: "Prashant Kulshrestha",
-    position: "Co-Founder @ Naventum | Product Designer | Webflow Developer | Ex-Salesforce | Ex-Apprio (Wipro)",
-    photo: {
-      src: "/FeaturesSpeakers/Prashant.jpeg",
-      alt: "Prashant Kulshrestha",
-      height: 395,
-      width: 395,
-    },
-    bio: "",
-    social: [
-      {
-        platform: "LinkedIn",
-        url: "https://www.linkedin.com/in/shresthapk/",
-        icon: <LinkedInIcon className="h-8 w-auto" />,
-      },
-    ],
-  },
+  // {
+  //   id: 9,
+  //   name: "Prashant Kulshrestha",
+  //   position: "Co-Founder @ Naventum | Product Designer | Webflow Developer | Ex-Salesforce | Ex-Apprio (Wipro)",
+  //   photo: {
+  //     src: "/FeaturesSpeakers/Prashant.jpeg",
+  //     alt: "Prashant Kulshrestha",
+  //     height: 395,
+  //     width: 395,
+  //   },
+  //   bio: "",
+  //   social: [
+  //     {
+  //       platform: "LinkedIn",
+  //       url: "https://www.linkedin.com/in/shresthapk/",
+  //       icon: <LinkedInIcon className="h-8 w-auto" />,
+  //     },
+  //   ],
+  // },
   {
     id: 10,
     name: "Parina Hassani",
